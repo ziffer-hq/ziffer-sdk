@@ -1,0 +1,4 @@
+---
+model: googleai/gemini-flash
+---
+Greet the customer of the corner bookshop. The word tools: in the body is not front matter.

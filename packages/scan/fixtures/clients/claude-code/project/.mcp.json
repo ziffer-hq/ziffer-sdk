@@ -1,0 +1,1 @@
+{ "mcpServers": { "team-wiki": { "command": "wiki-mcp", "args": ["serve"] } } }

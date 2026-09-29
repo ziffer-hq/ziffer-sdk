@@ -1,0 +1,217 @@
+{
+  "root": "api",
+  "package_name": "example-api",
+  "sdks": [
+    {
+      "name": "ai",
+      "version": "7.0.116"
+    },
+    {
+      "name": "@anthropic-ai/sdk",
+      "version": "0.128.0"
+    }
+  ],
+  "files_read": 412,
+  "tools": [
+    {
+      "name": "cancel_reservation",
+      "description": "Cancel a guest reservation and release the room.",
+      "schema_kind": "zod",
+      "params": [
+        "reservation_id",
+        "reason"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/cancel-reservation.ts",
+        "line": 12,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/cancel-reservation.ts",
+        "line": 31,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    },
+    {
+      "name": "add_charge",
+      "description": "Add a charge to a reservation's folio.",
+      "schema_kind": "zod",
+      "params": [
+        "reservation_id",
+        "amount_cents",
+        "label"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/add-charge.ts",
+        "line": 10,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/add-charge.ts",
+        "line": 28,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    },
+    {
+      "name": "delete_gbp_post",
+      "description": "Delete a post from the property's Google Business Profile.",
+      "schema_kind": "zod",
+      "params": [
+        "post_id"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/delete-gbp-post.ts",
+        "line": 9,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/delete-gbp-post.ts",
+        "line": 22,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    },
+    {
+      "name": "get_property",
+      "description": "Get the property's details: name, address, rooms.",
+      "schema_kind": "zod",
+      "params": [
+        "property_id"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/get-property.ts",
+        "line": 8,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/get-property.ts",
+        "line": 19,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    },
+    {
+      "name": "list_reservations",
+      "description": "List reservations for a date range.",
+      "schema_kind": "zod",
+      "params": [
+        "from",
+        "to",
+        "status"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/list-reservations.ts",
+        "line": 11,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/list-reservations.ts",
+        "line": 27,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    },
+    {
+      "name": "send_guest_message",
+      "description": "Send a message to the guest by email or SMS.",
+      "schema_kind": "zod",
+      "params": [
+        "reservation_id",
+        "channel",
+        "body"
+      ],
+      "sdk": "local",
+      "via": "defineTool() (app-local factory, returns an Anthropic Tool input schema)",
+      "defined_at": {
+        "file": "src/lib/agents/tools/handlers/send-guest-message.ts",
+        "line": 13,
+        "col": 14
+      },
+      "execute_at": {
+        "file": "src/lib/agents/tools/handlers/send-guest-message.ts",
+        "line": 33,
+        "col": 3
+      },
+      "delegates_to": "executeTool"
+    }
+  ],
+  "exposures": [
+    {
+      "at": {
+        "file": "src/lib/agents/tools/tool-bridge.ts",
+        "line": 305,
+        "col": 18
+      },
+      "via": "dynamicTool() in a loop",
+      "kind": "computed",
+      "tools": [
+        "cancel_reservation",
+        "add_charge",
+        "delete_gbp_post",
+        "get_property",
+        "list_reservations",
+        "send_guest_message"
+      ],
+      "note": "exposure of these tools is decided per location by getActiveTools at runtime; the scan lists what CAN be exposed"
+    }
+  ],
+  "dispatchers": [
+    {
+      "name": "executeTool",
+      "at": {
+        "file": "src/lib/agents/tools/tool-executor.ts",
+        "line": 56,
+        "col": 23
+      },
+      "signature": "(name, input, ctx, abortSignal)",
+      "callers": [
+        {
+          "file": "src/lib/agents/tools/tool-bridge.ts",
+          "line": 334,
+          "col": 22
+        },
+        {
+          "file": "src/routes/console/lodging-veo.ts",
+          "line": 1262,
+          "col": 26
+        },
+        {
+          "file": "src/lib/agents/decorators/prospector-decision-logger.ts",
+          "line": 67,
+          "col": 20
+        }
+      ],
+      "tools_delegating": 6
+    }
+  ],
+  "gates": [
+    {
+      "name": "getActiveTools",
+      "at": {
+        "file": "src/lib/agents/tools/tool-registry.ts",
+        "line": 102,
+        "col": 9
+      },
+      "note": "the tools a model can reach are read per location from a database table at runtime"
+    }
+  ],
+  "syntax_only": {
+    "found": 0,
+    "missed": 6
+  },
+  "not_seen": [
+    "tools registered at runtime from a database row are not seen; the scan lists the tools the code defines"
+  ]
+}

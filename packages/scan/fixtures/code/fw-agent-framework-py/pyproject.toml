@@ -1,0 +1,5 @@
+# A fixture, not a project: Microsoft Agent Framework and AutoGen AgentChat (acp-455 record, section 3.14).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["agent-framework>=1.19", "autogen-agentchat==0.7.5", "autogen-core==0.7.5"]

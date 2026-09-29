@@ -1,0 +1,39 @@
+THIRD-PARTY NOTICES for @ziffer-io/verify
+
+GENERATED FILE -- do not edit by hand.
+Regenerate with: node tools/third-party-notices.mjs
+tools/release-npm.sh refuses to publish when this file is out of date.
+
+The LICENSE beside this file governs @ziffer-io/verify itself. The components
+below are third-party open-source, are redistributed under their own
+licences, and those licences govern them.
+Each entry is read from the component as it is installed, at the version
+this release resolves.
+
+4 component(s):
+
+----------------------------------------------------------------------------
+@noble/ciphers  2.3.0
+  licence: MIT
+  Copyright (c) 2022 Paul Miller (https://paulmillr.com)
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+@noble/curves  2.3.0
+  licence: MIT
+  Copyright (c) 2022 Paul Miller (https://paulmillr.com)
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+@noble/hashes  2.3.0
+  licence: MIT
+  Copyright (c) 2022 Paul Miller (https://paulmillr.com)
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+@noble/post-quantum  0.7.0
+  licence: MIT
+  Copyright (c) 2024 Paul Miller (https://paulmillr.com)
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------

@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "shell-helper": { "type": "local", "command": "shell-helper-mcp", "args": [], "tools": ["*"] },
+    "off": { "command": "off-mcp", "disabled": true }
+  }
+}

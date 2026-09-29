@@ -1,0 +1,5 @@
+# A fixture, not a project: AG2, the legacy `autogen` line and `ag2` 1.x (acp-455 record, section 3.14).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["ag2>=1.1", "autogen==0.14.1"]

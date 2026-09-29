@@ -1,0 +1,12 @@
+{
+  "numStartups": 3,
+  "mcpServers": {
+    "user-search": { "type": "stdio", "command": "search-mcp", "args": [], "env": {} }
+  },
+  "projects": {
+    "/work/app": {
+      "mcpServers": { "db": { "command": "db-mcp", "args": ["--ro"] } }
+    },
+    "/work/empty": { "allowedTools": [] }
+  }
+}

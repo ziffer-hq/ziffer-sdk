@@ -1,0 +1,1 @@
+{ "mcpServers": { "notes": { "command": "notes-mcp", "args": ["--vault", "/data/notes"], "env": { "NOTES_KEY": "fixture-value" } } } }

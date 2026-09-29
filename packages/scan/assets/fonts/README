@@ -1,0 +1,28 @@
+Fonts embedded in the HTML report (ziffer-scan --report)
+
+The report is ONE file that loads nothing, so these three files are read at
+render time and written into its stylesheet as base64 @font-face sources
+(src/report/fonts.ts). They are not fetched from anywhere.
+
+schibsted-grotesk-400-900.woff2
+  Schibsted Grotesk, variable, weights 400 to 900, Latin subset.
+  Version 1.100 (built with gftools, the Google Fonts build).
+  Copyright 2023 The Schibsted-Grotesk Project Authors
+  (https://github.com/schibsted/schibsted-grotesk).
+  Licence: SIL Open Font License 1.1.
+
+ibm-plex-mono-400.woff2
+ibm-plex-mono-500.woff2
+  IBM Plex Mono Regular and Medium, Latin subset. Version 2.3.
+  Copyright 2017 IBM Corp., with Reserved Font Name "Plex"
+  (https://github.com/IBM/plex).
+  Licence: SIL Open Font License 1.1.
+
+Where they came from: copied unchanged from the report's approved design
+prototype (report-v2, 2026-09-28). The version and copyright above are read
+from each file's own name table, not from memory. The files are distributed
+unmodified, under their own names inside the font, which the licence allows.
+
+OFL.txt beside this file is the licence text, with both copyright lines.
+Both are listed in THIRD-PARTY-NOTICES.attribution.md of this package and of
+@ziffer-io/mcp, which renders the same report.

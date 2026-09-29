@@ -1,0 +1,17 @@
+THIRD-PARTY NOTICES for @ziffer-io/types
+
+GENERATED FILE -- do not edit by hand.
+Regenerate with: node tools/third-party-notices.mjs
+tools/release-npm.sh refuses to publish when this file is out of date.
+
+The LICENSE beside this file governs @ziffer-io/types itself. The components
+below are third-party open-source, are redistributed under their own
+licences, and those licences govern them.
+Each entry is read from the component as it is installed, at the version
+this release resolves.
+
+This package has no third-party runtime dependencies.
+
+That is a fact about this release and not a promise about the next one:
+the file is regenerated on every release, so a dependency added later
+appears here without anyone having to remember it.

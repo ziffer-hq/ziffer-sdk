@@ -1,0 +1,125 @@
+{
+  "$comment": "The shared rfc3339_instant corpus (ACP-167, v1.3.28). THREE CONSUMERS, ONE FILE: tools/check-instant-type.py runs it against the Python reference AND against spec/schemas/wire/attestation_object.schema.json's $defs/rfc3339_instant pattern, and crates/acp-core/src/instant.rs runs it against the Rust parser. Modelled on tools/nonce-type-vectors.json, which exists because a schema and a reference diverged for a release with every gate green. This one exists because SEVEN wire fields were typed RFC 3339 by the schema, by AT-1 and by section 9.2 while BOTH implementations read POSIX numbers -- so an object that validated was refused and an object both verifiers accepted did not validate, and the cross-language differential was blind to it because the two agreed with each other (dossier/05's eighth lesson). TWO VERDICTS PER CASE, DELIBERATELY. `shape` is whether the schema's pattern matches; `conforms` is whether a parser accepts. They differ on the calendar cases, because a regex cannot express 'the day is at most the length of the month'. The checker asserts the implication that matters -- conforms => shape, so a value an implementation EMITS is always one the schema accepts -- and enumerates the rest rather than weakening either side until they agree.",
+  "cases": [
+    {
+      "value": "2026-08-09T14:02:11Z",
+      "conforms": true,
+      "shape": true,
+      "why": "the conforming form, and the one section 9.2's rendered receipt uses"
+    },
+    {
+      "value": "1970-01-01T00:00:00Z",
+      "conforms": true,
+      "shape": true,
+      "why": "the epoch itself: the boundary the civil-date arithmetic is defined around"
+    },
+    {
+      "value": "2024-02-29T23:59:59Z",
+      "conforms": true,
+      "shape": true,
+      "why": "a real leap day at its last second -- the day the calendar check must NOT refuse"
+    },
+    {
+      "value": "2000-02-29T00:00:00Z",
+      "conforms": true,
+      "shape": true,
+      "why": "divisible by 400, so it IS a leap year; 'divisible by four' passes this one too, which is why the 2100 pair is here"
+    },
+    {
+      "value": "2100-02-28T12:34:56Z",
+      "conforms": true,
+      "shape": true,
+      "why": "divisible by 100 and not 400: the LAST day of February 2100. Paired with 2100-02-29 below, it is what separates a correct century rule from a plausible one"
+    },
+    {
+      "value": "2038-01-19T03:14:07Z",
+      "conforms": true,
+      "shape": true,
+      "why": "the signed-32-bit boundary. Nothing here is 32-bit -- both parsers carry i64/int -- and the case exists to keep that true rather than to mark a limit"
+    },
+    {
+      "value": "2026-08-09T14:02:11.000Z",
+      "conforms": false,
+      "shape": false,
+      "why": "FRACTIONAL SECONDS. RFC 3339 permits them and this type does not: '...11Z' and '...11.000Z' are one instant with two spellings, and these values are hashed. Through v1.3.27 audit_record.occurred_at's inline pattern allowed 1-9 fractional digits -- this hazard in the one field that had a pattern at all"
+    },
+    {
+      "value": "2026-08-09t14:02:11z",
+      "conforms": false,
+      "shape": false,
+      "why": "lower-case t and z. RFC 3339 accepts them; a second spelling is a second id"
+    },
+    {
+      "value": "2026-08-09T16:02:11+02:00",
+      "conforms": false,
+      "shape": false,
+      "why": "an OFFSET naming the same instant as the first case. Refused rather than normalised: normalising here makes this verifier accept every spelling and hands the divergence to the next implementation"
+    },
+    {
+      "value": "2026-08-09T14:02:11+00:00",
+      "conforms": false,
+      "shape": false,
+      "why": "the offset form of UTC itself -- the spelling a library default is most likely to write, and the reason 'it is UTC either way' is not a defence"
+    },
+    {
+      "value": "2026-08-09 14:02:11Z",
+      "conforms": false,
+      "shape": false,
+      "why": "a space where the T belongs. RFC 3339 section 5.6 permits this by agreement"
+    },
+    {
+      "value": "2026-08-09T14:02:11",
+      "conforms": false,
+      "shape": false,
+      "why": "no zone at all: an instant that does not say when it is"
+    },
+    {
+      "value": "",
+      "conforms": false,
+      "shape": false,
+      "why": "empty: the value a missing field degrades into"
+    },
+    {
+      "value": "2026-08-09T14:02:11Z ",
+      "conforms": false,
+      "shape": false,
+      "why": "a trailing space. The pattern is anchored and the parser is length-checked, so both refuse -- this case is what keeps both true"
+    },
+    {
+      "value": "2026-02-31T00:00:00Z",
+      "conforms": false,
+      "shape": true,
+      "why": "THE PATTERN ACCEPTS THIS AND BOTH PARSERS REFUSE IT, and that is not a drift to fix. A regex cannot say 'the day is at most the length of the month'. February 31 used to parse, and days_from_civil rolled it to the same second as March 3 -- two spellings of one instant, found after the first version shipped"
+    },
+    {
+      "value": "2026-02-29T00:00:00Z",
+      "conforms": false,
+      "shape": true,
+      "why": "2026 is not a leap year. Same shape-versus-calendar split as above"
+    },
+    {
+      "value": "2100-02-29T00:00:00Z",
+      "conforms": false,
+      "shape": true,
+      "why": "divisible by 100 and not by 400, so February has 28 days. The case a wrong century rule accepts, paired with 2100-02-28 above, which it must still accept"
+    },
+    {
+      "value": "2026-08-09T23:59:60Z",
+      "conforms": false,
+      "shape": true,
+      "why": "a leap second. Python's datetime refuses 23:59:60, so accepting it would be a divergence between the two implementations by construction"
+    },
+    {
+      "value": "2026-13-01T00:00:00Z",
+      "conforms": false,
+      "shape": true,
+      "why": "month 13. Two digits is all the pattern can require"
+    },
+    {
+      "value": "2026-08-09T24:00:00Z",
+      "conforms": false,
+      "shape": true,
+      "why": "hour 24, the other spelling of midnight"
+    }
+  ]
+}

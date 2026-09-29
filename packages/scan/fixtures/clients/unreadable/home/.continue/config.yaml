@@ -1,0 +1,4 @@
+mcpServers:
+  - name: literal
+    command: |
+      multi-line

@@ -1,0 +1,9 @@
+# The five published packages, enumerated rather than globbed: a folder that
+# lands under packages/ joins the workspace by a change to this file, never by
+# being there.
+packages:
+  - 'packages/types'
+  - 'packages/acp-verify'
+  - 'packages/acp-client'
+  - 'packages/scan'
+  - 'packages/mcp'

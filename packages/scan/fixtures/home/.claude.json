@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "mail": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["fixtures/mcp/echo-server.mjs", "--api-key=sk_test_fixture_0001", "--access-token", "sntryu_fixture_0002"],
+      "env": { "MAIL_PASSWORD": "fixture-env-value-0004" }
+    },
+    "tickets": {
+      "type": "stdio",
+      "command": "ziffer-scan-fixture-no-such-command",
+      "args": [],
+      "env": {}
+    }
+  },
+  "projects": {
+    "/fixture/work/alpha": {
+      "mcpServers": {
+        "docs": { "type": "http", "url": "https://mcp.example.test/mcp?token=fixture-remote-0003" },
+        "notes": { "type": "stdio", "command": "node", "args": ["fixtures/mcp/echo-server.mjs"], "cwd": "." }
+      }
+    },
+    "/fixture/work/beta": {
+      "mcpServers": {
+        "docs": { "type": "http", "url": "https://mcp.example.test/mcp?token=fixture-remote-0003" },
+        "notes": { "type": "stdio", "command": "node", "args": ["fixtures/mcp/echo-server.mjs"], "cwd": "." }
+      }
+    },
+    "/fixture/work/gamma": {
+      "mcpServers": {
+        "docs": { "type": "http", "url": "https://mcp.example.test/mcp?token=fixture-remote-0003" },
+        "notes": { "type": "stdio", "command": "node", "args": ["fixtures/mcp/echo-server.mjs"], "cwd": "." }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+extensions:
+  filesystem:
+    type: stdio
+    name: filesystem
+    enabled: true
+    cmd: npx.cmd
+    args:
+      - -y
+      - '@modelcontextprotocol/server-filesystem'
+      - 'C:\Users\fixture\Documents'
+    envs:
+      FS_MODE: read-only

@@ -1,0 +1,5 @@
+# A fixture, not a project: LlamaIndex (acp-455 record, section 3.11).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["llama-index-core>=0.14"]

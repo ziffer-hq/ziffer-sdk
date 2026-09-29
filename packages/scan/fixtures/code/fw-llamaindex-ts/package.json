@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-llamaindex",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.11): LlamaIndex TS tools and agents in the shape of llamaindex 0.12.1 (@llamaindex/core tools: FunctionTool.from, tool) and @llamaindex/workflow 1.1.24 (agent, FunctionAgent), read 2026-09-28, and run-llama/LlamaIndexTS examples. LlamaIndex is not installed for the scan's tests: its calls are read through the import declarations; zod resolves through packages/scan.",
+  "dependencies": { "llamaindex": "0.12.1", "@llamaindex/workflow": "1.1.24", "@llamaindex/openai": "0.4.0", "@llamaindex/tools": "0.1.0", "zod": "4.6.5" }
+}

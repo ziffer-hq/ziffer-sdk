@@ -1,0 +1,65 @@
+/** The report module of `@ziffer-io/scan` (ACP-439). */
+export { attachControls, unresolvedCitations, FINDING_CONTROLS } from './controls.js';
+export {
+  renderTerminal,
+  COLOUR,
+  FULL_DETAIL,
+  IRREVERSIBLE_CONSEQUENCE,
+  MCP_NEXT,
+  NEXT_OPEN,
+  NEXT_RUN,
+  PAIR_CONSEQUENCE,
+  POLICY_PATH_TOKEN,
+  renderPreamble,
+  REVIEW_URL,
+  stripAnsi,
+  type ReplaySummary,
+  type TerminalOptions,
+} from './terminal.js';
+export { renderJson, sortedJson } from './json.js';
+export { ANNEX, type AnnexRow, type AtlasRow, type AnnexSource } from './annex.js';
+export {
+  BYPASS_TITLE,
+  bypassFix,
+  bypassPaths,
+  bypassSentence,
+  bypassSummary,
+  callerChecks,
+  CHECK_FOUND_MEANS,
+  CHECK_NOT_FOUND_MEANS,
+  checkRan,
+  claimsSentence,
+  CONFIRM_VS_APPROVAL,
+  confirmationSentence,
+  ENTRIES_TITLE,
+  entryFinding,
+  entryFunction,
+  raisedSentence,
+  reachSentence,
+  offeredSentence,
+  pathSentence,
+  uncheckedCallers,
+  uncheckedSummary,
+  type BypassPath,
+} from './paths.js';
+export { operatorSentence } from './code-html.js';
+export {
+  capabilityText,
+  GIVEN_TO,
+  heldToolsLine,
+  highInstructions,
+  NAMED_NOT_IN_CODE,
+  skillLoadText,
+  pairRows,
+  pairsLine,
+  PAIRS_CONDITION,
+  skillInstructionSentence,
+  SKILLS_LEAD,
+  skillsSummary,
+  toolInstructions,
+  toolInstructionSentence,
+  type HighInstruction,
+  type PairRow,
+  type ToolInstruction,
+} from './instructions.js';
+export { codeHeadlineOf } from './exec.js';

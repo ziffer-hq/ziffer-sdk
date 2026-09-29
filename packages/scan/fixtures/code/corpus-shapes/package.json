@@ -1,0 +1,11 @@
+{
+  "name": "corpus-shapes-app",
+  "private": true,
+  "dependencies": {
+    "@openai/agents": "0.3.0",
+    "@langchain/core": "1.2.12",
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "ai": "7.0.116",
+    "zod": "4.6.5"
+  }
+}

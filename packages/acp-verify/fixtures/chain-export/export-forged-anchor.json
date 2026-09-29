@@ -1,0 +1,150 @@
+{
+  "anchors": [
+    {
+      "anchor": {
+        "alg": "hybrid-ed25519-mldsa65",
+        "heads": [
+          [
+            "ten-a",
+            1,
+            "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3"
+          ]
+        ],
+        "period_end": 1790000060,
+        "sig": {
+          "classical": "AnK+2LwoIjjhkjIxo5L3+kcTQFS4s37nLlfLMrpb/9Wp/ZdM0Czv/MtETlN5vysG6jkA2s7b767JOZ57vAJZAg==",
+          "pq": "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"
+        },
+        "v": 1
+      },
+      "anchor_body": "{\"alg\":\"hybrid-ed25519-mldsa65\",\"heads\":[[\"ten-a\",1,\"sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3\"]],\"period_end\":1790000060,\"v\":1}",
+      "anchor_digest": "sha256:5c1626ab72924a0fe4874344c879bc8f5a1902979b819d0d243deb78274abd89",
+      "anchor_identity": {
+        "alg": "hybrid-ed25519-mldsa65",
+        "classical": "2lH6gFVcYY+5ahhPC+IqqyL+OBwOFHD4OzC7BbTOoug=",
+        "fingerprint": "sha256:2b9db8a4fa571a2f601093c375e5354e2eb88c8550370099ca586a34093f22c9",
+        "pq": "ikPN1EysR1bCY1iQzfEjaNWrBd/cqhPL7t1TOh2JbJEv/IcScW9TQGhY/r/r7ejbVU6+9LOmNB034zi1n8aGHlSSyS6D79oX8XuAMS/iATxkCeOHCnqKteB0Y0z7l54QGRTFIK895xQrYSxg3CrNOlk3KVbwGfr8w2qcuk8BMrwB46X3fhA94Sj44e6VoBmTwUp3WcQs+RiWnM9ZjDm3aeAJi7WjHqYoFS86UbxT/dD1RQ/8x7JsWNBEB70KI13xx3SCMJQtLoOeqayC8enE8/+QOk1K1LK08l9/kj29d+r2kob9B4lxL7fI6MedPT9Vq/weZZ+CE+8dXmY77BwUcb6v/Ar8BMxDjqc3P7HV+BiE/rjPaE+5EwMj4Wnd+Tv53zyJF0ext2Qvb39sGCEMGcUJb+mhvZgbdhcDzt5nti+MHTKZkD1gfOZC3n/JgDM4H6KCrEBoFJJBpkG4vzZemmGG7MsoUOzlhQs3lY4865ifZjikNQi5q4/EQe5bI5EmVLJsPS1QY1yG5iU97WovMEYkTYvuRxPG+KP2+4aZbI16N2IMH84zl5fzQMGt2Xoo69v8luiTBC0+5ASYNnsepUcu5jClbNmDPwMiHwPcuDhrGzfF8tsc+e55PBr955/ORlSWRLxceeImYkOJiJbPKOWI+baI1k18auBdazgrVlUahdDP5xZ3fWksx5RwQ/tdT93APGCvcrbG+hCzpNycKgr2x0k7m0JS1Ql2RRhoMhMtseL8aV+FwYVlOf/hAuJ/6VjnYtLhhTA2T4XG1jw2H6OdPewU5eFFeYzLzpCa2npTM7Z1NxuXDghSRvAQR4sraaZKhJBMLDl6xI8gQJglX1HVDOhpGnRrDREZrq2d9bSYI67IJb6IOxJlg2HVoffkieE78I2FkhT4GuPOGkAB94jHgQM4prYDIWmbDggecl7BtBFM226coj3Gp9aEYfonOz9wAR82ssb/xJCJiCduuuQMLFVXePy21mybGfNVC5NNbpEOMftjbYTAaLXORY71YrfhKftI3OWaZbVMaS1gjp2jIuzRX4AUhkhRIXoI7zamn0HGVEWHclsJXWjdJKWyoX8RHP77uxncsUKp2RDsCtEqr14kCEmPbXvna1yFNRSBj950Nu5lO+OdXFrF+kTfapixFQTndSo6BQnY6q75T1JqCb9gw3Av57L9aOgnhMDqZVMUIXGczj9S17uL7AYQ7e4V9NxiExno+OsfmKPnlfxZoXss9utCNXLZb6ae80Z8vyFu4iN0zztsMEe6B1tcNiEY9rCn5oIFHsKAF6OZHNGrNb0Sit++6yDF5YncXshwKhv/4W+rGbFnnXhf50Ca+Z2PlBzL4u14IMqlP1Y/YHFB/LRWRQl0GqL2VuoOyzdjgqsPHdLYwdhxRQIdZa8U4Tm9VKJ6UYLsnjWDIRBrgnbq5n6Uwt6B+FaqLdPV/qLioUoNakeZIh/UsHP+iZIqLXPiypqW7ufPfDmsyNDFcpANJ3pp9Spszi1/v6YkaOJU5wk8EK3v17PWpFVOPMqM+N6K82NFam7JY2+eItHqXABXUHLspZ04QhkDbDcOjUDKnN5OM0pm6qYvcYsj9TmTs/Tu/wOFRKDAi2FuyJSbI3rzYXyz64+jVINTdFr7+bzQjR0x0KYpI/CtyuI54EN4oHfxIUd7EBKKIFmIGF7ZNyPPFDQ0BGnUcOLx8FKjhfl6nlUOtwo+K/JQsqvgs5K+cAx0uA/Y4G2SArazD6u24Ca00u3xcXHCbkNt6Y3ipusd1To3rJ6p9aTyLQD2w1Yx7UAGBE/xDzGyrjWuMwR+8gNTS+3anrpzBmjZGvL/p4U6UC+3irr6ha8nGgkjgPpmKP870MSYYvu6HqOR+KCAXVFeSa8Bbz1Df2nhQH3/MukKrHQ6G7ho8MwOrl/Ww3iNvUfhaoMMfSqoPDAa8KYeWLpvYfMC2vk34L3yppJBdwo2owFr0zKDzZzP5uEUrBV+w2R/9HURoBhaYsaTvhCEs6BxEjxcjFxw7SzygSBzEXfSwHiqLLE01Le+CiB3XvrO1YEC7NfyzYF5shi7yBrrpZWLpkwJ8Mf4PaFkghePubC07p2HMNYU3C4mHPbvGkjSMbbeA1rWZc01UmLcdtnsfx2Ijbgnceug1mf4C/TTQ5732nbmvJcSUUnfz5dS03xWhBPinTbF4uPkSTHK9Bqws46Ja0RPuina2SZ4G5RBm0Z5C08JDCVFvjK6Y/Zs7CaVqIiy1I7ZqUHJoX1aXdFaDNCr7RMY74LEgip0371Dqq8N2YVv5SACFQvi7fnom+4YQk1k/BNEMcgMKfQPStfiDnVyI3bbrHEnNE3+FMZEdqVL6msgkX1kfn2CT3x3Pm1GSvlYDGAcqoEm3NOodV6S66evRMkhN+akYmgT4BIIwYiNfgkyhyHAhVLOA5eYlc4NqpI2Y76i/lCsxZXWlxcc1Y9uniVuphB0Umb9zESW8p+KICSLWE7/WJpOuN9LALixbhUNVDF8sm6OXQ3oQJ1WXypyPzVA1U5MRpt/2wC8jLCSWI47pkqnG1gEZPdY72GW0JghrRKqB/FxYuzRsYQavgceoJ7PlaZavqfBq5oVAeE=",
+        "note": "the forger's own key, written beside the anchor it signed"
+      },
+      "fingerprint": {
+        "fingerprint": "sha256:3a915c6d5236ebdb3be17056a23606b0db4f3b11d3048195c072f45256922f9f",
+        "heads": [
+          [
+            "ten-a",
+            1,
+            "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3"
+          ]
+        ],
+        "period_end": 1790000060,
+        "preimage": "{\"heads\":[[\"ten-a\",1,\"sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3\"]],\"period_end\":1790000060,\"v\":1}",
+        "preimage_b64": "eyJoZWFkcyI6W1sidGVuLWEiLDEsInNoYTI1NjplMzYwYzM3MjI0NDU2YzI4MmVlNTQyMTAzZDY2ZGM0NjQ4MjI5MDljMDkwNjA5YTAzZWRmOTNjNDNhMzlkYWQzIl1dLCJwZXJpb2RfZW5kIjoxNzkwMDAwMDYwLCJ2IjoxfQ=="
+      },
+      "rekor": {
+        "admission_key": {
+          "kind": "ecdsa-p256-sha256",
+          "public_key_pem": "",
+          "role": "hashedrekord submitter signature over the digest Rekor stores; NOT the anchor's signature"
+        },
+        "entry": null,
+        "log_index": 0,
+        "url": "",
+        "uuid": "24296fb24b8ad77a-fixture"
+      },
+      "tsa": {
+        "gen_time": "",
+        "request_der_b64": "",
+        "response_der_b64": "",
+        "url": ""
+      }
+    }
+  ],
+  "chain": [
+    {
+      "chain_hash": "sha256:0341285173ec3150036430c14a4d10e0365581a2bf5c49b182d6ece40327fba0",
+      "previous_hash": null,
+      "record": {
+        "bundle_epoch": 47,
+        "created_at": 1790000000,
+        "schema_version": "1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 0
+    },
+    {
+      "chain_hash": "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3",
+      "previous_hash": "sha256:0341285173ec3150036430c14a4d10e0365581a2bf5c49b182d6ece40327fba0",
+      "record": {
+        "attestation_ids": [
+          "sha256:0606060606060606060606060606060606060606060606060606060606060606"
+        ],
+        "bundle_epoch": 47,
+        "context_snapshot_hash": "sha256:0505050505050505050505050505050505050505050505050505050505050505",
+        "decision": "ATTEST",
+        "event_class": "decision",
+        "fidelity": "F-HIGH",
+        "occurred_at": "2026-09-21T14:13:25Z",
+        "operator": "op-1",
+        "policy_bundle_hash": "sha256:0404040404040404040404040404040404040404040404040404040404040404",
+        "proposal_hash": "sha256:0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a",
+        "raw_input_hash": "sha256:0202020202020202020202020202020202020202020202020202020202020202",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_effective": "HIGH",
+        "risk_level_floor_only": "HIGH",
+        "schema_hash": "sha256:0101010101010101010101010101010101010101010101010101010101010101",
+        "schema_id": "acp.demo.action",
+        "schema_version": "1",
+        "seq": 1,
+        "session": "sess-1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 1
+    },
+    {
+      "chain_hash": "sha256:c17960524e2ea16cb9822ed3d77eb9ad9d16b065446e1ea575877a589b6b5eae",
+      "previous_hash": "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3",
+      "record": {
+        "event_class": "hold",
+        "occurred_at": "2026-09-21T14:13:26Z",
+        "operator": "op-1",
+        "proposal_hash": "sha256:0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_floor_only": "HIGH",
+        "seq": 2,
+        "tenant_id": "ten-a"
+      },
+      "seq": 2
+    },
+    {
+      "chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+      "previous_hash": "sha256:c17960524e2ea16cb9822ed3d77eb9ad9d16b065446e1ea575877a589b6b5eae",
+      "record": {
+        "attestation_ids": [
+          "sha256:0606060606060606060606060606060606060606060606060606060606060606"
+        ],
+        "bundle_epoch": 47,
+        "context_snapshot_hash": "sha256:0505050505050505050505050505050505050505050505050505050505050505",
+        "decision": "ATTEST",
+        "event_class": "decision",
+        "fidelity": "F-HIGH",
+        "occurred_at": "2026-09-21T14:15:02Z",
+        "operator": "op-1",
+        "policy_bundle_hash": "sha256:0404040404040404040404040404040404040404040404040404040404040404",
+        "proposal_hash": "sha256:0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+        "raw_input_hash": "sha256:0202020202020202020202020202020202020202020202020202020202020202",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_effective": "HIGH",
+        "risk_level_floor_only": "HIGH",
+        "schema_hash": "sha256:0101010101010101010101010101010101010101010101010101010101010101",
+        "schema_id": "acp.demo.action",
+        "schema_version": "1",
+        "seq": 3,
+        "session": "sess-1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 3
+    }
+  ],
+  "engine_pin": "0123456789abcdef0123456789abcdef01234567",
+  "generated_at": "2026-09-22T18:00:00Z",
+  "tenant": "ten-a"
+}

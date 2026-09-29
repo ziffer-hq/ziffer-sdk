@@ -1,0 +1,215 @@
+{
+  "$comment": "The line both SDKs print for a refusal, `Name: meaning (clause)`, per case: read by packages/acp-verify/src/refusal.test.ts and sdk/python/tests/test_refusal_names.py, so the two SDKs are held to the same bytes for the same refusal. `name` null means the site named none. The last three cases are a clause no entry names (a newer engine's), a clause with several names raised without one, and a name that belongs to another clause, which never relabels a refusal. Written from refusals.json once and then kept by hand: a change to a meaning moves a line here in the same commit.",
+  "cases": [
+    {
+      "clause": "AB-0",
+      "name": "ReceiptVersionUnsupported",
+      "line": "ReceiptVersionUnsupported: what you passed as the receipt is not a version 3 receipt (AB-0)"
+    },
+    {
+      "clause": "AB-6",
+      "name": "ReceiptTooLarge",
+      "line": "ReceiptTooLarge: the receipt's signed body is larger than the 4,096 bytes a receipt is signed within (AB-6)"
+    },
+    {
+      "clause": "CR-1",
+      "name": "SuiteUnknown",
+      "line": "SuiteUnknown: the receipt names a signature suite this verifier does not know or names none, or the suite floor you configured is not a suite it knows (CR-1)"
+    },
+    {
+      "clause": "CR-4",
+      "name": "SuiteBelowFloor",
+      "line": "SuiteBelowFloor: the receipt, or an approval sent with it, is not signed with a suite that contains every algorithm your suite floor requires (CR-4)"
+    },
+    {
+      "clause": "AT-8a",
+      "name": "NotCanonicallyEncodable",
+      "line": "NotCanonicallyEncodable: the receipt, an approval or the proposal you passed holds a value with no canonical encoding, such as a fractional number, or the proposal bytes are not UTF-8 JSON (AT-8a)"
+    },
+    {
+      "clause": "9.3-1",
+      "name": "SignatureInvalid",
+      "line": "SignatureInvalid: the receipt's signature does not verify under your trust anchor's keys (9.3-1)"
+    },
+    {
+      "clause": "9.3-2",
+      "name": "DecisionNotAllow",
+      "line": "DecisionNotAllow: the receipt records a decision other than ALLOW (9.3-2)"
+    },
+    {
+      "clause": "9.3-3",
+      "name": "ReceiptNotBoundToProposal",
+      "line": "ReceiptNotBoundToProposal: the receipt is not bound to the proposal you passed (9.3-3)"
+    },
+    {
+      "clause": "9.3-5",
+      "name": "ReceiptTimeUnreadable",
+      "line": "ReceiptTimeUnreadable: the receipt's issue or expiry time is missing or is not an RFC 3339 UTC instant (9.3-5)"
+    },
+    {
+      "clause": "9.3-5",
+      "name": "ReceiptExpired",
+      "line": "ReceiptExpired: your clock is past the receipt's expiry time (9.3-5)"
+    },
+    {
+      "clause": "9.3-5",
+      "name": "ReceiptIssuedInFuture",
+      "line": "ReceiptIssuedInFuture: the receipt's issue time is more than 5 seconds ahead of your clock (9.3-5)"
+    },
+    {
+      "clause": "L-14",
+      "name": "ValidityWindowTooLong",
+      "line": "ValidityWindowTooLong: the receipt is valid for longer than the 120 seconds a receipt may be (L-14)"
+    },
+    {
+      "clause": "WE-4",
+      "name": "NonceMalformed",
+      "line": "NonceMalformed: a nonce in the receipt, or in an approval sent with it, is not `b64:` followed by padded base64 (WE-4)"
+    },
+    {
+      "clause": "L-17",
+      "name": "ReceiptNonceWrongSize",
+      "line": "ReceiptNonceWrongSize: the receipt's nonce is well formed but is not 128 bits long (L-17)"
+    },
+    {
+      "clause": "AB-1",
+      "name": "ApprovalsUnverifiable",
+      "line": "ApprovalsUnverifiable: the approvals sent with the receipt cannot be matched to the list the receipt signed: a list is malformed, an approval is not on it, or the verifier was given no attester registry (AB-1)"
+    },
+    {
+      "clause": "AB-2",
+      "name": "ApprovalDigestsUnsorted",
+      "line": "ApprovalDigestsUnsorted: the receipt's list of approval digests is not in sorted order (AB-2)"
+    },
+    {
+      "clause": "AB-3",
+      "name": "ApprovalDigestsDuplicated",
+      "line": "ApprovalDigestsDuplicated: the receipt's list of approval digests names one approval more than once (AB-3)"
+    },
+    {
+      "clause": "AB-4",
+      "name": "ApprovalCountMismatch",
+      "line": "ApprovalCountMismatch: the number of approvals sent with the receipt is not the number of approvals the receipt signed (AB-4)"
+    },
+    {
+      "clause": "INV-1-HIGH",
+      "name": "ApprovalsMissing",
+      "line": "ApprovalsMissing: the receipt commits to approvals and none were sent with it (INV-1-HIGH)"
+    },
+    {
+      "clause": "AT-8",
+      "name": "ApprovalObjectMissing",
+      "line": "ApprovalObjectMissing: an approval sent with the receipt carries no approval object (AT-8)"
+    },
+    {
+      "clause": "AT-8b",
+      "name": "ApprovalObjectMalformed",
+      "line": "ApprovalObjectMalformed: an approval object lacks a required field, carries a field that is not defined, or holds a field of the wrong type (AT-8b)"
+    },
+    {
+      "clause": "AT-1",
+      "name": "ApprovalNonceWrongSize",
+      "line": "ApprovalNonceWrongSize: an approval's nonce is well formed but is not 128 bits long (AT-1)"
+    },
+    {
+      "clause": "9.3-7b-i",
+      "name": "ApprovalSignatureInvalid",
+      "line": "ApprovalSignatureInvalid: an approval's signature does not verify against the key your attester registry holds for that approver, or your registry does not enrol that approver (9.3-7b-i)"
+    },
+    {
+      "clause": "9.3-7b-ii",
+      "name": "ApprovalNotBoundToProposal",
+      "line": "ApprovalNotBoundToProposal: an approval sent with the receipt is not bound to the proposal you passed (9.3-7b-ii)"
+    },
+    {
+      "clause": "9.3-7b-iii",
+      "name": "ApprovalContextMismatch",
+      "line": "ApprovalContextMismatch: an approval names another policy version than the receipt, expired before the receipt was issued, or has an unreadable policy, expiry or operator field (9.3-7b-iii)"
+    },
+    {
+      "clause": "9.3-7b-iii-a",
+      "name": "ApprovalsDisagreeOnOperator",
+      "line": "ApprovalsDisagreeOnOperator: the approvals sent with the receipt name different operators (9.3-7b-iii-a)"
+    },
+    {
+      "clause": "AT-9",
+      "name": "ApprovalQuorumSizeMismatch",
+      "line": "ApprovalQuorumSizeMismatch: an approver consented to a number of required approvals other than the quorum your attester registry sets (AT-9)"
+    },
+    {
+      "clause": "Y1b",
+      "name": "ApprovalIdMismatch",
+      "line": "ApprovalIdMismatch: an approval's transmitted identifier is not the identifier computed from its content (Y1b)"
+    },
+    {
+      "clause": "AT-10",
+      "name": "ApproverAssuranceTooLow",
+      "line": "ApproverAssuranceTooLow: an approver is enrolled at an assurance level below your attester registry's floor, or at a level outside AS0 to AS2 (AT-10)"
+    },
+    {
+      "clause": "AT-3",
+      "name": "QuorumNotMet",
+      "line": "QuorumNotMet: fewer distinct approvers approved the action than the quorum your attester registry sets (AT-3)"
+    },
+    {
+      "clause": "AT-2",
+      "name": "OperatorApprovedOwnAction",
+      "line": "OperatorApprovedOwnAction: the operator who proposed the action is counted among its approvers (AT-2)"
+    },
+    {
+      "clause": "WebauthnAlgMismatch",
+      "name": "ApproverKeyTypeMismatch",
+      "line": "ApproverKeyTypeMismatch: an approval claims a kind of key, a person's passkey or a machine key, that is not the kind your attester registry enrols for that approver (WebauthnAlgMismatch)"
+    },
+    {
+      "clause": "WebauthnCounter",
+      "name": "PasskeyCounterNotAdvanced",
+      "line": "PasskeyCounterNotAdvanced: a passkey or security key's signature counter did not advance, so the credential was copied or the approval was replayed (WebauthnCounter)"
+    },
+    {
+      "clause": "Malformed",
+      "name": "ApprovalMalformed",
+      "line": "ApprovalMalformed: a person's approval, or the key your attester registry holds for them, is not in the shape a passkey approval takes (Malformed)"
+    },
+    {
+      "clause": "WebauthnType",
+      "name": "PasskeyAssertionTypeInvalid",
+      "line": "PasskeyAssertionTypeInvalid: a person's approval is not a passkey sign-in assertion (WebauthnType)"
+    },
+    {
+      "clause": "WebauthnChallenge",
+      "name": "PasskeyChallengeMismatch",
+      "line": "PasskeyChallengeMismatch: a person's approval answers a different request than this approval (WebauthnChallenge)"
+    },
+    {
+      "clause": "WebauthnOrigin",
+      "name": "PasskeyOriginMismatch",
+      "line": "PasskeyOriginMismatch: a person's approval was made on a site other than your approval page (WebauthnOrigin)"
+    },
+    {
+      "clause": "WebauthnAuthenticatorData",
+      "name": "PasskeyAuthenticatorDataInvalid",
+      "line": "PasskeyAuthenticatorDataInvalid: a person's approval names another site, or does not show that the person was present and verified (WebauthnAuthenticatorData)"
+    },
+    {
+      "clause": "WebauthnSignature",
+      "name": "PasskeySignatureInvalid",
+      "line": "PasskeySignatureInvalid: a person's approval signature does not verify against the passkey or security key your attester registry holds for them (WebauthnSignature)"
+    },
+    {
+      "clause": "ZZ-99",
+      "name": null,
+      "line": "UnnamedRefusal: the receipt was refused under a rule this version of the SDK has no name for (ZZ-99)"
+    },
+    {
+      "clause": "9.3-5",
+      "name": null,
+      "line": "ReceiptTimeUnreadable: the receipt's issue or expiry time is missing or is not an RFC 3339 UTC instant (9.3-5)"
+    },
+    {
+      "clause": "9.3-5",
+      "name": "SignatureInvalid",
+      "line": "ReceiptTimeUnreadable: the receipt's issue or expiry time is missing or is not an RFC 3339 UTC instant (9.3-5)"
+    }
+  ]
+}

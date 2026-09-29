@@ -1,0 +1,32 @@
+# Codex CLI configuration
+model = "gpt-5"
+approval_policy = "on-request"
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+env_vars = ["LOCAL_TOKEN"]
+
+[mcp_servers.context7.env]
+MY_ENV_VAR = "MY_ENV_VALUE"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+bearer_token_env_var = "FIGMA_OAUTH_TOKEN"
+http_headers = { "X-Figma-Region" = "us-east-1" }
+
+[mcp_servers.'local tools']
+command = 'C:\tools\mcp.exe'
+args = [
+  "--mode",   # a comment inside an array
+  "strict",
+]
+startup_timeout_sec = 20
+tool_timeout_sec = 45.5
+
+[mcp_servers.parked]
+command = "parked-mcp"
+enabled = false
+
+[mcp_servers.chrome_devtools.tools.open]
+approval_mode = "approve"

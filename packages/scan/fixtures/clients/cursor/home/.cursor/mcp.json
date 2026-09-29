@@ -1,0 +1,10 @@
+{
+  // Cursor writes JSON with comments
+  "mcpServers": {
+    "mail": {
+      "command": "node",
+      "args": ["/opt/mail/server.js",],
+      "env": { "MAIL_TOKEN": "fixture-value", },
+    },
+  },
+}

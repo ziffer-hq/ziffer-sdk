@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-structured",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.17): structured output that must NOT be counted as a tool -- Instructor's response_model (@instructor-ai/instructor 1.7.0, dist/index.d.ts read 2026-09-28), the AI SDK's generateObject and OpenAI's zodResponseFormat -- beside one real function tool that must be. Instructor is not installed for the scan's tests; openai, ai and zod resolve through packages/scan.",
+  "dependencies": { "@instructor-ai/instructor": "1.7.0", "ai": "7.0.116", "openai": "7.23.0", "zod": "4.6.5" }
+}

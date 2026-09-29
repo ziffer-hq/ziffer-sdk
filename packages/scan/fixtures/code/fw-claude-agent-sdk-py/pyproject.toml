@@ -1,0 +1,5 @@
+# A fixture, not a project: the Claude Agent SDK shapes (acp-455 record, section 3.3).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["claude-agent-sdk>=0.2.160", "langchain-core~=1.6"]

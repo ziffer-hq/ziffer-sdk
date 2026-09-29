@@ -1,0 +1,15 @@
+{
+  "name": "ziffer",
+  "description": "The ZIFFER plugin for Claude Code, from the source repository of the ZIFFER packages.",
+  "owner": {
+    "name": "code75 SASU",
+    "url": "https://ziffer.io"
+  },
+  "plugins": [
+    {
+      "name": "ziffer",
+      "source": "./plugins/ziffer",
+      "description": "Set up ZIFFER, the agent authorization service, from Claude Code."
+    }
+  ]
+}

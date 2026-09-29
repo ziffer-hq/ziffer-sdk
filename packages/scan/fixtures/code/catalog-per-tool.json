@@ -1,0 +1,98 @@
+{
+  "root": ".",
+  "sdks": [
+    {
+      "name": "ai",
+      "version": "7.0.116"
+    }
+  ],
+  "files_read": 3,
+  "tools": [
+    {
+      "name": "refund_payment",
+      "description": "Refund a card payment.",
+      "schema_kind": "json_schema",
+      "params": [
+        "payment_id",
+        "amount"
+      ],
+      "sdk": "ai",
+      "via": "tool() from \"ai\"",
+      "defined_at": {
+        "file": "src/agent.ts",
+        "line": 14,
+        "col": 18
+      },
+      "execute_at": {
+        "file": "src/agent.ts",
+        "line": 22,
+        "col": 5
+      }
+    },
+    {
+      "name": "lookup_order",
+      "description": "Look up an order by id.",
+      "schema_kind": "json_schema",
+      "params": [
+        "order_id"
+      ],
+      "sdk": "ai",
+      "via": "tool() from \"ai\"",
+      "defined_at": {
+        "file": "src/agent.ts",
+        "line": 30,
+        "col": 16
+      },
+      "execute_at": {
+        "file": "src/agent.ts",
+        "line": 36,
+        "col": 5
+      }
+    },
+    {
+      "name": "update_note",
+      "description": "Update the internal note on an order.",
+      "schema_kind": "json_schema",
+      "params": [
+        "order_id",
+        "note"
+      ],
+      "sdk": "ai",
+      "via": "tool() from \"ai\"",
+      "defined_at": {
+        "file": "src/agent.ts",
+        "line": 50,
+        "col": 15
+      },
+      "execute_at": {
+        "file": "src/agent.ts",
+        "line": 57,
+        "col": 5
+      }
+    }
+  ],
+  "exposures": [
+    {
+      "at": {
+        "file": "src/agent.ts",
+        "line": 44,
+        "col": 3
+      },
+      "via": "generateText({ tools })",
+      "kind": "static",
+      "tools": [
+        "refund_payment",
+        "lookup_order",
+        "update_note"
+      ],
+      "note": "the tool set is written at the call"
+    }
+  ],
+  "dispatchers": [],
+  "gates": [],
+  "syntax_only": {
+    "found": 3,
+    "missed": 0
+  },
+  "not_seen": []
+}

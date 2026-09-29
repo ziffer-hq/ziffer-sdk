@@ -1,0 +1,10 @@
+# src/ is BUILD OUTPUT here, not source, and that inversion is the point.
+#
+# The engine's generated wire types are copied in from the pinned commit by
+# scripts/vendor-engine-types.mjs on every build. Committing the copy would
+# start the divergent lineage the engine's never-fork rule exists to prevent,
+# and would put a second definition of the wire format in a repository whose
+# whole discipline is that spec/schemas is the only normative source.
+#
+# sdk/python/.gitignore ignores src/ziffer/_engine/ for exactly this reason.
+src/

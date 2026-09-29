@@ -1,0 +1,7 @@
+{
+  "theme": "Default",
+  "mcpServers": {
+    "weather": { "command": "python", "args": ["-m", "weather_mcp"], "cwd": "/opt/weather", "env": { "PORT": "8080" } },
+    "remote": { "httpUrl": "https://mcp.example.test/mcp" }
+  }
+}

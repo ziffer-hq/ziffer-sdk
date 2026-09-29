@@ -1,0 +1,14 @@
+{
+  "//": "No project references, and none may be added: this package depends on no workspace package, because it must run from its own npm tarball with only its own dependencies (ACP-433).",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

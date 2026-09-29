@@ -1,0 +1,133 @@
+{
+  "engine_pin": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "files": [
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/docs-source.ts",
+      "sha256": "3ffadd16e95328b0a64b0dbc7e56d3585ea13e588fa4b467ddeb37bf1ce38704"
+    },
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/guide-source.ts",
+      "sha256": "0c5b53ba8e3451021fce683f446ce9b5a331a55185d4bb1782dbc9a29315505e"
+    },
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/repo-guide-source.ts",
+      "sha256": "ecf67c8540f0018847cd4830cfa69b8df817f45661b577763c9d1ae506e9fec5"
+    },
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/schema-source.ts",
+      "sha256": "1f81bee96b5d90944b668726ef914f0df8109ff3645b8fb19f80a88a4343e7ae"
+    },
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/started-source.ts",
+      "sha256": "6daf5cce1c9cb6d757106ff9bac154a7a2469314223e64fb996a2bb0f316c178"
+    },
+    {
+      "generator": "packages/mcp/scripts/embed-guide.mjs",
+      "package": "packages/mcp",
+      "path": "packages/mcp/src/generated/template-source.ts",
+      "sha256": "f03a5b820d413f1d8f9b1c29c733925b5259c1ece03dc66be2bf2f7bcb0553e7"
+    },
+    {
+      "copy_to": "packages/scan/dist/acp_wasm.wasm",
+      "generator": "packages/scan/scripts/vendor-wasm.mjs",
+      "package": "packages/scan",
+      "path": "packages/scan/engine/acp_wasm.wasm",
+      "sha256": "a3ec4ced8b40782cf03ad1cbd0dd9728da25aa5cc8ec83a9695e974f8b43a987"
+    },
+    {
+      "generator": "packages/scan/scripts/embed.mjs",
+      "package": "packages/scan",
+      "path": "packages/scan/src/generated/annex-source.ts",
+      "sha256": "076a195ebad3500b882f0affecf89d6b9bcf9fd0caa57110f8ccc17a6f3c5f6b"
+    },
+    {
+      "generator": "packages/scan/scripts/embed.mjs",
+      "package": "packages/scan",
+      "path": "packages/scan/src/generated/schema-source.ts",
+      "sha256": "b6a76cf4b01c4606d9b3d305506a4787d9f6c171a8267c6b3a6a9c5609c8a9fa"
+    },
+    {
+      "generator": "packages/types/scripts/vendor-engine-types.mjs",
+      "package": "packages/types",
+      "path": "packages/types/src/generated.ts",
+      "sha256": "7f686b9146da0c02d9720cae2cb9c7a12cfc559ca2cb9d9c6004b7d3b2ae30fd"
+    },
+    {
+      "generator": "packages/types/scripts/vendor-engine-types.mjs",
+      "package": "packages/types",
+      "path": "packages/types/src/generated_wire.ts",
+      "sha256": "4c4e40733e87cce23c5ad77ee59bc420a8ff1d215d474bc14434edc63d64b4de"
+    },
+    {
+      "generator": "packages/types/scripts/vendor-engine-types.mjs",
+      "package": "packages/types",
+      "path": "packages/types/src/index.ts",
+      "sha256": "02269d5a7a23c17daf6d3b5b85af82af4775f94e7b520aeebd830bdb950c4192"
+    }
+  ],
+  "note": "Generated files committed in this tree, verified by each package's build instead of regenerated: their inputs are not in this repository. packages/types/scripts/prebuilt.mjs reads this file.",
+  "tests_not_run": [
+    {
+      "path": "packages/mcp/dist/decide.test.js",
+      "reads": "templates/policy-repo/ (the policy repository template)"
+    },
+    {
+      "path": "packages/mcp/dist/docs.test.js",
+      "reads": "docs/onboarding/ (the ZIFFER guides it compares the embedded copies with)"
+    },
+    {
+      "path": "packages/mcp/dist/guide.test.js",
+      "reads": "docs/onboarding/sdk.md"
+    },
+    {
+      "path": "packages/mcp/dist/policy-explain.test.js",
+      "reads": "templates/policy-repo/"
+    },
+    {
+      "path": "packages/mcp/dist/proposal-lint.test.js",
+      "reads": "the wire schemas vendored in the private repository"
+    },
+    {
+      "path": "packages/mcp/dist/publish-explain.test.js",
+      "reads": "templates/policy-repo/.github/workflows/"
+    },
+    {
+      "path": "packages/mcp/dist/refusals.test.js",
+      "reads": "the private services' Rust source and the support document"
+    },
+    {
+      "path": "packages/mcp/dist/repo-check.test.js",
+      "reads": "templates/policy-repo/"
+    },
+    {
+      "path": "packages/mcp/dist/repo-guide.test.js",
+      "reads": "docs/onboarding/ and templates/policy-repo/README.md"
+    },
+    {
+      "path": "packages/mcp/dist/server.test.js",
+      "reads": "templates/policy-repo/"
+    },
+    {
+      "path": "packages/mcp/dist/started.test.js",
+      "reads": "docs/onboarding/ and sdk/python/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/dist/report/docs-links.test.js",
+      "reads": "docs/onboarding/ and the documentation publisher"
+    },
+    {
+      "path": "packages/scan/dist/report/embed.test.js",
+      "reads": "the engine pin in Cargo.toml (it runs embed-annex.mjs against a fixture dossier)"
+    }
+  ]
+}

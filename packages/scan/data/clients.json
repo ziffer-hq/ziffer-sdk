@@ -1,0 +1,571 @@
+{
+  "$comment": [
+    "Where each AI agent client keeps its MCP server configuration. Read by src/discovery/clients.ts; this file is the only place a path lives.",
+    "verified: upstream = taken from snyk/agent-scan at the commit named in THIRD-PARTY-NOTICES.attribution.md, not re-checked against an install. verified: docs = written from the client's own documentation, with a hand-written fixture under fixtures/clients/. No entry says install: none was read from a real installation.",
+    "Path grammar: ~/ (home), %APPDATA%/ and %USERPROFILE%/ (from the environment passed in), ./ (the directory the scan runs in). A final segment may be *.ext; **/name matches name at any depth.",
+    "status: not covered means the client is listed in the output as not covered, never silently left out."
+  ],
+  "upstream": {
+    "repository": "https://github.com/snyk/agent-scan",
+    "commit": "2527530b842e681404a8daad06c65f1973fc90c8",
+    "file": "src/agent_scan/well_known_clients.py",
+    "license": "Apache-2.0"
+  },
+  "clients": [
+    {
+      "name": "Windsurf",
+      "status": "covered",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.codeium/windsurf/mcp_config.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        }
+      ]
+    },
+    {
+      "name": "Cursor",
+      "status": "covered",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.cursor/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.cursor/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "VS Code",
+      "status": "covered",
+      "also_emit_as": {
+        "client": "GitHub Copilot",
+        "via": "VS Code"
+      },
+      "note": "agent-scan also lists ~/.copilot/mcp-config.json under VS Code; it is read once, under GitHub Copilot, so a server there is not reported twice.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin"
+          ],
+          "path": "~/Library/Application Support/Code/User/settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcp",
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin"
+          ],
+          "path": "~/Library/Application Support/Code/User/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "linux"
+          ],
+          "path": "~/.config/Code/User/settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcp",
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "linux"
+          ],
+          "path": "~/.config/Code/User/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "~/AppData/Roaming/Code/User/settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcp",
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "~/AppData/Roaming/Code/User/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.vscode/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "servers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.vscode/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "servers"
+          ],
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "GitHub Copilot",
+      "status": "covered",
+      "note": "The Copilot CLI's own file. Servers VS Code configures are also reported under this name, marked as coming through VS Code.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.copilot/mcp-config.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        }
+      ]
+    },
+    {
+      "name": "Claude Desktop",
+      "status": "covered",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin"
+          ],
+          "path": "~/Library/Application Support/Claude/claude_desktop_config.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "linux"
+          ],
+          "path": "~/.config/Claude/claude_desktop_config.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "~/AppData/Roaming/Claude/claude_desktop_config.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        }
+      ]
+    },
+    {
+      "name": "Claude Code",
+      "status": "covered",
+      "note": "~/.claude.json holds user-scope servers under mcpServers and per-project servers under projects.<path>.mcpServers; each project server is reported with that path as its working directory.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.claude.json",
+          "format": "json",
+          "shape": "claude_json",
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.claude/plugins/cache/**/.mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream",
+          "plugin_root_var": "CLAUDE_PLUGIN_ROOT"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Gemini CLI",
+      "status": "covered",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.gemini/settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "upstream"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.gemini/settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Codex CLI",
+      "status": "covered",
+      "note": "agent-scan lists Codex with no MCP config path; these paths come from the Codex documentation. env_vars (names of variables Codex forwards from its own environment) are not read: this scan passes only values the file states.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.codex/config.toml",
+          "format": "toml",
+          "shape": "codex_toml",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.codex/config.toml",
+          "format": "toml",
+          "shape": "codex_toml",
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Zed",
+      "status": "covered",
+      "note": "Both the older command: { path, args, env } form and the command/args/env form are read. A server a Zed extension provides names no command in the file and is reported as skipped.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux"
+          ],
+          "path": "~/.config/zed/settings.json",
+          "format": "json",
+          "shape": "zed_settings",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "%APPDATA%/Zed/settings.json",
+          "format": "json",
+          "shape": "zed_settings",
+          "scope": "user",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Cline",
+      "status": "covered",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin"
+          ],
+          "path": "~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "linux"
+          ],
+          "path": "~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "%APPDATA%/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.cline/mcp.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "user",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Continue",
+      "status": "covered",
+      "note": "Continue's documentation places the mcpServers folder in the workspace; the same folder under the home directory is read as well. JSON files in that folder use the Claude Desktop shape. The legacy config.json lists servers without names, so each is named by its position.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.continue/config.yaml",
+          "format": "yaml",
+          "shape": "continue_yaml",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.continue/mcpServers/*.yaml",
+          "format": "yaml",
+          "shape": "continue_yaml",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "~/.continue/config.json",
+          "format": "json",
+          "shape": "continue_json",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.continue/mcpServers/*.yaml",
+          "format": "yaml",
+          "shape": "continue_yaml",
+          "scope": "project",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "path": "./.continue/mcpServers/*.json",
+          "format": "json",
+          "shape": "server_map",
+          "key": [
+            "mcpServers"
+          ],
+          "scope": "project",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Goose",
+      "status": "covered",
+      "note": "Extensions of type builtin or platform run inside Goose and are reported as skipped, not as servers.",
+      "mcp_config_paths": [
+        {
+          "platforms": [
+            "darwin",
+            "linux"
+          ],
+          "path": "~/.config/goose/config.yaml",
+          "format": "yaml",
+          "shape": "goose_yaml",
+          "scope": "user",
+          "verified": "docs"
+        },
+        {
+          "platforms": [
+            "win32"
+          ],
+          "path": "%APPDATA%/Block/goose/config/config.yaml",
+          "format": "yaml",
+          "shape": "goose_yaml",
+          "scope": "user",
+          "verified": "docs"
+        }
+      ]
+    },
+    {
+      "name": "JetBrains AI Assistant",
+      "status": "not covered",
+      "note": "read from a real install before adding a path",
+      "mcp_config_paths": []
+    }
+  ]
+}

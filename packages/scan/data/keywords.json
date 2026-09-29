@@ -1,0 +1,498 @@
+{
+  "_comment": "Draft classification heuristics for @ziffer-io/scan. Each entry is a word or a run of words matched against a tool's name, its parameter names and its description (never the server name), all lowercased and split on _, -, spaces, punctuation and camelCase. A keyword matches whole words only; its LAST word may also carry one of the suffixes below. WHERE a keyword counts (ACP-454): an irreversible effect keyword counts only where it names the tool's OWN action -- in the tool name when the keyword starts at the name's FIRST word or right after 'and'/'then' (execute_sql, force_push, get_and_delete_branch) or the first word is not one of read_verbs (admin_delete_user counts; explain_publish_failure, get_publish_status do not: there the keyword is the object of a read). A leading NAMESPACE word -- one no list knows as a verb, followed by one that is (prospector_classify_reply, acme_get_status) -- gives way: the head is the first verb, and the rules above apply from there. neutral_verbs (classify, route, score, ...) neither only read nor write their object: after one, the rest of the name is the object (classify_reply classifies a reply), and the verb itself decides nothing (ACP-455). A parameter that names an identifier (reply_id, webhook_ids) names an object, not an action, and makes no egress. An irreversible keyword also counts as the head verb of a clause of the description's FIRST sentence (text up to the first . ! ? or newline; a clause starts the sentence or follows ', and', '; ', ' or ', ', then'; the head is its first word, or the second after an -ly adverb; the suffixes apply to the head verb too). A parameter name alone, or a mention later in the description, never makes a tool irreversible: 'whoami' whose description says revoked keys are refused does not revoke. Egress keywords count in the name (under the same read_verbs rule), a parameter name, or anywhere in the first sentence, and NOT in later sentences, for the same reason. Write, read and untrusted_input keywords still match the whole text. Precedence: irreversible > write > read; 'matched' shows which word fired and 'reason' quotes where. irreversible_class ranks the replay's own case (3 runs or destroys, 2 changes shared state, 1 sends or pays); every irreversible keyword is in exactly one class. A tool matching no effect keyword is drafted as a write, with a reason saying so, and reported as unclassified (ACP-455). None of this is a grade: the engine grades the policy built from the draft.",
+  "suffixes": [
+    "s",
+    "es",
+    "d",
+    "ed"
+  ],
+  "effect": {
+    "irreversible": [
+      "delete",
+      "remove",
+      "drop",
+      "destroy",
+      "purge",
+      "wipe",
+      "truncate",
+      "erase",
+      "revoke",
+      "cancel",
+      "void",
+      "terminate",
+      "kill",
+      "shutdown",
+      "send",
+      "deploy",
+      "publish",
+      "merge",
+      "force push",
+      "transfer",
+      "pay",
+      "refund",
+      "charge",
+      "withdraw",
+      "execute",
+      "exec",
+      "run command",
+      "run script",
+      "shell",
+      "bash"
+    ],
+    "write": [
+      "create",
+      "update",
+      "write",
+      "edit",
+      "set",
+      "put",
+      "patch",
+      "add",
+      "insert",
+      "upload",
+      "modify",
+      "rename",
+      "move",
+      "copy",
+      "commit",
+      "push",
+      "assign",
+      "close",
+      "reopen",
+      "save",
+      "append",
+      "schedule",
+      "reply",
+      "forward",
+      "share",
+      "invite",
+      "approve",
+      "reject",
+      "cancel",
+      "start",
+      "stop",
+      "restart",
+      "install",
+      "uninstall",
+      "enable",
+      "disable",
+      "configure",
+      "apply",
+      "trigger",
+      "submit",
+      "fill",
+      "click",
+      "press",
+      "upsert",
+      "migrate",
+      "sync",
+      "import",
+      "archive",
+      "post message",
+      "type text",
+      "add comment",
+      "change",
+      "extend",
+      "enrich",
+      "mark",
+      "override",
+      "escalate"
+    ],
+    "read": [
+      "get",
+      "list",
+      "read",
+      "search",
+      "find",
+      "fetch",
+      "query",
+      "describe",
+      "show",
+      "view",
+      "lookup",
+      "look up",
+      "download",
+      "browse",
+      "inspect",
+      "check",
+      "count",
+      "status",
+      "diff",
+      "log",
+      "cat",
+      "retrieve",
+      "scan",
+      "preview",
+      "navigate",
+      "screenshot",
+      "snapshot",
+      "explain",
+      "analytics"
+    ]
+  },
+  "egress": [
+    "send",
+    "upload",
+    "share",
+    "publish",
+    "webhook",
+    "http",
+    "fetch",
+    "url",
+    "slack",
+    "notify",
+    "tweet",
+    "invite",
+    "forward",
+    "reply",
+    "export",
+    "sync",
+    "push",
+    "gist",
+    "sms",
+    "post message",
+    "send message",
+    "http request"
+  ],
+  "untrusted_input": [
+    "conversation",
+    "review",
+    "fetch",
+    "browse",
+    "browser",
+    "navigate",
+    "url",
+    "web",
+    "webpage",
+    "html",
+    "scrape",
+    "crawl",
+    "download",
+    "rss",
+    "feed",
+    "pdf",
+    "email",
+    "inbox",
+    "mail",
+    "message",
+    "issue",
+    "comment",
+    "ticket",
+    "pull request",
+    "web page"
+  ],
+  "irreversible_class": {
+    "3": [
+      "execute",
+      "exec",
+      "run command",
+      "run script",
+      "shell",
+      "bash",
+      "drop",
+      "destroy",
+      "wipe",
+      "truncate",
+      "erase",
+      "purge",
+      "delete",
+      "remove",
+      "kill",
+      "terminate",
+      "shutdown"
+    ],
+    "2": [
+      "merge",
+      "deploy",
+      "publish",
+      "force push",
+      "revoke",
+      "cancel",
+      "void"
+    ],
+    "1": [
+      "send",
+      "transfer",
+      "pay",
+      "charge",
+      "refund",
+      "withdraw"
+    ]
+  },
+  "read_verbs": [
+    "analytics",
+    "get",
+    "list",
+    "show",
+    "explain",
+    "describe",
+    "check",
+    "lint",
+    "validate",
+    "simulate",
+    "preview",
+    "search",
+    "find",
+    "fetch",
+    "read",
+    "query",
+    "view",
+    "count",
+    "inspect",
+    "test",
+    "plan",
+    "estimate",
+    "dry",
+    "compare",
+    "diff",
+    "status",
+    "whoami",
+    "help"
+  ],
+  "neutral_verbs": [
+    "report",
+    "classify",
+    "route",
+    "qualify",
+    "enrich",
+    "generate",
+    "escalate",
+    "score"
+  ],
+  "finding_severity": {
+    "unclassified": "warn",
+    "irreversible": "info",
+    "egress": "info"
+  },
+  "undo_phrases": {
+    "note": "What a tool's DESCRIPTION says about undoing it, each phrase matched as whole words in order, case-insensitive, anywhere in the description; the words between may be any run of spaces or punctuation, so 'read only' also matches 'read-only'. A phrase whose word just before is one of 'negators' does not count: 'not read-only' is no evidence of reads_only, 'never irreversible' none of cannot_be_undone. THE RULE IS ASYMMETRIC: cannot_be_undone makes the draft irreversible when it was not; can_be_undone and reads_only NEVER change the draft, they are recorded as hints for a person to confirm (RV-1: an absent reversibility entry is IRREVERSIBLE, and a guess must not relax it). 'idempotent' is deliberately NOT can_be_undone evidence: running a call twice safely says nothing about undoing it once. Known misses: a negation more than one word before the phrase ('is not fully read-only') is not seen, and a phrase describing ANOTHER tool in the same description counts as this tool's. 'no send' is reads_only as the whole phrase only ('no sender' is not it). 'Returns ...' is deliberately NOT reads_only evidence: a description saying what a tool returns says nothing about whether it also changes something, and nearly every tool returns something.",
+    "cannot_be_undone": [
+      "cannot be undone",
+      "can't be undone",
+      "irreversible",
+      "permanent",
+      "permanently",
+      "not reversible"
+    ],
+    "can_be_undone": [
+      "reversible via",
+      "can be undone",
+      "can be reverted",
+      "pass null to clear",
+      "undo with"
+    ],
+    "reads_only": [
+      "read-only",
+      "read only",
+      "does not modify",
+      "no side effects",
+      "no send"
+    ],
+    "negators": [
+      "not",
+      "never",
+      "no",
+      "cannot",
+      "can't",
+      "isn't",
+      "aren't",
+      "doesn't",
+      "don't",
+      "won't",
+      "wasn't",
+      "nor"
+    ]
+  },
+  "inverse_verbs": {
+    "note": "Two tools of ONE catalog that undo each other, paired by NAME: the first word of each name (after the same namespace words, at most two, on both) is a verb pair below, and the words after the verb are the same once 'connectives' are dropped, a trailing word of 'state_words' is dropped (markConversationResolved / reopenConversation), a trailing 's' is ignored, and each word of a 'same_nouns' group reads as the group's first word (uploadGbpPhoto / deleteGbpMedia). The FIRST verb's tool gets a can_be_undone hint naming the second tool; the second never gets one (deleting is not undone by creating). A hint only: the draft does not change. Known misses: a verb that is not the name's head, and any noun variation not listed here.",
+    "pairs": [
+      [
+        "create",
+        "delete"
+      ],
+      [
+        "add",
+        "remove"
+      ],
+      [
+        "upload",
+        "delete"
+      ],
+      [
+        "open",
+        "close"
+      ],
+      [
+        "resolve",
+        "reopen"
+      ],
+      [
+        "mark",
+        "reopen"
+      ],
+      [
+        "enable",
+        "disable"
+      ],
+      [
+        "assign",
+        "unassign"
+      ],
+      [
+        "block",
+        "unblock"
+      ],
+      [
+        "publish",
+        "unpublish"
+      ]
+    ],
+    "state_words": [
+      "resolved",
+      "closed",
+      "done",
+      "complete",
+      "completed"
+    ],
+    "connectives": [
+      "to",
+      "from",
+      "into",
+      "onto",
+      "on",
+      "of",
+      "in"
+    ],
+    "same_nouns": [
+      [
+        "media",
+        "photo",
+        "image"
+      ]
+    ]
+  },
+  "sensitive_values": {
+    "note": "A secret or an access value named by a tool's NAME or a PARAMETER name, never its description: descriptions talk about tokens of text and passwords the tool does not touch. Whole words after the camelCase split, the suffixes above allowed on the last word, so 'pin' does not match 'pinned', 'shipping' or 'spinner'. A tool the draft reads as a write (or as nothing) that names one is drafted irreversible (base HIGH). A tool the draft reads as a READ stays a read (corrected 2026-09-28: it changes nothing, so there is nothing to undo, and raising it counted tools that change nothing among the tools that cannot be undone); the word is reported as the tool's sensitive_value, a source in the data-leaving finding. Strict direction only. Words inside a 'not_secret' phrase do not count: a page token is a cursor, max tokens is a count. Known misses: a secret passed inside a parameter with a generic name ('updates', 'attributes'), and any spelling not listed.",
+    "words": [
+      "access code",
+      "door code",
+      "access info",
+      "password",
+      "pin",
+      "payment link",
+      "token",
+      "credential",
+      "api key"
+    ],
+    "not_secret": [
+      "page token",
+      "next token",
+      "continuation token",
+      "cursor token",
+      "max tokens",
+      "token count",
+      "count tokens",
+      "token limit"
+    ]
+  },
+  "counts_not_text": {
+    "note": "Whole words of a tool NAME (after the camelCase split, no suffixes) that say the tool returns numbers ABOUT text, not the text: an inbox's statistics carry no sentence anybody wrote. Such a tool is never a reader in a pair of data/pairs.json, in either half, and never named as a way an outsider's text reaches the model. getInboxStats was named first on the first customer's report, and it returns counts.",
+    "words": [
+      "stats",
+      "statistics",
+      "metrics",
+      "count",
+      "counts",
+      "totals"
+    ]
+  },
+  "skill_exercises": {
+    "note": "What an agent skill or an instruction file can DO (2026-09-28), read as text, never run: the words the skill inventory looks for, each a literal (never a regular expression). WHERE they are read: a skill's or instruction file's CODE only (fenced code blocks and inline code spans), and every line of a script file in the skill's folder, comment lines included (a command in a comment is still a command a reader may paste). Prose is never read for these, so the word 'token' in a sentence is not a credential read. A literal starting or ending with a letter, digit or underscore matches at a word boundary on that side ('curl' does not match 'curly'). 'shell_fences': the fence languages that make a block a shell block; 'script_extensions': the files in a skill's folder read as scripts (each one is also a 'shell' capability: it is code the skill can run). 'network': a call that reaches another machine; a URL after a command word in a shell line counts too. 'write_commands': shell commands that write or delete a file, the target being their last argument; a redirect (> or >>) counts too; 'write_calls': the same in a script. A write counts only when its target is outside the skill's folder: not under /dev/, not a file descriptor, not under the skill's own path, and not a path made from one of 'inside_markers' with no '..' in it. 'credential_paths': reads of credential files; 'not_credential_paths': template files that hold no secret; 'credential_name_words': a variable whose name has a part (split on _) equal to or ending with one of these, uppercase, is a credential read.",
+    "shell_fences": [
+      "bash",
+      "sh",
+      "shell",
+      "zsh",
+      "console",
+      "shell-session",
+      "sh-session"
+    ],
+    "script_extensions": [
+      ".sh",
+      ".py",
+      ".js",
+      ".ts",
+      ".mjs"
+    ],
+    "network": [
+      "curl",
+      "wget",
+      "fetch(",
+      "requests.",
+      "http.request",
+      "https.request",
+      "http.get",
+      "https.get",
+      "urllib.request",
+      "axios.",
+      "httpx.",
+      "Invoke-WebRequest"
+    ],
+    "write_commands": [
+      "tee",
+      "cp",
+      "mv",
+      "rm",
+      "mkdir",
+      "touch",
+      "sed -i",
+      "install",
+      "ln"
+    ],
+    "write_calls": [
+      "writeFileSync(",
+      "writeFile(",
+      "appendFileSync(",
+      "appendFile(",
+      "createWriteStream(",
+      ".write_text(",
+      ".write_bytes(",
+      "shutil.copy",
+      "shutil.move",
+      "os.remove(",
+      "os.makedirs(",
+      "fs.rm(",
+      "fs.rmSync(",
+      "rmSync(",
+      "unlinkSync("
+    ],
+    "inside_markers": [
+      "SKILL_DIR",
+      "__dirname",
+      "__file__",
+      "import.meta"
+    ],
+    "credential_paths": [
+      "~/.ssh",
+      "$HOME/.ssh",
+      "~/.aws",
+      "$HOME/.aws",
+      ".env",
+      "~/.netrc",
+      "~/.docker/config.json",
+      "~/.kube/config"
+    ],
+    "not_credential_paths": [
+      ".env.example",
+      ".env.sample",
+      ".env.template",
+      ".env.dist"
+    ],
+    "credential_name_words": [
+      "TOKEN",
+      "SECRET",
+      "KEY",
+      "PASSWORD"
+    ]
+  }
+}

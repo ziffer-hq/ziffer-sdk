@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-agents",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.5): the OpenAI Agents SDK shapes a syntax-only pass can see by import name (tool() named, aliased, through a namespace) and one it cannot (an agent run as a tool). The SDK is not installed for the scan's tests; zod resolves through packages/scan.",
+  "dependencies": { "@openai/agents": "0.18.0", "zod": "4.6.5" }
+}

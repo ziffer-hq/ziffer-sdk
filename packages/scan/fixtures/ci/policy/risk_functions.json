@@ -1,0 +1,15 @@
+{
+  "schema_version": "1",
+  "risk_functions": [
+    {
+      "applies_to": "read_email",
+      "base": "LOW",
+      "raise_to": []
+    },
+    {
+      "applies_to": "send_email",
+      "base": "MEDIUM",
+      "raise_to": []
+    }
+  ]
+}

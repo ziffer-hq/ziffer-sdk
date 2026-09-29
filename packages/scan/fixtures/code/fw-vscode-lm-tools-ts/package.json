@@ -1,0 +1,38 @@
+{
+  "name": "corner-bookshop-assistant",
+  "private": true,
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.19): a VS Code extension that gives Copilot's agent mode three tools, declared here and registered in src/extension.ts. Shapes from the Language Model Tool API page and @types/vscode 1.138.0 (read 2026-09-28). @types/vscode is not installed for the scan's tests: the callee is read through the import declaration.",
+  "engines": { "vscode": "^1.100.0" },
+  "devDependencies": { "@types/vscode": "1.138.0" },
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "bookshop_refundOrder",
+        "displayName": "Refund an order",
+        "toolReferenceName": "refundOrder",
+        "modelDescription": "Refund a customer's order in full and email the receipt",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "orderId": { "type": "string" },
+            "reason": { "type": "string" }
+          },
+          "required": ["orderId"]
+        }
+      },
+      {
+        "name": "bookshop_lookupOrder",
+        "displayName": "Look up an order",
+        "modelDescription": "Read an order's status and items",
+        "inputSchema": { "type": "object", "properties": { "orderId": { "type": "string" } } }
+      },
+      {
+        "name": "bookshop_archiveOrder",
+        "displayName": "Archive an order",
+        "modelDescription": "Archive a closed order",
+        "inputSchema": { "type": "object", "properties": { "orderId": { "type": "string" } } }
+      }
+    ]
+  }
+}

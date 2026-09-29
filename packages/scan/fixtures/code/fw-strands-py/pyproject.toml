@@ -1,0 +1,5 @@
+# A fixture, not a project: Strands Agents (acp-455 record, section 3.21).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["strands-agents>=1.57", "strands-agents-tools"]

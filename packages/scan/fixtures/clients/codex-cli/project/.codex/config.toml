@@ -1,0 +1,4 @@
+[mcp_servers.project_db]
+command = "db-mcp"
+args = ["--project"]
+cwd = "/work/app"

@@ -1,0 +1,15 @@
+{
+  "name": "frameworks-ts-fixture",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455): one file per milestone-1 TypeScript signature beyond the AI SDK, Anthropic and app-local factories. Its dependencies resolve through packages/scan's devDependencies; it is never installed on its own.",
+  "dependencies": {
+    "@google/genai": "2.24.0",
+    "@langchain/core": "1.2.12",
+    "@mistralai/mistralai": "2.7.0",
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "cohere-ai": "8.1.0",
+    "openai": "7.23.0",
+    "zod": "4.6.5"
+  }
+}

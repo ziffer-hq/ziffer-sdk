@@ -1,0 +1,71 @@
+{
+  "name": "@ziffer-io/mcp",
+  "version": "0.3.0",
+  "description": "A local MCP server that gives your AI assistant ZIFFER's tools: scan your code, integrate the ZIFFER SDK, check your policy and try a decision.",
+  "keywords": [
+    "ziffer",
+    "agent",
+    "ai-agent",
+    "guardrail",
+    "approval",
+    "receipt",
+    "mcp"
+  ],
+  "author": "code75 SASU",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "ziffer-mcp": "./dist/bin.js"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "THIRD-PARTY-NOTICES",
+    "NOTICE",
+    "THIRD-PARTY-NOTICES.attribution.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziffer-hq/ziffer-sdk.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://ziffer.io",
+  "publishConfig": {
+    "access": "public"
+  },
+  "ziffer": {
+    "enginePin": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72"
+  },
+  "scripts": {
+    "embed": "node scripts/embed-guide.mjs",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "build": "pnpm run embed && tsc -b",
+    "typecheck": "pnpm run embed && tsc -b",
+    "test": "pnpm run embed && tsc -b && node scripts/check-tests-built.mjs && node ../types/scripts/run-tests.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "@ziffer-io/client": "workspace:*",
+    "@ziffer-io/scan": "workspace:*",
+    "@ziffer-io/verify": "workspace:*",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@noble/curves": "2.3.0",
+    "@noble/post-quantum": "0.7.0",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.9.2"
+  }
+}

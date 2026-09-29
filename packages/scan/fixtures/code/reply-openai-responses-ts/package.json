@@ -1,0 +1,7 @@
+{
+  "name": "harbour-inn-openai-responses",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-474): Responses API function tools with no execute body, run by the application's own invokeTool from the loop over the response's function_call items. Types from openai 7.23.0, resolved through the scan package's own node_modules.",
+  "dependencies": { "openai": "7.23.0" }
+}

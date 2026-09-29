@@ -1,0 +1,176 @@
+{
+  "_comment": "Pairs of capabilities that are dangerous when ONE AI agent can reach both, across all servers of one client. A side matches a tool with a draft when (its keywords are empty OR one matches the tool's SERVER and TOOL names -- never the description or parameters, where words like 'token' or 'message' are noise) AND the tool's draft satisfies the side's 'when' (effect in the list; egress / untrusted_input true). A pair fires when two DIFFERENT tools satisfy a and b. Pairs are built on the draft, never on a grade.",
+  "pairs": [
+    {
+      "id": "read_email+send_email",
+      "a": [
+        "email",
+        "mail",
+        "inbox",
+        "gmail",
+        "outlook",
+        "message"
+      ],
+      "a_when": {
+        "effect": [
+          "read"
+        ]
+      },
+      "b": [
+        "send",
+        "reply",
+        "forward",
+        "compose"
+      ],
+      "b_when": {
+        "egress": true
+      },
+      "severity": "high",
+      "why": "reading mail and then sending it is exfiltration by mail"
+    },
+    {
+      "id": "read_ticket+production_write",
+      "a": [
+        "ticket",
+        "issue",
+        "jira",
+        "linear",
+        "incident"
+      ],
+      "a_when": {
+        "effect": [
+          "read"
+        ]
+      },
+      "b": [
+        "deploy",
+        "release",
+        "rollout",
+        "production",
+        "prod",
+        "migrate",
+        "kubectl",
+        "terraform",
+        "helm"
+      ],
+      "b_when": {
+        "effect": [
+          "write",
+          "irreversible"
+        ]
+      },
+      "severity": "high",
+      "why": "a ticket anyone can write can steer a change to production"
+    },
+    {
+      "id": "read_file+share_file",
+      "a": [
+        "file",
+        "document",
+        "drive",
+        "directory",
+        "folder",
+        "filesystem"
+      ],
+      "a_when": {
+        "effect": [
+          "read"
+        ]
+      },
+      "b": [
+        "share",
+        "upload",
+        "publish",
+        "gist",
+        "attach"
+      ],
+      "b_when": {
+        "egress": true
+      },
+      "severity": "high",
+      "why": "reading a file and then sharing or uploading it moves it off the machine"
+    },
+    {
+      "id": "read_secret+egress",
+      "a": [
+        "secret",
+        "credential",
+        "password",
+        "api key",
+        "vault",
+        "keychain",
+        "ssh key",
+        "env"
+      ],
+      "a_when": {
+        "effect": [
+          "read"
+        ]
+      },
+      "b": [],
+      "b_when": {
+        "egress": true
+      },
+      "severity": "high",
+      "why": "a secret that can be read and any way out is a leaked secret"
+    },
+    {
+      "id": "read_database+external_send",
+      "a": [
+        "database",
+        "db",
+        "sql",
+        "postgres",
+        "mysql",
+        "mongo",
+        "sqlite",
+        "supabase",
+        "table"
+      ],
+      "a_when": {
+        "effect": [
+          "read"
+        ]
+      },
+      "b": [
+        "send",
+        "post",
+        "upload",
+        "webhook",
+        "export",
+        "notify",
+        "message",
+        "slack"
+      ],
+      "b_when": {
+        "egress": true
+      },
+      "severity": "high",
+      "why": "records read from a database and sent outside are a data breach"
+    },
+    {
+      "id": "untrusted_fetch+irreversible",
+      "a": [
+        "browser",
+        "browse",
+        "fetch",
+        "navigate",
+        "url",
+        "web",
+        "scrape",
+        "crawl"
+      ],
+      "a_when": {
+        "untrusted_input": true
+      },
+      "b": [],
+      "b_when": {
+        "effect": [
+          "irreversible"
+        ]
+      },
+      "severity": "high",
+      "why": "text fetched from the web can instruct the AI agent to take an action that cannot be undone"
+    }
+  ]
+}

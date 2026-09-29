@@ -1,0 +1,6 @@
+{
+  "source_path": "crates/acp-crypto/tests/vectors/refused_ed25519.json",
+  "source_rev": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "sha256": "72c1a768e78bd13f9745c9a122c54b1230e836f5d03eafee8f1f4429fef73a4d",
+  "note": "Byte-identical mirror of the engine file named above, taken at the pinned rev. The mirror lives beside the file rather than inside it because a header written INTO the JSON would change the bytes and the identity claim would be about a different object. tools/check-verify-mirror.py enforces both halves: this sidecar matches the mirrored bytes, and the mirrored bytes match the engine source. Do not edit either by hand; re-mirror at a pin bump."
+}

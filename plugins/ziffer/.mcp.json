@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ziffer": {
+      "command": "npx",
+      "args": ["-y", "@ziffer-io/mcp@0.3.0"]
+    }
+  }
+}

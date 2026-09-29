@@ -1,0 +1,65 @@
+# Builds and tests every package on each push and pull request. Read-only: it
+# has no token that can write, mints no OpenID Connect token, and publishes
+# nothing. `claude plugin validate` is not run here because the Claude Code CLI
+# is not on a runner; the plugin and the catalog are validated where this
+# repository is composed.
+#
+# It also packs the five tarballs the way release.yml does and, on a push,
+# compares each one's release digest with release/expected-checksums.txt, so a
+# tree whose packages would be refused at release time is red here first. Not on
+# a pull request: a change to a package moves its digest by design, and only the
+# private gate that tested it can record the new one.
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22.16.0'
+          package-manager-cache: false
+
+      - run: corepack enable && pnpm --version
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm -r build
+
+      - run: pnpm -r --workspace-concurrency=1 test
+
+      - name: Pack, in dependency order
+        run: |
+          mkdir -p "$RUNNER_TEMP/dist-npm"
+          : > "$RUNNER_TEMP/packed.txt"
+          for d in packages/types packages/acp-verify packages/acp-client packages/scan packages/mcp; do
+            tgz="$(node tools/pack-npm.mjs "$d" "$RUNNER_TEMP/dist-npm" | tail -1)"
+            key="$(node -p "const m = require('./$d/package.json'); m.name + '@' + m.version")"
+            printf '%s %s\n' "$key" "$tgz" >> "$RUNNER_TEMP/packed.txt"
+            echo "$key $(node tools/pack-npm.mjs --digest "$tgz")"
+          done
+
+      - name: Every tarball is the one release/expected-checksums.txt records
+        if: github.event_name == 'push'
+        run: |
+          expected="$GITHUB_WORKSPACE/release/expected-checksums.txt"
+          while read -r key tgz; do
+            want="$(awk -v k="$key" '$2 == k {print $1}' "$expected")"
+            got="$(node tools/pack-npm.mjs --digest "$tgz")"
+            if [ "$got" != "$want" ]; then
+              echo "ChecksumMismatch: $key packed to release digest $got; release/expected-checksums.txt records ${want:-nothing}" >&2
+              exit 1
+            fi
+            echo "$key $got matches"
+          done < "$RUNNER_TEMP/packed.txt"

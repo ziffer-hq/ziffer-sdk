@@ -1,0 +1,5 @@
+{
+  "hooks": {
+    "pre_mcp_tool_use": [{ "command": "node .windsurf/hooks/check-mcp.js" }]
+  }
+}

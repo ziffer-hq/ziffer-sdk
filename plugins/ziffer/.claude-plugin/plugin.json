@@ -1,0 +1,19 @@
+{
+  "name": "ziffer",
+  "displayName": "ZIFFER",
+  "version": "0.1.0",
+  "description": "Set up ZIFFER, the agent authorization service, from Claude Code: scan the code for the tools it gives an AI model, put ZIFFER in the code, build the policy from the scan, set up its pipeline, and check the result. A setup helper, not a control.",
+  "author": {
+    "name": "code75 SASU",
+    "url": "https://ziffer.io"
+  },
+  "homepage": "https://ziffer.io",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ziffer",
+    "ai-agent",
+    "agent-authorization",
+    "mcp",
+    "policy"
+  ]
+}

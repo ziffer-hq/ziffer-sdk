@@ -1,0 +1,74 @@
+{
+  "_comment": "Patterns for instruction-like text in a tool DESCRIPTION a server publishes. Each entry is either a regular expression (pattern + flags, compiled once at load) or a length threshold (max_length, in UTF-16 code units). This file is ASCII-only on purpose: invisible code points are written as \\u escapes, never as the characters themselves, because a literal that an editor drops would make its pattern match nothing.",
+  "patterns": [
+    {
+      "id": "ignore-previous",
+      "pattern": "\\b(ignore|disregard|forget|override)\\s+(all\\s+)?(of\\s+)?(the\\s+|your\\s+)?(previous|prior|above|earlier|other|system)\\s+(instructions?|prompts?|rules?|messages?|directions?)",
+      "flags": "i",
+      "severity": "high",
+      "why": "text telling the AI agent to drop its earlier instructions"
+    },
+    {
+      "id": "conceal-from-user",
+      "pattern": "\\b(do\\s+not|don'?t|never|without)\\s+(tell|telling|inform|informing|mention|mentioning|reveal|revealing|show|showing|notify|notifying|alert|alerting)\\s+(this\\s+(to\\s+)?)?(the\\s+)?users?\\b",
+      "flags": "i",
+      "severity": "high",
+      "why": "text asking the AI agent to hide something from the person using it"
+    },
+    {
+      "id": "before-any-other-tool",
+      "pattern": "\\bbefore\\s+(using|calling|invoking|running|executing)\\s+(any|every|all)\\s+(of\\s+the\\s+)?(other\\s+)?tools?\\b",
+      "flags": "i",
+      "severity": "high",
+      "why": "text claiming precedence over every other tool the AI agent can reach"
+    },
+    {
+      "id": "instruction-tag",
+      "pattern": "<\\s*/?\\s*(important|system|instructions?|secret|admin|override)\\s*>",
+      "flags": "i",
+      "severity": "high",
+      "why": "a pseudo-markup tag addressing the model instead of the reader"
+    },
+    {
+      "id": "html-comment",
+      "pattern": "<!--[\\s\\S]*?-->",
+      "flags": "",
+      "severity": "warn",
+      "why": "an HTML comment: text most interfaces hide from a person but a model still reads"
+    },
+    {
+      "id": "markdown-comment",
+      "pattern": "^\\s*\\[(//|comment)\\]\\s*:\\s*[#<]",
+      "flags": "im",
+      "severity": "warn",
+      "why": "a markdown comment: text a rendered view hides but a model still reads"
+    },
+    {
+      "id": "invisible-code-points",
+      "pattern": "[\\u00AD\\u180E\\u200B-\\u200F\\u202A-\\u202E\\u2060-\\u2064\\u2066-\\u2069\\uFEFF]",
+      "flags": "",
+      "severity": "high",
+      "why": "zero-width or direction-changing characters that hide text from a person"
+    },
+    {
+      "id": "invisible-tag-characters",
+      "pattern": "[\\u{E0000}-\\u{E007F}]",
+      "flags": "u",
+      "severity": "high",
+      "why": "Unicode tag characters, which spell out text no screen shows"
+    },
+    {
+      "id": "you-must-imperative",
+      "pattern": "\\byou\\s+(must|should)\\s+(always|first|never|immediately)\\b",
+      "flags": "i",
+      "severity": "warn",
+      "why": "an order addressed to the model rather than a description of the tool"
+    },
+    {
+      "id": "long-description",
+      "max_length": 2000,
+      "severity": "warn",
+      "why": "an unusually long description, where instructions are easy to bury"
+    }
+  ]
+}

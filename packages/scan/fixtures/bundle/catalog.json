@@ -1,0 +1,89 @@
+{
+  "_note": "A hand-made catalog for the bundle generator's tests (ACP-436): mail read/send, a deploy tool, an unclassified tool, names that need normalising, two names that collide after normalising, and one tool name exposed by two servers. Not discovered from any machine.",
+  "catalog": [
+    {
+      "client": "Claude Code",
+      "server": "mail",
+      "tool": "read_email",
+      "description": "Read messages from the inbox.",
+      "params": [
+        "folder",
+        "limit"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "mail",
+      "tool": "send_email",
+      "description": "Send an email to any address.",
+      "params": [
+        "to",
+        "subject",
+        "body"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "Deploy Server",
+      "tool": "deploy_production",
+      "description": "Deploy the current build to production.",
+      "params": [
+        "service",
+        "version"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "Create Issue",
+      "description": "Open an issue in a repository.",
+      "params": [
+        "repo",
+        "title",
+        "body"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "search.code",
+      "description": "Search code across repositories.",
+      "params": [
+        "query"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "search_code",
+      "description": "Search code (legacy alias).",
+      "params": [
+        "query"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "misc",
+      "tool": "mystery_tool",
+      "description": "",
+      "params": [],
+      "source_path": "/Users/fixture/.claude.json"
+    },
+    {
+      "client": "Claude Code",
+      "server": "gitlab",
+      "tool": "search_code",
+      "description": "Search code and open a merge request with the results.",
+      "params": [
+        "query"
+      ],
+      "source_path": "/Users/fixture/.claude.json"
+    }
+  ]
+}

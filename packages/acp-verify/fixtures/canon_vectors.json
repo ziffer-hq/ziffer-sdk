@@ -1,0 +1,145 @@
+{
+ "provenance": {
+  "derived_from": "reference/src/acp_executor.py::canon (imported and executed by gen_canon_vectors.py, not transcribed)",
+  "source_rev": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "rule": "json.dumps(obj, sort_keys=True, separators=(\",\", \":\"), ensure_ascii=False).encode(\"utf-8\")",
+  "note": "Each canonical_utf8 is the engine reference's canon() output over `value`, decoded as UTF-8. tools/check-verify-mirror.py re-derives every case against the engine at the pin; packages/acp-verify tests assert the TS canon reproduces the same bytes."
+ },
+ "cases": [
+  {
+   "name": "empty_object",
+   "value": {},
+   "canonical_utf8": "{}"
+  },
+  {
+   "name": "empty_array",
+   "value": [],
+   "canonical_utf8": "[]"
+  },
+  {
+   "name": "scalars",
+   "value": {
+    "t": true,
+    "f": false,
+    "n": null,
+    "i": 0,
+    "neg": -1,
+    "s": "x"
+   },
+   "canonical_utf8": "{\"f\":false,\"i\":0,\"n\":null,\"neg\":-1,\"s\":\"x\",\"t\":true}"
+  },
+  {
+   "name": "keys_sorted_at_every_depth",
+   "value": {
+    "b": [
+     {
+      "z": 1,
+      "y": 2
+     }
+    ],
+    "a": {
+     "d": 2,
+     "c": 3
+    }
+   },
+   "canonical_utf8": "{\"a\":{\"c\":3,\"d\":2},\"b\":[{\"y\":2,\"z\":1}]}"
+  },
+  {
+   "name": "no_whitespace",
+   "value": {
+    "a": [
+     1,
+     2,
+     {
+      "k": "v"
+     }
+    ]
+   },
+   "canonical_utf8": "{\"a\":[1,2,{\"k\":\"v\"}]}"
+  },
+  {
+   "name": "raw_utf8_like_ensure_ascii_false",
+   "value": {
+    "k": "é",
+    "café": "日本語"
+   },
+   "canonical_utf8": "{\"café\":\"日本語\",\"k\":\"é\"}"
+  },
+  {
+   "name": "control_chars_escaped_identically",
+   "value": {
+    "esc": "\u0001\b\t\n\f\r\"\\"
+   },
+   "canonical_utf8": "{\"esc\":\"\\u0001\\b\\t\\n\\f\\r\\\"\\\\\"}"
+  },
+  {
+   "name": "astral_keys_sort_by_code_point_not_utf16_unit",
+   "value": {
+    "𐀀": "astral",
+    "�": "bmp"
+   },
+   "canonical_utf8": "{\"�\":\"bmp\",\"𐀀\":\"astral\"}"
+  },
+  {
+   "name": "astral_value_raw",
+   "value": {
+    "pair": "a🐛b"
+   },
+   "canonical_utf8": "{\"pair\":\"a🐛b\"}"
+  },
+  {
+   "name": "integer_domain_safe",
+   "value": {
+    "max_safe": 9007199254740991,
+    "min_safe": -9007199254740991
+   },
+   "canonical_utf8": "{\"max_safe\":9007199254740991,\"min_safe\":-9007199254740991}"
+  },
+  {
+   "name": "nested_arrays",
+   "value": [
+    [
+     1,
+     [
+      2,
+      [
+       3
+      ]
+     ]
+    ],
+    {
+     "a": [
+      true,
+      null
+     ]
+    }
+   ],
+   "canonical_utf8": "[[1,[2,[3]]],{\"a\":[true,null]}]"
+  },
+  {
+   "name": "key_order_is_byte_order",
+   "value": {
+    "Z": 1,
+    "a": 2,
+    "é": 3,
+    "0": 4
+   },
+   "canonical_utf8": "{\"0\":4,\"Z\":1,\"a\":2,\"é\":3}"
+  },
+  {
+   "name": "receipt_shaped_body",
+   "value": {
+    "alg": "hybrid-ed25519-mldsa65",
+    "decision": "ALLOW",
+    "expires_at": "2026-09-02T10:01:00Z",
+    "issued_at": "2026-09-02T10:00:00Z",
+    "nonce": "b64:AAAAAAAAAAAAAAAAAAAAAA==",
+    "proposal_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "receipt_version": 3,
+    "tenant_id": "t1",
+    "operator": "op-1"
+   },
+   "canonical_utf8": "{\"alg\":\"hybrid-ed25519-mldsa65\",\"decision\":\"ALLOW\",\"expires_at\":\"2026-09-02T10:01:00Z\",\"issued_at\":\"2026-09-02T10:00:00Z\",\"nonce\":\"b64:AAAAAAAAAAAAAAAAAAAAAA==\",\"operator\":\"op-1\",\"proposal_hash\":\"sha256:0000000000000000000000000000000000000000000000000000000000000000\",\"receipt_version\":3,\"tenant_id\":\"t1\"}"
+  }
+ ]
+}

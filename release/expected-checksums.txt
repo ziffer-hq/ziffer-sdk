@@ -1,0 +1,10 @@
+# Release digest of each tarball tools/release-npm.sh --dry-run packed from the private repository's
+# gated build at 0.3.0, by package: the sha256 of the canonical tar inside the tarball, as
+# `node tools/pack-npm.mjs --digest <tgz>` prints it (not the sha256 of the .tgz, whose compressed
+# bytes differ between zlib builds). release.yml refuses to publish a tarball whose digest differs.
+# Written by tools/publish-public.sh --record-checksums; never by hand.
+ac6dcb74a85d83b90c9ca33eb9300c250059dd7982c414110db85b909c4b4eb5  @ziffer-io/types@0.3.0
+1dbdf8a702113c466e93cb9f323cf3a7e8ddf82baf86aa3fd7120da1d7d1eead  @ziffer-io/verify@0.3.0
+a59351d3f3f0bc0e678c51d779cbfc272d92b967899884f6fa102a29b9484b41  @ziffer-io/client@0.3.0
+94adcd66f21283ea862061f650ee41017f5f2414bcfe42692cb567cd04584418  @ziffer-io/scan@0.3.0
+5ddafb5a9178da7209f77889f754ce5bd531d16fc04a274412b689afe3013bc5  @ziffer-io/mcp@0.3.0

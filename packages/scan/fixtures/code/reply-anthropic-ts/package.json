@@ -1,0 +1,7 @@
+{
+  "name": "harbour-inn-anthropic",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-474): tools in the Messages API format with no execute body, run by the application's own runTool from the loop over the reply's tool_use blocks. Types from @anthropic-ai/sdk 0.128.0, resolved through the scan package's own node_modules.",
+  "dependencies": { "@anthropic-ai/sdk": "0.128.0", "openai": "7.23.0" }
+}

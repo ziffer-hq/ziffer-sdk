@@ -1,0 +1,10 @@
+{
+  "name": "corner-bookshop-names",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, 2026-09-28): a tool's name for the model written as a constant, an enum member, a class attribute, and as a call the scan cannot resolve. Its dependencies resolve through packages/scan's devDependencies; it is never installed on its own.",
+  "dependencies": {
+    "@langchain/core": "1.2.12",
+    "zod": "4.6.5"
+  }
+}

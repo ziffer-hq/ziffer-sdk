@@ -1,0 +1,11 @@
+{
+  "tools": [
+    {
+      "toolSpec": {
+        "name": "ship_order",
+        "description": "Hand an order to the courier",
+        "inputSchema": { "json": { "type": "object", "properties": { "orderId": { "type": "string" }, "address": { "type": "string" } } } }
+      }
+    }
+  ]
+}

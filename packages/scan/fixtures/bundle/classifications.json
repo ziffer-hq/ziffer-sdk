@@ -1,0 +1,91 @@
+{
+  "_note": "Draft classifications for catalog.json. mystery_tool is deliberately absent: it is the unclassified tool.",
+  "classifications": [
+    {
+      "client": "Claude Code",
+      "server": "mail",
+      "tool": "read_email",
+      "effect": "read",
+      "egress": false,
+      "untrusted_input": true,
+      "matched": [
+        "verb:read",
+        "noun:email"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "mail",
+      "tool": "send_email",
+      "effect": "write",
+      "egress": true,
+      "untrusted_input": false,
+      "matched": [
+        "verb:send",
+        "noun:email"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "Deploy Server",
+      "tool": "deploy_production",
+      "effect": "irreversible",
+      "egress": false,
+      "untrusted_input": false,
+      "matched": [
+        "verb:deploy"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "Create Issue",
+      "effect": "write",
+      "egress": false,
+      "untrusted_input": false,
+      "matched": [
+        "verb:create"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "search.code",
+      "effect": "read",
+      "egress": false,
+      "untrusted_input": true,
+      "matched": [
+        "verb:search"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "github",
+      "tool": "search_code",
+      "effect": "read",
+      "egress": false,
+      "untrusted_input": true,
+      "matched": [
+        "verb:search"
+      ],
+      "draft": true
+    },
+    {
+      "client": "Claude Code",
+      "server": "gitlab",
+      "tool": "search_code",
+      "effect": "write",
+      "egress": false,
+      "untrusted_input": true,
+      "matched": [
+        "verb:open"
+      ],
+      "draft": true
+    }
+  ]
+}

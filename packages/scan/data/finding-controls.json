@@ -1,0 +1,71 @@
+{
+  "//": "ACP-439. Which dossier rows each finding kind cites, by the framework's own clause as Annex E (dossier/annexes/E-control-mapping.md) or the MITRE chapter (dossier/02-THREAT-MODEL-MITRE.md) spells it. Chosen sparsely: the two to four rows a security reader would open, not every row that could be argued. The status printed beside each citation is NEVER stored here: it is read from the dossier at the engine pin by scripts/embed-annex.mjs. src/report/controls.test.ts asserts every citation below resolves to a row of that generated data, so a renamed row turns the build red. A kind mapped to [] cites nothing on purpose: it reports what this scan could not look at, and no framework row is about that. EU AI Act Art. 14(5) and DORA Art. 11(1) are never cited: src/report/controls.ts EXCLUDED_CITATIONS gives the reason for each, and a test holds this file to it.",
+  "kinds": {
+    "pair": [
+      {
+        "framework": "NIST SP 800-53 Rev. 5",
+        "clause": "AC-6"
+      },
+      {
+        "framework": "NIST SP 800-53 Rev. 5",
+        "clause": "SC-7"
+      },
+      {
+        "framework": "MITRE ATLAS",
+        "clause": "AML.T0051.001"
+      },
+      {
+        "framework": "MITRE ATLAS",
+        "clause": "AML.T0086"
+      }
+    ],
+    "poisoned": [
+      {
+        "framework": "MITRE ATLAS",
+        "clause": "AML.T0110"
+      },
+      {
+        "framework": "NIS2",
+        "clause": "Art. 21(2)(d)"
+      },
+      {
+        "framework": "DORA",
+        "clause": "Art. 28(1)–(2)"
+      }
+    ],
+    "unclassified": [
+      {
+        "framework": "NIS2",
+        "clause": "Art. 21(2)(a)"
+      },
+      {
+        "framework": "DORA",
+        "clause": "Art. 8(1)"
+      }
+    ],
+    "irreversible": [
+      {
+        "framework": "EU AI Act",
+        "clause": "Art. 14(4)(d)"
+      }
+    ],
+    "egress": [
+      {
+        "framework": "NIST SP 800-53 Rev. 5",
+        "clause": "SC-7"
+      },
+      {
+        "framework": "MITRE ATLAS",
+        "clause": "AML.T0086"
+      }
+    ],
+    "client_not_covered": [],
+    "server_not_started": [],
+    "runtime_missing": []
+  },
+  "mitre_position_status": {
+    "//": "The MITRE chapter grades a technique by a position phrase, not by Annex E's vocabulary, and ControlRef's status field admits only the annex's six words. This table is the one place a position phrase is given a status word, for --json only: the terminal prints the chapter's own phrase. 'Out of scope by design.' maps to 'not covered' because, for a person reading a scan, the engine does not constrain that technique. A cited row whose phrase is missing here fails src/report/controls.test.ts.",
+    "Partially constrained.": "partial",
+    "Out of scope by design.": "not covered"
+  }
+}

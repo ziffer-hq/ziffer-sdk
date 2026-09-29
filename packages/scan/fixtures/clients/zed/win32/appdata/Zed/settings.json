@@ -1,0 +1,8 @@
+{
+  "context_servers": {
+    "legacy-server": {
+      "command": { "path": "C:/tools/legacy.exe", "args": ["--stdio"], "env": { "LEGACY_MODE": "1" } },
+      "settings": {}
+    }
+  }
+}

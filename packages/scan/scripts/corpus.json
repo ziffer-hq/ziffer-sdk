@@ -1,0 +1,374 @@
+{
+  "//": "The public-repository corpus `scripts/corpus.mjs` runs the code front ends over (ACP-455): one shallow clone per entry at `commit`, dependencies NOT installed (a fresh clone is what a customer's CI checkout looks like). Every expectation was checked by hand against the source at the pinned commit on 2026-09-27: `must_find` names a tool and the file its definition sits in (a notebook by its file; the scan names the cell), `min_tools` is a floor under the count that run found, and `must_not_find` names where a definition is NOT the application's tool -- a framework's own source or tests. A clone at another commit is a miss, not a pass.",
+  "repos": [
+    {
+      "id": "anthropics_anthropic-quickstarts",
+      "url": "https://github.com/anthropics/anthropic-quickstarts",
+      "commit": "dee71163217524eed07d79d00ffea5a7d02cedda",
+      "min_tools": 8,
+      "must_find": [
+        {
+          "name": "bash",
+          "file": "managed-agents/self-hosted-sandboxes/cloudflare-worker/src/tools.ts"
+        },
+        {
+          "name": "calculator",
+          "file": "agents/tools/calculator_mcp.py"
+        },
+        {
+          "name": "point_at",
+          "file": "computer-use-best-practices/dev_ui/localization_demo/server.py"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "cohere-ai_cohere-toolkit",
+      "url": "https://github.com/cohere-ai/cohere-toolkit",
+      "commit": "fdd4371edf164f2c1726a884e421049093c0128e",
+      "min_tools": 14,
+      "must_find": [
+        {
+          "name": "brave_web_search",
+          "file": "src/backend/tools/brave_search/tool.py"
+        },
+        {
+          "name": "arxiv",
+          "file": "src/community/tools/arxiv.py"
+        },
+        {
+          "name": "toolkit_calculator",
+          "file": "src/backend/tools/calculator.py"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "src/backend/tests/",
+          "why": "test code: the scan reads no tests"
+        }
+      ]
+    },
+    {
+      "id": "crewAIInc_crewAI-examples",
+      "url": "https://github.com/crewAIInc/crewAI-examples",
+      "commit": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+      "min_tools": 60,
+      "must_find": [
+        {
+          "name": "markdown_validation_tool",
+          "file": "crews/markdown_validator/src/markdown_validator/tools/markdownTools.py"
+        },
+        {
+          "name": "WebsiteSearchTool",
+          "file": "crews/job-posting/src/job_posting/crew.py"
+        },
+        {
+          "name": "search",
+          "file": "crews/prep-for-a-meeting/tools/ExaSearchTool.py"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "google-gemini_cookbook",
+      "url": "https://github.com/google-gemini/cookbook",
+      "commit": "f6c5d71cd8c3b0c0f385b8ade6c68a46f8876599",
+      "min_tools": 25,
+      "must_find": [
+        {
+          "name": "add_to_order",
+          "file": "examples/Agents_Function_Calling_Barista_Bot.ipynb"
+        },
+        {
+          "name": "enable_lights",
+          "file": "quickstarts/Function_calling.ipynb"
+        },
+        {
+          "name": "find_movies",
+          "file": "quickstarts/Function_calling.ipynb"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "langchain-ai_langchainjs",
+      "url": "https://github.com/langchain-ai/langchainjs",
+      "commit": "5d509ad4b8a5ed9dd4b83020b4c103ac8a69859c",
+      "min_tools": 95,
+      "must_find": [
+        {
+          "name": "account_info",
+          "file": "examples/src/createAgent/accessExternalContext.ts"
+        },
+        {
+          "name": "record_warranty_status",
+          "file": "examples/src/multi-agent/handoffs-customer-support.ts"
+        },
+        {
+          "name": "get_current_weather",
+          "file": "examples/src/langchain-classic/models/chat/chat_mistralai_agents.ts"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "libs/langchain-classic/src/",
+          "why": "the framework's own source (@langchain/classic)"
+        },
+        {
+          "file_prefix": "libs/providers/langchain-tavily/src/",
+          "why": "the framework's own source (@langchain/tavily)"
+        },
+        {
+          "file_prefix": "libs/providers/langchain-openai/src/",
+          "why": "the framework's own source (@langchain/openai)"
+        }
+      ]
+    },
+    {
+      "id": "langchain-ai_langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "commit": "7daa3ab49d678a5da75edb08baa87db4a2be52c3",
+      "min_tools": 2,
+      "must_find": [
+        {
+          "name": "search_engine",
+          "file": "libs/cli/examples/graphs/storm.py"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "libs/langgraph/",
+          "why": "the framework's own source (langgraph)"
+        },
+        {
+          "file_prefix": "libs/sdk-py/",
+          "why": "the framework's own source (langgraph-sdk)"
+        },
+        {
+          "file_prefix": "libs/prebuilt/",
+          "why": "the framework's own source (langgraph-prebuilt)"
+        }
+      ]
+    },
+    {
+      "id": "mistralai_cookbook",
+      "url": "https://github.com/mistralai/cookbook",
+      "commit": "c41b3b2e42ca5af579e3fd0d10ff4f68c911bf1f",
+      "min_tools": 38,
+      "must_find": [
+        {
+          "name": "retrieve_payment_status",
+          "file": "mistral/function_calling/function_calling.ipynb"
+        },
+        {
+          "name": "create_room",
+          "file": "mistral/lechat_custom_mcp_server/tic-tac-toe/mcp_server.py"
+        },
+        {
+          "name": "generate_report_content",
+          "file": "mistral/agents/agents_api/financial_analyst/mcp_servers/stdio_report_gen_server.py"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "modelcontextprotocol_servers",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "commit": "f46d9578190b476b3501923ea8977d899e8db2cb",
+      "min_tools": 55,
+      "must_find": [
+        {
+          "name": "echo",
+          "file": "src/everything/tools/echo.ts"
+        },
+        {
+          "name": "write_file",
+          "file": "src/filesystem/index.ts"
+        },
+        {
+          "name": "create_entities",
+          "file": "src/memory/index.ts"
+        },
+        {
+          "name": "git_status",
+          "file": "src/git/src/mcp_server_git/server.py"
+        },
+        {
+          "name": "get_current_time",
+          "file": "src/time/src/mcp_server_time/server.py"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "openai_openai-agents-js",
+      "url": "https://github.com/openai/openai-agents-js",
+      "commit": "fdaf0a66ca6e9d89498909ad7cf64745630e8afb",
+      "min_tools": 115,
+      "must_find": [
+        {
+          "name": "get_weather",
+          "file": "examples/agent-patterns/forcing-tool-use.ts"
+        },
+        {
+          "name": "translate_to_spanish",
+          "file": "examples/agent-patterns/agents-as-tools.ts"
+        },
+        {
+          "name": "get_temperature",
+          "file": "examples/agent-patterns/human-in-the-loop.ts"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "packages/agents-core/src/",
+          "why": "the framework's own source (@openai/agents-core)"
+        },
+        {
+          "file_prefix": "packages/agents-realtime/",
+          "why": "the framework's own source and tests (@openai/agents-realtime)"
+        }
+      ]
+    },
+    {
+      "id": "openai_openai-agents-python",
+      "url": "https://github.com/openai/openai-agents-python",
+      "commit": "588826c5be27cad21a3067463e21972ffea38561",
+      "min_tools": 78,
+      "must_find": [
+        {
+          "name": "publish_announcement",
+          "file": "examples/agent_patterns/human_in_the_loop_custom_rejection.py"
+        },
+        {
+          "name": "get_weather",
+          "file": "examples/agent_patterns/forcing_tool_use.py"
+        },
+        {
+          "name": "random_number",
+          "file": "examples/basic/agent_lifecycle_example.py"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "src/agents/",
+          "why": "the framework's own source (openai-agents)"
+        },
+        {
+          "file_prefix": "tests/",
+          "why": "the framework's tests"
+        }
+      ]
+    },
+    {
+      "id": "openai_openai-realtime-agents",
+      "url": "https://github.com/openai/openai-realtime-agents",
+      "commit": "94c9e9116b581052655cff7b756cc5e02771cda1",
+      "min_tools": 10,
+      "must_find": [
+        {
+          "name": "lookupOrders",
+          "file": "src/app/agentConfigs/customerServiceRetail/returns.ts"
+        },
+        {
+          "name": "checkout",
+          "file": "src/app/agentConfigs/customerServiceRetail/sales.ts"
+        },
+        {
+          "name": "getNextResponseFromSupervisor",
+          "file": "src/app/agentConfigs/chatSupervisor/supervisorAgent.ts"
+        }
+      ],
+      "must_not_find": []
+    },
+    {
+      "id": "pydantic_pydantic-ai",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "commit": "a383d75c05419c41cfb1f86adaf43b643b7dcf06",
+      "min_tools": 20,
+      "must_find": [
+        {
+          "name": "customer_balance",
+          "file": "examples/pydantic_ai_examples/bank_support.py"
+        },
+        {
+          "name": "retrieve",
+          "file": "examples/pydantic_ai_examples/rag.py"
+        },
+        {
+          "name": "roulette_wheel",
+          "file": "examples/pydantic_ai_examples/roulette_wheel.py"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "pydantic_ai_slim/",
+          "why": "the framework's own source (pydantic-ai-slim)"
+        },
+        {
+          "file_prefix": "tests/",
+          "why": "the framework's tests"
+        }
+      ]
+    },
+    {
+      "id": "vercel_ai",
+      "url": "https://github.com/vercel/ai",
+      "commit": "18b2b32deeea8982bd252996b0616fd1d9730b83",
+      "min_tools": 540,
+      "must_find": [
+        {
+          "name": "weather",
+          "file": "examples/next-agent/tool/weather-tool.ts"
+        },
+        {
+          "name": "create_event",
+          "file": "examples/mcp/src/elicitation-multi-step/server.ts"
+        },
+        {
+          "name": "fetchPdf",
+          "file": "examples/ai-e2e-next/tool/fetch-pdf-tool.ts"
+        }
+      ],
+      "must_not_find": [
+        {
+          "file_prefix": "packages/ai/src/",
+          "why": "the framework's own source (ai)"
+        },
+        {
+          "file_prefix": "packages/harness-claude-code/src/",
+          "why": "the framework's own source (@ai-sdk/harness-claude-code)"
+        },
+        {
+          "file_prefix": "packages/harness-cursor/src/",
+          "why": "the framework's own source (@ai-sdk/harness-cursor)"
+        }
+      ]
+    },
+    {
+      "id": "vercel_ai-chatbot",
+      "url": "https://github.com/vercel/ai-chatbot",
+      "commit": "c2f8235e1f3ea903ad8b7f61447c4f74164b5c58",
+      "min_tools": 5,
+      "must_find": [
+        {
+          "name": "getWeather",
+          "file": "lib/ai/tools/get-weather.ts"
+        },
+        {
+          "name": "createDocument",
+          "file": "lib/ai/tools/create-document.ts"
+        },
+        {
+          "name": "requestSuggestions",
+          "file": "lib/ai/tools/request-suggestions.ts"
+        },
+        {
+          "name": "updateDocument",
+          "file": "lib/ai/tools/update-document.ts"
+        }
+      ],
+      "must_not_find": []
+    }
+  ]
+}

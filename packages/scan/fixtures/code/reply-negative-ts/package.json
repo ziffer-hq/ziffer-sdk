@@ -1,0 +1,7 @@
+{
+  "name": "harbour-inn-negative",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-474), the decoy: the same loop and the same runTool as reply-anthropic-ts, but what runTool receives is two plain strings read from the application's own queue, spelled block.name and block.input. Nothing typed as a tool request reaches it, so it is no dispatcher.",
+  "dependencies": { "@anthropic-ai/sdk": "0.128.0" }
+}

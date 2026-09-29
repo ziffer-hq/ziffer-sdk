@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "fs": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"] },
+    "remote-docs": { "serverUrl": "https://mcp.example.test/sse" }
+  }
+}

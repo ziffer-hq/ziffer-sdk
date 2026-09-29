@@ -1,0 +1,92 @@
+{
+  "anchors": [],
+  "chain": [
+    {
+      "chain_hash": "sha256:0341285173ec3150036430c14a4d10e0365581a2bf5c49b182d6ece40327fba0",
+      "previous_hash": null,
+      "record": {
+        "bundle_epoch": 47,
+        "created_at": 1790000000,
+        "schema_version": "1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 0
+    },
+    {
+      "chain_hash": "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3",
+      "previous_hash": "sha256:0341285173ec3150036430c14a4d10e0365581a2bf5c49b182d6ece40327fba0",
+      "record": {
+        "attestation_ids": [
+          "sha256:0606060606060606060606060606060606060606060606060606060606060606"
+        ],
+        "bundle_epoch": 47,
+        "context_snapshot_hash": "sha256:0505050505050505050505050505050505050505050505050505050505050505",
+        "decision": "ATTEST",
+        "event_class": "decision",
+        "fidelity": "F-HIGH",
+        "occurred_at": "2026-09-21T14:13:25Z",
+        "operator": "op-1",
+        "policy_bundle_hash": "sha256:0404040404040404040404040404040404040404040404040404040404040404",
+        "proposal_hash": "sha256:0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a",
+        "raw_input_hash": "sha256:0202020202020202020202020202020202020202020202020202020202020202",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_effective": "HIGH",
+        "risk_level_floor_only": "HIGH",
+        "schema_hash": "sha256:0101010101010101010101010101010101010101010101010101010101010101",
+        "schema_id": "acp.demo.action",
+        "schema_version": "1",
+        "seq": 1,
+        "session": "sess-1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 1
+    },
+    {
+      "chain_hash": "sha256:c17960524e2ea16cb9822ed3d77eb9ad9d16b065446e1ea575877a589b6b5eae",
+      "previous_hash": "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3",
+      "record": {
+        "event_class": "hold",
+        "occurred_at": "2026-09-21T14:13:26Z",
+        "operator": "op-1",
+        "proposal_hash": "sha256:0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_floor_only": "HIGH",
+        "seq": 2,
+        "tenant_id": "ten-a"
+      },
+      "seq": 2
+    },
+    {
+      "chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+      "previous_hash": "sha256:c17960524e2ea16cb9822ed3d77eb9ad9d16b065446e1ea575877a589b6b5eae",
+      "record": {
+        "attestation_ids": [
+          "sha256:0606060606060606060606060606060606060606060606060606060606060606"
+        ],
+        "bundle_epoch": 47,
+        "context_snapshot_hash": "sha256:0505050505050505050505050505050505050505050505050505050505050505",
+        "decision": "ATTEST",
+        "event_class": "decision",
+        "fidelity": "F-HIGH",
+        "occurred_at": "2026-09-21T14:15:02Z",
+        "operator": "op-1",
+        "policy_bundle_hash": "sha256:0404040404040404040404040404040404040404040404040404040404040404",
+        "proposal_hash": "sha256:0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+        "raw_input_hash": "sha256:0202020202020202020202020202020202020202020202020202020202020202",
+        "receipt_nonce": "b64:ABEiM0RVZneImaq7zN3u/w==",
+        "risk_level_effective": "HIGH",
+        "risk_level_floor_only": "HIGH",
+        "schema_hash": "sha256:0101010101010101010101010101010101010101010101010101010101010101",
+        "schema_id": "acp.demo.action",
+        "schema_version": "1",
+        "seq": 3,
+        "session": "sess-1",
+        "tenant_id": "ten-a"
+      },
+      "seq": 3
+    }
+  ],
+  "engine_pin": "0123456789abcdef0123456789abcdef01234567",
+  "generated_at": "2026-09-22T18:00:00Z",
+  "tenant": "ten-a"
+}

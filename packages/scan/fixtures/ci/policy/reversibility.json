@@ -1,0 +1,6 @@
+{
+  "schema_version": "1",
+  "reversibility": {
+    "read_email": "REVERSIBLE"
+  }
+}

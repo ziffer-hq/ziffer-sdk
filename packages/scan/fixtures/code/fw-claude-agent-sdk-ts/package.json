@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-agent",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.3): the Claude Agent SDK's in-process MCP tools and query() options, in the shape of @anthropic-ai/claude-agent-sdk 0.3.284 sdk.d.ts (read 2026-09-28). The SDK is not installed for the scan's tests: its calls are read through the import declarations; zod resolves through packages/scan.",
+  "dependencies": { "@anthropic-ai/claude-agent-sdk": "0.3.284", "zod": "4.6.5" }
+}

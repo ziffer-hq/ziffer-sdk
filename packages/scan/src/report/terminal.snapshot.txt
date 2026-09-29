@@ -1,0 +1,159 @@
+ZIFFER scan 0.1.0 · this machine · nothing was sent anywhere
+engine 01234567 · 2026-09-25T09:30:00Z
+Wrote ./ziffer-scan/ (5 items). It is yours to delete; nothing was sent.
+Add ziffer-scan/ to .gitignore, or run with --out elsewhere.
+
+IN SHORT, FOR LEADERSHIP
+The AI assistants on this machine can call 8 tools; 2 of them are marked as
+impossible to undo by their name or description; confirm.
+  • Delete an email or merge a pull request: the draft reads these as impossible
+    to undo; ZIFFER holds each for a person.
+  Outsiders can try to steer the model through text in read_email.
+Book a 30-minute review of this report: https://cal.com/ziffer/30min
+
+The AI agents you code with can reach 4 tool servers with 8 tools, from 3
+AI agent clients. 2 of them can do damage that cannot be undone:
+  server  tool                what it can do
+  mail    delete_email        delete
+  github  merge_pull_request  merge
+  A prompt-injected AI agent can call any of these. Nothing asks a person first.
+
+  HIGH  Claude Code: an AI agent that reads read_email can then run send_email
+  HIGH  search_notes · Cursor: its description speaks to the AI agent
+  WARN  fetch_url · Claude Code: reads untrusted input, can send data out
+  Each pair is one AI agent reading something an attacker can write, then acting
+  on it.
+
+NOT IN THIS PICTURE
+  1 server took longer than 60 s to start and is not in this picture (rerun with
+    --timeout 120)
+  1 other server could not be started or read and is not in this picture
+  1 tool could not be read from its name or description; the draft treats it as
+    a write for a person to confirm
+  1 client has no configuration on this machine
+  JetBrains AI Assistant is not covered
+  Tools your own application defines for a model in its code are not in this
+    picture yet
+
+REPLAY
+UNSIGNED DEMO: the receipts below are signed by a throwaway key made for this
+run; they are a demonstration, not evidence
+  Without ZIFFER, all 8 injected actions execute; under the draft policy, 4 are
+  refused before grading, 1 is refused when graded, 2 are held until 2 approvers
+  sign, 1 is allowed.
+  Your mail · delete_email: without ZIFFER executes; under the draft policy HELD
+  until 2 approvers sign
+  (a proposal this scan wrote, not one an AI agent made)
+
+NEXT
+  Open the report:      open ziffer-scan/ziffer-scan-report.html
+  Review and sign off:  https://ziffer.io/review
+                        Attach ziffer-scan/ziffer-review.tar.gz to the email
+                        that page sends you.
+  The draft policy is ziffer-scan/ziffer-policy (13 files), signed by a key made
+  for this run and discarded: a draft to review, not a policy to deploy.
+  Then add the ZIFFER MCP server, @ziffer-io/mcp, to the AI agent you code with.
+
+Full detail: ziffer-scan --full · JSON: ziffer-scan --json
+Next: open the report.
+
+ZIFFER scan 0.1.0 · engine 01234567 · 2026-09-25T09:30:00Z
+Everything below was computed on this machine. Nothing was sent anywhere.
+
+CLIENTS
+  Configured:              Claude Code, VS Code, Cursor
+  No configuration found:  Zed
+  Not covered:             JetBrains AI Assistant
+                           This scan does not read the configuration of a client
+                           that is not covered.
+
+SERVERS
+  Claude Code
+    mail              3 tools   ~/.claude.json
+    web               1 tool    ~/.claude.json
+                                configured in 3 projects
+  VS Code
+    github            3 tools   ~/project/.vscode/mcp.json
+    python-tools      runtime missing: The server needs uvx, which is not
+                      installed here, so its tools are not in this report.
+  Cursor
+    notes             1 tool    ~/.cursor/mcp.json
+    linear            not started: The server "linear" was not scanned: it took
+                      longer than 60 s to start; rerun with --timeout 120, or
+                      start it once by hand so its packages are cached.
+  1 other client has no tool servers configured.
+
+TOOLS
+  Each classification is a draft read from the tool's name and description. The
+  engine decides, not this scan.
+  Claude Code · mail
+    read_email              read          untrusted input          draft
+    send_email              write         egress                   draft
+    delete_email            irreversible                           draft
+  Claude Code · web
+    fetch_url               read          egress, untrusted input  draft
+  VS Code · github
+    create_issue            write         egress                   draft
+    merge_pull_request      irreversible                           draft
+    frobnicate              unclassified
+  Cursor · notes
+    search_notes            read          untrusted input          draft
+
+FINDINGS (9, most severe first)
+  HIGH  read_email + send_email · Claude Code
+        One tool reads email anyone can send you and another sends email out, so
+        words in an incoming message could lead the AI agent to forward your
+        mail.
+        Controls: NIST SP 800-53 Rev. 5 AC-6 — built ·
+                  NIST SP 800-53 Rev. 5 SC-7 — partial ·
+                  MITRE ATLAS AML.T0051.001 — out of scope by design ·
+                  MITRE ATLAS AML.T0086 — partially constrained
+  HIGH  search_notes · Cursor
+        This tool's description tells the AI agent to ignore its instructions
+        and send your notes elsewhere.
+        Controls: MITRE ATLAS AML.T0110 — partially constrained ·
+                  NIS2 Art. 21(2)(d) — partial ·
+                  DORA Art. 28(1)–(2) — customer obligation
+  WARN  delete_email · Claude Code
+        This tool permanently deletes a message, which no later call can undo.
+        Controls: EU AI Act Art. 14(4)(d) — built
+  WARN  merge_pull_request · VS Code
+        This tool merges a pull request, which lands code on a branch other
+        people build from.
+        Controls: EU AI Act Art. 14(4)(d) — built
+  WARN  fetch_url · Claude Code
+        This tool can send a request to any address on the internet, and the
+        address can carry your data.
+        Controls: NIST SP 800-53 Rev. 5 SC-7 — partial ·
+                  MITRE ATLAS AML.T0086 — partially constrained
+  WARN  linear · Cursor
+        The server "linear" was not scanned: it took longer than 60 s to start;
+        rerun with --timeout 120, or start it once by hand so its packages are
+        cached.
+  WARN  python-tools · VS Code
+        The server needs uvx, which is not installed here, so its tools are not
+        in this report.
+  INFO  frobnicate · VS Code
+        The scan could not tell from its name and empty description what this
+        tool does, so it is left unclassified.
+        Controls: NIS2 Art. 21(2)(a) — built · DORA Art. 8(1) — partial
+  INFO  client not covered · JetBrains AI Assistant
+        JetBrains AI Assistant keeps its tool configuration where this scan does
+        not read it.
+
+BLAST RADIUS (counts, not a score)
+  client           tools  irreversible  egress  pairs
+  Claude Code          4             1       2      1
+  VS Code              3             1       1      0
+  Cursor               1             0       0      0
+
+WHAT THIS SCAN CANNOT SEE
+  This scan reads only the MCP configuration files on this machine. It does not
+  yet read the tools your own application defines for a model in its code. It
+  cannot see change management, incident reporting, who holds your signing keys,
+  what a model was trained on, or any tool an AI agent reaches some other way.
+
+NEXT
+{policy_path}
+https://ziffer.io/review
+Then add the ZIFFER MCP server, @ziffer-io/mcp, to the AI agent you code with.

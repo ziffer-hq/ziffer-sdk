@@ -1,0 +1,5 @@
+{
+  "name": "corner-bookshop-repo",
+  "private": true,
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.20): a repository that configures coding assistants: Claude Code, Cursor and Devin Desktop (formerly Windsurf) hook files and an MCP server list, in the shapes the hosts document (read 2026-09-28). None of it is a tool of the application."
+}

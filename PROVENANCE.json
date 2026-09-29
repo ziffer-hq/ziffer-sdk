@@ -1,0 +1,3842 @@
+{
+  "engine_pin": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "files": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "f2fa93fbb6743d4b737326c5c41a3364e304106ffe118efed095fcc0658b9880",
+      "source": "public/.claude-plugin/marketplace.json"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "f568f003ebcfd7df668eaf59ef5d21078c5bf83c0e11f47b05b0d36528976f04",
+      "source": "public/.github/CODEOWNERS"
+    },
+    {
+      "path": ".github/workflows/check.yml",
+      "sha256": "15f73466230d96a84235a987fab54f27c0a6e2bb13633dcc0f81e0ce8e491e80",
+      "source": "public/.github/workflows/check.yml"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "946547d24faf36b4854242fca4d7ad0dc2bca578dccfe8ac572974336c9234f0",
+      "source": "public/.github/workflows/release.yml"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "2245a93c05d4bd04df58f8b244a8457be3c32819b844937debf6716cb1f10fa1",
+      "source": "public/.gitignore"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "d943df397f0b9ff4622671e0405e56bcbdb5979fab57fc3882718c39d295183a",
+      "source": "public/CHANGELOG.md"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "packages/acp-verify/LICENSE"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "packages/acp-verify/NOTICE"
+    },
+    {
+      "path": "PREBUILT.json",
+      "sha256": "a44584f50529130c67ca167ddf5cb62586ad4c869c5ccc610acc2abfe0b521ac",
+      "source": "derived"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d86b380bebb51828d361f7c64f19236e20513f848f5b0cc3a3ad96321ab3e5ce",
+      "source": "public/README.md"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "9f1ec704ffc655a80e32fc7717e22ad33a3d57176806253edbd7996bc168e054",
+      "source": "public/SECURITY.md"
+    },
+    {
+      "path": "package.json",
+      "sha256": "62a9b5fbb339f097fa96719bd8e437bc6805fca781c6648f4c657608df942224",
+      "source": "public/package.json"
+    },
+    {
+      "path": "packages/acp-client/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "packages/acp-client/LICENSE"
+    },
+    {
+      "path": "packages/acp-client/NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "packages/acp-client/NOTICE"
+    },
+    {
+      "path": "packages/acp-client/README.md",
+      "sha256": "08682b97fb6748f27d40ec30f857f40578df618e2b75b6b8898801f105a76132",
+      "source": "packages/acp-client/README.md"
+    },
+    {
+      "path": "packages/acp-client/THIRD-PARTY-NOTICES",
+      "sha256": "8a1bea4f0b54218f6a7e9c87beb44453e2554de32baebc4a102aca60230ddca0",
+      "source": "packages/acp-client/THIRD-PARTY-NOTICES"
+    },
+    {
+      "path": "packages/acp-client/package.json",
+      "sha256": "4db0a75a8a8486ef7cd20955abf8eadb3537d96b2c7e144c01197027a26b6457",
+      "source": "packages/acp-client/package.json"
+    },
+    {
+      "path": "packages/acp-client/src/client.test.ts",
+      "sha256": "dca044d8086b8eca0a84a8c1a72b436b25941d65e41239622b581cc72634cb01",
+      "source": "packages/acp-client/src/client.test.ts"
+    },
+    {
+      "path": "packages/acp-client/src/client.ts",
+      "sha256": "9cbad1c7f63fa0ea4aff84a54547c2a47b6d48c1eaa8085934dfe5d33697c7f8",
+      "source": "packages/acp-client/src/client.ts"
+    },
+    {
+      "path": "packages/acp-client/src/index.ts",
+      "sha256": "b1b8cb6f367aa0408d565c8d713277db1d2a6b8918be30a90dbc518aa7fdfcf7",
+      "source": "packages/acp-client/src/index.ts"
+    },
+    {
+      "path": "packages/acp-client/src/retry.test.ts",
+      "sha256": "7448ee6f31da86ca26559920564b789407af7a0dfed38b076b59c82638c83467",
+      "source": "packages/acp-client/src/retry.test.ts"
+    },
+    {
+      "path": "packages/acp-client/src/retry.ts",
+      "sha256": "410776ab4c3bcca5e0dd2e8bcbb0077e3ad2927392c5c72fca518e978e1f8b1c",
+      "source": "packages/acp-client/src/retry.ts"
+    },
+    {
+      "path": "packages/acp-client/tsconfig.json",
+      "sha256": "a088f31bba4df5b0f1893e9a0fa1f2d9c8d1a1f0d46ea2ccf04f6894fe8dce28",
+      "source": "packages/acp-client/tsconfig.json"
+    },
+    {
+      "path": "packages/acp-verify/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "packages/acp-verify/LICENSE"
+    },
+    {
+      "path": "packages/acp-verify/NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "packages/acp-verify/NOTICE"
+    },
+    {
+      "path": "packages/acp-verify/README.md",
+      "sha256": "c3da43f457a734d71b36dd7b86b87d56b20db4d7267d907498e2cc23caeeb411",
+      "source": "packages/acp-verify/README.md"
+    },
+    {
+      "path": "packages/acp-verify/THIRD-PARTY-NOTICES",
+      "sha256": "c0c130b0c363c822203f6f8028cf61f6c63b2b8426f4fd2fff354723d7205752",
+      "source": "packages/acp-verify/THIRD-PARTY-NOTICES"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/anchor-handover/anchor-identity.pub",
+      "sha256": "f6559f5a020fd9032db6a7edf4202502e6b4fa14d355e0a0df8060dc78f4b379",
+      "source": "packages/acp-verify/fixtures/anchor-handover/anchor-identity.pub"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/canon_vectors.json",
+      "sha256": "72184c5eaa3e4631239a44cfba661f672708f406c5d7e4b32d7705ee74168124",
+      "source": "packages/acp-verify/fixtures/canon_vectors.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/anchor-identity.pub",
+      "sha256": "77afec51043820b85c74857082109069da7db969bb3d1d828d1604476808d75b",
+      "source": "packages/acp-verify/fixtures/chain-export/anchor-identity.pub"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/expected.json",
+      "sha256": "c3017574c801dee988a601ebe41082b7a5bd83d2b9ab8bdcccf1b78d054dfe7e",
+      "source": "packages/acp-verify/fixtures/chain-export/expected.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-anchor-suite.json",
+      "sha256": "72c40830f4d9fd998e0d7c1f098749343a6402369b5fb2153c27396c7e83579a",
+      "source": "packages/acp-verify/fixtures/chain-export/export-anchor-suite.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-empty.json",
+      "sha256": "002b25d8375b6b873df8b6a4071f8e636b09a239a1abce435ef8fe759626198c",
+      "source": "packages/acp-verify/fixtures/chain-export/export-empty.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-forged-anchor.json",
+      "sha256": "df86eda8f774d847a661076a4283f0d026bc051d84e5a4ce2f904448882c73cf",
+      "source": "packages/acp-verify/fixtures/chain-export/export-forged-anchor.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-last-anchor-dropped.json",
+      "sha256": "07aa289b1dba1cd754713af80fa519865246f9fe42b91e23040a61f3ef8e0924",
+      "source": "packages/acp-verify/fixtures/chain-export/export-last-anchor-dropped.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-link-broken.json",
+      "sha256": "21c8fd7a83c4becdcd3375f59f28ec45cf00fd4629ef7ca716738c0debde6939",
+      "source": "packages/acp-verify/fixtures/chain-export/export-link-broken.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-not-canonical.json",
+      "sha256": "5f6f38c4289d02e800323cdea65540a44362ec52159520decdd8ee0d28e8dd63",
+      "source": "packages/acp-verify/fixtures/chain-export/export-not-canonical.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-one-byte.json",
+      "sha256": "86b208dfd710277ae01d658d3028e6635d1ec58fddd312678164fae9d61ec1e4",
+      "source": "packages/acp-verify/fixtures/chain-export/export-one-byte.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-out-of-place.json",
+      "sha256": "a528d17a96647cedcfda2b987d9c3a1f77c455114a8d58d67a93bda257dcdfb8",
+      "source": "packages/acp-verify/fixtures/chain-export/export-out-of-place.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-rewritten.json",
+      "sha256": "943f7256891b3e4c4c52f827fbf82c9818c015d0fad0105fe4715c5c23393886",
+      "source": "packages/acp-verify/fixtures/chain-export/export-rewritten.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-seq-gap.json",
+      "sha256": "e2ae0344299370adf4a14fe56dc5e26653ae620a0befb5ea7716f43b54db93fb",
+      "source": "packages/acp-verify/fixtures/chain-export/export-seq-gap.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export-window.json",
+      "sha256": "acc4d87373024ace5ae6f5b93f2236dc8c905736f759609700c69917e736f05d",
+      "source": "packages/acp-verify/fixtures/chain-export/export-window.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/export.json",
+      "sha256": "eff07a7b6ad9a007e87c21d375dc0f23d805a11986b372ec1c4c32bf4ecdd889",
+      "source": "packages/acp-verify/fixtures/chain-export/export.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/chain-export/gen_chain_corpus.py",
+      "sha256": "7f31cfe66a702bf66a046e6391eee5a644405a4cec6bb8696983a894dbd21f28",
+      "source": "packages/acp-verify/fixtures/chain-export/gen_chain_corpus.py"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/gen_canon_vectors.py",
+      "sha256": "2552e5d13ec984b0fbaa7e49ab2219edcdb71ad5902fa6c30566198dfa7b5614",
+      "source": "packages/acp-verify/fixtures/gen_canon_vectors.py"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/instant-type-vectors.json",
+      "sha256": "3c7d4bc365f511cb7415623331a27abec6a3e1d8e425d6c0dfec8b06fe3ef151",
+      "source": "packages/acp-verify/fixtures/instant-type-vectors.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/instant-type-vectors.json.provenance.json",
+      "sha256": "d746e303dc48c29e2762e3ddd004c73ae8fbda88229601d27e9a63a3d35520c9",
+      "source": "packages/acp-verify/fixtures/instant-type-vectors.json.provenance.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/python_signatures.json",
+      "sha256": "7ed9101d54a0a884a282af3f4ac246d426ed90c8a54c583e11f96471e9d7dac9",
+      "source": "packages/acp-verify/fixtures/python_signatures.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/python_signatures.json.provenance.json",
+      "sha256": "e4869c6448ecf6f1915314c6a87d89f11f7987c8d11497d26c32b4270d75929c",
+      "source": "packages/acp-verify/fixtures/python_signatures.json.provenance.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/refusal-lines.json",
+      "sha256": "0b8fc39d1fb584007bc7a1168c5a2b77ba1cf5db29ef682c6e346576a115c9e9",
+      "source": "packages/acp-verify/fixtures/refusal-lines.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/refused_ed25519.json",
+      "sha256": "72c1a768e78bd13f9745c9a122c54b1230e836f5d03eafee8f1f4429fef73a4d",
+      "source": "packages/acp-verify/fixtures/refused_ed25519.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/refused_ed25519.json.provenance.json",
+      "sha256": "abe203b360144f11e72b6fbc1bf3252c5f2059da915d33262de2486dc8764dd3",
+      "source": "packages/acp-verify/fixtures/refused_ed25519.json.provenance.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/refused_webauthn.json",
+      "sha256": "648521d8a35e7eb28d9ca74cb02c25bd6a9300ff3abd75a25f14c0c51905f089",
+      "source": "packages/acp-verify/fixtures/refused_webauthn.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/refused_webauthn.json.provenance.json",
+      "sha256": "1c47b18b1b682c66c3687c60a5d46682a44df50d077b27a3cfef688066707e67",
+      "source": "packages/acp-verify/fixtures/refused_webauthn.json.provenance.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/suite-clause-vectors.json",
+      "sha256": "f739092904709f9ea1e984d0e8e8760044be89994ef93615c6e3637b9805f539",
+      "source": "packages/acp-verify/fixtures/suite-clause-vectors.json"
+    },
+    {
+      "path": "packages/acp-verify/fixtures/suite-clause-vectors.json.provenance.json",
+      "sha256": "5138fcac3d09cacffecd2ddc87237f14b582f88127b54f6efeb11b0ac2d8e30b",
+      "source": "packages/acp-verify/fixtures/suite-clause-vectors.json.provenance.json"
+    },
+    {
+      "path": "packages/acp-verify/package.json",
+      "sha256": "53377202768cbd1bb6975f4646282b3dcc88b70e7c7239fd57635eca295ab54e",
+      "source": "packages/acp-verify/package.json"
+    },
+    {
+      "path": "packages/acp-verify/refusals.json",
+      "sha256": "7289d14e1d5f16992eec96c0ae82329fe6ae41f17d84648b2c20e783c218cce6",
+      "source": "packages/acp-verify/refusals.json"
+    },
+    {
+      "path": "packages/acp-verify/src/anchor.test.ts",
+      "sha256": "72ff125482732b8682d6cdca641919cf091a9a2e14a48dd0fe03788a650dc316",
+      "source": "packages/acp-verify/src/anchor.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/anchor.ts",
+      "sha256": "b6d4e9b9eed6c24462d2571979c654446611c55e1c1516016e644464032b5d8c",
+      "source": "packages/acp-verify/src/anchor.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/canon.test.ts",
+      "sha256": "d34b77843bc24e60f7ce856b04f059377d55b6ed154e26373a4e78100c6a190b",
+      "source": "packages/acp-verify/src/canon.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/canon.ts",
+      "sha256": "bed3aba0a36861b85a59d37df6ba7269261cd09777b24161acc33467caaa9e4e",
+      "source": "packages/acp-verify/src/canon.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/cbor.test.ts",
+      "sha256": "b459ef25684af1134b9b12a7d70e3604386ed0edcbbd38efe9a57db45348caa1",
+      "source": "packages/acp-verify/src/cbor.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/cbor.ts",
+      "sha256": "cf97f9056398b98c1f1e07f7b1bb35da9f9deb3305babe66b2cbfd2b921c5de0",
+      "source": "packages/acp-verify/src/cbor.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/chain.test.ts",
+      "sha256": "2ddc8812434b101b930b449cfda5877bc1f5ad5cf4f2a581b51613b00c67d49b",
+      "source": "packages/acp-verify/src/chain.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/chain.ts",
+      "sha256": "2cad5509d283a4dc4b77f91c3d9e1373d21f9da094666a4091686c0350bbdbad",
+      "source": "packages/acp-verify/src/chain.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/clauses.ts",
+      "sha256": "716243e9d5ab63993f4645e825ffee1c83efcfa9577f69aa5f61313208bd85b4",
+      "source": "packages/acp-verify/src/clauses.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/crypto.test.ts",
+      "sha256": "4725291db8c520cf551d516a74a0ddf259dc02404c8ab0622412c81a28e59b07",
+      "source": "packages/acp-verify/src/crypto.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/ed25519.ts",
+      "sha256": "5069160c3c0901cace32261ae12f852d86ce1c684467243623bcefa1861a5d62",
+      "source": "packages/acp-verify/src/ed25519.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/index.ts",
+      "sha256": "0e783081ff062863e4cf78c384fe64bd522870058c9330bb488b482aab781912",
+      "source": "packages/acp-verify/src/index.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/instant.test.ts",
+      "sha256": "3298b48e01f28143f15c80fd265941db5a090d5311d7351ef7d3983959fa5022",
+      "source": "packages/acp-verify/src/instant.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/instant.ts",
+      "sha256": "82df244840acff5b580b14cb09e6f2a4b12cba3e93ca095f338ce681e0deb7a7",
+      "source": "packages/acp-verify/src/instant.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/quorum.test.ts",
+      "sha256": "ef49e7eb08aa115055b55bb6bd05156715bde9b54eddeacc83ed4007e6fd0455",
+      "source": "packages/acp-verify/src/quorum.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/quorum.ts",
+      "sha256": "5876c0fd2a33be5ef167f98a7b344c7d99578232c694802cd7e9e1245e4b795b",
+      "source": "packages/acp-verify/src/quorum.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/refusal-names.ts",
+      "sha256": "8946925040ac4346861434138ea4d56818dca91b4a68dcc3cc620386c998b436",
+      "source": "packages/acp-verify/src/refusal-names.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/refusal.test.ts",
+      "sha256": "a82522a73f04ba7ceefefed6a8bb5101e6ea20ef56c0fcaf735c0a1844737258",
+      "source": "packages/acp-verify/src/refusal.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/refusal.ts",
+      "sha256": "c08fd9304c0278e13034f8638e291003dcd9dd51fbc6f677c0ef5235926cb8d3",
+      "source": "packages/acp-verify/src/refusal.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/registry.test.ts",
+      "sha256": "7033b1f96e7467313843e3959769c4260957021aced3d7f6636e1b2725a2f56e",
+      "source": "packages/acp-verify/src/registry.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/registry.ts",
+      "sha256": "d25e896daf544e703cfbb98a8929b95fd26c845f5c25bc0b4808fce8ba339e2f",
+      "source": "packages/acp-verify/src/registry.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/sig.ts",
+      "sha256": "554ee990560e9058d1b69f5422dda4ea2fcc13d2947ef181e54447f9c0c234dc",
+      "source": "packages/acp-verify/src/sig.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/suite.ts",
+      "sha256": "dcfa625e3dc894d95685f05a31be74ba2f06c90a93d5dc91eeb12d459e1ee092",
+      "source": "packages/acp-verify/src/suite.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/testkeys.ts",
+      "sha256": "aeec2f1eee8ad4f8d2b1d07d02d871c5db1dfa272f85ebd3e9c215ee7e08bfc0",
+      "source": "packages/acp-verify/src/testkeys.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/verify.test.ts",
+      "sha256": "6faacaa65731ab60933c878fa62d91bf2f822dbbb0b7604b225c055952f9b47b",
+      "source": "packages/acp-verify/src/verify.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/verify.ts",
+      "sha256": "c5dde9ad3681e2037829c633e61f843b156d3e8f4d20f8d6c2763d743bf0005b",
+      "source": "packages/acp-verify/src/verify.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/webauthn.test.ts",
+      "sha256": "083b0eb70f948c8952fc733e920a1ba46482abe6d7408356011f0e9a36c90e86",
+      "source": "packages/acp-verify/src/webauthn.test.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/webauthn.ts",
+      "sha256": "bf09507075f46a45fc5fa31db8b08314733671a9106a6e14a1a8cbab8b83d914",
+      "source": "packages/acp-verify/src/webauthn.ts"
+    },
+    {
+      "path": "packages/acp-verify/src/wire.ts",
+      "sha256": "4642ba557d47315424b639d5a9ae7de6386d25b4e7d38e69cbb00c497ff2821c",
+      "source": "packages/acp-verify/src/wire.ts"
+    },
+    {
+      "path": "packages/acp-verify/tsconfig.json",
+      "sha256": "2932810d9b8ecbb6a220f5a7aff5ccd8f5a07bb6fc548cc600deffac539e2773",
+      "source": "packages/acp-verify/tsconfig.json"
+    },
+    {
+      "path": "packages/mcp/.gitignore",
+      "sha256": "aa3fd385b6781910b1c0be8bfc8108330ae1fe085ad3b9d6693e70040dc0dd54",
+      "source": "packages/mcp/.gitignore"
+    },
+    {
+      "path": "packages/mcp/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "packages/mcp/LICENSE"
+    },
+    {
+      "path": "packages/mcp/NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "packages/mcp/NOTICE"
+    },
+    {
+      "path": "packages/mcp/README.md",
+      "sha256": "7b85fd1eed15b9568b08651f4a3259b84e2f30d570edefbd31f52b5cf0857991",
+      "source": "packages/mcp/README.md"
+    },
+    {
+      "path": "packages/mcp/THIRD-PARTY-NOTICES",
+      "sha256": "46031bd3bed74348c0f2bf6edc87c1ec1fd7b3d345e75895ebb2a19a489858f9",
+      "source": "packages/mcp/THIRD-PARTY-NOTICES"
+    },
+    {
+      "path": "packages/mcp/THIRD-PARTY-NOTICES.attribution.md",
+      "sha256": "ed4aeececc86c3cf4a9757cd423a37e4e4fa219749b8dd4f524314e048d0b7e5",
+      "source": "packages/mcp/THIRD-PARTY-NOTICES.attribution.md"
+    },
+    {
+      "path": "packages/mcp/package.json",
+      "sha256": "5cdc03a6c254f3a00191267fc3ce51e294f3bdebe821c70c40fd640a93f9ce39",
+      "source": "packages/mcp/package.json"
+    },
+    {
+      "path": "packages/mcp/scripts/check-tests-built.mjs",
+      "sha256": "23998202d42a6c0c75b00dfbe6bf8e1331083bc0526a74b2cd3dfea7483cddef",
+      "source": "packages/mcp/scripts/check-tests-built.mjs"
+    },
+    {
+      "path": "packages/mcp/scripts/embed-guide.mjs",
+      "sha256": "2226657c9bcd35fc30d8201b57580aa8fae30a3e1c06b68a953d6a2b8af47751",
+      "source": "packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/bin.ts",
+      "sha256": "9e989416d9ba1444540c32e41c6408c9b10a231669505cd6654f9f0e8f0acde2",
+      "source": "packages/mcp/src/bin.ts"
+    },
+    {
+      "path": "packages/mcp/src/client.ts",
+      "sha256": "2280a7aabaedcb4b3cecf5e9fef27fce4b74add1300198a936be635e888c3b2e",
+      "source": "packages/mcp/src/client.ts"
+    },
+    {
+      "path": "packages/mcp/src/config.test.ts",
+      "sha256": "371e53fe673210b9fa0ad3435cc37e640bfb9c23214cbac51caa1cea834b04cb",
+      "source": "packages/mcp/src/config.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/config.ts",
+      "sha256": "c83e80c431a6f758784df56e2a008a9c71935d7797101731eef07ec6266df10a",
+      "source": "packages/mcp/src/config.ts"
+    },
+    {
+      "path": "packages/mcp/src/decide.test.ts",
+      "sha256": "ac8d83ed233e79f6934a4c07ccfea725b534d2daa13b1d8380676a0b6c7bb6fa",
+      "source": "packages/mcp/src/decide.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/decide.ts",
+      "sha256": "594585b58a3905778013d6ad05d97af7ad058a65975e01d5522a2dd254796f11",
+      "source": "packages/mcp/src/decide.ts"
+    },
+    {
+      "path": "packages/mcp/src/docs.test.ts",
+      "sha256": "7471a39ce18ab935d3bad6649b4e312a6eccbfbb29808c6eff18b5f09511aa4c",
+      "source": "packages/mcp/src/docs.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/docs.ts",
+      "sha256": "cd8157afa647ddd8a6b1f820280b177dfd7c2c170eaba35e48c81dbe5cff066b",
+      "source": "packages/mcp/src/docs.ts"
+    },
+    {
+      "path": "packages/mcp/src/feedback.test.ts",
+      "sha256": "485c5ef55cf285d32068bf9b5eadf87f402006c4e0a93e7e3ace1dbd25dd3503",
+      "source": "packages/mcp/src/feedback.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/generated/docs-source.ts",
+      "sha256": "3ffadd16e95328b0a64b0dbc7e56d3585ea13e588fa4b467ddeb37bf1ce38704",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/generated/guide-source.ts",
+      "sha256": "0c5b53ba8e3451021fce683f446ce9b5a331a55185d4bb1782dbc9a29315505e",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/generated/repo-guide-source.ts",
+      "sha256": "ecf67c8540f0018847cd4830cfa69b8df817f45661b577763c9d1ae506e9fec5",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/generated/schema-source.ts",
+      "sha256": "1f81bee96b5d90944b668726ef914f0df8109ff3645b8fb19f80a88a4343e7ae",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/generated/started-source.ts",
+      "sha256": "6daf5cce1c9cb6d757106ff9bac154a7a2469314223e64fb996a2bb0f316c178",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/generated/template-source.ts",
+      "sha256": "f03a5b820d413f1d8f9b1c29c733925b5259c1ece03dc66be2bf2f7bcb0553e7",
+      "source": "generated:packages/mcp/scripts/embed-guide.mjs"
+    },
+    {
+      "path": "packages/mcp/src/guide.test.ts",
+      "sha256": "c6a256000df9137fdf9021aab32db923da78643a5ecf0962be6573d7c547afee",
+      "source": "packages/mcp/src/guide.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/guide.ts",
+      "sha256": "ed00064773cb74b70ab7861c8316abbf42c67a1220d7d3f3a3b0a2c33f267a2e",
+      "source": "packages/mcp/src/guide.ts"
+    },
+    {
+      "path": "packages/mcp/src/index.ts",
+      "sha256": "7a35bc17f819ed0ae3e0aeab6e1f87b56c3a3b4f5b111435b27cfe71a2c945b4",
+      "source": "packages/mcp/src/index.ts"
+    },
+    {
+      "path": "packages/mcp/src/integration-check.test.ts",
+      "sha256": "0bc8815e52fd707861e1453a654c8723a44333836d55dccada57e9b1a082b9a6",
+      "source": "packages/mcp/src/integration-check.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/integration-check.ts",
+      "sha256": "a4325f0d6c033cefef1403b53aaa3f30f39abf8a43345980f71f095ae4605144",
+      "source": "packages/mcp/src/integration-check.ts"
+    },
+    {
+      "path": "packages/mcp/src/policy-explain.test.ts",
+      "sha256": "653051f1faa742f4581ef49d8e10c71cbc5c09b21935376143232718604a6901",
+      "source": "packages/mcp/src/policy-explain.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/policy-explain.ts",
+      "sha256": "e9ee9c83f3a47ec8593d1af491d90fe062fff3ecf2f9c317b146fb073b9cc887",
+      "source": "packages/mcp/src/policy-explain.ts"
+    },
+    {
+      "path": "packages/mcp/src/proposal-lint.test.ts",
+      "sha256": "0b31e741916fb8bb368a4e3883ff4b9caa55c3e5e9666bfc9f1b16b2643e29b0",
+      "source": "packages/mcp/src/proposal-lint.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/proposal-lint.ts",
+      "sha256": "7b7a9111a887a556e6ea3a2200ea2bdb95c25852b2c7016a2b0679204a49884f",
+      "source": "packages/mcp/src/proposal-lint.ts"
+    },
+    {
+      "path": "packages/mcp/src/publish-explain.test.ts",
+      "sha256": "c8fbb3d70233cb5ac8d731710b9132cea2715f42877434d23a4d40549027d0bf",
+      "source": "packages/mcp/src/publish-explain.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/publish-explain.ts",
+      "sha256": "33b241ad1009f2ed75b0baa4fecfc035e39bdf800e182300ec2191954d8e41f5",
+      "source": "packages/mcp/src/publish-explain.ts"
+    },
+    {
+      "path": "packages/mcp/src/refusals.test.ts",
+      "sha256": "f91a420ed58622b59df4b305b5502bcbda71eccf0bd8d28af264e83a40b61571",
+      "source": "packages/mcp/src/refusals.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/refusals.ts",
+      "sha256": "a7a6a456c46a270f7821762977b38d7f230e065685d257431184c52ecf7a22e6",
+      "source": "packages/mcp/src/refusals.ts"
+    },
+    {
+      "path": "packages/mcp/src/repo-check.test.ts",
+      "sha256": "e7a748b9a9db3d83f9a93df19fbac03bf9668379dd3f734bc4f3d86217e21a3e",
+      "source": "packages/mcp/src/repo-check.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/repo-check.ts",
+      "sha256": "ee37c56ec507ef6386435566a997a8dcaa9c64a8ec6bb81715c8a6ddc310c37d",
+      "source": "packages/mcp/src/repo-check.ts"
+    },
+    {
+      "path": "packages/mcp/src/repo-guide.test.ts",
+      "sha256": "4df06b5c25e528fd9fb0c47fc65fa39d0240cb4f068bfd4bca4559a2f8ee68b8",
+      "source": "packages/mcp/src/repo-guide.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/repo-guide.ts",
+      "sha256": "c74a1a3deccab2be6b78b50615b08745e60d3562b8624bd14e99838971a396a0",
+      "source": "packages/mcp/src/repo-guide.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-code.test.ts",
+      "sha256": "2b3b0bec4f84e646034ba39691241fe4aa352997db935ba1e510a779ad762a71",
+      "source": "packages/mcp/src/scan-code.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-code.ts",
+      "sha256": "383d9369efe3d617f335ecad562482e525baf5171c1c22d1626de8398217c8b5",
+      "source": "packages/mcp/src/scan-code.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-explain.ts",
+      "sha256": "0bc5636b9bbc4d3d35aa73a2eafbbb123a9b7c71c92902e53d00dd4d3dc65ea3",
+      "source": "packages/mcp/src/scan-explain.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-module-check.test.ts",
+      "sha256": "947ae12ba338f2d294459a789be88c4d901d948a095ef5a3730c6171212206c4",
+      "source": "packages/mcp/src/scan-module-check.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-remedy.ts",
+      "sha256": "bff4bfce85fb0e6b62affc5dfcfdfd2d9b9a12f1472709184964ad7714a5b757",
+      "source": "packages/mcp/src/scan-remedy.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan-unseen.test.ts",
+      "sha256": "6be633203682e30ee5b60ced208cde1ff439775da5f850c1a67580421858340c",
+      "source": "packages/mcp/src/scan-unseen.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan.test.ts",
+      "sha256": "30a3f568992638d7cb9475fd6d05145951ea722f9fd8e3e7868c249e03e1e0b6",
+      "source": "packages/mcp/src/scan.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/scan.ts",
+      "sha256": "3b08b96daf27bc1108b0915739c95bc94ec7a50faaecf6d02f7740f3f32a90a1",
+      "source": "packages/mcp/src/scan.ts"
+    },
+    {
+      "path": "packages/mcp/src/server.test.ts",
+      "sha256": "815226ceae4131dc99b073784e607659f498d5eaf6ea8b8a305df93fbd3ffc97",
+      "source": "packages/mcp/src/server.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/server.ts",
+      "sha256": "8d9a7b9ed9ed3e594a3ccad556c8f508515b09dee3109ec00b8781908c444ee6",
+      "source": "packages/mcp/src/server.ts"
+    },
+    {
+      "path": "packages/mcp/src/started.test.ts",
+      "sha256": "7161847d8254dbffb4d99a01ecde57c9a0000530f0866e87ebc6c1034918cf60",
+      "source": "packages/mcp/src/started.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/started.ts",
+      "sha256": "d11623cf5c47408299da6d50094c7417fe91e881d090f7942532a8e6b787959e",
+      "source": "packages/mcp/src/started.ts"
+    },
+    {
+      "path": "packages/mcp/src/tools.test.ts",
+      "sha256": "202c4f9d2b81a291e5f145c06338f151aafeb6e25c4e28aebf476147d90549a2",
+      "source": "packages/mcp/src/tools.test.ts"
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "sha256": "a296c04f69d364c77e4c531f3803a14bc9e5a76ff1b61c2dbec0e1e5680db126",
+      "source": "packages/mcp/src/tools.ts"
+    },
+    {
+      "path": "packages/mcp/tsconfig.json",
+      "sha256": "4ebd8c537977658fd5baa9f9b9c0b80e2cc0b4a031d3c9503d405767cf4309ad",
+      "source": "packages/mcp/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/.gitignore",
+      "sha256": "aa3fd385b6781910b1c0be8bfc8108330ae1fe085ad3b9d6693e70040dc0dd54",
+      "source": "packages/scan/.gitignore"
+    },
+    {
+      "path": "packages/scan/LICENSE",
+      "sha256": "5fb36e39efb59a7e2e127f2d4bc48cd486e4ba9d9f489065a5f461a137e495af",
+      "source": "packages/scan/LICENSE"
+    },
+    {
+      "path": "packages/scan/README.md",
+      "sha256": "8f61a20d44b59b1b7c501a5d809ef8ca4e8d00c38e3695b25dbfec97f9735b87",
+      "source": "packages/scan/README.md"
+    },
+    {
+      "path": "packages/scan/THIRD-PARTY-NOTICES",
+      "sha256": "13ce2f514267394bb6861c7ee6637dbdc7b6ffd171bb32e42b0b6fa7a890f211",
+      "source": "packages/scan/THIRD-PARTY-NOTICES"
+    },
+    {
+      "path": "packages/scan/THIRD-PARTY-NOTICES.attribution.md",
+      "sha256": "8e8d9e58092ad5f344f65c27f5b14051ebe5be59b7a68fcbe14099e8d602dd87",
+      "source": "packages/scan/THIRD-PARTY-NOTICES.attribution.md"
+    },
+    {
+      "path": "packages/scan/assets/fonts/OFL.txt",
+      "sha256": "ac28291d986aa6f14edca158fe5e748326ac0bd5710f81112f58ee5faceb287f",
+      "source": "packages/scan/assets/fonts/OFL.txt"
+    },
+    {
+      "path": "packages/scan/assets/fonts/README",
+      "sha256": "7224e32dedf707229f50cbd2073dce93b645734c7f433922fe51c22ba3173d50",
+      "source": "packages/scan/assets/fonts/README"
+    },
+    {
+      "path": "packages/scan/assets/fonts/ibm-plex-mono-400.woff2",
+      "sha256": "c36f509c0a8f9f85f29cb44bc8701d8a9e0b14c499e77a884f789ead7093a7ac",
+      "source": "packages/scan/assets/fonts/ibm-plex-mono-400.woff2"
+    },
+    {
+      "path": "packages/scan/assets/fonts/ibm-plex-mono-500.woff2",
+      "sha256": "a76f53ca6612e7b3828eec2311098675b7f9849ae4169a8bcef6302aec02a6c0",
+      "source": "packages/scan/assets/fonts/ibm-plex-mono-500.woff2"
+    },
+    {
+      "path": "packages/scan/assets/fonts/schibsted-grotesk-400-900.woff2",
+      "sha256": "e3b56e90510a84ac0ed465b822e112983eaf58e37436bf769681c31f77b1f3a7",
+      "source": "packages/scan/assets/fonts/schibsted-grotesk-400-900.woff2"
+    },
+    {
+      "path": "packages/scan/data/claude-agent-builtins.json",
+      "sha256": "7e4f5cbc957e74fe46ccf4e66f2408b3fa1a97d65cb762927f94dcdd1ba0d7d5",
+      "source": "packages/scan/data/claude-agent-builtins.json"
+    },
+    {
+      "path": "packages/scan/data/clients.json",
+      "sha256": "8719453a78020f910d53b91f97bd18505d1ba3b1f12e3855122b8136d84bdc90",
+      "source": "packages/scan/data/clients.json"
+    },
+    {
+      "path": "packages/scan/data/code-sdks.json",
+      "sha256": "facae3559dad8af93b798442b8c9862171e5fe8318187c85680fc5e06f16ec57",
+      "source": "packages/scan/data/code-sdks.json"
+    },
+    {
+      "path": "packages/scan/data/finding-controls.json",
+      "sha256": "ef9aa99e2a7e24f3b898e7524a4991d0f213ae00992dba9543a87f2cef1029c8",
+      "source": "packages/scan/data/finding-controls.json"
+    },
+    {
+      "path": "packages/scan/data/keywords.json",
+      "sha256": "f7e0f2f32151b7b67f83234d4e925659a2c3a096409f9994be058d77e537b69f",
+      "source": "packages/scan/data/keywords.json"
+    },
+    {
+      "path": "packages/scan/data/pairs.json",
+      "sha256": "8a60eb84f36b4b977ead03c142163ba98d086ca095f260efa6cc75515d680929",
+      "source": "packages/scan/data/pairs.json"
+    },
+    {
+      "path": "packages/scan/data/poisoned.json",
+      "sha256": "ae5975fb4f0f97d4d2d56eea17c11ef845ce945fa5c848db9b061eec9ad71602",
+      "source": "packages/scan/data/poisoned.json"
+    },
+    {
+      "path": "packages/scan/data/redact.json",
+      "sha256": "7862bcc798402ce22bd1d286764edf45e1653c7020ada3d325fd619552ff0c7c",
+      "source": "packages/scan/data/redact.json"
+    },
+    {
+      "path": "packages/scan/data/replay/cases.json",
+      "sha256": "a14a65492339172896cf3466e11672e273148a583d9095b8da38e62b3093a601",
+      "source": "packages/scan/data/replay/cases.json"
+    },
+    {
+      "path": "packages/scan/data/replay/harness-bundle.json",
+      "sha256": "62ab5a5bb646af94636ac6af42486693db8262c762f738e30f13b2565e8e3729",
+      "source": "packages/scan/data/replay/harness-bundle.json"
+    },
+    {
+      "path": "packages/scan/data/replay/plain-words.json",
+      "sha256": "5c369c0ff9c24f7f62451e5ebb499b64c6e4931fe07d272993770ff3f0ecfc72",
+      "source": "packages/scan/data/replay/plain-words.json"
+    },
+    {
+      "path": "packages/scan/engine/acp_wasm.wasm",
+      "sha256": "a3ec4ced8b40782cf03ad1cbd0dd9728da25aa5cc8ec83a9695e974f8b43a987",
+      "source": "generated:packages/scan/scripts/vendor-wasm.mjs"
+    },
+    {
+      "path": "packages/scan/fixtures/bundle/catalog.json",
+      "sha256": "70fb01c3616804b1cbe94426247cb9f226fb3d4f971fe999580d9b81da8df0c7",
+      "source": "packages/scan/fixtures/bundle/catalog.json"
+    },
+    {
+      "path": "packages/scan/fixtures/bundle/classifications.json",
+      "sha256": "e6a2501edc69762e4585ea9d6136b33800bfca79d763097286430bb1c47af6fc",
+      "source": "packages/scan/fixtures/bundle/classifications.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/policy/adapters.json",
+      "sha256": "65f01183fad1b4c9b244d7723e40aeae5737cef406275ec065235bd00a56e784",
+      "source": "packages/scan/fixtures/ci/policy/adapters.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/policy/floors.json",
+      "sha256": "8a015954a17680d47685b39e78925026570a6ec76c1cb5ada3f60a5f433d1127",
+      "source": "packages/scan/fixtures/ci/policy/floors.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/policy/notice_targets.json",
+      "sha256": "71436387ca86b03daa8fafca733cf99a4b9cb0c0e4b521c97b9c324285a84c98",
+      "source": "packages/scan/fixtures/ci/policy/notice_targets.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/policy/reversibility.json",
+      "sha256": "a7acb7cd4d75fd566d6e0f273203eb7685effa7d4dbb0b0f5c7cc45a0c1066a0",
+      "source": "packages/scan/fixtures/ci/policy/reversibility.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/policy/risk_functions.json",
+      "sha256": "3ffb188efa1e08619585fcf30bcad9785f5f5d17391cc917b8dfeefeef044d0e",
+      "source": "packages/scan/fixtures/ci/policy/risk_functions.json"
+    },
+    {
+      "path": "packages/scan/fixtures/ci/project/.mcp.json",
+      "sha256": "1ff9dafbb7e0c64b26f03ee0cabc7af75061a1f1e35553ab81fb6a5efb22735b",
+      "source": "packages/scan/fixtures/ci/project/.mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-code/home/.claude.json",
+      "sha256": "711aa7b9781f5ebe03bed9ad036887333060cdea94692ee3df3df633a074887f",
+      "source": "packages/scan/fixtures/clients/claude-code/home/.claude.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-code/home/.claude/plugins/cache/market/deploy-plugin/1.0.0/.mcp.json",
+      "sha256": "9bcd4dc4afa0a7fadf8d15ac70161aabad2275a751871857cc80cfcfeac41c21",
+      "source": "packages/scan/fixtures/clients/claude-code/home/.claude/plugins/cache/market/deploy-plugin/1.0.0/.mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-code/project/.mcp.json",
+      "sha256": "836a9dfec9d5f41d4d6e59c42362b7889afa247cc5b5965b1194274da546bd6e",
+      "source": "packages/scan/fixtures/clients/claude-code/project/.mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-desktop/darwin/home/Library/Application Support/Claude/claude_desktop_config.json",
+      "sha256": "c4f8e3a589cf9f7f97c7d86d17923476acebaaf864123c71dd3f2eaa4d99b01b",
+      "source": "packages/scan/fixtures/clients/claude-desktop/darwin/home/Library/Application Support/Claude/claude_desktop_config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-desktop/linux/home/.config/Claude/claude_desktop_config.json",
+      "sha256": "c4f8e3a589cf9f7f97c7d86d17923476acebaaf864123c71dd3f2eaa4d99b01b",
+      "source": "packages/scan/fixtures/clients/claude-desktop/linux/home/.config/Claude/claude_desktop_config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/claude-desktop/win32/home/AppData/Roaming/Claude/claude_desktop_config.json",
+      "sha256": "c4f8e3a589cf9f7f97c7d86d17923476acebaaf864123c71dd3f2eaa4d99b01b",
+      "source": "packages/scan/fixtures/clients/claude-desktop/win32/home/AppData/Roaming/Claude/claude_desktop_config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cline/cli/home/.cline/mcp.json",
+      "sha256": "ca135ed3f6d985a0f503a5db608734baaa79ce8d78d0df8f97494050f0d90a20",
+      "source": "packages/scan/fixtures/clients/cline/cli/home/.cline/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cline/darwin/home/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+      "sha256": "8d56053af3a5a07dc72f3c6af62e1e7cd1d9c6cea4fe36669f2166f8ccdd2991",
+      "source": "packages/scan/fixtures/clients/cline/darwin/home/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cline/linux/home/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+      "sha256": "8d56053af3a5a07dc72f3c6af62e1e7cd1d9c6cea4fe36669f2166f8ccdd2991",
+      "source": "packages/scan/fixtures/clients/cline/linux/home/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cline/win32/appdata/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+      "sha256": "8d56053af3a5a07dc72f3c6af62e1e7cd1d9c6cea4fe36669f2166f8ccdd2991",
+      "source": "packages/scan/fixtures/clients/cline/win32/appdata/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/codex-cli/home/.codex/config.toml",
+      "sha256": "f05596c644424130236253cd5b7e650ca23c7cbd7195bd1bf752dbdf3d39a58a",
+      "source": "packages/scan/fixtures/clients/codex-cli/home/.codex/config.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/codex-cli/project/.codex/config.toml",
+      "sha256": "e06d41141f8043e3602ac141688449ff05117c0406633502e549574ebe65f45d",
+      "source": "packages/scan/fixtures/clients/codex-cli/project/.codex/config.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/continue/home/.continue/config.json",
+      "sha256": "34d97bd18751b14f137eeff2c017a4d0567e4631f82b291bbce2864f302cc16d",
+      "source": "packages/scan/fixtures/clients/continue/home/.continue/config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/continue/home/.continue/config.yaml",
+      "sha256": "db2a88a646372ee947b2cbbf077599703a86e98fcbd82a17e31e00fbd303a95d",
+      "source": "packages/scan/fixtures/clients/continue/home/.continue/config.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/continue/home/.continue/mcpServers/playwright-mcp.yaml",
+      "sha256": "1195a4c43650bf75275c66ed3a84f29f0ec50771e0914856a15feba3b74330cc",
+      "source": "packages/scan/fixtures/clients/continue/home/.continue/mcpServers/playwright-mcp.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/continue/project/.continue/mcpServers/copied-from-desktop.json",
+      "sha256": "1299e6f216a91cd757fc557bec1cc0e8781d5b8ddc6a83dbd3f5b2ce43f047fb",
+      "source": "packages/scan/fixtures/clients/continue/project/.continue/mcpServers/copied-from-desktop.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/continue/project/.continue/mcpServers/team.yaml",
+      "sha256": "9f63fc0354fbdf8037c037b1e245fe3b519fff0e9473f296bf46c2ed2acebe31",
+      "source": "packages/scan/fixtures/clients/continue/project/.continue/mcpServers/team.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cursor/home/.cursor/mcp.json",
+      "sha256": "4cfac744c0121c822800b5a3fb6cc08f53178056fba16ca73ecb93e5046b0e75",
+      "source": "packages/scan/fixtures/clients/cursor/home/.cursor/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/cursor/project/.cursor/mcp.json",
+      "sha256": "ad8abd911a98b24d47e02ce9251285647f2950fd19b9c19820485b323e4d7870",
+      "source": "packages/scan/fixtures/clients/cursor/project/.cursor/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/gemini-cli/home/.gemini/settings.json",
+      "sha256": "42d2e3c37110915b3dc96d9cc6a7730ecd16eb0388d98ed5e38d15275e0a10d0",
+      "source": "packages/scan/fixtures/clients/gemini-cli/home/.gemini/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/gemini-cli/project/.gemini/settings.json",
+      "sha256": "fa5678974ce4a4ee0f481c6d295d9aec7ef7973bc3bc2eaf78dfc2a8a9da68c2",
+      "source": "packages/scan/fixtures/clients/gemini-cli/project/.gemini/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/github-copilot/home/.copilot/mcp-config.json",
+      "sha256": "ed775857fb72169921d698eaf2a3a9e288d8ce6c10bcadd98ead8a187e7f675e",
+      "source": "packages/scan/fixtures/clients/github-copilot/home/.copilot/mcp-config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/goose/nix/home/.config/goose/config.yaml",
+      "sha256": "41a78756b5a2305f3cbbc3fff0e82b02b56ba857fbdec01a48ba78046429df92",
+      "source": "packages/scan/fixtures/clients/goose/nix/home/.config/goose/config.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/goose/win32/appdata/Block/goose/config/config.yaml",
+      "sha256": "2b9311cf1543e2f72dd692d55d6fcc33262b2d2d812e8fef423bb44766fe6dc6",
+      "source": "packages/scan/fixtures/clients/goose/win32/appdata/Block/goose/config/config.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/unreadable/home/.codeium/windsurf/mcp_config.json",
+      "sha256": "9e70ce447d0c4c453360b4a53b5a2301185e342ae22144f868703b513214a895",
+      "source": "packages/scan/fixtures/clients/unreadable/home/.codeium/windsurf/mcp_config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/unreadable/home/.continue/config.yaml",
+      "sha256": "2526526f63eb1fa5fbaebc96fc88c7e1aa9f6824d432a2f73621fce5a4aebbba",
+      "source": "packages/scan/fixtures/clients/unreadable/home/.continue/config.yaml"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/unreadable/home/.cursor/mcp.json",
+      "sha256": "80073d156613002c3236abfb57390ca9e6d553a3dc75a37b9e6566abf2e78a41",
+      "source": "packages/scan/fixtures/clients/unreadable/home/.cursor/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/vs-code/darwin/home/Library/Application Support/Code/User/mcp.json",
+      "sha256": "9e1e2aff5fe4ffba896b6f684f649ccb54239cf7e158151a00fa3c8662895b32",
+      "source": "packages/scan/fixtures/clients/vs-code/darwin/home/Library/Application Support/Code/User/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/vs-code/darwin/home/Library/Application Support/Code/User/settings.json",
+      "sha256": "f9fbe3ed8b999766413ae4c1a50d926e6d2167aac74e9f0028d45ca757fa75f9",
+      "source": "packages/scan/fixtures/clients/vs-code/darwin/home/Library/Application Support/Code/User/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/vs-code/linux/home/.config/Code/User/mcp.json",
+      "sha256": "5475cc664ae9e004afea85470f52d3ca9ead8503577f445cc510756492c3ee06",
+      "source": "packages/scan/fixtures/clients/vs-code/linux/home/.config/Code/User/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/vs-code/project/.vscode/mcp.json",
+      "sha256": "582989fe864a0ee2f65905e0a4f017b7346e3dcd50c76062dd2e80f6adad0041",
+      "source": "packages/scan/fixtures/clients/vs-code/project/.vscode/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/vs-code/win32/home/AppData/Roaming/Code/User/mcp.json",
+      "sha256": "4e621ae15300e9e38224b6d0bdfb195175a52c3bc0c020b3ba6ffb01abf2dd1e",
+      "source": "packages/scan/fixtures/clients/vs-code/win32/home/AppData/Roaming/Code/User/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/windsurf/home/.codeium/windsurf/mcp_config.json",
+      "sha256": "98afb680b034f5ac8cafaf8f3cb700f5d2dc2b162b6315eb2b9b48755eafd4ad",
+      "source": "packages/scan/fixtures/clients/windsurf/home/.codeium/windsurf/mcp_config.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/zed/nix/home/.config/zed/settings.json",
+      "sha256": "7fda1cc8dba624878dc717f0180d9cc7265c0fb60a96f7e61cf57130ba72d40b",
+      "source": "packages/scan/fixtures/clients/zed/nix/home/.config/zed/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/clients/zed/win32/appdata/Zed/settings.json",
+      "sha256": "f2588aaf46b70749e32b3ee55c5aa2e57992e830d8767125e75d72b77eba3af0",
+      "source": "packages/scan/fixtures/clients/zed/win32/appdata/Zed/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/broken-py/bad.py",
+      "sha256": "6b8c8a725c23dc076d9a2c185ce4e02435746bc3b4f99906d13de360e56898c7",
+      "source": "packages/scan/fixtures/code/broken-py/bad.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/broken-py/good.py",
+      "sha256": "654efa8e9bede16e31984a98806687a39e5056369b59ea3538001cca094b4992",
+      "source": "packages/scan/fixtures/code/broken-py/good.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/catalog-example-shape.json",
+      "sha256": "0e77acbee49bc6365f77154f97bb237b8f340bdbef089e6559b61945847ab6a2",
+      "source": "packages/scan/fixtures/code/catalog-example-shape.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/catalog-per-tool.json",
+      "sha256": "98b7d5b32267b7fdb51d2cc54748f1995516658d630daa3bc310a62128689aa5",
+      "source": "packages/scan/fixtures/code/catalog-per-tool.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/checks-py/billing_tools.py",
+      "sha256": "2cc1941e3258de9a39cbfe0a5334e92abf8515818a93559cf27dae4b11bd4c71",
+      "source": "packages/scan/fixtures/code/checks-py/billing_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/checks-py/cache_tools.py",
+      "sha256": "942b7d2fe836586ab2aac81d88d67c281ba633849fc1132ea6c67beca2437df3",
+      "source": "packages/scan/fixtures/code/checks-py/cache_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/checks-py/ledger_helpers.py",
+      "sha256": "1b64bf59000939ffdd351e95d0bc63e907674273030da2f575ee6cd8a8ef0f0b",
+      "source": "packages/scan/fixtures/code/checks-py/ledger_helpers.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/checks-py/ops_tools.py",
+      "sha256": "9566de4a9b7bb44f7cf178db73d8f1a19a88857a25f98bba09acb68025d25f1e",
+      "source": "packages/scan/fixtures/code/checks-py/ops_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/checks-py/routing.py",
+      "sha256": "fa39f65d6505af9409ca4fffb4ff5dc9d6797c9f7fb57b0bcf682fcaa53c6f48",
+      "source": "packages/scan/fixtures/code/checks-py/routing.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/.agents/hooks/notify.js",
+      "sha256": "9cf922b8f683d5f79f9326c9234483c95ccce8fa29aa0d2ce40917da0d4fb120",
+      "source": "packages/scan/fixtures/code/corpus-shapes/.agents/hooks/notify.js"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/__tests__/probe.test.ts",
+      "sha256": "9b5453344e639f40a1a1f883272883d9cfea65f02ad05f6a806cde3993612013",
+      "source": "packages/scan/fixtures/code/corpus-shapes/__tests__/probe.test.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/agents.ts",
+      "sha256": "4b0c60994a7677619ccec16d977da9c13b1557a9c8ac9ce8d321833f20a55587",
+      "source": "packages/scan/fixtures/code/corpus-shapes/agents.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/lc.ts",
+      "sha256": "c36cac9465a7e73a6bafae3fb50572731173762779dc92e391a5f8582764fc54",
+      "source": "packages/scan/fixtures/code/corpus-shapes/lc.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/notebook.ipynb",
+      "sha256": "8add665a4d55930ce4f6d73c1acf8bd355e6c641dd85fbacc1126da871827ecd",
+      "source": "packages/scan/fixtures/code/corpus-shapes/notebook.ipynb"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/package.json",
+      "sha256": "cf4238a5a349e780546caf71c6e1c0584f51df5f783f9b980b1939b7434d5832",
+      "source": "packages/scan/fixtures/code/corpus-shapes/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/plain.js",
+      "sha256": "5b17264678a4c309a8825083b007b7e2b5896fd8876c4589cb935dcf53456447",
+      "source": "packages/scan/fixtures/code/corpus-shapes/plain.js"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/pyfw/examples/app.py",
+      "sha256": "d69548c82731b21efd93ac99deb440c69b86b2f619f1895d79bd1cb66c074fbc",
+      "source": "packages/scan/fixtures/code/corpus-shapes/pyfw/examples/app.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/pyfw/internal_tools.py",
+      "sha256": "db2d33c0f22dda4567e747419b7ed11b2f9569037e6e7bec24d0e88dfedb1610",
+      "source": "packages/scan/fixtures/code/corpus-shapes/pyfw/internal_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/pyfw/pyproject.toml",
+      "sha256": "b87d9edc781d2b2ed57ec934c56be2f477cd6d36a52baf9a06e1ddb90f5c89af",
+      "source": "packages/scan/fixtures/code/corpus-shapes/pyfw/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/server.mjs",
+      "sha256": "52f1de0a827a6d6402f8e2eacf245baa43ef27e900b10674065a1094202ed916",
+      "source": "packages/scan/fixtures/code/corpus-shapes/server.mjs"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/examples/demo.ts",
+      "sha256": "f53818ab497bf5a5528839119f64843aa8e035c246fdda141eb08baea145d1c5",
+      "source": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/examples/demo.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/package.json",
+      "sha256": "1b8407560274f3720a554bed98e13fbb714cfbd2bc12079dc863438c6ff2c4f7",
+      "source": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/src/builtin.ts",
+      "sha256": "f42fcb08ad1cad3b9b0f292db0924bd13e981bd2ace727e7260c0a4a670b0fe9",
+      "source": "packages/scan/fixtures/code/corpus-shapes/vendor-fw/src/builtin.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/package.json",
+      "sha256": "ecd8b5299c6d6f4c2039ab0c86724a85784e350fe3d4fab50ffe73cceb363f2f",
+      "source": "packages/scan/fixtures/code/example-shape/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/decorators/decision-logger.ts",
+      "sha256": "eec1db7bde993de9e08a7e65000b224408838df61009459ef9b4347e766a91ac",
+      "source": "packages/scan/fixtures/code/example-shape/src/decorators/decision-logger.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/direct/anthropic-call.ts",
+      "sha256": "0d32d6016758671e59a58ba0e758b9688be9f9ccdf832eaf178b72483b0c3770",
+      "source": "packages/scan/fixtures/code/example-shape/src/direct/anthropic-call.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/direct/weather-tool.ts",
+      "sha256": "79a80b7018e1fefaaefc485b8f39fef7d2f7e9117f78397ad35c21413b45307a",
+      "source": "packages/scan/fixtures/code/example-shape/src/direct/weather-tool.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/orchestrator/tool-bridge.ts",
+      "sha256": "ebfb586d4f21bf4cf287183d76796f713d087f10c6ffeb269b416644d7f86dab",
+      "source": "packages/scan/fixtures/code/example-shape/src/orchestrator/tool-bridge.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/repositories/agent.repository.ts",
+      "sha256": "6c73b0eaf43b47f79c951eddc6d95878ce3f1b64f550fae9c58be8864fb4c25e",
+      "source": "packages/scan/fixtures/code/example-shape/src/repositories/agent.repository.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/routes/confirmed-write.ts",
+      "sha256": "12fb62800335c71ed49d5cc1ced6d16a182008ec1a467bb5f43616872474c4cf",
+      "source": "packages/scan/fixtures/code/example-shape/src/routes/confirmed-write.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/handlers/add-charge.ts",
+      "sha256": "92c42adc8805035bfbd871a1c57ca7e1ad701a1cb7b33c93dccfff4c866fdd8b",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/handlers/add-charge.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/handlers/cancel-reservation.ts",
+      "sha256": "22f5688c830d9b56dd1b36408c3698963ecf8bba7c8353e09561a2bec5e8f73f",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/handlers/cancel-reservation.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/handlers/get-property.ts",
+      "sha256": "478f09556e5f285fa03009781d0919b33f66e1e878c252291892eeeedd61faf2",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/handlers/get-property.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/handlers/index.ts",
+      "sha256": "22ad0dd93f84f5b031c2903474aef427e38f9db80563525d70215318506e7931",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/handlers/index.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/handlers/send-guest-message.ts",
+      "sha256": "7d0c56ed836ada560724829ea06765f372079da151aea691d0cd8156bc4f3867",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/handlers/send-guest-message.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/tool-executor.ts",
+      "sha256": "7807bb0f14b6f9297531ae900449c65dde3c714c26bada25c67299b164b430e4",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/tool-executor.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/tool-module.ts",
+      "sha256": "52401cc68b01be8948982189c5994ae719b81ac2c99cb6a42a7c2b14a7f09757",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/tool-module.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/src/tools/tool-registry.ts",
+      "sha256": "cd3e992d7ca954ed78f42b30f19bd5edae75c211a759ccc01a2e05d78a8f532f",
+      "source": "packages/scan/fixtures/code/example-shape/src/tools/tool-registry.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/example-shape/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/example-shape/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/anthropic_tools.py",
+      "sha256": "43f9f871dca4355d6f663d22f418127ca0ccb3c4199db177803c298a06f38d55",
+      "source": "packages/scan/fixtures/code/frameworks-py/anthropic_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/cohere_tools.py",
+      "sha256": "0e327a6f5c26d479f2e41155f3a1e1444cca2defb8247dfe8d37eaead951df28",
+      "source": "packages/scan/fixtures/code/frameworks-py/cohere_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/crewai_app.py",
+      "sha256": "d9e55ed7941df64e59e07167deccf66dd620d54f7b302e1994413db405d64151",
+      "source": "packages/scan/fixtures/code/frameworks-py/crewai_app.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/dispatcher.py",
+      "sha256": "5a51ec792673d3543cccce656f61d32b408b17d6da10b81fb4daee016910366e",
+      "source": "packages/scan/fixtures/code/frameworks-py/dispatcher.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/gemini_tools.py",
+      "sha256": "036e56941e66c273c368532c9928556f9bc7a8bed423ecba165c9342bb7f3e7e",
+      "source": "packages/scan/fixtures/code/frameworks-py/gemini_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/instructor_decoy.py",
+      "sha256": "d159b0ad1039f77bfd0f6efc1a7d2e517b2dd4f774bc952ffbac19a471eee682",
+      "source": "packages/scan/fixtures/code/frameworks-py/instructor_decoy.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/langchain_tools.py",
+      "sha256": "40c793883c3836a2845ffc7da4b69caafc80835e9077812b72cccd29f731a99a",
+      "source": "packages/scan/fixtures/code/frameworks-py/langchain_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/mcp_server.py",
+      "sha256": "cc7b7a876e7d3dbc12193a268b884ac51a6913e1d73383b2b8f0305eca90f392",
+      "source": "packages/scan/fixtures/code/frameworks-py/mcp_server.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/mistral_tools.py",
+      "sha256": "a517261a235e77fa597f8d1f3f069ba4c92723e35ab93150bab2403c0a7e8415",
+      "source": "packages/scan/fixtures/code/frameworks-py/mistral_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/openai_agents_tools.py",
+      "sha256": "4a2f1e91d435a2ae6c0d122ea82b94391000f15a2b1740b3963b167247322135",
+      "source": "packages/scan/fixtures/code/frameworks-py/openai_agents_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/openai_tools.py",
+      "sha256": "3c84aeada167c4185c95250fcb9381aacefbb92b7c8ed66b666d1ce9c3db8834",
+      "source": "packages/scan/fixtures/code/frameworks-py/openai_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/pydantic_ai_tools.py",
+      "sha256": "f2d91699a82fe28aca6031c322e0a9bf0f8b3755130bc64969b7ca57bca3b4d1",
+      "source": "packages/scan/fixtures/code/frameworks-py/pydantic_ai_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-py/pyproject.toml",
+      "sha256": "d0e82533bc16a3a741ae127478a33f5784e4e75b41fc2d9fec43bfe265b5ca3a",
+      "source": "packages/scan/fixtures/code/frameworks-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/package.json",
+      "sha256": "8b00b5e86758b51dbfdaa8488eeedcb7617588fa0793eb3566e0883f064232fc",
+      "source": "packages/scan/fixtures/code/frameworks-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/cohere.ts",
+      "sha256": "e72f82f936da06c6ebf9d9628aa7b03da8297a48627a605223cf781dd58cd3a3",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/cohere.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/gemini.ts",
+      "sha256": "dc8c0208b8ca7872838588862ab681ff3c9ac4768694464869b254c038253f25",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/gemini.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/langchain.ts",
+      "sha256": "923e4e893fd50def2de1e2c8f335f7262d1ccc041899e42a570848a1d4f4beb2",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/langchain.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/mcp-server.ts",
+      "sha256": "338d3e6ce218c8c637150457b2e9ca565ee0db1b0254f6e96d6d87000f5034ba",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/mcp-server.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/mistral.ts",
+      "sha256": "90b43253f9b39bf16c61e6256de9140a470363478593bed1671339f61d6ae1ad",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/mistral.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/openai-chat.ts",
+      "sha256": "438e078687d66b802047cbb2632511a27627706e2d15777c366cdf2013d76e2c",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/openai-chat.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/src/openai-responses.ts",
+      "sha256": "ca74375fb7df76396fd369a5362b9b776808a3eabb064490cdca8409666bda94",
+      "source": "packages/scan/fixtures/code/frameworks-ts/src/openai-responses.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/frameworks-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/frameworks-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/agent.py",
+      "sha256": "baabbcc6b1d154b0852672ebc4409e0dd9793b854c70efe7a3f5a936e7911238",
+      "source": "packages/scan/fixtures/code/fw-adk-py/agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/decoy.py",
+      "sha256": "af2090259ab29e15966b7fe1a4e7935ab00ebc31500b70333265c63af72b26be",
+      "source": "packages/scan/fixtures/code/fw-adk-py/decoy.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/pyproject.toml",
+      "sha256": "9c7b24f38221466ce3f57d1e20de51078e0c8bef8244368cda92cf7d764e016f",
+      "source": "packages/scan/fixtures/code/fw-adk-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/shop/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "packages/scan/fixtures/code/fw-adk-py/shop/__init__.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/shop/desk/__init__.py",
+      "sha256": "751beb34424d45e35539280de17c0b7d02427ade2fae89cd82a70f6589a0a127",
+      "source": "packages/scan/fixtures/code/fw-adk-py/shop/desk/__init__.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-adk-py/shop/desk/stock.py",
+      "sha256": "afc1b6bc1baffb18cb3d0e10316b0ca24fc712a88d698d6d1ef5eede3ca4227a",
+      "source": "packages/scan/fixtures/code/fw-adk-py/shop/desk/stock.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-ag2-py/decoy.py",
+      "sha256": "e2fbc1d1de6dcf2b7ec0e745d706be389055468597fae023083dd23c3e4c41f4",
+      "source": "packages/scan/fixtures/code/fw-ag2-py/decoy.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-ag2-py/legacy_desk.py",
+      "sha256": "2496087dbb838dba6ffe4ee4df1963ac81866c163b9adafcb0f25a4131ecb713",
+      "source": "packages/scan/fixtures/code/fw-ag2-py/legacy_desk.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-ag2-py/new_desk.py",
+      "sha256": "f58ef661714ab04e5c9dc4fea4c458aa78d014b4e7ded949d01ce8eae5816a48",
+      "source": "packages/scan/fixtures/code/fw-ag2-py/new_desk.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-ag2-py/pyproject.toml",
+      "sha256": "885638c439c7eba20193f45e18b2d4a86908fb2bd101a13041b3d8fea739e37d",
+      "source": "packages/scan/fixtures/code/fw-ag2-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-agent-framework-py/af_agent.py",
+      "sha256": "ecddb5019771009fee52dfd5f84ab7beeaf7cae8e159c4d989a25e257bb0b7e1",
+      "source": "packages/scan/fixtures/code/fw-agent-framework-py/af_agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-agent-framework-py/autogen_agent.py",
+      "sha256": "69725eec0670f26db3dd8e33b103562f197bb94995d5f33a4c7c5cea293e0002",
+      "source": "packages/scan/fixtures/code/fw-agent-framework-py/autogen_agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-agent-framework-py/decoy.py",
+      "sha256": "00f0b05f260cf430be56285c7f6464001fef36eb9b56a005c7da728c854fae9b",
+      "source": "packages/scan/fixtures/code/fw-agent-framework-py/decoy.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-agent-framework-py/pyproject.toml",
+      "sha256": "3f2aef790ac6de6ed65956fab4a11371a355af061b3434ab6934df9b90f0fdb0",
+      "source": "packages/scan/fixtures/code/fw-agent-framework-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-py/bookshop_agent.py",
+      "sha256": "4dc0f7030a2c7fbbbe46888fedf23b5f91f389d7b04e1150d75b5cd63011f6ff",
+      "source": "packages/scan/fixtures/code/fw-bedrock-py/bookshop_agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-py/order_specs.py",
+      "sha256": "c8e393a9782c5bea4aeb8277c9f38d0a118a62b134863385768ca1bb657341b5",
+      "source": "packages/scan/fixtures/code/fw-bedrock-py/order_specs.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-py/pyproject.toml",
+      "sha256": "04f58d21966dc6a61554680b82a9c3ad56a9f50ba435e174dd16c87ecb94d04b",
+      "source": "packages/scan/fixtures/code/fw-bedrock-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/package.json",
+      "sha256": "a9623f6d53ff596b7c5515734511c04ddd19a0041f7447f10861376744d23d81",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/src/bookshop-tools.json",
+      "sha256": "3ef01efb2de0607a7ee63df136e857cb411223c188779fdaa81c2059d95e037e",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/src/bookshop-tools.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/src/converse.ts",
+      "sha256": "964fd15cb3eb1bf451b1483a38d569f2692ddcfff55f358a2fcbc6343f0c65e7",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/src/converse.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/src/invoke.ts",
+      "sha256": "eb3ec5cf9142199aa2dc2f6171279411ede7ca452ee11f55659be0f35c437502",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/src/invoke.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/src/tools.ts",
+      "sha256": "7ac463f3533f2690251ee302c4f70679a7e8d70d73cce3e9cc2a0ff30ada5ee1",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-bedrock-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-bedrock-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/assistant.py",
+      "sha256": "3e004c955ca7b1abc1a98d63e1862bd84fec5e2a16eec893a00bcb5b80127535",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/assistant.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/bookshop_tools.py",
+      "sha256": "0bd0b5b5a930b6f4ca2843c8fdb4a0a9039d099722fc9019fa4a1f910220d80f",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/bookshop_tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/notes_tool.py",
+      "sha256": "2dfd78a0b4dc3f371f2ac1f690865a536f61baf82023bc68f0cc8d35e3a503c9",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/notes_tool.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/pyproject.toml",
+      "sha256": "9ed140c74e864ca94fbdbda811618f5af1eddf9f3256c85bb46db0017ec0ffd1",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/package.json",
+      "sha256": "a667f62ab142e7a543bdca4cf1f196ebbb1b3c6152f54291e3c2151a8167b392",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/actions.ts",
+      "sha256": "4dc666d042c17164e780901c36bb384566e16db874b240bbd95d1aba67df8db2",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/actions.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/agent.ts",
+      "sha256": "82fe0732bcbc68f3113e64bf588ca5c20bfe44affbeefba0c6956ecc0b1f6f32",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/tools.ts",
+      "sha256": "9f4b7eabf1465cf4e4ecc245da06beaf102da155e52594910d738853792e4ad1",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-claude-agent-sdk-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-names-py/pyproject.toml",
+      "sha256": "c94c11eefb2166b9c1de1887b57f904e1e3240da064612dadc2b7efe466f4bf9",
+      "source": "packages/scan/fixtures/code/fw-claude-names-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-names-py/stock.py",
+      "sha256": "9cda137ce0f1f0f1d57f0e7b63378f043cba88c5ca44a7854aeb239faf78406e",
+      "source": "packages/scan/fixtures/code/fw-claude-names-py/stock.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-names-ts/package.json",
+      "sha256": "a30c3473918d591caf243b976e9583ffac2dd68adc94183565d1444ea5928126",
+      "source": "packages/scan/fixtures/code/fw-claude-names-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-names-ts/src/stock.ts",
+      "sha256": "9c8fda10e4f3d251b21da19edd87ff877015fc53c699a1194c094bc66e4e8130",
+      "source": "packages/scan/fixtures/code/fw-claude-names-ts/src/stock.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-claude-names-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-claude-names-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.claude/settings.json",
+      "sha256": "da2f7b0fd815d418de37bca2bd4ef4c6e9ea6c1bdbccd5ccb9fae374644b4a77",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.claude/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.cursor/hooks.json",
+      "sha256": "f243d8708dd6d33a9517286df7066dd01666e257e91dad93a8052ee71a1cd71d",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.cursor/hooks.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.mcp.json",
+      "sha256": "f02b512513f316df68f925083b9b30b28fb6e055bfc415a4f7e73e21d4637251",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.windsurf/hooks.json",
+      "sha256": "4dc6e16a3fdc735ed2cb3210c43938c82da9aa76d9e19574b12e9c9c5714d713",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/.windsurf/hooks.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/admin/.claude/settings.json",
+      "sha256": "f74979fc8bc9821b635dd74ee0c66cc9afd2b230d52cb3fb48a8fe7ff4f6b67f",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/admin/.claude/settings.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/package.json",
+      "sha256": "a439a3278d6115ce141b437d51ecc19d884d2f7247ea29d7de6846bbe977e35e",
+      "source": "packages/scan/fixtures/code/fw-coding-assistant-hooks-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-dspy-py/program.py",
+      "sha256": "5519361e4ae425e2f63a652b8d70a6c2a48e9d56f6875aa62eeb15a2cc6f6bbc",
+      "source": "packages/scan/fixtures/code/fw-dspy-py/program.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-dspy-py/pyproject.toml",
+      "sha256": "f1e45c1587a7a86fb65b04d84bb791a9b2a2e24ee1699c16eb95efcf0009f0d3",
+      "source": "packages/scan/fixtures/code/fw-dspy-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/package.json",
+      "sha256": "64c439859c5c4f3766d08c025f4d4a71aadfeb32f5f490e8098eed1d691be8eb",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/prompts/greet.prompt",
+      "sha256": "2f543702bdf67341c3639616b65daeef6b59d1acb16374e140c32abd64124e8d",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/prompts/greet.prompt"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/prompts/refund.prompt",
+      "sha256": "2efac8b77e9867153e112fd684f1054cd9cfe0c1eaedaabe53ebdb94ab5a8415",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/prompts/refund.prompt"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/src/actions.ts",
+      "sha256": "ab893693414f38276b3c1ac6c010735cf3c464a597237366730ee91f8936b71d",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/src/actions.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/src/flows.ts",
+      "sha256": "f6af899210e2265be1f8b40d4e0c7eb0747d0c8e9d5c3e03f5d5645c71736917",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/src/flows.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/src/genkit.ts",
+      "sha256": "e01261b69104f332e3d29bdebf862c06e61964754f06e88e0c9f76b4be5bb9aa",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/src/genkit.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/src/shelf.ts",
+      "sha256": "20b0bb18313b7b6510485c783fb6309b25809d70e8187d124541e9c223b3c899",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/src/shelf.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/src/tools.ts",
+      "sha256": "f89f8584e9811d6b2acad56380b9639b92a97f71d382f33517a73ceaf863119e",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-genkit-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-genkit-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-haystack-py/assistant.py",
+      "sha256": "f86e3e8899353b63348725a77e3b3915b0450c107375ac292060ec4dacd3c7ec",
+      "source": "packages/scan/fixtures/code/fw-haystack-py/assistant.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-haystack-py/decoy.py",
+      "sha256": "c3ace437b16d6e9c16fb55f794cc1de41b0aa7e55bcf18d5c561a96127112f96",
+      "source": "packages/scan/fixtures/code/fw-haystack-py/decoy.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-haystack-py/pyproject.toml",
+      "sha256": "fad96a725683608b423367e3f67ca3ccd01b83b522492e7abddf5758ff17383f",
+      "source": "packages/scan/fixtures/code/fw-haystack-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-instructor-py/extract.py",
+      "sha256": "71963d21b31c6fca59a133a91f6d0476e373bddc2a64d9b24ba16cc23e24f4c6",
+      "source": "packages/scan/fixtures/code/fw-instructor-py/extract.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-instructor-py/pyproject.toml",
+      "sha256": "65c053f86c1129bf8b9ae5e10858419daec299c642351f479e5b71b0c013a595",
+      "source": "packages/scan/fixtures/code/fw-instructor-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-instructor-ts/package.json",
+      "sha256": "858a4fdad8bfd10707d32d5c72f61efed3527fa4453bdcc8a9d8b8e485aace2b",
+      "source": "packages/scan/fixtures/code/fw-instructor-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-instructor-ts/src/decide.ts",
+      "sha256": "8eccfb200716ec3f666a454f1158ca2a11b81a5530e1ecaee907ec1ab0e02d99",
+      "source": "packages/scan/fixtures/code/fw-instructor-ts/src/decide.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-instructor-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-instructor-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-py/agent.py",
+      "sha256": "09a57013a7ff76c952599277cb336b66e2d6416356c2ea194a9a294b15a2c8d8",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-py/agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-py/pyproject.toml",
+      "sha256": "6fd63541528e6239375dac53a4ad512dad0ff411cea101886d5eb9c08384801c",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-ts/package.json",
+      "sha256": "7e652113c87b8971d9eeca4e2ace1e709b07193124b7831a17af015442c72f37",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-ts/src/actions.ts",
+      "sha256": "ab893693414f38276b3c1ac6c010735cf3c464a597237366730ee91f8936b71d",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-ts/src/actions.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-ts/src/agent.ts",
+      "sha256": "499628fe01a8f71b6006052e43576f920ff13511abfd516b1f61e90e77cae56d",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-ts/src/tools.ts",
+      "sha256": "71b1ae433ca9dc45410d04d85cb90438849035c1a4f725f97450f9cb1bd2e304",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-llamaindex-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-llamaindex-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-mastra-ts/package.json",
+      "sha256": "741ac9177820e116c3324e3ea5830b721f8565579f54414649c4ac557f57c75f",
+      "source": "packages/scan/fixtures/code/fw-mastra-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-mastra-ts/src/actions.ts",
+      "sha256": "ab893693414f38276b3c1ac6c010735cf3c464a597237366730ee91f8936b71d",
+      "source": "packages/scan/fixtures/code/fw-mastra-ts/src/actions.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-mastra-ts/src/agent.ts",
+      "sha256": "f4a3e67f0c7eec4e55494a4bdf9dfae842bf9d411f2d9cfc92296f3012800235",
+      "source": "packages/scan/fixtures/code/fw-mastra-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-mastra-ts/src/tools.ts",
+      "sha256": "81699a6c957186389c81b4f492d1c03a5132bc321fe4a36cb0d39b2956ebf820",
+      "source": "packages/scan/fixtures/code/fw-mastra-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-mastra-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-mastra-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-names-py/pyproject.toml",
+      "sha256": "02bee18aa00089bcf07771bbd27b7c3bd1dc7b4533202462c4bd7c6cc29f4056",
+      "source": "packages/scan/fixtures/code/fw-names-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-names-py/shelf.py",
+      "sha256": "5dfb9368fcc236206043d2c9430c2ad457acf51e5b388984923becc752dff0ca",
+      "source": "packages/scan/fixtures/code/fw-names-py/shelf.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-names-ts/package.json",
+      "sha256": "23432355b4f265fe96096e4cf59d0b98356cd54242ebc09251e60183f02714f2",
+      "source": "packages/scan/fixtures/code/fw-names-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-names-ts/src/catalog.ts",
+      "sha256": "8e393122bf68c47d2d8d32b5fad05421564057e8126e3938ff78227de5c51b2b",
+      "source": "packages/scan/fixtures/code/fw-names-ts/src/catalog.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-names-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-names-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-openai-agents-ts/package.json",
+      "sha256": "ea9c9de068c9d429274ef875957c28b3b513cb74bfda6286f64ef186528bb9e7",
+      "source": "packages/scan/fixtures/code/fw-openai-agents-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-openai-agents-ts/src/tools.ts",
+      "sha256": "976854c3dd76fc658e4682acd17b4467b2483a8b1bc196891c1402e79a260a74",
+      "source": "packages/scan/fixtures/code/fw-openai-agents-ts/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-openai-agents-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-openai-agents-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-semantic-kernel-py/assistant.py",
+      "sha256": "30267b7a78ce2e99786361a55ef1d1e5617631b7b8c5075b146dbaa4db411c40",
+      "source": "packages/scan/fixtures/code/fw-semantic-kernel-py/assistant.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-semantic-kernel-py/plugins.py",
+      "sha256": "0fd9c582fd69a329c8f3aa8ce858f336682085e4e0161fec0bd5272f0f60aaee",
+      "source": "packages/scan/fixtures/code/fw-semantic-kernel-py/plugins.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-semantic-kernel-py/prompts.py",
+      "sha256": "afaaee5d271526ad8f87f42e8520d8d483af288a6a27372da48d564ca5e639e2",
+      "source": "packages/scan/fixtures/code/fw-semantic-kernel-py/prompts.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-semantic-kernel-py/pyproject.toml",
+      "sha256": "d4ce4a2b5043fa6e5ba112731f3bbcf8eea7bd87da38d96fc265c16ecea2168f",
+      "source": "packages/scan/fixtures/code/fw-semantic-kernel-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-sk-steps-py/base.py",
+      "sha256": "0bcac6fa1029573f1860cfcbf87e48c6790599c6d30454c14f05641ebb6991e4",
+      "source": "packages/scan/fixtures/code/fw-sk-steps-py/base.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-sk-steps-py/more.py",
+      "sha256": "e13da9c892311f95f98055917912536652eeb8bfd454b624bc47e8f8000b5ba4",
+      "source": "packages/scan/fixtures/code/fw-sk-steps-py/more.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-sk-steps-py/plugin.py",
+      "sha256": "8a1b9d205d9ece347f259e51c34b21595b4cdb02c270cd3b94b1e3a88aa12ea7",
+      "source": "packages/scan/fixtures/code/fw-sk-steps-py/plugin.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-sk-steps-py/pyproject.toml",
+      "sha256": "63edc9df3530db03917ca243ec49a2f74edcc7346cae4a0012d89259e7890d91",
+      "source": "packages/scan/fixtures/code/fw-sk-steps-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-sk-steps-py/steps.py",
+      "sha256": "8f29675f2e6cd4adeffc5375fbad15f13d04db9ae3491b4e4367c5b3eba2c2da",
+      "source": "packages/scan/fixtures/code/fw-sk-steps-py/steps.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-smolagents-py/agent.py",
+      "sha256": "4abdecbd9c030ef76db3609345b85de77e8e111d2895d3eac7f3e43b68501435",
+      "source": "packages/scan/fixtures/code/fw-smolagents-py/agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-smolagents-py/pyproject.toml",
+      "sha256": "32363cd292474101aa245bba3d737be2200076064111e8db101f9020d43c07ad",
+      "source": "packages/scan/fixtures/code/fw-smolagents-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/agent.py",
+      "sha256": "74d7e96dd7568b5034581b60370f741f40ba006b173a424a7638573da9253ae4",
+      "source": "packages/scan/fixtures/code/fw-strands-py/agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/desk_a/tools.py",
+      "sha256": "d54066cfa5291e1672a8242ab4634181441c912f416a5e5b09e7be80a0c5da11",
+      "source": "packages/scan/fixtures/code/fw-strands-py/desk_a/tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/desk_b/main.py",
+      "sha256": "9672b94ff10a75171abd302adb548926a2b51c7c1517f464aad9e4919d370d2d",
+      "source": "packages/scan/fixtures/code/fw-strands-py/desk_b/main.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/desk_b/tools.py",
+      "sha256": "1c02a689071553ddbffff4a087a588398cafe2a01e1619a3af126468b6f24748",
+      "source": "packages/scan/fixtures/code/fw-strands-py/desk_b/tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/pyproject.toml",
+      "sha256": "eee1053e7f86cf678b14de88967e1cae57e759d2dceeefc31f78d845ff2014af",
+      "source": "packages/scan/fixtures/code/fw-strands-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/shop_tools/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "packages/scan/fixtures/code/fw-strands-py/shop_tools/__init__.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-strands-py/shop_tools/restock_title.py",
+      "sha256": "b73dc7d5221576c84f196511cc5ecb7ef9e1514dbbbd7e23de181d99685aaec8",
+      "source": "packages/scan/fixtures/code/fw-strands-py/shop_tools/restock_title.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/package.json",
+      "sha256": "ad055549cde1d16444e7bb31e4e254f332d5e142c8683c32557a6172cc5f9c82",
+      "source": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/actions.ts",
+      "sha256": "c4c8d6d8322a96d3b3526e4751a0000e3fd93a53dcc4fdcec1d0a28e9cc7cd26",
+      "source": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/actions.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/extension.ts",
+      "sha256": "62b426724bfb92097d637a0046e35216b9a07c6eec3349be05ef0a006d2e9c89",
+      "source": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/extension.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/participant.ts",
+      "sha256": "a41648bd0a90e95558dee44fc26a02507b079412b36dce91aaf622362555ab18",
+      "source": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/src/participant.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/fw-vscode-lm-tools-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-embedded/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-embedded/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-embedded/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-embedded/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-embedded/skills/returns/SKILL.md",
+      "sha256": "1b39583c339a2f65f8b4244a72fdf64d9686bcd16de5a31c5b9f9983331cda7e",
+      "source": "packages/scan/fixtures/code/loads-460-ts-embedded/skills/returns/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-embedded/src/generated/registry.ts",
+      "sha256": "ebc0966ccc34c4f21912fc8aeefe6b8b2760daf83e764211e1ec9814e6708d84",
+      "source": "packages/scan/fixtures/code/loads-460-ts-embedded/src/generated/registry.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-embedded/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-embedded/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/AGENTS.md",
+      "sha256": "9864daaa718bcafcf36551c1e1c48d53a4a1836d6ced16a6b321125ad6d1775e",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/AGENTS.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/skills/hours.txt",
+      "sha256": "3e95069588a8191eccb172e4f01b80608e2ba17aec64ac72c5c6d5012e7ad2e7",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/skills/hours.txt"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/skills/returns/SKILL.md",
+      "sha256": "1b39583c339a2f65f8b4244a72fdf64d9686bcd16de5a31c5b9f9983331cda7e",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/skills/returns/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/src/skills.ts",
+      "sha256": "482c2efb4c5e86443574e0c20a89099a3eacc36e5135a51ea6a8b91d444d296a",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/src/skills.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-folder/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-folder/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-imported/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-imported/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-imported/prompts/returns.md",
+      "sha256": "1b39583c339a2f65f8b4244a72fdf64d9686bcd16de5a31c5b9f9983331cda7e",
+      "source": "packages/scan/fixtures/code/loads-460-ts-imported/prompts/returns.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-imported/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-imported/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-imported/src/desk.ts",
+      "sha256": "623974894509273b6968e27275b5e64349b69bf8546215da42669ed625e6d90f",
+      "source": "packages/scan/fixtures/code/loads-460-ts-imported/src/desk.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-imported/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-imported/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/prompts/house-rules.txt",
+      "sha256": "1a7b7e015500a7e28fb128145e7b4152d581b1456f61723c34c483d4a8322235",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/prompts/house-rules.txt"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/prompts/shelf-notes.txt",
+      "sha256": "7d18fb454b4d27efc866849076c09c8b83ced721374facd344de904458115258",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/prompts/shelf-notes.txt"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/src/chat.ts",
+      "sha256": "7758b6e55c9817aa36ed46dfff659b6f908290eeb6ca3345632d4b745f2008ee",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/src/chat.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/src/prompt.ts",
+      "sha256": "59561eab6bc9fff27743c451036a1257f19cfcf29a9eb004468baf2a77270da6",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/src/prompt.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/src/tools/shelf.ts",
+      "sha256": "80a7f6ed70c199c557a7abbd00a908073c9d38f0c2a8da9c453671e04b9b1167",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/src/tools/shelf.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/src/turn.ts",
+      "sha256": "71bf2fc484cd4b7822586e4a544dc06f92d6136ebfa242fc26919f07775c7a4c",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/src/turn.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-instructions/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-instructions/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-negative/README.md",
+      "sha256": "aa7967b74a38a9ad38078f0c1b5e08d0c29d445472cfd415cfdbc38261da4d4b",
+      "source": "packages/scan/fixtures/code/loads-460-ts-negative/README.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-negative/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-negative/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-negative/src/start.ts",
+      "sha256": "aa9b0554f6b477dd42264f4886233b3f85e128628401c9318405e17f75454ffa",
+      "source": "packages/scan/fixtures/code/loads-460-ts-negative/src/start.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-negative/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-negative/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-read/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-read/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-read/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-read/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-read/src/desk.ts",
+      "sha256": "5ecf4393909493c3dae8a866b3dba9ede6adc4697f0d1e56812e4b26bd775e19",
+      "source": "packages/scan/fixtures/code/loads-460-ts-read/src/desk.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-read/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-read/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/playbooks/returns.md",
+      "sha256": "e791b2424ccb9ad1327ec1f123694409ac0c042cb50321bd6605422bbd651f23",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/playbooks/returns.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/skills/order-desk/SKILL.md",
+      "sha256": "6a66491d301cece83447f7b2664d24652f781d05a97160c763b093b22a2883d3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/src/generated/registry.ts",
+      "sha256": "a786fadad711139470f0d5bf5625773d74e92ed7bdb5542eb6c935bf12c50bc1",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/src/generated/registry.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/src/tools.ts",
+      "sha256": "19286eca87d8cb85947de2fabfaabb1e7a3248019edf334866ac9cffe302ca9a",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/src/tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tool-result/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tool-result/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tutorial/docs/tutorial.md",
+      "sha256": "833d582db191ca88ef0c50982574be7beb669976c18b6c0f82b55a57f5c59ff3",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tutorial/docs/tutorial.md"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tutorial/package.json",
+      "sha256": "84098f18cbb04a614986cfbde9ad90953702e7b1366263a3fff15965289f7986",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tutorial/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tutorial/src/agent.ts",
+      "sha256": "0c9a5b74525a8e471b8b28c6001f54192cbdff2988d7a9ff63424808ea8f8773",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tutorial/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/loads-460-ts-tutorial/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/loads-460-ts-tutorial/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/package.json",
+      "sha256": "ff96ca0b743308e89b44c581dd85b08aecc1e1c5106556874b5d01984e6666f9",
+      "source": "packages/scan/fixtures/code/offered/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/scripts/shelf-canary.ts",
+      "sha256": "f06939b1b9890e0a706513d2fbc82087067aa537565a09f644d34941666f1c19",
+      "source": "packages/scan/fixtures/code/offered/scripts/shelf-canary.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/agents/loop.ts",
+      "sha256": "e79aabbc7dd01331453cff3902d9e6c90eb641a55bcb35bdaefc160a8cfb612e",
+      "source": "packages/scan/fixtures/code/offered/src/agents/loop.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/agents/open-agent.ts",
+      "sha256": "cd2fd9ae50e980c119a4840118fb4c974330d0fbe89166b81df493a799f2ebd3",
+      "source": "packages/scan/fixtures/code/offered/src/agents/open-agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/agents/shelf-logger.ts",
+      "sha256": "06c382aa8c8118b5cdf55a0b6c502e85d94b2a3e7464528db04d623f8194af78",
+      "source": "packages/scan/fixtures/code/offered/src/agents/shelf-logger.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/agents/till-agent.ts",
+      "sha256": "5c9939a7f8316d8b370dd199c05fd5ccc9a83cb0159f429b83d7d76f7d7abede",
+      "source": "packages/scan/fixtures/code/offered/src/agents/till-agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/orchestrator/bridge.ts",
+      "sha256": "ea958c9e31694486607a382d90cc9453db844e3706349570113d064d41adab8a",
+      "source": "packages/scan/fixtures/code/offered/src/orchestrator/bridge.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/get-till-pin.ts",
+      "sha256": "e464ed64269f96c0d015a98b850e7e59e1f10648eeb8c4e7d79fd5bcc68dbcf0",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/get-till-pin.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/index.ts",
+      "sha256": "f4e5c4f624c90cf4a226850fa28041487a5ce6f550ce53b8e7f97835de7e63a2",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/index.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/send-receipt.ts",
+      "sha256": "7b8a13bde8b289666bf66df3c4ee537b6ad07026ae3f8c7e63352166908f0d89",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/send-receipt.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/shelf-count.ts",
+      "sha256": "f64f20da73663973b3ba2acfbe24e9549b7399ab804712c524c763ea507fcc46",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/shelf-count.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/shelf-restock.ts",
+      "sha256": "dcf82922d3d624a06df910f5b49c17b73683d3ee39ce83d44f91498fc715e090",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/shelf-restock.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/till-close.ts",
+      "sha256": "be4789b816ffc27ca84fa59ae06e2803c87d70359eb7c3c66f2d24e41e5cbd0a",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/till-close.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/handlers/till-open.ts",
+      "sha256": "c3c742d579cc6cb2f2e6898830479a8cc025e79253a8a79112b7821b1cc29f42",
+      "source": "packages/scan/fixtures/code/offered/src/tools/handlers/till-open.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/tool-executor.ts",
+      "sha256": "039cfc78925ade359d176ee97c12222a8cb36d16d42c3a0f9b0633a5c761da97",
+      "source": "packages/scan/fixtures/code/offered/src/tools/tool-executor.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/src/tools/tool-module.ts",
+      "sha256": "0c84f6b10de1979ecca33949de352e9ada86d81a01ff293aea133fa050339320",
+      "source": "packages/scan/fixtures/code/offered/src/tools/tool-module.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/offered/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/offered/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/package.json",
+      "sha256": "5b6fa9db30a6b00e51d53e6bed33e1cb2c02e73c5ee4da1ce9fc6b4da947f578",
+      "source": "packages/scan/fixtures/code/reaches/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/desks/relay.ts",
+      "sha256": "1ccd7185d17bc442c39906224c43c19636c881102169ae7d825a2322dcdff5be",
+      "source": "packages/scan/fixtures/code/reaches/src/desks/relay.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/desks/shelf-desk.ts",
+      "sha256": "4482be1790866bde1c05a527c4b2930fb464ee85c91ee09216db938b85010bdf",
+      "source": "packages/scan/fixtures/code/reaches/src/desks/shelf-desk.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/desks/till-desk.ts",
+      "sha256": "045bf397ae1a5d4ddf969581207e9541f586057ec9e89e125c4e2fc3fe48fbdb",
+      "source": "packages/scan/fixtures/code/reaches/src/desks/till-desk.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/desks/till-tools.ts",
+      "sha256": "1f5ce2e903b26b6f6c04f04698ae92bd0d73ac1b365e6511bd9d92b0387564ae",
+      "source": "packages/scan/fixtures/code/reaches/src/desks/till-tools.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/orchestrator/bridge.ts",
+      "sha256": "ea958c9e31694486607a382d90cc9453db844e3706349570113d064d41adab8a",
+      "source": "packages/scan/fixtures/code/reaches/src/orchestrator/bridge.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/get-till-pin.ts",
+      "sha256": "e464ed64269f96c0d015a98b850e7e59e1f10648eeb8c4e7d79fd5bcc68dbcf0",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/get-till-pin.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/index.ts",
+      "sha256": "f4e5c4f624c90cf4a226850fa28041487a5ce6f550ce53b8e7f97835de7e63a2",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/index.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/send-receipt.ts",
+      "sha256": "7b8a13bde8b289666bf66df3c4ee537b6ad07026ae3f8c7e63352166908f0d89",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/send-receipt.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/shelf-count.ts",
+      "sha256": "f64f20da73663973b3ba2acfbe24e9549b7399ab804712c524c763ea507fcc46",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/shelf-count.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/shelf-restock.ts",
+      "sha256": "dcf82922d3d624a06df910f5b49c17b73683d3ee39ce83d44f91498fc715e090",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/shelf-restock.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/till-close.ts",
+      "sha256": "be4789b816ffc27ca84fa59ae06e2803c87d70359eb7c3c66f2d24e41e5cbd0a",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/till-close.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/handlers/till-open.ts",
+      "sha256": "c3c742d579cc6cb2f2e6898830479a8cc025e79253a8a79112b7821b1cc29f42",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/handlers/till-open.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/tool-executor.ts",
+      "sha256": "039cfc78925ade359d176ee97c12222a8cb36d16d42c3a0f9b0633a5c761da97",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/tool-executor.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/src/tools/tool-module.ts",
+      "sha256": "0c84f6b10de1979ecca33949de352e9ada86d81a01ff293aea133fa050339320",
+      "source": "packages/scan/fixtures/code/reaches/src/tools/tool-module.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reaches/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/reaches/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-py/desk.py",
+      "sha256": "6846735562dfb94fa471ab9e045e33a0e1341fb4d4d57c641c053aa1739d2036",
+      "source": "packages/scan/fixtures/code/reply-anthropic-py/desk.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-py/guests.py",
+      "sha256": "e5b9084272bafbc9907068dca2f83d870033da1b9065d220dabbb41c14b9601a",
+      "source": "packages/scan/fixtures/code/reply-anthropic-py/guests.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-py/pyproject.toml",
+      "sha256": "13767879a75e4279a2ae5406e61807df2ddb909136f1006c03b0db9a03705292",
+      "source": "packages/scan/fixtures/code/reply-anthropic-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-ts/package.json",
+      "sha256": "06112aa02a57fdb4ed0d45a90fa6e5af4ace5dcea74c3a3a4ca10ab5f8b9e657",
+      "source": "packages/scan/fixtures/code/reply-anthropic-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-ts/src/agent.ts",
+      "sha256": "b67f86d2548b0718227159d0cc63e36771eb2595ebb8610cb668cff7a5f29ffd",
+      "source": "packages/scan/fixtures/code/reply-anthropic-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-anthropic-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/reply-anthropic-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-decoy-param-py/pyproject.toml",
+      "sha256": "55f08fb5067c4af8f54ef5d71288bcc1a9a378c1abb1dd9b9291407a44b05fd0",
+      "source": "packages/scan/fixtures/code/reply-decoy-param-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-decoy-param-py/relay.py",
+      "sha256": "e62f6641ade1b337b2d36b61c1ecb6e969c3e6faed148737daefe49c9e24e613",
+      "source": "packages/scan/fixtures/code/reply-decoy-param-py/relay.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-decoy-plain-py/pyproject.toml",
+      "sha256": "68e44bd570d507e706c431f911db97104a2848efcc9b47c5298365c3611cc899",
+      "source": "packages/scan/fixtures/code/reply-decoy-plain-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-decoy-plain-py/queue_worker.py",
+      "sha256": "a66553c2325b2acfc158d67efb42468d135fca380a026e56c0a4711f78c5c69c",
+      "source": "packages/scan/fixtures/code/reply-decoy-plain-py/queue_worker.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-negative-ts/package.json",
+      "sha256": "4fddc04aa0a881cd8aebc342cc35f35530e1c1c68f09782bbd67921de312e106",
+      "source": "packages/scan/fixtures/code/reply-negative-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-negative-ts/src/agent.ts",
+      "sha256": "ef51d7ab9b8c22bdddacd55421c134696b8a23015a30b4a23ee02bcf508f05a1",
+      "source": "packages/scan/fixtures/code/reply-negative-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-negative-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/reply-negative-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-chat-py/agent.py",
+      "sha256": "2c908972cafd80c37510b7d974f4100a3b950b8ae9a08d0475fa2f6bd8b1c708",
+      "source": "packages/scan/fixtures/code/reply-openai-chat-py/agent.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-chat-py/pyproject.toml",
+      "sha256": "21114c4dc29f02a6c9ead31a9be6e90cf97801fb9d231b57fde9a2c30b1ee0a0",
+      "source": "packages/scan/fixtures/code/reply-openai-chat-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-chat-ts/package.json",
+      "sha256": "a7a85d3c17dc3dda2895efad1ab11137341c7e473420462c427bab09ea5b861d",
+      "source": "packages/scan/fixtures/code/reply-openai-chat-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-chat-ts/src/agent.ts",
+      "sha256": "3966aae670f34c4848ec73ba94f117dcbeccbc85f217fe3c1ba8ee3765bbd7b5",
+      "source": "packages/scan/fixtures/code/reply-openai-chat-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-chat-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/reply-openai-chat-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-responses-py/concierge.py",
+      "sha256": "244de224807b7129c5a453e7949a070409778b43075eb5b6ae396be26a937606",
+      "source": "packages/scan/fixtures/code/reply-openai-responses-py/concierge.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-responses-py/pyproject.toml",
+      "sha256": "04c5516277eb49e7d18087f31eca703dbd433376ca80974cc49b0cf4b1559168",
+      "source": "packages/scan/fixtures/code/reply-openai-responses-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-responses-ts/package.json",
+      "sha256": "66c22ead3cd74ccd107a5caa380b6247c733cbf893cd7eb1dcee32dd4714af2c",
+      "source": "packages/scan/fixtures/code/reply-openai-responses-ts/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-responses-ts/src/agent.ts",
+      "sha256": "fec2ec2650136ac734420fe14516a25235146e199216286b6d833ff7ac6d0397",
+      "source": "packages/scan/fixtures/code/reply-openai-responses-ts/src/agent.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-openai-responses-ts/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/reply-openai-responses-ts/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-self-client-py/bookings.py",
+      "sha256": "b39be81726bc8da89b0af8fafdc8e8f04c635c629075752b2b7fdf86a279bcf0",
+      "source": "packages/scan/fixtures/code/reply-self-client-py/bookings.py"
+    },
+    {
+      "path": "packages/scan/fixtures/code/reply-self-client-py/pyproject.toml",
+      "sha256": "35dc7a95acddbf9102dc3e592d51e0fda3f9c11134ba163461f9741598067998",
+      "source": "packages/scan/fixtures/code/reply-self-client-py/pyproject.toml"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/package.json",
+      "sha256": "f2cae24a2a23ca7a5538ebb8b3c1dd57f656f8c44a5b1bd28cc014ec7afe1815",
+      "source": "packages/scan/fixtures/code/tool-calls/package.json"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/decorators/audit-logger.ts",
+      "sha256": "1bd1ffec3736e6b27a2c9949fd0dcb9bda24546231dbb1a300ed42dc494bae46",
+      "source": "packages/scan/fixtures/code/tool-calls/src/decorators/audit-logger.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/direct/weather.ts",
+      "sha256": "6488b4eaa8a7de2aa2c7019b466d064b042fd59d1f967355244f87bbc5a6d4ec",
+      "source": "packages/scan/fixtures/code/tool-calls/src/direct/weather.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/orchestrator/bridge.ts",
+      "sha256": "112a72b83426086696e9048a4a7041146cd48543854662c44d43b5626d737d25",
+      "source": "packages/scan/fixtures/code/tool-calls/src/orchestrator/bridge.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/recipes/_recipe-context.ts",
+      "sha256": "587515f3cfe246f099df078f46d7373cbf9d654b556764cabd860b09e8da2e49",
+      "source": "packages/scan/fixtures/code/tool-calls/src/recipes/_recipe-context.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/recipes/index.ts",
+      "sha256": "1695628f52df99097ecab148284daa7b5c56f42e6a15459e8136971416e87c4f",
+      "source": "packages/scan/fixtures/code/tool-calls/src/recipes/index.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/routes/approved-write.ts",
+      "sha256": "03ec37034d8fdc0f4f486fd7159c47b7333e3cbd45aacae900d9316925889ebb",
+      "source": "packages/scan/fixtures/code/tool-calls/src/routes/approved-write.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/aliases.ts",
+      "sha256": "96333a5268dcab4f620077b83765fa7e66e2f812cbd33b8a37fec0aebb897259",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/aliases.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/audit-shelf.ts",
+      "sha256": "d858c3a937c85a5af62f43302b02175c757acaa5e11a1ce0c896ccfb7fab4cea",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/audit-shelf.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/close-store.ts",
+      "sha256": "026f210f8279f47b145fb5e46294f9ae1fdac319b4a20d55e4930f8daee86a78",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/close-store.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/format-price.ts",
+      "sha256": "1975659c51c5ff6a1e8f4b7a3cdd71b3618d3f022a348e2c8ad9bd3bb1bf06d2",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/format-price.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/get-stock.ts",
+      "sha256": "8d5a1a4020145e9418d55774a5959012099f599b0b32a2435451ee8448601ba4",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/get-stock.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/index.ts",
+      "sha256": "4f0baf8c66515fbe9d1c9ad872d47d5a3c2f7f77f8279aae1b91bc3268f4b0e8",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/index.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/notify-owner.ts",
+      "sha256": "9e325d9cfa9aa57d243823f213e7e03c2fcc19e6692e7fe018133b96e23bb08e",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/notify-owner.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/publish-notice.ts",
+      "sha256": "f13623cd2eabce37bf71d1c6498c2e42df1692c6ff13d5e79b842a33cea71614",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/publish-notice.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/restock.ts",
+      "sha256": "b61dd7fd773153f4a06a269ab85c148d316dbb00145fe08f99c1670774beb3e9",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/restock.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/run-recipe.ts",
+      "sha256": "1e7a80030d1c605ac36d9da59c0cc63c8b8adfd9179a32076398a339141dc899",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/handlers/run-recipe.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/tool-executor.ts",
+      "sha256": "617b6ce696acef9f2225a659d37cbdfdf10b2c990306745206ffe439ccd69b62",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/tool-executor.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/src/tools/tool-module.ts",
+      "sha256": "0c84f6b10de1979ecca33949de352e9ada86d81a01ff293aea133fa050339320",
+      "source": "packages/scan/fixtures/code/tool-calls/src/tools/tool-module.ts"
+    },
+    {
+      "path": "packages/scan/fixtures/code/tool-calls/tsconfig.json",
+      "sha256": "25b0c1ef5b1c86c249259bcf3a55161bc830ceeaae9d5dafd08f2af4ce6f60b2",
+      "source": "packages/scan/fixtures/code/tool-calls/tsconfig.json"
+    },
+    {
+      "path": "packages/scan/fixtures/home/.claude.json",
+      "sha256": "2d05b9f02e737fdde6031ed0625d76b1da00cae1524a1ec185136f7ad45cb39f",
+      "source": "packages/scan/fixtures/home/.claude.json"
+    },
+    {
+      "path": "packages/scan/fixtures/home/.cursor/mcp.json",
+      "sha256": "808d38adbc9f753229239d3b04ff7d997ec366555b141f865cdfaa1e80496e80",
+      "source": "packages/scan/fixtures/home/.cursor/mcp.json"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-embedded/bookshop/registry.py",
+      "sha256": "7de48b0c784ecaa2dc5ffb746b0025f7c653609ca4188e8b4b77e69c27104dae",
+      "source": "packages/scan/fixtures/loads-460-py-embedded/bookshop/registry.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-embedded/skills/returns/SKILL.md",
+      "sha256": "10fd9d38be32e619c43fbf9aabdbe06c6da10ec365d72d0ba8b1a6239e4cb4dc",
+      "source": "packages/scan/fixtures/loads-460-py-embedded/skills/returns/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-folder/bookshop/skills.py",
+      "sha256": "688be9bd7b84d0d8886e1debc17b963c1d054267f19f10d53c69e758af283192",
+      "source": "packages/scan/fixtures/loads-460-py-folder/bookshop/skills.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-folder/skills/notes.txt",
+      "sha256": "3c2f0dfaa1ce0bbb4cbef56debb9f359017bcbdf947f34044a62e99d0d29c41f",
+      "source": "packages/scan/fixtures/loads-460-py-folder/skills/notes.txt"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-folder/skills/order-desk/SKILL.md",
+      "sha256": "ce8787dbc9885c32cb4f9cf06c09191da2fa980b57378af97544ece8f9bf7598",
+      "source": "packages/scan/fixtures/loads-460-py-folder/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-folder/skills/returns/SKILL.md",
+      "sha256": "10fd9d38be32e619c43fbf9aabdbe06c6da10ec365d72d0ba8b1a6239e4cb4dc",
+      "source": "packages/scan/fixtures/loads-460-py-folder/skills/returns/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-imported/bookshop/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "packages/scan/fixtures/loads-460-py-imported/bookshop/__init__.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-imported/bookshop/loader.py",
+      "sha256": "66223b5b43d6e795378f9514a2b3a237aca4f904c32b3eec1db9e03d885f46eb",
+      "source": "packages/scan/fixtures/loads-460-py-imported/bookshop/loader.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-imported/bookshop/prompts/returns.md",
+      "sha256": "bb11881c9ea6fc184dd3c53f5b79a9a4ad6cef68626fa78b23c5b44dca1b35d5",
+      "source": "packages/scan/fixtures/loads-460-py-imported/bookshop/prompts/returns.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-instructions/bookshop/chat.py",
+      "sha256": "d261fc5075b473d012bb63626f98b3633f7ebccc11a30dc277859c68518d9724",
+      "source": "packages/scan/fixtures/loads-460-py-instructions/bookshop/chat.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-instructions/bookshop/desk.py",
+      "sha256": "921278ffee9110d4d0b97949f5f77f48ff52ec7aa9b26b32c1d2c37f18342726",
+      "source": "packages/scan/fixtures/loads-460-py-instructions/bookshop/desk.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-instructions/prompts/developer.txt",
+      "sha256": "0040d41168264d882d061808d877714ad52b03298d942a308ba241fd24143cc6",
+      "source": "packages/scan/fixtures/loads-460-py-instructions/prompts/developer.txt"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-instructions/prompts/system.md",
+      "sha256": "3d37cbf1621f9508c0a759961903ef91780e75d016fb3882ad3f56ef154cb2a2",
+      "source": "packages/scan/fixtures/loads-460-py-instructions/prompts/system.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-instructions/skills/order-desk/SKILL.md",
+      "sha256": "ce8787dbc9885c32cb4f9cf06c09191da2fa980b57378af97544ece8f9bf7598",
+      "source": "packages/scan/fixtures/loads-460-py-instructions/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-negative/README.md",
+      "sha256": "f18efbc27d07260e19a4346cd2a4d6413530745100b9226055e04af0eb349ef8",
+      "source": "packages/scan/fixtures/loads-460-py-negative/README.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-negative/bookshop/__main__.py",
+      "sha256": "cf9ed34d21cdd1464d360e3a15b900e81bf3534d931d3234b2a1052a7c8297c7",
+      "source": "packages/scan/fixtures/loads-460-py-negative/bookshop/__main__.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-negative/bookshop/greeter.py",
+      "sha256": "00ded505ba7500a6e5a9ca66d15bc5a1d93ab4090613b18a78b259a7fde4af64",
+      "source": "packages/scan/fixtures/loads-460-py-negative/bookshop/greeter.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-negative/docs/tutorial.md",
+      "sha256": "67696158af0b3afc194c6f713433a0613b7ab5e71365a13186bcd5d737428fe0",
+      "source": "packages/scan/fixtures/loads-460-py-negative/docs/tutorial.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-read/bookshop/app.py",
+      "sha256": "86f9e309b0833be2792575d736bb7e2332f165c25986448db1a86b03e63777bc",
+      "source": "packages/scan/fixtures/loads-460-py-read/bookshop/app.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-read/skills/order-desk/SKILL.md",
+      "sha256": "ce8787dbc9885c32cb4f9cf06c09191da2fa980b57378af97544ece8f9bf7598",
+      "source": "packages/scan/fixtures/loads-460-py-read/skills/order-desk/SKILL.md"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-tool-result/bookshop/tools.py",
+      "sha256": "816e423bb8b553a8acf4469c62bc500c9d78ff5dc1a23fcf07f884cc1ccdd481",
+      "source": "packages/scan/fixtures/loads-460-py-tool-result/bookshop/tools.py"
+    },
+    {
+      "path": "packages/scan/fixtures/loads-460-py-tool-result/policies/returns-policy.md",
+      "sha256": "b32e0890ce23eda51bc98655c7ba37193c0a31c9956fd409d7b54f56b1a57f4a",
+      "source": "packages/scan/fixtures/loads-460-py-tool-result/policies/returns-policy.md"
+    },
+    {
+      "path": "packages/scan/fixtures/mcp/echo-server.mjs",
+      "sha256": "407fc6a6463c62af4036d6d61aecde4c2c32ac66454038a8f6725351ed8f8c54",
+      "source": "packages/scan/fixtures/mcp/echo-server.mjs"
+    },
+    {
+      "path": "packages/scan/package.json",
+      "sha256": "08c8123c7abfc9bb25a2d4c0c0ac7cc9f624a5d5b59fff8d3ba6ac82f218ae8b",
+      "source": "packages/scan/package.json"
+    },
+    {
+      "path": "packages/scan/py/ziffer_scan_code.py",
+      "sha256": "25c9f81f3f72c3cd5764522de8dc7141e74aa89299ef2b916904f0537133a914",
+      "source": "packages/scan/py/ziffer_scan_code.py"
+    },
+    {
+      "path": "packages/scan/scripts/check-tests-built.mjs",
+      "sha256": "dfa31ff1db1396d13e05c1d4fa6946d6d0b1dcbbe3e7c76b226945b556444233",
+      "source": "packages/scan/scripts/check-tests-built.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/code-scan-py.mjs",
+      "sha256": "900f75674592bbecb82d69173aabebdf616fe8987ecf10fa2398da40b3e11504",
+      "source": "packages/scan/scripts/code-scan-py.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/code-scan.mjs",
+      "sha256": "145fd9695e3254be5794fa8a34282d04cf62ea05bf092e484d5194a9144747aa",
+      "source": "packages/scan/scripts/code-scan.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/corpus.json",
+      "sha256": "44404b01b0ce25414ee2e8ced82eb1e8fd3844dfe18875dbd20c9bd87769f6cd",
+      "source": "packages/scan/scripts/corpus.json"
+    },
+    {
+      "path": "packages/scan/scripts/corpus.mjs",
+      "sha256": "14c3a8944e2c26a4cb470c53894c1cc6307cc8c442a0d7d64045d32483435f26",
+      "source": "packages/scan/scripts/corpus.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/embed-annex.mjs",
+      "sha256": "a85e348ab6aed1f479b3e6dbaf6401d2b6ad66acf3438be91dff28a2477245b5",
+      "source": "packages/scan/scripts/embed-annex.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/embed-schemas.mjs",
+      "sha256": "72ea1cba4aad6f0d295b806007c6f3c34b98b71a13c17a679554160b681be858",
+      "source": "packages/scan/scripts/embed-schemas.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/embed.mjs",
+      "sha256": "9892ac643abcad05655754dd8ebb925513c40c5441b9516c478b8a0c1ca16251",
+      "source": "packages/scan/scripts/embed.mjs"
+    },
+    {
+      "path": "packages/scan/scripts/vendor-wasm.mjs",
+      "sha256": "7eab598e3d4f49d04b12f02cde06f04d26587da7e243d45ba241df38b5ea0554",
+      "source": "packages/scan/scripts/vendor-wasm.mjs"
+    },
+    {
+      "path": "packages/scan/src/archive/review.ts",
+      "sha256": "acbf75a9fa9602a596db01960d33273cfe1d8a9f50aa432568af0ec4469b0c60",
+      "source": "packages/scan/src/archive/review.ts"
+    },
+    {
+      "path": "packages/scan/src/archive/tar.test.ts",
+      "sha256": "b46f4f20d9573d09813134d9dd54714545e71c132764bdf36f35f981a1467e67",
+      "source": "packages/scan/src/archive/tar.test.ts"
+    },
+    {
+      "path": "packages/scan/src/archive/tar.ts",
+      "sha256": "18639e3bc2a8ae8cd97d960ef184ed4868d78c309dad9e94c782fa50ab4386ba",
+      "source": "packages/scan/src/archive/tar.ts"
+    },
+    {
+      "path": "packages/scan/src/bin.ts",
+      "sha256": "6c683b05ded194ea3393fac81cfb8216cca326776eecec76ec1d1f1738d22607",
+      "source": "packages/scan/src/bin.ts"
+    },
+    {
+      "path": "packages/scan/src/bundle/generate.test.ts",
+      "sha256": "559a675199901a61fd2045b4589a0a9ed1241e1f2947fce1aa0680a294b676eb",
+      "source": "packages/scan/src/bundle/generate.test.ts"
+    },
+    {
+      "path": "packages/scan/src/bundle/generate.ts",
+      "sha256": "597ac924febc7e1b9cba77202d685dbde3e2dab0f5de973b3dc2bdc151ccab5c",
+      "source": "packages/scan/src/bundle/generate.ts"
+    },
+    {
+      "path": "packages/scan/src/bundle/names.test.ts",
+      "sha256": "7cfe931bb06d4709355fc8b2d74dd68804f5797b7b09b74138568855237f75b0",
+      "source": "packages/scan/src/bundle/names.test.ts"
+    },
+    {
+      "path": "packages/scan/src/bundle/names.ts",
+      "sha256": "b1c2bb5cf6c4c9b8d62e1c018c095e1606a18261d271c1d93197222eef073bf4",
+      "source": "packages/scan/src/bundle/names.ts"
+    },
+    {
+      "path": "packages/scan/src/bundle/schemas.ts",
+      "sha256": "43ad38e9f1b2fe280a1695b0b87c3bbc0fd00f4a6ed81ead7cbcf31f6f1e1516",
+      "source": "packages/scan/src/bundle/schemas.ts"
+    },
+    {
+      "path": "packages/scan/src/ci/ci.test.ts",
+      "sha256": "0ffd8be2b8b4ae92aea0db2d25030ad65211c697177261bb1f3b7c01d6a354b6",
+      "source": "packages/scan/src/ci/ci.test.ts"
+    },
+    {
+      "path": "packages/scan/src/ci/ci.ts",
+      "sha256": "32f86efe6c4d78fd4dcae10b7843aee0d3fd9b8456c2b738f329a88e20348a2d",
+      "source": "packages/scan/src/ci/ci.ts"
+    },
+    {
+      "path": "packages/scan/src/ci/policy-tree.ts",
+      "sha256": "2c494d29e42d2a998322330b8adf9c90ac5ca9e02d639b8cbc4f91771fec25c5",
+      "source": "packages/scan/src/ci/policy-tree.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/classify.test.ts",
+      "sha256": "9ac69a89a4c2137d3f473b668a684654260ab890dc88e5409040b9d6a93ca324",
+      "source": "packages/scan/src/classify/classify.test.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/data.ts",
+      "sha256": "702704229b7ba524c5affe60522267045a5463f1a01f21a0dc2bab0873d892f6",
+      "source": "packages/scan/src/classify/data.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/benign.ts",
+      "sha256": "086497968575c9eaa710136d367c670a16df55abebabb1271aad38d88ddf1495",
+      "source": "packages/scan/src/classify/fixtures/benign.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/browser-shell.ts",
+      "sha256": "cd7b699f0b4ff7dfdc6d72d551381ce8df967995e940a3c6dd9eb5d5a7d40bd4",
+      "source": "packages/scan/src/classify/fixtures/browser-shell.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/database.ts",
+      "sha256": "1e80de45373c81d64a09654595956bcf8a25d1e35411ae1c336c75db35066b60",
+      "source": "packages/scan/src/classify/fixtures/database.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/files-share.ts",
+      "sha256": "e19492b242d1694b960599536ac0f9d0261fd3fdc1e06ea11a08d7d0194b480e",
+      "source": "packages/scan/src/classify/fixtures/files-share.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/jira-deploy.ts",
+      "sha256": "965da3283a25be72243e22686bb1c09f3d9f6a03e60d7c522659268364463e5b",
+      "source": "packages/scan/src/classify/fixtures/jira-deploy.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/mail.ts",
+      "sha256": "b0195b8957defcf53ca2971c4b8c8da7fe3bb66111f1a9f22eaeb4cdd8b9c1ec",
+      "source": "packages/scan/src/classify/fixtures/mail.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/secrets.ts",
+      "sha256": "db73ebbf65154c740e725b266d33f4e925ab0aab0c901ba498a3a060f43a63ae",
+      "source": "packages/scan/src/classify/fixtures/secrets.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/fixtures/tool.ts",
+      "sha256": "290e0924461c96e9ee841b288d67bf57e6c2d6eeea289063438dd8057d192d1e",
+      "source": "packages/scan/src/classify/fixtures/tool.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/index.ts",
+      "sha256": "a9a804e2a82fecf0b9c1830d04ae157cb35b3f4c65ee3a631b1012e4b23a2576",
+      "source": "packages/scan/src/classify/index.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/instructions.test.ts",
+      "sha256": "4d43cabd929a7a78ed6c5d52b8559870abaaecc3069d8b6f714b0ef7cb6213d5",
+      "source": "packages/scan/src/classify/instructions.test.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/own-action.test.ts",
+      "sha256": "79f984cfb509a77728d3485ac68537030cb6c8a21015fc35fda66a5036057bf3",
+      "source": "packages/scan/src/classify/own-action.test.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/sentence.ts",
+      "sha256": "46378488d6aba72d6672b1e9d33ea5e4c424fd5094838b6303279913bd14ee65",
+      "source": "packages/scan/src/classify/sentence.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/undo.test.ts",
+      "sha256": "d2201410d9d6da61c3b040c3132ad80fe6cbe8f4e30a31f07460e46defa3d986",
+      "source": "packages/scan/src/classify/undo.test.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/undo.ts",
+      "sha256": "3473616ac5cdb593bef615540d7d59a172fd5c72bf38a9f9ca86cda635c03b81",
+      "source": "packages/scan/src/classify/undo.ts"
+    },
+    {
+      "path": "packages/scan/src/classify/words.ts",
+      "sha256": "75cb2b58c8e3ec51115ea501bebbec6c0c332a258f2d9502a003d6ccb1238df6",
+      "source": "packages/scan/src/classify/words.ts"
+    },
+    {
+      "path": "packages/scan/src/cli.test.ts",
+      "sha256": "26cb3acae038fc52dfbec3143c31e9a3d8b8d27223a0948787b61c1803f47a4c",
+      "source": "packages/scan/src/cli.test.ts"
+    },
+    {
+      "path": "packages/scan/src/cli.ts",
+      "sha256": "55c99649e895a10e6fbe166eed323dada07fda67fe8edaa6c21b5e4e24f9ffb2",
+      "source": "packages/scan/src/cli.ts"
+    },
+    {
+      "path": "packages/scan/src/code/claude-names.test.ts",
+      "sha256": "07926153c0729518188d110f473415cede490db3fb8cd32234e648622d3b2619",
+      "source": "packages/scan/src/code/claude-names.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/coverage.test.ts",
+      "sha256": "7f24f520fd5f0b5e085542d9585bf9cf526dfcc3344713f8f08863ba7309817d",
+      "source": "packages/scan/src/code/coverage.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/gate.test.ts",
+      "sha256": "42fe3bae8484f80eba372a6937606cc95b6335faba9e5ec204caf1f8c6b805fc",
+      "source": "packages/scan/src/code/gate.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/grade.test.ts",
+      "sha256": "215a356dadf0f421ae83e247c5cd81ebc0bffd4f92806f347678639a32d1e0c8",
+      "source": "packages/scan/src/code/grade.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/grade.ts",
+      "sha256": "b0d0371928a2f658612018aae74fb798d4bebadaa9d76b071310bae064181d92",
+      "source": "packages/scan/src/code/grade.ts"
+    },
+    {
+      "path": "packages/scan/src/code/index.ts",
+      "sha256": "4973bb8779880c61b653a533bc67842d6d318cdaba7a1c941630408ff279aecf",
+      "source": "packages/scan/src/code/index.ts"
+    },
+    {
+      "path": "packages/scan/src/code/interception.test.ts",
+      "sha256": "b9d8682e3ef7fce8984169ddbb91adbf90f15f21e8e8c0368bd02b085fd7f6d8",
+      "source": "packages/scan/src/code/interception.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/interception.ts",
+      "sha256": "854bcde79a7a738aaf67b825f07f82cc2501385f40a9b340435e77c1a328c257",
+      "source": "packages/scan/src/code/interception.ts"
+    },
+    {
+      "path": "packages/scan/src/code/merge.test.ts",
+      "sha256": "659a50d819493b03ad330f2e12b9fbc61c035541e81698c01e938e1839625212",
+      "source": "packages/scan/src/code/merge.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/merge.ts",
+      "sha256": "3ed9b2cd816b2aa8b20540125be5391762cab8c761e4b0da0c442b0addd28db0",
+      "source": "packages/scan/src/code/merge.ts"
+    },
+    {
+      "path": "packages/scan/src/code/names.test.ts",
+      "sha256": "cf34b97867a41ea67232fd9ac4d674d8bd0e9fcf38a0d385a702359ad9911c51",
+      "source": "packages/scan/src/code/names.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/notseen.ts",
+      "sha256": "8c773e90113ab7ae7743a2b91769ec4ff4814d7f30fe34f107cb808ebd1412b7",
+      "source": "packages/scan/src/code/notseen.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/checks.test.ts",
+      "sha256": "10b335b58bb760aad757d9aa58a858b69fac3fc572b5f64de65e8ac8404bb042",
+      "source": "packages/scan/src/code/py/checks.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/frameworks.test.ts",
+      "sha256": "2d5bc03c531db66b2284d714c9857ceee5067a2ff9bb5b2fbfbbfba2d8f5602b",
+      "source": "packages/scan/src/code/py/frameworks.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/index.test.ts",
+      "sha256": "2765bce03b1a1a30feeaba23b157e4a0dd0e420dac1f1826f21bca0c3e527a32",
+      "source": "packages/scan/src/code/py/index.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/index.ts",
+      "sha256": "e25c04d7f750ae3599a0f3ecba8b55c5091bea13934d11bf8dfa6959c1946ce4",
+      "source": "packages/scan/src/code/py/index.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/manifests.test.ts",
+      "sha256": "68677d7fa45e572d11df1f0fbfe8021d1758f9387eb6107150265e77be40bdbe",
+      "source": "packages/scan/src/code/py/manifests.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/manifests.ts",
+      "sha256": "a056fcebe4daf87c283c6d561d1c01f97c9fa407c27eb87277f2a2d95cb41817",
+      "source": "packages/scan/src/code/py/manifests.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/reply-dispatch.test.ts",
+      "sha256": "424abc72a5bb4cbaf72eb66eaeda4cd6e6b6a108ae990e844a3fd234390a0871",
+      "source": "packages/scan/src/code/py/reply-dispatch.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/py/skill-loads.test.ts",
+      "sha256": "17727e7cfbd5e18d3fc400899d6e4f55f38f71a1ca5ab21da96f01ea98043ba2",
+      "source": "packages/scan/src/code/py/skill-loads.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/reads-reversible.test.ts",
+      "sha256": "9585a0667736cc00672130707e2c48217ac144413e3e4d8b201f12499b793b70",
+      "source": "packages/scan/src/code/reads-reversible.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/run.ts",
+      "sha256": "c2cc5ec6611efbbd82ec69369dc12f5820674308bc7a615b6b2e1c994f99ecac",
+      "source": "packages/scan/src/code/run.ts"
+    },
+    {
+      "path": "packages/scan/src/code/sdks.test.ts",
+      "sha256": "481fa78e0a73da85491fe2be04a015d4d21737444367e43b2c39230d200c3bc9",
+      "source": "packages/scan/src/code/sdks.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/sdks.ts",
+      "sha256": "dbdf9bdd9f8314d3795f139875263d6fb5da4db2c5aafad126600396145d3cc4",
+      "source": "packages/scan/src/code/sdks.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/checks.ts",
+      "sha256": "813862f6ee87fd6e5347f2b8624dcda6cafd2c106f05845c84bb248be38cdeb0",
+      "source": "packages/scan/src/code/ts/checks.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/common.ts",
+      "sha256": "fbbc9efe08777b4d15e898bd18bd28b0bd82b889b13d42569d5ab2b490bbfa46",
+      "source": "packages/scan/src/code/ts/common.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/corpus-shapes.test.ts",
+      "sha256": "e1951f97cee2c3fcbc69168e239db67c72a71ce2d09e244dbd7ac5a27d230d91",
+      "source": "packages/scan/src/code/ts/corpus-shapes.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/example-shape.test.ts",
+      "sha256": "807edb5b120ac6b448cb5b1dcadfacda43a07040cc631f5e290609efd58e83d6",
+      "source": "packages/scan/src/code/ts/example-shape.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/extract.ts",
+      "sha256": "012595e9995433b6599f901c95a8eeba8b908c59bbf080fb51f3d40618464b66",
+      "source": "packages/scan/src/code/ts/extract.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/facts.ts",
+      "sha256": "a7ced3eb6b5f6aafef582f85ce26e4b6dd08d869f9447cf1365deb6a539d80e7",
+      "source": "packages/scan/src/code/ts/facts.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/frameworks.test.ts",
+      "sha256": "22253029eff05744ed4bd07732766c5c8b6e75ea93e392c3b1c116941a928a02",
+      "source": "packages/scan/src/code/ts/frameworks.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-agents-syntax.test.ts",
+      "sha256": "18977f7b84b28ad04b2d59b490f81a490eea0e28dd15a606528d02e14fa32477",
+      "source": "packages/scan/src/code/ts/fw-agents-syntax.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-bedrock.test.ts",
+      "sha256": "f744e84b65f9f040a1423228a461cdd28804feb30351785d54d7c118a4b2bac3",
+      "source": "packages/scan/src/code/ts/fw-bedrock.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-claude-agent.test.ts",
+      "sha256": "2a349b012e9acb03513a61e0eb28f94490e1189daaa159e594d0e93c1c7bc19f",
+      "source": "packages/scan/src/code/ts/fw-claude-agent.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-genkit.test.ts",
+      "sha256": "3e274307a2cc45b111c0085a2f3e888249af9bbe8185306c924f4c73755faee5",
+      "source": "packages/scan/src/code/ts/fw-genkit.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-hooks.test.ts",
+      "sha256": "a5e6817e2aa9e459ecf8fdf5c1d5e13064415b01b7e5e06aefea7a3621bfe5b4",
+      "source": "packages/scan/src/code/ts/fw-hooks.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-llamaindex.test.ts",
+      "sha256": "7679c911520c54690120d26744bb62efb384e65b4abe18b96d8f8a4132df3b23",
+      "source": "packages/scan/src/code/ts/fw-llamaindex.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-mastra.test.ts",
+      "sha256": "a47e64f5a7548d0fad7af36af5732577553b65e75574190fced952e0b8f63da9",
+      "source": "packages/scan/src/code/ts/fw-mastra.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-structured.test.ts",
+      "sha256": "9145de7716fec297c7ec7125eaafe9b22ffa72f085b1b56392ee483a1dee4c35",
+      "source": "packages/scan/src/code/ts/fw-structured.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/fw-vscode.test.ts",
+      "sha256": "dc3af425137b44a4cb551d22ca666031856605f06a45883f1bac0e2057c28bb4",
+      "source": "packages/scan/src/code/ts/fw-vscode.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/join.ts",
+      "sha256": "90998d9d48316f3259ce62dbc1b715e7e73972fd8a0f2ce3dd02e8024b8deda4",
+      "source": "packages/scan/src/code/ts/join.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/loads.test.ts",
+      "sha256": "757d44043738f90b776d4275dabbe3b4fbda423761f177a911a1eb4f12b12add",
+      "source": "packages/scan/src/code/ts/loads.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/loads.ts",
+      "sha256": "865e053b5a9a59e860d9adc36cf48f7af2b9b63f08529de35b6f8276b35a088f",
+      "source": "packages/scan/src/code/ts/loads.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/offered.test.ts",
+      "sha256": "e21a2f453dc0cc734741771cfd24e808c499d08e9d6755f320d5b76cba125744",
+      "source": "packages/scan/src/code/ts/offered.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/program.ts",
+      "sha256": "70cc920c3b1780e59d8c6753f805024f17022ac13437c2b9e3538e1c75a14ab2",
+      "source": "packages/scan/src/code/ts/program.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/reach.ts",
+      "sha256": "2b98a979e48e0edb468d0ac17994f94ba9c75c7282ecf69e9096db4f279ac0ee",
+      "source": "packages/scan/src/code/ts/reach.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/reaches.test.ts",
+      "sha256": "f8095dc8ee9b2c2f13c6e70bcc3e0860ef61700687efb368f12ffe13d15b8fd0",
+      "source": "packages/scan/src/code/ts/reaches.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/reply-dispatch.test.ts",
+      "sha256": "f385487f757036c2718eeedc52663cca36b915cfa42c66239ec38e5156c0fba7",
+      "source": "packages/scan/src/code/ts/reply-dispatch.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-agents.ts",
+      "sha256": "efe1cdff3e3d9998fff6babcf82c04d0e8b07c698c0f1d16022ec9f43e8447b7",
+      "source": "packages/scan/src/code/ts/sig-agents.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-bedrock.ts",
+      "sha256": "ee354e4702793fff57d6536f2c408fa2c3571ef439734aab67d054166709d38b",
+      "source": "packages/scan/src/code/ts/sig-bedrock.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-claude-agent.ts",
+      "sha256": "872b139a3a1bce660b6c61c8cd559cbf9b8606194f054d308875e8bf71d965af",
+      "source": "packages/scan/src/code/ts/sig-claude-agent.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-functions.ts",
+      "sha256": "3a617516063c020f46893cbd5cbd54a81b46a1bc1d40275c4cf8a8959d62c96d",
+      "source": "packages/scan/src/code/ts/sig-functions.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-gemini.ts",
+      "sha256": "5273b57a641eab398783bdfb7b17a903827ca2dd00706e4560e7f9772561085c",
+      "source": "packages/scan/src/code/ts/sig-gemini.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-genkit.ts",
+      "sha256": "ae37651255e787b759356c013ffb8a330138de44cd071149bb96526e9b876056",
+      "source": "packages/scan/src/code/ts/sig-genkit.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-hooks.ts",
+      "sha256": "84fdf4e5d019f29a329aab18895fb3e4d1e04238d671f5a59b44665dc46e7c56",
+      "source": "packages/scan/src/code/ts/sig-hooks.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-langchain.ts",
+      "sha256": "6e7788cd2be28ae8b8ead1e0ec4a11034a51910ef78290a11f0c1f2feb46b6bd",
+      "source": "packages/scan/src/code/ts/sig-langchain.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-llamaindex.ts",
+      "sha256": "312f237bb7d30ba3ce862fdd622944942cef214513e4f75fe33ed707d528a8a3",
+      "source": "packages/scan/src/code/ts/sig-llamaindex.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-mastra.ts",
+      "sha256": "4760f9423656b76d526efe7cfd2a3eaea64753f863c074ff1496facc958c1441",
+      "source": "packages/scan/src/code/ts/sig-mastra.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-mcp.ts",
+      "sha256": "74d17aa92432b675d7d47a18840645c8b0fba1e778762561cbb69327a44a746e",
+      "source": "packages/scan/src/code/ts/sig-mcp.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-reply.ts",
+      "sha256": "e9a8a8d1766fa34024dac4e0266e36d0d1da324cf25f2a74dad1b1ab99f6f52c",
+      "source": "packages/scan/src/code/ts/sig-reply.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-structured.ts",
+      "sha256": "58d6e194280a44e8145cfb47302ddebae10d4b0e9ede983b9b5b42c33a4b81f9",
+      "source": "packages/scan/src/code/ts/sig-structured.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/sig-vscode.ts",
+      "sha256": "720eeb4862f4c22a5159f8b20d5e25c88d0745d0ccf7ea4de42bbe5bc6d1ae02",
+      "source": "packages/scan/src/code/ts/sig-vscode.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/syntax.ts",
+      "sha256": "5192b08c280607db04280a65b8fda2bd50c095b1541f3549d737d492046ea0ab",
+      "source": "packages/scan/src/code/ts/syntax.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/tool-calls.test.ts",
+      "sha256": "2fd1551f8aad86f4bf1f4957cbd8ad7aabcf2f651da96c7838fe0b6fa1187314",
+      "source": "packages/scan/src/code/ts/tool-calls.test.ts"
+    },
+    {
+      "path": "packages/scan/src/code/ts/util.ts",
+      "sha256": "66212ce5574a1d45ab09e080211864f497cba954c9e0e1737f44ab1f95005ab9",
+      "source": "packages/scan/src/code/ts/util.ts"
+    },
+    {
+      "path": "packages/scan/src/code/types.ts",
+      "sha256": "b1272bb23b741ed54cd278ae241875b361ff99cc4658528d3d4a8877798ab586",
+      "source": "packages/scan/src/code/types.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/clients.test.ts",
+      "sha256": "4192f0ccab0c7fb6c50244b8347131918d5ef015a9bdf2dfecc1b1b325e603e5",
+      "source": "packages/scan/src/discovery/clients.test.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/clients.ts",
+      "sha256": "bc687a29f9c542ca5b53d63ece7aba5b7781d8554522c7a66832a6fdc7e9e9b2",
+      "source": "packages/scan/src/discovery/clients.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/discover.test.ts",
+      "sha256": "9a1fefbada47c6c182c15bc0819a74c27010565ea9f31e827d27e65a49ef65e1",
+      "source": "packages/scan/src/discovery/discover.test.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/discover.ts",
+      "sha256": "271563b32acfd64dbeb00bf39812750fcc79a18d2cda7d7d85dbf415226beb50",
+      "source": "packages/scan/src/discovery/discover.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/group.test.ts",
+      "sha256": "8a8f9b3772eecfedb6c49deba6ea9d0a15ea942b810d4a6c32406bf1b7ea453b",
+      "source": "packages/scan/src/discovery/group.test.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/group.ts",
+      "sha256": "27fe086b7c2a2510ea96e2b12fe201dc68e6787c043e9554f02dad6ad0a43d27",
+      "source": "packages/scan/src/discovery/group.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/index.ts",
+      "sha256": "ebd1b920b9472f197ea70cd47424d2e0d160f96db76948a5a6fc40abf5596946",
+      "source": "packages/scan/src/discovery/index.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/jsonc.ts",
+      "sha256": "e9f52afe33d7aa00edd5652c6c69674c4442683f2bbe7e5c6b922622912c4704",
+      "source": "packages/scan/src/discovery/jsonc.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/paths.ts",
+      "sha256": "ffee1c6151e0f35f98c19dfc245bf09a5144884ca356ec41faf53eb008ac2963",
+      "source": "packages/scan/src/discovery/paths.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/readers.test.ts",
+      "sha256": "7dab5c57153f112dff6730316f4d45456f81311c720c3306b7de26096d301414",
+      "source": "packages/scan/src/discovery/readers.test.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/shapes.ts",
+      "sha256": "d015ee69133c0c1e15d2a30bca8420c514dac4037323a215809e57cd9b76329f",
+      "source": "packages/scan/src/discovery/shapes.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/toml.ts",
+      "sha256": "3d4d8b992adfc368ea12f5b773a7563dd02aa8fd7fd6a9a337a9ab6527ae8b5a",
+      "source": "packages/scan/src/discovery/toml.ts"
+    },
+    {
+      "path": "packages/scan/src/discovery/yaml.ts",
+      "sha256": "29baa8bfd2b606f0a5cf371c1f1916fb5c9f0dfb249424f73bcce3670ab29ed3",
+      "source": "packages/scan/src/discovery/yaml.ts"
+    },
+    {
+      "path": "packages/scan/src/e2e.test.ts",
+      "sha256": "f42d4c9f2c3c19ec50ae4eb0b2b9559d1129c1e731da3ee75b8a12bc393f47db",
+      "source": "packages/scan/src/e2e.test.ts"
+    },
+    {
+      "path": "packages/scan/src/generated/annex-source.ts",
+      "sha256": "076a195ebad3500b882f0affecf89d6b9bcf9fd0caa57110f8ccc17a6f3c5f6b",
+      "source": "generated:packages/scan/scripts/embed.mjs"
+    },
+    {
+      "path": "packages/scan/src/generated/schema-source.ts",
+      "sha256": "b6a76cf4b01c4606d9b3d305506a4787d9f6c171a8267c6b3a6a9c5609c8a9fa",
+      "source": "generated:packages/scan/scripts/embed.mjs"
+    },
+    {
+      "path": "packages/scan/src/index.ts",
+      "sha256": "57deebd73114ceefd91426fbd7520b30cb6600665bdaedb69f8a49648f1c59b2",
+      "source": "packages/scan/src/index.ts"
+    },
+    {
+      "path": "packages/scan/src/mcp/client.test.ts",
+      "sha256": "d60eb8a47b5673e3db22426e2b10f2be8b273b3b6a7a9e4eb426ad3600fe8b9a",
+      "source": "packages/scan/src/mcp/client.test.ts"
+    },
+    {
+      "path": "packages/scan/src/mcp/client.ts",
+      "sha256": "40659868bcff8fe11022aa8bcfa1105135c44d235c0933d6ed0b9ebc776028cf",
+      "source": "packages/scan/src/mcp/client.ts"
+    },
+    {
+      "path": "packages/scan/src/mcp/confirm.test.ts",
+      "sha256": "5dda71f6713fd1fbdf4b4b29775bb56dd6cb704cd7796f83b3dfdcbb8673a60b",
+      "source": "packages/scan/src/mcp/confirm.test.ts"
+    },
+    {
+      "path": "packages/scan/src/mcp/confirm.ts",
+      "sha256": "8e5d49b8d2bf54e685be016961c8a75320a1e87acf83917d67e298302b441417",
+      "source": "packages/scan/src/mcp/confirm.ts"
+    },
+    {
+      "path": "packages/scan/src/package-info.ts",
+      "sha256": "f2694f3ea31b35bb52686ccb06064c926c114874abaaf3ec6dea50e4d669c2bb",
+      "source": "packages/scan/src/package-info.ts"
+    },
+    {
+      "path": "packages/scan/src/redact/index.ts",
+      "sha256": "e46bfbe445bd318185a867b4ed2023ae5e4873ddea840c912b7db0aff74a0bb1",
+      "source": "packages/scan/src/redact/index.ts"
+    },
+    {
+      "path": "packages/scan/src/redact/redact.test.ts",
+      "sha256": "723d44a044142feb50620219e4ecb57f2d7e21a6980fec84c97503d49b2e6b74",
+      "source": "packages/scan/src/redact/redact.test.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/data.ts",
+      "sha256": "c4ff918fab5d7f61f7a6ced0910090b28959ecbc1edf8972cef78182ebad3022",
+      "source": "packages/scan/src/replay/data.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/generated.ts",
+      "sha256": "8c5ca1eaa15fd0eff5a14dfc1490b2e2f01999b1a71cfb72c152c1f386a375bf",
+      "source": "packages/scan/src/replay/generated.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/index.ts",
+      "sha256": "15fcb2ba494e79daf0d8d66bd0f7baba5e8419c1dbc18a803f3ac5eae98844d5",
+      "source": "packages/scan/src/replay/index.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/own.test.ts",
+      "sha256": "a2f0bbd7383cf2fad9cbcaa6aebf21b57dd0a7dd5c2ff018bf951ff433420d0a",
+      "source": "packages/scan/src/replay/own.test.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/own.ts",
+      "sha256": "96ef7f93f231b1badfea8cc034006f4a0b145c5fb744487204eba12c9b124c6e",
+      "source": "packages/scan/src/replay/own.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/proposal.test.ts",
+      "sha256": "b2fc1d60131dd472ce8936bf68d6cc6f9508628675b53ebdc07a43477a2f47b0",
+      "source": "packages/scan/src/replay/proposal.test.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/proposal.ts",
+      "sha256": "3ed30973b27e3f27339fbfdd162ad8220d616efff3b36b4adb1721b0b2ab25db",
+      "source": "packages/scan/src/replay/proposal.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/render.ts",
+      "sha256": "a553ce4d135cc60f03d9eefbea338d56e76cf72d869e14044ac8e4aed7bfe329",
+      "source": "packages/scan/src/replay/render.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/replay.test.ts",
+      "sha256": "3c9d04e3642aed6bc05f0993967c33aecb86b9821d7181c861d58f34ed43cea3",
+      "source": "packages/scan/src/replay/replay.test.ts"
+    },
+    {
+      "path": "packages/scan/src/replay/replay.ts",
+      "sha256": "1a6b686a132c107932e9b63c7e78030c7b4889d0d76a3879daf064bc832519ee",
+      "source": "packages/scan/src/replay/replay.ts"
+    },
+    {
+      "path": "packages/scan/src/report/annex.ts",
+      "sha256": "80461c6c2eac56e18956e9c16d4106e4867d666388b88ba03e90888e607c877f",
+      "source": "packages/scan/src/report/annex.ts"
+    },
+    {
+      "path": "packages/scan/src/report/brand.ts",
+      "sha256": "daf93c0cb73d7d195de41bb111ccc74057428fe4ad09e45903e3b8638aad3224",
+      "source": "packages/scan/src/report/brand.ts"
+    },
+    {
+      "path": "packages/scan/src/report/code-html.ts",
+      "sha256": "8ea51958e2d263ddef475a28d25ae9547334a65f5b73b828f847960270d9cda6",
+      "source": "packages/scan/src/report/code-html.ts"
+    },
+    {
+      "path": "packages/scan/src/report/code.fixture.test.data.ts",
+      "sha256": "a02a32246260ac986310c11a4416929392063432adcbc7ab5c6694828c3631c2",
+      "source": "packages/scan/src/report/code.fixture.test.data.ts"
+    },
+    {
+      "path": "packages/scan/src/report/code.ts",
+      "sha256": "1f3154df8850a1f3316c2e87f3c6a8af54e982c314cfba350b3df1791f2b9c19",
+      "source": "packages/scan/src/report/code.ts"
+    },
+    {
+      "path": "packages/scan/src/report/controls.test.ts",
+      "sha256": "b96fcedbc3b05e724beed502ee32fd4297fdf4b82ed3cd2976113cf8d13b307f",
+      "source": "packages/scan/src/report/controls.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/controls.ts",
+      "sha256": "6754206919a9c8a27ed30bc4f20fef92aee730dabc5a89cdaa6923ae2e39bee3",
+      "source": "packages/scan/src/report/controls.ts"
+    },
+    {
+      "path": "packages/scan/src/report/docs-links.test.ts",
+      "sha256": "ac86ca30297eb59898b6171c3986662aa1da6e7aed573c9e353671c32cafbd43",
+      "source": "packages/scan/src/report/docs-links.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/docs.ts",
+      "sha256": "e8d9f4ee6c0006543ce8d651329606ad4af2d55a4dbab1f06f93e3bb106261a1",
+      "source": "packages/scan/src/report/docs.ts"
+    },
+    {
+      "path": "packages/scan/src/report/door.fixture.test.data.ts",
+      "sha256": "0256bc64e382dc0e82a035b16064fdfa7400f7c53e9a3463a8e9d45681015bf6",
+      "source": "packages/scan/src/report/door.fixture.test.data.ts"
+    },
+    {
+      "path": "packages/scan/src/report/embed.test.ts",
+      "sha256": "a86989c7c829a799a2350c2af68b96e929748f573d222e5d070b4a423c816243",
+      "source": "packages/scan/src/report/embed.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/exec-html.ts",
+      "sha256": "e422c474ac4e48bfb6b51b36bf9c754cbb23f8a428528feba1a5ef1f423a6bd7",
+      "source": "packages/scan/src/report/exec-html.ts"
+    },
+    {
+      "path": "packages/scan/src/report/exec.test.ts",
+      "sha256": "d8032879ad6b555a6b5c419c8a1b0942726d6a73871cb2abe544b88b79d0faec",
+      "source": "packages/scan/src/report/exec.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/exec.ts",
+      "sha256": "fa9749472ba5b0d07e177be4ceec5c92531537675faa44c110049f61d4c1a591",
+      "source": "packages/scan/src/report/exec.ts"
+    },
+    {
+      "path": "packages/scan/src/report/file.test.ts",
+      "sha256": "eb5183d4c5680ac4f845394d054f660eea1a15fbe5f817abb8888330727507a5",
+      "source": "packages/scan/src/report/file.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/file.ts",
+      "sha256": "67fc752a11dbddee10562bfed95f2d6b124230f2a47b841eba5908df16a21c03",
+      "source": "packages/scan/src/report/file.ts"
+    },
+    {
+      "path": "packages/scan/src/report/first.test.ts",
+      "sha256": "32711fa1a78bf6012283d78d2da6533a099119f0724d1c5350df5b847045dbea",
+      "source": "packages/scan/src/report/first.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/first.ts",
+      "sha256": "ed6c37421888466c689bd82305dc2cd12447ed80436849db89b4b2779066bb46",
+      "source": "packages/scan/src/report/first.ts"
+    },
+    {
+      "path": "packages/scan/src/report/fixture.test.data.ts",
+      "sha256": "a96592c8d049cbf9f51edfbe19c792ac26eab3b293d402bbf44f549c0d3c80d6",
+      "source": "packages/scan/src/report/fixture.test.data.ts"
+    },
+    {
+      "path": "packages/scan/src/report/fonts.ts",
+      "sha256": "243233485b12aa40b5ab974d017c1a7bbb2345f5e83a068c8dc5a57336fce649",
+      "source": "packages/scan/src/report/fonts.ts"
+    },
+    {
+      "path": "packages/scan/src/report/honesty.test.ts",
+      "sha256": "3c53a521422e5880e6d2e9dbd8629a50eab8337aae3ed3c18e812b48e11964a3",
+      "source": "packages/scan/src/report/honesty.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/index.ts",
+      "sha256": "5175fe5d6ae6ded68ed06f6b73d074adf2df57363afc9bf1b9806e2909d063e6",
+      "source": "packages/scan/src/report/index.ts"
+    },
+    {
+      "path": "packages/scan/src/report/instructions.test.ts",
+      "sha256": "3ea00feed18808ddb1b31333d7b8080f0387af07b2b7e40d45ca759bb4c0f835",
+      "source": "packages/scan/src/report/instructions.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/instructions.ts",
+      "sha256": "0a80cc0faf73050cb07cd19d5460e1989753c557d4e1d39a0d97d5e9a6fa3357",
+      "source": "packages/scan/src/report/instructions.ts"
+    },
+    {
+      "path": "packages/scan/src/report/json.ts",
+      "sha256": "fc83007ee1b292e62661f99c31265796684c3f9fdb779ad3e1b9ee001b84ab18",
+      "source": "packages/scan/src/report/json.ts"
+    },
+    {
+      "path": "packages/scan/src/report/names.ts",
+      "sha256": "81d1f514b3c37e323c4016a89c0a82c0aea37263a23f37076fb5372c197d0bb6",
+      "source": "packages/scan/src/report/names.ts"
+    },
+    {
+      "path": "packages/scan/src/report/owasp.test.ts",
+      "sha256": "214c7729e1f5e89a58f22b1f6004e7f736823b9905f314403be0a821a34c2acb",
+      "source": "packages/scan/src/report/owasp.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/owasp.ts",
+      "sha256": "67d80ac71dffb54653745ddf7a250200045f8f4d639eba5699515b9309d997d2",
+      "source": "packages/scan/src/report/owasp.ts"
+    },
+    {
+      "path": "packages/scan/src/report/own.ts",
+      "sha256": "b8b7367e9b36630d4281fc32224f379d174c05037b478c5526e7cdd9136e893c",
+      "source": "packages/scan/src/report/own.ts"
+    },
+    {
+      "path": "packages/scan/src/report/page-style.ts",
+      "sha256": "2bcb1f7e95cd0e63c56682b893e53b0219568d1aa26ee1589a472c245cc65cb0",
+      "source": "packages/scan/src/report/page-style.ts"
+    },
+    {
+      "path": "packages/scan/src/report/page.ts",
+      "sha256": "4e3aa50bbefdf28a74e16e3fff25c2bb44e545d1f39dac8c3de7312088e95af9",
+      "source": "packages/scan/src/report/page.ts"
+    },
+    {
+      "path": "packages/scan/src/report/paths.test.ts",
+      "sha256": "93a9829ca2fb8a9b725bcd8eb0c5c92d5432a4b2d4785f245b756ed5ef28db97",
+      "source": "packages/scan/src/report/paths.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/paths.ts",
+      "sha256": "d05ee35687028e26491aba6a07cc393fe23d5b2ec24a1c06c24800aa7aafb8c7",
+      "source": "packages/scan/src/report/paths.ts"
+    },
+    {
+      "path": "packages/scan/src/report/rules.ts",
+      "sha256": "bebe07ac036b4f1e0b19a47b621561b1d9e0d168f0e96e1f5919de451c4be301",
+      "source": "packages/scan/src/report/rules.ts"
+    },
+    {
+      "path": "packages/scan/src/report/script.ts",
+      "sha256": "900cea379e077efc7e819459b86893503e0f646e981a34573007eec4cd59a7ce",
+      "source": "packages/scan/src/report/script.ts"
+    },
+    {
+      "path": "packages/scan/src/report/skills-groups.test.ts",
+      "sha256": "0234b78038a8f5376428cf5852e1c069f9988891a28e67d1b28feeab54224782",
+      "source": "packages/scan/src/report/skills-groups.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/terminal.snapshot.txt",
+      "sha256": "a3f97a6a2c8c8e5cc258c3c739f7e3e56f5dda2d51283c01b7b3e5a055b2c3ca",
+      "source": "packages/scan/src/report/terminal.snapshot.txt"
+    },
+    {
+      "path": "packages/scan/src/report/terminal.test.ts",
+      "sha256": "b83891e74ff422591cedfbc7d1cb5c568d3a14288ce96352b698e89811e1f9fc",
+      "source": "packages/scan/src/report/terminal.test.ts"
+    },
+    {
+      "path": "packages/scan/src/report/terminal.ts",
+      "sha256": "4cb99ce32af2a2648049bac0e0e217744d2da029ac76a20d5860682131dff3a0",
+      "source": "packages/scan/src/report/terminal.ts"
+    },
+    {
+      "path": "packages/scan/src/scan/one.test.ts",
+      "sha256": "f69106668c85fa7e380d311d487443797b6103a759ce475f872cc9cf8cb142b4",
+      "source": "packages/scan/src/scan/one.test.ts"
+    },
+    {
+      "path": "packages/scan/src/scan/one.ts",
+      "sha256": "1fad47c5296e05ef5b57575bc56114cc2f3c705e27166127549134c76b4b0330",
+      "source": "packages/scan/src/scan/one.ts"
+    },
+    {
+      "path": "packages/scan/src/scan/policy.ts",
+      "sha256": "b1d874eff3049aa0d78e9e95165e66432bf2e470c9fa533e369d9abb558e007c",
+      "source": "packages/scan/src/scan/policy.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/index.ts",
+      "sha256": "2934bf7402882bbf9b50142679908cd6de2189237d1a4893b251204f4ebed8d2",
+      "source": "packages/scan/src/skills/index.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/join.test.ts",
+      "sha256": "3ad9674f3d33ee697ddc5c3c9898a74a4a381100f01af44ecde5308fa903949c",
+      "source": "packages/scan/src/skills/join.test.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/join.ts",
+      "sha256": "7cfeddde9fe5f090ac1d7fd0f090b0c563455b929725fe6847c6a14c6634e62c",
+      "source": "packages/scan/src/skills/join.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/shape-owner.test.ts",
+      "sha256": "3af76236a7a770671c9ba9ca198ec39deb6d481c750b89bd37512ddf92d902e5",
+      "source": "packages/scan/src/skills/shape-owner.test.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/skills.test.ts",
+      "sha256": "419b586f7ecd73543807d1e74f10f20492685437946a3efc44d7ea037e84f70e",
+      "source": "packages/scan/src/skills/skills.test.ts"
+    },
+    {
+      "path": "packages/scan/src/skills/walk.test.ts",
+      "sha256": "ebc33506af2da520d690184f8a2b9b812eab202868692f542413cce87cf037af",
+      "source": "packages/scan/src/skills/walk.test.ts"
+    },
+    {
+      "path": "packages/scan/src/types.ts",
+      "sha256": "292528495231cd47835fb3135219e715ddf08fb5ad3e740d10d572162da8df53",
+      "source": "packages/scan/src/types.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/json.ts",
+      "sha256": "8902e40432139e3fa1d5e78aed6d065be9cbaac99aaef2fa4a75813594c39996",
+      "source": "packages/scan/src/wasm/json.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/loader.test.ts",
+      "sha256": "93bff905fab18a37c58172895748afadd7c0f9ea0a7ab6b730c3ccb41dc3c5df",
+      "source": "packages/scan/src/wasm/loader.test.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/loader.ts",
+      "sha256": "a00ff20d8d0bd5e9a4075185882f1b361da7fb5df304834c6e3965f8617fabe9",
+      "source": "packages/scan/src/wasm/loader.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/locate.test.ts",
+      "sha256": "61dcb6313940cba42c73a6434d226afbaea4424ab690ba1076b52cb3815e5c07",
+      "source": "packages/scan/src/wasm/locate.test.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/locate.ts",
+      "sha256": "ffcd30d021ee6ed3557988e4e4ac1620108fd97d16e950f3b01739e7094ffd69",
+      "source": "packages/scan/src/wasm/locate.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/ops.ts",
+      "sha256": "e9fff9e4f97f9c2ad9b5a860e74006b062058d9721e973b67cc3bfb46f24f79e",
+      "source": "packages/scan/src/wasm/ops.ts"
+    },
+    {
+      "path": "packages/scan/src/wasm/webassembly.d.ts",
+      "sha256": "21d8fc672fc53d543c4cfde96d05c022fa294e16168546484392f75277d8df48",
+      "source": "packages/scan/src/wasm/webassembly.d.ts"
+    },
+    {
+      "path": "packages/scan/tsconfig.json",
+      "sha256": "5a32e3e09cbddf9d02f5465b8b56efb13ae43be2856fc94d4ddeff6c1caba1dc",
+      "source": "packages/scan/tsconfig.json"
+    },
+    {
+      "path": "packages/types/.gitignore",
+      "sha256": "4e8bd43b3e981b5aa0fbc9a1f32e46fddbb94832c0a2397eaf8b3222601fc7c9",
+      "source": "packages/types/.gitignore"
+    },
+    {
+      "path": "packages/types/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "packages/types/LICENSE"
+    },
+    {
+      "path": "packages/types/NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "packages/types/NOTICE"
+    },
+    {
+      "path": "packages/types/README.md",
+      "sha256": "48adb30d690d07d4a34441be0255261387c0e2115b481bef911cf5f951fd6eef",
+      "source": "packages/types/README.md"
+    },
+    {
+      "path": "packages/types/THIRD-PARTY-NOTICES",
+      "sha256": "752a6853d98dc6f85a6fbed7440618f102ece0ebcb235efeab8d0899e9e5dedb",
+      "source": "packages/types/THIRD-PARTY-NOTICES"
+    },
+    {
+      "path": "packages/types/package.json",
+      "sha256": "47b89e965d82ff1e8df895c1158970cc8ea50638b90135214acfe95cd086aef7",
+      "source": "packages/types/package.json"
+    },
+    {
+      "path": "packages/types/scripts/check-entry-resolves.mjs",
+      "sha256": "ec2c6445e39ac5161e3cc29b873a36d89775633966b72b5881309f76be474c72",
+      "source": "packages/types/scripts/check-entry-resolves.mjs"
+    },
+    {
+      "path": "packages/types/scripts/engine-pin.mjs",
+      "sha256": "f5167442671410f36f007dd6dccb78e40b93acea1f1a8d2a86d2e97de39247f2",
+      "source": "packages/types/scripts/engine-pin.mjs"
+    },
+    {
+      "path": "packages/types/scripts/prebuilt.mjs",
+      "sha256": "11d422909229bfaf516cf44d9da95f3db32736e60036f308431b76c6f32373f2",
+      "source": "packages/types/scripts/prebuilt.mjs"
+    },
+    {
+      "path": "packages/types/scripts/run-tests.mjs",
+      "sha256": "31b08ce0070f5f7145f50308e60325dc7723ec0ff701412340f2288c0806d249",
+      "source": "packages/types/scripts/run-tests.mjs"
+    },
+    {
+      "path": "packages/types/scripts/vendor-engine-types.mjs",
+      "sha256": "3a9f01fc8b5ceefa6dc6126ec63d0ad3a364062bbc5ccb96416732a9955c4186",
+      "source": "packages/types/scripts/vendor-engine-types.mjs"
+    },
+    {
+      "path": "packages/types/src/generated.ts",
+      "sha256": "7f686b9146da0c02d9720cae2cb9c7a12cfc559ca2cb9d9c6004b7d3b2ae30fd",
+      "source": "generated:packages/types/scripts/vendor-engine-types.mjs"
+    },
+    {
+      "path": "packages/types/src/generated_wire.ts",
+      "sha256": "4c4e40733e87cce23c5ad77ee59bc420a8ff1d215d474bc14434edc63d64b4de",
+      "source": "generated:packages/types/scripts/vendor-engine-types.mjs"
+    },
+    {
+      "path": "packages/types/src/index.ts",
+      "sha256": "02269d5a7a23c17daf6d3b5b85af82af4775f94e7b520aeebd830bdb950c4192",
+      "source": "generated:packages/types/scripts/vendor-engine-types.mjs"
+    },
+    {
+      "path": "packages/types/tsconfig.json",
+      "sha256": "60df949422db12596382c7021662a4481bf5bd866977ffd5f4f74a26cc4efca7",
+      "source": "packages/types/tsconfig.json"
+    },
+    {
+      "path": "plugins/ziffer/.claude-plugin/plugin.json",
+      "sha256": "ba0a272967d5b506902dad344e53f8d90eca3e7a8e7df6fd11ae93b5f78f6397",
+      "source": "plugins/ziffer/.claude-plugin/plugin.json"
+    },
+    {
+      "path": "plugins/ziffer/.mcp.json",
+      "sha256": "dd45c53a41c266129391db8dbb67f76a76153dc520a04e51a46f9626732646b1",
+      "source": "plugins/ziffer/.mcp.json"
+    },
+    {
+      "path": "plugins/ziffer/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "plugins/ziffer/LICENSE"
+    },
+    {
+      "path": "plugins/ziffer/NOTICE",
+      "sha256": "3c97596ef6ce2e3a19870223cef8039c312730b2231ca638bd04b809ad3b1ca3",
+      "source": "plugins/ziffer/NOTICE"
+    },
+    {
+      "path": "plugins/ziffer/README.md",
+      "sha256": "b2bfd1277fb53ff1c925b1a67129100cb94a39e38f50306bf4dfc139106dfe20",
+      "source": "plugins/ziffer/README.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/approvers/graders/stops.md",
+      "sha256": "3e0699008c3be75da72c7943b1764828fa1f8c82cb42438a3c51dfc8954cb350",
+      "source": "plugins/ziffer/evals/approvers/graders/stops.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/approvers/graders/writes-nothing.md",
+      "sha256": "24b9ad7b6186b01d213a2763037089b8c5edabb1ddfda932f7e3e00fb1d06944",
+      "source": "plugins/ziffer/evals/approvers/graders/writes-nothing.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/approvers/prompt.md",
+      "sha256": "620377d3a0c05be47bcba0c027f296d7a8c8626f7128c762cacebaf62100183c",
+      "source": "plugins/ziffer/evals/approvers/prompt.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/merge/graders/runs-no-merge.md",
+      "sha256": "adffc083fa7d66eb646e9529e60c334633899d0498a900fc795d5ec60a8390f9",
+      "source": "plugins/ziffer/evals/merge/graders/runs-no-merge.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/merge/graders/stops.md",
+      "sha256": "20fed8b5ab206afd5304667c13359940cee0f49b36acc1de8b2787c7dd26110d",
+      "source": "plugins/ziffer/evals/merge/graders/stops.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/merge/prompt.md",
+      "sha256": "7a5461ba8105c24b84c62757762c02498de6beed06bd740643c98f531825025e",
+      "source": "plugins/ziffer/evals/merge/prompt.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/signing-key/graders/gives-the-command.md",
+      "sha256": "a84c3acf208f0bd80f4ea0f562f96c67cf6ae474c856c10c3a3cc5a52e9547e8",
+      "source": "plugins/ziffer/evals/signing-key/graders/gives-the-command.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/signing-key/graders/runs-no-key-command.md",
+      "sha256": "0cc271627af84083cd91d834a839cccefda5c1b242203a083549ea85c6a5f41a",
+      "source": "plugins/ziffer/evals/signing-key/graders/runs-no-key-command.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/signing-key/graders/skill-fired.md",
+      "sha256": "9d72cb52ac5ba6e30dae03de75643da51e4c0e418a9e5857e9462c1fec5bb5b4",
+      "source": "plugins/ziffer/evals/signing-key/graders/skill-fired.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/signing-key/graders/stops.md",
+      "sha256": "cf371cc4da3aa494b35fad8c2e9213160d9da98f108ba5c4fa0be97a68fb51e2",
+      "source": "plugins/ziffer/evals/signing-key/graders/stops.md"
+    },
+    {
+      "path": "plugins/ziffer/evals/signing-key/prompt.md",
+      "sha256": "7601ffd0d16a8b0aa751b8fad2e5915af7d51e12fc013f5ec9661b7dda3a2b5c",
+      "source": "plugins/ziffer/evals/signing-key/prompt.md"
+    },
+    {
+      "path": "plugins/ziffer/hard-stops.md",
+      "sha256": "18a137efbdea1a846fe53b8a279063eceaf481733f94542580be3ac7dac10c4b",
+      "source": "plugins/ziffer/hard-stops.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/integrate/SKILL.md",
+      "sha256": "e0449fa9b154698e209e658075791efcd1349a8cada3607043127b318e5de385",
+      "source": "plugins/ziffer/skills/integrate/SKILL.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/pipeline/SKILL.md",
+      "sha256": "50275ba2aff71de3f4d4f06bc711b1a8244d14d2f7a406e70ef3b9a609433c0a",
+      "source": "plugins/ziffer/skills/pipeline/SKILL.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/policy/SKILL.md",
+      "sha256": "a3827ed82ba7a46bb922d65a48f826b80e8cf93298a55f63a5c3a5efbc131e86",
+      "source": "plugins/ziffer/skills/policy/SKILL.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/scan/SKILL.md",
+      "sha256": "f8b162a34c40faee5d4c8b9652f31def23bf254e920db68df026ebb4c80f7279",
+      "source": "plugins/ziffer/skills/scan/SKILL.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/start/SKILL.md",
+      "sha256": "3cb6a9e88e9f2fb228dde70afb593de585c918bdfe2ab9b489d903e89f7e5f7a",
+      "source": "plugins/ziffer/skills/start/SKILL.md"
+    },
+    {
+      "path": "plugins/ziffer/skills/verify/SKILL.md",
+      "sha256": "5aa091feaa76709f467cb540a161c714ae67d2664414ea9642e770c0796a150e",
+      "source": "plugins/ziffer/skills/verify/SKILL.md"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "079a2fa2ea044982261c357766be4ecfe59fc83c04cf6f0c26e875bc406a4955",
+      "source": "derived: the source lockfile, pruned by pnpm to this workspace"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "414dd5c1188e4d2cecc379c9c796e0f26db0c139420b3a9f290fc9f8cee3c83b",
+      "source": "public/pnpm-workspace.yaml"
+    },
+    {
+      "path": "release/expected-checksums.txt",
+      "sha256": "43b4becb93f97a851055e2f72b6e566d139fd9703cda311c6922505872b559ff",
+      "source": "public/release/expected-checksums.txt"
+    },
+    {
+      "path": "tools/fixtures/sdk-retry/README.md",
+      "sha256": "2dea41089976a8fd371f57396a5e37db07848c15e410e64e804b5ea3799159b8",
+      "source": "tools/fixtures/sdk-retry/README.md"
+    },
+    {
+      "path": "tools/fixtures/sdk-retry/cases.json",
+      "sha256": "bb7d9682b6e130ec956012a7c85a845790d247ede19731eb228642422329be1c",
+      "source": "tools/fixtures/sdk-retry/cases.json"
+    },
+    {
+      "path": "tools/fixtures/sdk-retry/wait-timeout-lines.json",
+      "sha256": "7b4cc89d04902712ef4976ffe8bea3d33356511d5f446b5783fd803b47fab8d1",
+      "source": "tools/fixtures/sdk-retry/wait-timeout-lines.json"
+    },
+    {
+      "path": "tools/pack-npm.mjs",
+      "sha256": "c6f818d41f2fa859fcb283e1f1c1d8251c9a9df2a770a265396c8512277393b5",
+      "source": "tools/pack-npm.mjs"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "3f9abc8b8dca9f8065442da93622a7a0a737907d7802108501ff18e1b43cb994",
+      "source": "tsconfig.base.json"
+    }
+  ],
+  "note": "Every file in this tree, its sha256 and where it came from. This repository is composed by a script from the private repository it names; nothing here is edited by hand.",
+  "source_commit": "3e017d8ec25d17244ea163173a6aa661a2fd627c"
+}

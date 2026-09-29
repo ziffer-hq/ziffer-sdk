@@ -1,0 +1,10 @@
+{
+  // The fixture home for packages/scan's end-to-end run (src/e2e.test.ts). The
+  // server path is relative: the run is made from packages/scan.
+  "mcpServers": {
+    "inbox": {
+      "command": "node",
+      "args": ["fixtures/mcp/echo-server.mjs"],
+    },
+  },
+}

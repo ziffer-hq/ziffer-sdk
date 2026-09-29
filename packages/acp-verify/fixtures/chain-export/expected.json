@@ -1,0 +1,259 @@
+{
+  "provenance": {
+    "source": "services/wire/fixtures/console-v2/export.json",
+    "source_sha256": "fbd2bfac1afaed85fc816382fce90c6e6a10b1ed00bb203cbf87676c4b4b7d80",
+    "engine_rev": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+    "generator": "packages/acp-verify/fixtures/chain-export/gen_chain_corpus.py"
+  },
+  "anchor_key": "anchor-identity.pub",
+  "cases": [
+    {
+      "name": "the export as downloaded, no anchor key: chained, anchors unchecked",
+      "file": "export.json",
+      "with_anchor_key": false,
+      "verdict": {
+        "verdict": "verified",
+        "tenant": "ten-a",
+        "first_seq": 0,
+        "last_seq": 3,
+        "records": 4,
+        "last_chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+        "starts_after": null,
+        "anchors_checked": false,
+        "anchors": [
+          {
+            "index": 0,
+            "status": "unchecked",
+            "placement": "in_file",
+            "head_seq": 1,
+            "period_end": 1790000060
+          }
+        ],
+        "anchored_through": null,
+        "unanchored_from": 0,
+        "unanchored_count": 4
+      }
+    },
+    {
+      "name": "the export as downloaded, with the anchor key: records 0-1 anchored, 2-3 not yet",
+      "file": "export.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "verified",
+        "tenant": "ten-a",
+        "first_seq": 0,
+        "last_seq": 3,
+        "records": 4,
+        "last_chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+        "starts_after": null,
+        "anchors_checked": true,
+        "anchors": [
+          {
+            "index": 0,
+            "status": "verified",
+            "placement": "in_file",
+            "head_seq": 1,
+            "period_end": 1790000060
+          }
+        ],
+        "anchored_through": 1,
+        "unanchored_from": 2,
+        "unanchored_count": 2
+      }
+    },
+    {
+      "name": "one byte of record 2 flipped",
+      "file": "export-one-byte.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "ChainHashMismatch",
+        "seq": 2,
+        "anchor": null
+      }
+    },
+    {
+      "name": "one byte of record 2 flipped, no anchor key",
+      "file": "export-one-byte.json",
+      "with_anchor_key": false,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "ChainHashMismatch",
+        "seq": 2,
+        "anchor": null
+      }
+    },
+    {
+      "name": "the last anchor dropped: chained, nothing anchored",
+      "file": "export-last-anchor-dropped.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "verified",
+        "tenant": "ten-a",
+        "first_seq": 0,
+        "last_seq": 3,
+        "records": 4,
+        "last_chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+        "starts_after": null,
+        "anchors_checked": true,
+        "anchors": [],
+        "anchored_through": null,
+        "unanchored_from": 0,
+        "unanchored_count": 4
+      }
+    },
+    {
+      "name": "an anchor signed by a key the export carries beside it",
+      "file": "export-forged-anchor.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "AnchorSignatureInvalid",
+        "seq": null,
+        "anchor": 0
+      }
+    },
+    {
+      "name": "the same forgery with no anchor key: nothing can tell, so it is unchecked",
+      "file": "export-forged-anchor.json",
+      "with_anchor_key": false,
+      "verdict": {
+        "verdict": "verified",
+        "tenant": "ten-a",
+        "first_seq": 0,
+        "last_seq": 3,
+        "records": 4,
+        "last_chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+        "starts_after": null,
+        "anchors_checked": false,
+        "anchors": [
+          {
+            "index": 0,
+            "status": "unchecked",
+            "placement": "in_file",
+            "head_seq": 1,
+            "period_end": 1790000060
+          }
+        ],
+        "anchored_through": null,
+        "unanchored_from": 0,
+        "unanchored_count": 4
+      }
+    },
+    {
+      "name": "record 1 rewritten and the chain relinked after it was anchored",
+      "file": "export-rewritten.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "AnchorHeadMismatch",
+        "seq": 1,
+        "anchor": 0
+      }
+    },
+    {
+      "name": "the rewrite, with no anchor key: the anchor's head still disagrees",
+      "file": "export-rewritten.json",
+      "with_anchor_key": false,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "AnchorHeadMismatch",
+        "seq": 1,
+        "anchor": 0
+      }
+    },
+    {
+      "name": "a window starting at record 2: the anchor at record 1 checks its floor",
+      "file": "export-window.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "verified",
+        "tenant": "ten-a",
+        "first_seq": 2,
+        "last_seq": 3,
+        "records": 2,
+        "last_chain_hash": "sha256:3a7bedffa572398d14482d8d9a2a81ae9b8551c98aebaf1f6c027490fb5a36a9",
+        "starts_after": "sha256:e360c37224456c282ee542103d66dc464822909c090609a03edf93c43a39dad3",
+        "anchors_checked": true,
+        "anchors": [
+          {
+            "index": 0,
+            "status": "verified",
+            "placement": "window_floor",
+            "head_seq": 1,
+            "period_end": 1790000060
+          }
+        ],
+        "anchored_through": 1,
+        "unanchored_from": 2,
+        "unanchored_count": 2
+      }
+    },
+    {
+      "name": "record 2 missing from the middle",
+      "file": "export-seq-gap.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "ChainSeqGap",
+        "seq": 3,
+        "anchor": null
+      }
+    },
+    {
+      "name": "record 3 claims to continue from record 1",
+      "file": "export-link-broken.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "ChainLinkBroken",
+        "seq": 3,
+        "anchor": null
+      }
+    },
+    {
+      "name": "record 3 names position 4",
+      "file": "export-out-of-place.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "RecordOutOfPlace",
+        "seq": 3,
+        "anchor": null
+      }
+    },
+    {
+      "name": "record 3 carries a fraction",
+      "file": "export-not-canonical.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "RecordNotCanonical",
+        "seq": 3,
+        "anchor": null
+      }
+    },
+    {
+      "name": "a file with no records",
+      "file": "export-empty.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "ExportEmpty",
+        "seq": null,
+        "anchor": null
+      }
+    },
+    {
+      "name": "an anchor naming a suite the anchor key is not",
+      "file": "export-anchor-suite.json",
+      "with_anchor_key": true,
+      "verdict": {
+        "verdict": "refused",
+        "refusal": "AnchorSuiteNotEnrolled",
+        "seq": null,
+        "anchor": 0
+      }
+    }
+  ]
+}

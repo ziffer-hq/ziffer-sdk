@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-stock",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, 2026-09-28): the name a model sees for a Claude Agent SDK custom tool (mcp__<server>__<name>, the server by the key it is registered under), and built-in names the SDK's current version does not define. The SDK is not installed for the scan's tests.",
+  "dependencies": { "@anthropic-ai/claude-agent-sdk": "0.3.284", "zod": "4.6.5" }
+}

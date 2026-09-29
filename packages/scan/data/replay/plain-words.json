@@ -1,0 +1,12 @@
+{
+  "note": "What column B says, in plain words, when a case is refused. Keyed by the clause the engine names (or \"V-11\" for a tool outside the adapter's grammar, which the replay refuses before any engine call, as art_harness.py's to_proposal does). The clause itself goes in --json only. A clause missing here prints `refused_unknown`, never a guess.",
+  "refused": {
+    "V-11": "the AI agent's tools cannot express this action",
+    "8.4-3": "no risk rule covers this action",
+    "TR-8": "the tool's schema is not registered",
+    "DR-13": "irreversible, and nobody is named to be told",
+    "PR-1": "the proposal is malformed",
+    "8.3.1": "a parameter is outside what the policy reads"
+  },
+  "refused_unknown": "refused by the policy"
+}

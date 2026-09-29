@@ -1,0 +1,7 @@
+{
+  "name": "harbour-inn-openai-chat",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-474): Chat Completions function tools with no execute body, run by the application's own callTool from the loop over message.tool_calls, the arguments parsed from JSON. Types from openai 7.23.0, resolved through the scan package's own node_modules.",
+  "dependencies": { "openai": "7.23.0" }
+}

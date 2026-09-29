@@ -1,0 +1,11 @@
+{
+  "name": "example-shape-fixture",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455): the shape of the first customer's application in a few files. Its dependencies resolve through packages/scan's devDependencies; it is not a workspace package and is never installed on its own.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.128.0",
+    "ai": "7.0.116",
+    "zod": "4.6.5"
+  }
+}

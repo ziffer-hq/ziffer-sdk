@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-mastra",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.21): Mastra tools and agents in the shape of @mastra/core 1.71.0 (dist/tools/tool.d.ts createTool, dist/agent/types.d.ts ToolsInput; read 2026-09-28). Mastra is not installed for the scan's tests: its calls are read through the import declarations; zod resolves through packages/scan.",
+  "dependencies": { "@mastra/core": "1.71.0", "@mastra/mcp": "1.0.0", "zod": "4.6.5" }
+}

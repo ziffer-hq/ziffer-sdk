@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mail": {
+      "command": "node",
+      "args": ["fixtures/mcp/echo-server.mjs"]
+    }
+  }
+}

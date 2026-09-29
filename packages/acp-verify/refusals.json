@@ -1,0 +1,332 @@
+{
+  "$comment": "THE ONE LIST of every refusal the receipt verifiers raise: this package's verifyReceipt and the Python SDK's verify(). Each entry is clause -> name -> one-sentence meaning -> what the developer does. packages/acp-verify/src/refusal-names.ts and sdk/python/src/ziffer/_refusal_names.py are GENERATED from this file by tools/gen-refusal-names.py, and its --check holds both, the clauses both verifiers raise and the engine's receipt-path clauses at the pin to it, by name. Edit this file, never the generated ones. `clause` is spelled exactly as the engine spells it and never changes; `name` is what a developer reads first. `section` is the number of the specification heading that states the clause; the link to that heading is derived from the specification at the engine pin, never typed. `who` is who fixes it, as the support guide's refusal table sorts it: `you`, `us` or `you and us`.",
+  "spec": {
+    "path": "spec/ZIFFER-SPEC-001.md",
+    "url": "https://github.com/ziffer-hq/ziffer-spec/blob/main/spec/ZIFFER-SPEC-001.md"
+  },
+  "unnamed": {
+    "name": "UnnamedRefusal",
+    "meaning": "The receipt was refused under a rule this version of the SDK has no name for.",
+    "action": "Do not act on the receipt. Update the SDK to its latest version; if the refusal stays unnamed, report it with the receipt and the rule in brackets."
+  },
+  "engine_only": {
+    "9.3-4": "the policy basis: needs the verifier's own signed bundle, which the stateless verifiers do not take",
+    "9.3-8": "the tenant: needs the signed bundle's tenant",
+    "TR-8": "the recomputed risk: needs the signed bundle's grading rules",
+    "RV-3": "the recomputed reversibility: needs the signed bundle's reversibility table"
+  },
+  "refusals": [
+    {
+      "name": "ReceiptVersionUnsupported",
+      "clause": "AB-0",
+      "meaning": "What you passed as the receipt is not a version 3 receipt.",
+      "action": "Pass the receipt exactly as the decision API returned it, unchanged. If you did, report it with the receipt.",
+      "who": "you",
+      "section": "8.6b"
+    },
+    {
+      "name": "ReceiptTooLarge",
+      "clause": "AB-6",
+      "meaning": "The receipt's signed body is larger than the 4,096 bytes a receipt is signed within.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6b"
+    },
+    {
+      "name": "SuiteUnknown",
+      "clause": "CR-1",
+      "meaning": "The receipt names a signature suite this verifier does not know or names none, or the suite floor you configured is not a suite it knows.",
+      "action": "Check the spelling of the suite floor you configured (ZIFFER_SUITE_FLOOR), then update the SDK. If both are right, report it with the receipt.",
+      "who": "you and us",
+      "section": "9.7"
+    },
+    {
+      "name": "SuiteBelowFloor",
+      "clause": "CR-4",
+      "meaning": "The receipt, or an approval sent with it, is not signed with a suite that contains every algorithm your suite floor requires.",
+      "action": "Confirm the suite floor you configured is the one you meant. If it is, do not act on the receipt and report it with the receipt.",
+      "who": "you and us",
+      "section": "9.7"
+    },
+    {
+      "name": "NotCanonicallyEncodable",
+      "clause": "AT-8a",
+      "meaning": "The receipt, an approval or the proposal you passed holds a value with no canonical encoding, such as a fractional number, or the proposal bytes are not UTF-8 JSON.",
+      "action": "Pass the exact proposal bytes you sent and the receipt exactly as it was returned. Remove any step that re-encodes either one on the way.",
+      "who": "you",
+      "section": "8.6"
+    },
+    {
+      "name": "SignatureInvalid",
+      "clause": "9.3-1",
+      "meaning": "The receipt's signature does not verify under your trust anchor's keys.",
+      "action": "Do not act on the receipt and do not retry. Confirm your trust anchor is the one on your handover sheet, then report it with the receipt.",
+      "who": "you and us",
+      "section": "9.3"
+    },
+    {
+      "name": "DecisionNotAllow",
+      "clause": "9.3-2",
+      "meaning": "The receipt records a decision other than ALLOW.",
+      "action": "Do not run the action. Report it with the receipt.",
+      "who": "us",
+      "section": "9.3"
+    },
+    {
+      "name": "ReceiptNotBoundToProposal",
+      "clause": "9.3-3",
+      "meaning": "The receipt is not bound to the proposal you passed.",
+      "action": "Pass the exact proposal this receipt answered. When several calls are in flight, match each receipt to its own proposal before verifying.",
+      "who": "you",
+      "section": "9.3"
+    },
+    {
+      "name": "ReceiptTimeUnreadable",
+      "clause": "9.3-5",
+      "meaning": "The receipt's issue or expiry time is missing or is not an RFC 3339 UTC instant.",
+      "action": "Do not act on the receipt. Pass it exactly as the decision API returned it; if you did, report it with the receipt.",
+      "who": "us",
+      "section": "9.3"
+    },
+    {
+      "name": "ReceiptExpired",
+      "clause": "9.3-5",
+      "meaning": "Your clock is past the receipt's expiry time.",
+      "action": "Keep the verifying host's clock on UTC time, and verify a receipt as soon as it arrives: it is valid for 120 seconds. Propose the action again for a new receipt.",
+      "who": "you",
+      "section": "9.3"
+    },
+    {
+      "name": "ReceiptIssuedInFuture",
+      "clause": "9.3-5",
+      "meaning": "The receipt's issue time is more than 5 seconds ahead of your clock.",
+      "action": "Synchronise the verifying host's clock with UTC time, then verify the receipt again.",
+      "who": "you",
+      "section": "9.3"
+    },
+    {
+      "name": "ValidityWindowTooLong",
+      "clause": "L-14",
+      "meaning": "The receipt is valid for longer than the 120 seconds a receipt may be.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "13"
+    },
+    {
+      "name": "NonceMalformed",
+      "clause": "WE-4",
+      "meaning": "A nonce in the receipt, or in an approval sent with it, is not `b64:` followed by padded base64.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "9.2"
+    },
+    {
+      "name": "ReceiptNonceWrongSize",
+      "clause": "L-17",
+      "meaning": "The receipt's nonce is well formed but is not 128 bits long.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "13"
+    },
+    {
+      "name": "ApprovalsUnverifiable",
+      "clause": "AB-1",
+      "meaning": "The approvals sent with the receipt cannot be matched to the list the receipt signed: a list is malformed, an approval is not on it, or the verifier was given no attester registry.",
+      "action": "Give the verifier your attester registry (ZIFFER_ATTESTER_REGISTRY, or the registry argument). If you did, do not act on the receipt and report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6b"
+    },
+    {
+      "name": "ApprovalDigestsUnsorted",
+      "clause": "AB-2",
+      "meaning": "The receipt's list of approval digests is not in sorted order.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6b"
+    },
+    {
+      "name": "ApprovalDigestsDuplicated",
+      "clause": "AB-3",
+      "meaning": "The receipt's list of approval digests names one approval more than once.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6b"
+    },
+    {
+      "name": "ApprovalCountMismatch",
+      "clause": "AB-4",
+      "meaning": "The number of approvals sent with the receipt is not the number of approvals the receipt signed.",
+      "action": "Pass the receipt and its approvals exactly as the decision API returned them. If you did, report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6b"
+    },
+    {
+      "name": "ApprovalsMissing",
+      "clause": "INV-1-HIGH",
+      "meaning": "The receipt commits to approvals and none were sent with it.",
+      "action": "Pass the receipt with its attestations exactly as the decision API returned them. If you did, report it with the receipt.",
+      "who": "you and us",
+      "section": "2"
+    },
+    {
+      "name": "ApprovalObjectMissing",
+      "clause": "AT-8",
+      "meaning": "An approval sent with the receipt carries no approval object.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6"
+    },
+    {
+      "name": "ApprovalObjectMalformed",
+      "clause": "AT-8b",
+      "meaning": "An approval object lacks a required field, carries a field that is not defined, or holds a field of the wrong type.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6"
+    },
+    {
+      "name": "ApprovalNonceWrongSize",
+      "clause": "AT-1",
+      "meaning": "An approval's nonce is well formed but is not 128 bits long.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6"
+    },
+    {
+      "name": "ApprovalSignatureInvalid",
+      "clause": "9.3-7b-i",
+      "meaning": "An approval's signature does not verify against the key your attester registry holds for that approver, or your registry does not enrol that approver.",
+      "action": "Check that the approver is enrolled in your attester registry with their current key. If they are, do not act on the receipt and report it with the receipt.",
+      "who": "you and us",
+      "section": "9.3"
+    },
+    {
+      "name": "ApprovalNotBoundToProposal",
+      "clause": "9.3-7b-ii",
+      "meaning": "An approval sent with the receipt is not bound to the proposal you passed.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt and the proposal.",
+      "who": "us",
+      "section": "9.3"
+    },
+    {
+      "name": "ApprovalContextMismatch",
+      "clause": "9.3-7b-iii",
+      "meaning": "An approval names another policy version than the receipt, expired before the receipt was issued, or has an unreadable policy, expiry or operator field.",
+      "action": "Propose the action again so that it is approved under the current policy. If it happens again, report it with the receipt.",
+      "who": "you and us",
+      "section": "9.3"
+    },
+    {
+      "name": "ApprovalsDisagreeOnOperator",
+      "clause": "9.3-7b-iii-a",
+      "meaning": "The approvals sent with the receipt name different operators.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "9.3"
+    },
+    {
+      "name": "ApprovalQuorumSizeMismatch",
+      "clause": "AT-9",
+      "meaning": "An approver consented to a number of required approvals other than the quorum your attester registry sets.",
+      "action": "Propose the action again so that it is approved under the current policy. If it happens again, report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6"
+    },
+    {
+      "name": "ApprovalIdMismatch",
+      "clause": "Y1b",
+      "meaning": "An approval's transmitted identifier is not the identifier computed from its content.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "9.3"
+    },
+    {
+      "name": "ApproverAssuranceTooLow",
+      "clause": "AT-10",
+      "meaning": "An approver is enrolled at an assurance level below your attester registry's floor, or at a level outside AS0 to AS2.",
+      "action": "Enrol the approver at the assurance level your registry requires, or have an approver enrolled at that level approve instead.",
+      "who": "you",
+      "section": "8.6"
+    },
+    {
+      "name": "QuorumNotMet",
+      "clause": "AT-3",
+      "meaning": "Fewer distinct approvers approved the action than the quorum your attester registry sets.",
+      "action": "Do not run the action. Check your registry's approvers and roles against who approved; propose the action again once enough approvers can answer.",
+      "who": "you",
+      "section": "8.6"
+    },
+    {
+      "name": "OperatorApprovedOwnAction",
+      "clause": "AT-2",
+      "meaning": "The operator who proposed the action is counted among its approvers.",
+      "action": "Do not run the action. Have approvers other than the operator approve it.",
+      "who": "you",
+      "section": "8.6"
+    },
+    {
+      "name": "ApproverKeyTypeMismatch",
+      "clause": "WebauthnAlgMismatch",
+      "meaning": "An approval claims a kind of key, a person's passkey or a machine key, that is not the kind your attester registry enrols for that approver.",
+      "action": "Do not act on the receipt and do not retry. Report it with the receipt.",
+      "who": "us",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeyCounterNotAdvanced",
+      "clause": "WebauthnCounter",
+      "meaning": "A passkey or security key's signature counter did not advance, so the credential was copied or the approval was replayed.",
+      "action": "Do not act on the receipt. Treat the approver's authenticator as compromised and re-enrol it before it approves anything else.",
+      "who": "you",
+      "section": "8.6c"
+    },
+    {
+      "name": "ApprovalMalformed",
+      "clause": "Malformed",
+      "meaning": "A person's approval, or the key your attester registry holds for them, is not in the shape a passkey approval takes.",
+      "action": "Check the approver's entry in your attester registry against the credential they enrolled. If it matches, report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeyAssertionTypeInvalid",
+      "clause": "WebauthnType",
+      "meaning": "A person's approval is not a passkey sign-in assertion.",
+      "action": "Ask the approver to approve again from your approval page.",
+      "who": "you and us",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeyChallengeMismatch",
+      "clause": "WebauthnChallenge",
+      "meaning": "A person's approval answers a different request than this approval.",
+      "action": "Do not act on the receipt. Ask the approver to approve again from your approval page; if it happens again, report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeyOriginMismatch",
+      "clause": "WebauthnOrigin",
+      "meaning": "A person's approval was made on a site other than your approval page.",
+      "action": "Ask the approver to approve again from your own approval page. If they did, report it with the receipt.",
+      "who": "you",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeyAuthenticatorDataInvalid",
+      "clause": "WebauthnAuthenticatorData",
+      "meaning": "A person's approval names another site, or does not show that the person was present and verified.",
+      "action": "Ask the approver to approve again and to complete the fingerprint, face or PIN step their authenticator asks for.",
+      "who": "you",
+      "section": "8.6c"
+    },
+    {
+      "name": "PasskeySignatureInvalid",
+      "clause": "WebauthnSignature",
+      "meaning": "A person's approval signature does not verify against the passkey or security key your attester registry holds for them.",
+      "action": "Check that the approver's entry in your attester registry holds their current credential. If it does, do not act on the receipt and report it with the receipt.",
+      "who": "you and us",
+      "section": "8.6c"
+    }
+  ]
+}

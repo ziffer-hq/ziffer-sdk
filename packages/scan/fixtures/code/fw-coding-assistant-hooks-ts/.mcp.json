@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "bookshop-ledger": { "command": "node", "args": ["ledger-server.js"] }
+  }
+}

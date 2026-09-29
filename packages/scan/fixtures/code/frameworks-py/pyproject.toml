@@ -1,0 +1,16 @@
+# A fixture, not a project: ziffer-scan --code reads the declared SDKs from here.
+[project]
+name = "acme-support-agent"
+version = "0.1.0"
+dependencies = [
+  "anthropic>=1.8.0",
+  "openai==3.19.2",
+  "google-genai>=2.25",
+  "langchain-core~=1.6",
+  "openai-agents>=0.22",
+  "pydantic-ai>=2.51",
+  "crewai>=1.15",
+  "mcp[cli]>=2.2",
+  "instructor",
+  "requests>=2",
+]

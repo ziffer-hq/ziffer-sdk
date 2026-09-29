@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "note": "ACP-355. The one retry corpus both SDKs replay. README.md beside this file states R1..R10 verbatim and the exact reading every field is computed under; tools/check-sdk-retry-fixture.py recomputes every `expect` from script+draws+deadline_ms+bucket_initial and refuses a case that disagrees. Edit an expectation without editing the behaviour and the checker names the case and the field.",
+  "cases": [
+    {
+      "name": "r1-503-computed-then-ok",
+      "rules": ["R1", "R2", "R6", "R9"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-502-computed-then-ok",
+      "rules": ["R1", "R2"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 502, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.0],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [0], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-504-computed-then-ok",
+      "rules": ["R1", "R2"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 504, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.999],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [499], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-429-computed-then-ok",
+      "rules": ["R1", "R2"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 429, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.25],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [125], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-fault-timeout-is-retried",
+      "rules": ["R1", "R2", "R8"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"fault": "timeout"}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-500-not-retried",
+      "rules": ["R1"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 500, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 500, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-500-with-retry-after-is-still-not-retried",
+      "rules": ["R1", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 500, "retry_after_s": 1}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 500, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-400-not-retried",
+      "rules": ["R1"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 400, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 400, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-401-not-retried",
+      "rules": ["R1"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 401, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 401, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-403-not-retried",
+      "rules": ["R1"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 403, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 403, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r1-404-not-retried",
+      "rules": ["R1"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 404, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 404, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r2-backoff-doubles-per-computed-retry",
+      "rules": ["R2", "R4", "R6", "R9"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5, 0.5, 0.5, 0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 5, "sleeps_ms": [250, 500, 1000, 2000], "retries_directed": 0, "retries_computed": 4, "bucket_level_after": 7, "bodies_identical": true}
+    },
+    {
+      "name": "r2-u-zero-and-u-near-one",
+      "rules": ["R2"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.0, 0.9999],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 3, "sleeps_ms": [0, 999], "retries_directed": 0, "retries_computed": 2, "bucket_level_after": 9, "bodies_identical": true}
+    },
+    {
+      "name": "r2-floor-truncates-it-does-not-round",
+      "rules": ["R2"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.4999],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [249], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r3-retry-after-on-503",
+      "rules": ["R1", "R3", "R6", "R9"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 2}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [2000], "retries_directed": 1, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r3-retry-after-on-429",
+      "rules": ["R1", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 429, "retry_after_s": 1}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [1000], "retries_directed": 1, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r3-retry-after-zero-sleeps-zero",
+      "rules": ["R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 0}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [0], "retries_directed": 1, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r3-k-does-not-advance-on-a-directed-retry",
+      "rules": ["R2", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 3, "sleeps_ms": [1000, 250], "retries_directed": 1, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r3-directed-between-two-computed-retries",
+      "rules": ["R2", "R3", "R9"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": 3}, {"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5, 0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 4, "sleeps_ms": [250, 3000, 500], "retries_directed": 1, "retries_computed": 2, "bucket_level_after": 9, "bodies_identical": true}
+    },
+    {
+      "name": "r4-cap-five-attempts-no-deadline",
+      "rules": ["R4", "R2", "R6"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}],
+      "draws": [0.5, 0.5, 0.5, 0.5],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 5, "sleeps_ms": [250, 500, 1000, 2000], "retries_directed": 0, "retries_computed": 4, "bucket_level_after": 6, "bodies_identical": true}
+    },
+    {
+      "name": "r4-cap-counts-directed-retries-when-there-is-no-deadline",
+      "rules": ["R4", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 5, "sleeps_ms": [1000, 1000, 1000, 1000], "retries_directed": 4, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r4-directed-runs-past-five-attempts-under-a-deadline",
+      "rules": ["R4", "R3", "R5", "R7"],
+      "deadline_ms": 60000,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": 1}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 8, "sleeps_ms": [1000, 1000, 1000, 1000, 1000, 1000, 1000], "retries_directed": 7, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r4-computed-still-capped-under-a-long-deadline",
+      "rules": ["R4", "R5"],
+      "deadline_ms": 600000,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}],
+      "draws": [0.5, 0.5, 0.5, 0.5],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 5, "sleeps_ms": [250, 500, 1000, 2000], "retries_directed": 0, "retries_computed": 4, "bucket_level_after": 6, "bodies_identical": true}
+    },
+    {
+      "name": "r4-computed-cap-fires-after-directed-pushed-attempts-past-five",
+      "rules": ["R3", "R4", "R7", "R9"],
+      "deadline_ms": 600000,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": 1}, {"status": 503, "retry_after_s": null}],
+      "draws": [0.5, 0.5, 0.5, 0.5],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 8, "sleeps_ms": [250, 1000, 500, 1000, 1000, 2000, 1000], "retries_directed": 3, "retries_computed": 4, "bucket_level_after": 6, "bodies_identical": true}
+    },
+    {
+      "name": "r5-deadline-hit-before-a-computed-sleep",
+      "rules": ["R5", "R2"],
+      "deadline_ms": 100,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "DeadlineExceeded", "status": 503, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r5-deadline-hit-before-a-directed-sleep",
+      "rules": ["R5", "R3"],
+      "deadline_ms": 1500,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 2}],
+      "draws": [],
+      "expect": {"outcome": "DeadlineExceeded", "status": 503, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r5-deadline-carries-the-last-errors-status-zero",
+      "rules": ["R5", "R1", "R8"],
+      "deadline_ms": 100,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"fault": "refused"}],
+      "draws": [0.5],
+      "expect": {"outcome": "DeadlineExceeded", "status": 0, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r5-deadline-exactly-equal-to-the-sleep-is-allowed",
+      "rules": ["R5"],
+      "deadline_ms": 250,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r5-deadline-hit-on-the-second-sleep",
+      "rules": ["R5", "R2"],
+      "deadline_ms": 700,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}, {"status": 200, "retry_after_s": null}],
+      "draws": [0.5, 0.5],
+      "expect": {"outcome": "DeadlineExceeded", "status": 503, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 9, "bodies_identical": true}
+    },
+    {
+      "name": "r5-no-deadline-means-no-check-at-all",
+      "rules": ["R5", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 3600}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [3600000], "retries_directed": 1, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r6-empty-bucket-blocks-a-computed-retry",
+      "rules": ["R6"],
+      "deadline_ms": null,
+      "bucket_initial": 0,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 0, "bodies_identical": true}
+    },
+    {
+      "name": "r6-empty-bucket-still-allows-a-directed-retry",
+      "rules": ["R6", "R3"],
+      "deadline_ms": null,
+      "bucket_initial": 0,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": 1}, {"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 2, "sleeps_ms": [1000], "retries_directed": 1, "retries_computed": 0, "bucket_level_after": 1, "bodies_identical": true}
+    },
+    {
+      "name": "r6-last-token-spent-then-empty",
+      "rules": ["R6", "R2"],
+      "deadline_ms": null,
+      "bucket_initial": 1,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 503, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "Refused", "status": 503, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 0, "bodies_identical": true}
+    },
+    {
+      "name": "r6-refill-caps-at-capacity",
+      "rules": ["R6"],
+      "deadline_ms": null,
+      "bucket_initial": 10,
+      "method": "POST",
+      "script": [{"status": 200, "retry_after_s": null}],
+      "draws": [],
+      "expect": {"outcome": "ok", "status": 200, "attempts": 1, "sleeps_ms": [], "retries_directed": 0, "retries_computed": 0, "bucket_level_after": 10, "bodies_identical": true}
+    },
+    {
+      "name": "r6-no-refill-on-a-refusal",
+      "rules": ["R6", "R1"],
+      "deadline_ms": null,
+      "bucket_initial": 5,
+      "method": "POST",
+      "script": [{"status": 503, "retry_after_s": null}, {"status": 500, "retry_after_s": null}],
+      "draws": [0.5],
+      "expect": {"outcome": "Refused", "status": 500, "attempts": 2, "sleeps_ms": [250], "retries_directed": 0, "retries_computed": 1, "bucket_level_after": 4, "bodies_identical": true}
+    }
+  ]
+}

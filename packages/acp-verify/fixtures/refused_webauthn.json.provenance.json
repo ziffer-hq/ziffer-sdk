@@ -1,0 +1,6 @@
+{
+  "source_path": "crates/acp-crypto/tests/vectors/refused_webauthn.json",
+  "source_rev": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "sha256": "648521d8a35e7eb28d9ca74cb02c25bd6a9300ff3abd75a25f14c0c51905f089",
+  "note": "Byte-identical mirror of the engine file named above, taken at the pinned rev. The 18 HM-4 vectors are what hold this package's WebAuthn verifier to the engine's -- two ACCEPT cases so the refusals are not satisfied by a verifier that refuses everything, and one refusal per HM-4 step because the property the implementations must agree on is WHICH step refused, not that one did. The mirror lives beside the file rather than inside it because a header written INTO the JSON would change the bytes and the identity claim would be about a different object. tools/check-verify-mirror.py enforces both halves: this sidecar matches the mirrored bytes, and the mirrored bytes match the engine source. Do not edit either by hand; re-mirror at a pin bump."
+}

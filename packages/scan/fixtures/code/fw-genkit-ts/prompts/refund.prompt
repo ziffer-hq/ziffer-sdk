@@ -1,0 +1,7 @@
+---
+model: googleai/gemini-flash
+tools:
+  - refundOrder
+  - lookupOrder
+---
+Help the customer of the corner bookshop with a refund for order {{orderId}}.

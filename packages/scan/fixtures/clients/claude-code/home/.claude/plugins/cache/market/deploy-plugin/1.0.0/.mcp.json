@@ -1,0 +1,1 @@
+{ "mcpServers": { "deployer": { "command": "${CLAUDE_PLUGIN_ROOT}/bin/deployer", "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/deployer.json"] } } }

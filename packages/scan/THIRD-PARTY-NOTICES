@@ -1,0 +1,584 @@
+THIRD-PARTY NOTICES for @ziffer-io/scan
+
+GENERATED FILE -- do not edit by hand.
+Regenerate with: node tools/third-party-notices.mjs
+tools/release-npm.sh refuses to publish when this file is out of date.
+
+The LICENSE beside this file governs @ziffer-io/scan itself. The components
+below are third-party open-source, are redistributed under their own
+licences, and those licences govern them.
+Each entry is read from the component as it is installed, at the version
+this release resolves.
+
+This package also contains material adapted from other open-source projects
+that are not dependencies. Each is attributed, with its licence, in
+THIRD-PARTY-NOTICES.attribution.md beside this file.
+
+94 component(s):
+
+----------------------------------------------------------------------------
+@cfworker/json-schema  4.1.1
+  licence: MIT
+  no copyright line found in the distributed licence text
+  no licence file is distributed in the package; the identifier above is
+  the one its package.json declares
+
+----------------------------------------------------------------------------
+@hono/node-server  2.1.1
+  licence: MIT
+  Copyright (c) 2022 - present, Yusuke Wada and Hono contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+@modelcontextprotocol/sdk  1.30.0
+  licence: MIT
+  Copyright (c) 2024 Anthropic, PBC
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+accepts  2.0.0
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ajv  8.20.0
+  licence: MIT
+  Copyright (c) 2015-2021 Evgeny Poberezkin
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ajv-formats  3.0.1
+  licence: MIT
+  Copyright (c) 2020 Evgeny Poberezkin
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+body-parser  2.3.0
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+bytes  3.1.2
+  licence: MIT
+  Copyright (c) 2012-2014 TJ Holowaychuk <tj@vision-media.ca>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+call-bind-apply-helpers  1.0.2
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+call-bound  1.0.4
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+content-disposition  1.1.0
+  licence: MIT
+  Copyright (c) 2014-2017 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+content-type  1.0.5
+  licence: MIT
+  Copyright (c) 2015 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+content-type  2.1.0
+  licence: MIT
+  Copyright (c) 2015 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+cookie  0.7.2
+  licence: MIT
+  Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+cookie-signature  1.2.2
+  licence: MIT
+  Copyright (c) 2012–2024 LearnBoost <tj@learnboost.com> and other contributors;
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+cors  2.8.6
+  licence: MIT
+  Copyright (c) 2013 Troy Goode <troygoode@gmail.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+cross-spawn  7.0.6
+  licence: MIT
+  Copyright (c) 2018 Made With MOXY Lda <hello@moxy.studio>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+debug  4.4.3
+  licence: MIT
+  Copyright (c) 2014-2017 TJ Holowaychuk <tj@vision-media.ca>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+depd  2.0.0
+  licence: MIT
+  Copyright (c) 2014-2018 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+dunder-proto  1.0.1
+  licence: MIT
+  Copyright (c) 2024 ECMAScript Shims
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ee-first  1.1.1
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong me@jongleberry.com
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+encodeurl  2.0.0
+  licence: MIT
+  Copyright (c) 2016 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+es-define-property  1.0.1
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+es-errors  1.3.0
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+es-object-atoms  1.1.2
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+escape-html  1.0.3
+  licence: MIT
+  Copyright (c) 2012-2013 TJ Holowaychuk
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+etag  1.8.1
+  licence: MIT
+  Copyright (c) 2014-2016 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+eventsource  3.0.7
+  licence: MIT
+  Copyright (c) EventSource GitHub organisation
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+eventsource-parser  3.1.1
+  licence: MIT
+  Copyright (c) 2026 Espen Hovlandsdal <espen@hovlandsdal.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+express  5.2.1
+  licence: MIT
+  Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+express-rate-limit  8.7.0
+  licence: MIT
+  Copyright 2023 Nathan Friedly, Vedant K
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+fast-deep-equal  3.1.3
+  licence: MIT
+  Copyright (c) 2017 Evgeny Poberezkin
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+fast-uri  3.1.6
+  licence: BSD-3-Clause
+  Copyright (c) 2011-2021, Gary Court until https://github.com/garycourt/uri-js/commit/a1acf730b4bba3f1097c9f52e7d9d3aba8cdcaae
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+finalhandler  2.1.1
+  licence: MIT
+  Copyright (c) 2014-2022 Douglas Christopher Wilson <doug@somethingdoug.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+forwarded  0.2.0
+  licence: MIT
+  Copyright (c) 2014-2017 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+fresh  2.0.0
+  licence: MIT
+  Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+function-bind  1.1.2
+  licence: MIT
+  Copyright (c) 2013 Raynos.
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+get-intrinsic  1.3.0
+  licence: MIT
+  Copyright (c) 2020 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+get-proto  1.0.1
+  licence: MIT
+  Copyright (c) 2025 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+gopd  1.2.0
+  licence: MIT
+  Copyright (c) 2022 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+has-symbols  1.1.0
+  licence: MIT
+  Copyright (c) 2016 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+hasown  2.0.4
+  licence: MIT
+  Copyright (c) Jordan Harband and contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+hono  4.13.5
+  licence: MIT
+  Copyright (c) 2021 - present, Yusuke Wada and Hono contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+http-errors  2.0.1
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong me@jongleberry.com
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+iconv-lite  0.7.3
+  licence: MIT
+  Copyright (c) 2011 Alexander Shtuchkin
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+inherits  2.0.4
+  licence: ISC
+  Copyright (c) Isaac Z. Schlueter
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ip-address  10.7.0
+  licence: MIT
+  Copyright (C) 2011 by Beau Gunderson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ipaddr.js  1.9.1
+  licence: MIT
+  Copyright (C) 2011-2017 whitequark <whitequark@whitequark.org>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+is-promise  4.0.0
+  licence: MIT
+  Copyright (c) 2014 Forbes Lindesay
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+isexe  2.0.0
+  licence: ISC
+  Copyright (c) Isaac Z. Schlueter and Contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+jose  6.2.10
+  licence: MIT
+  Copyright (c) 2018 Filip Skokan
+  full text: LICENSE.md, as distributed in the package
+
+----------------------------------------------------------------------------
+json-schema-traverse  1.0.0
+  licence: MIT
+  Copyright (c) 2017 Evgeny Poberezkin
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+json-schema-typed  8.0.2
+  licence: BSD-2-Clause
+  Original source code is copyright (c) 2019-2025 Remy Rylan
+  full text: LICENSE.md, as distributed in the package
+
+----------------------------------------------------------------------------
+math-intrinsics  1.1.0
+  licence: MIT
+  Copyright (c) 2024 ECMAScript Shims
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+media-typer  1.1.1
+  licence: MIT
+  Copyright (c) 2014-2017 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+merge-descriptors  2.0.0
+  licence: MIT
+  Copyright (c) Jonathan Ong <me@jongleberry.com>
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+mime-db  1.54.0
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+mime-types  3.0.2
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+ms  2.1.3
+  licence: MIT
+  Copyright (c) 2020 Vercel, Inc.
+  full text: license.md, as distributed in the package
+
+----------------------------------------------------------------------------
+negotiator  1.1.0
+  licence: MIT
+  Copyright (c) 2012-2014 Federico Romero
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+object-assign  4.1.1
+  licence: MIT
+  Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+object-inspect  1.13.4
+  licence: MIT
+  Copyright (c) 2013 James Halliday
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+on-finished  2.4.1
+  licence: MIT
+  Copyright (c) 2013 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+once  1.4.0
+  licence: ISC
+  Copyright (c) Isaac Z. Schlueter and Contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+parseurl  1.3.3
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+path-key  3.1.1
+  licence: MIT
+  Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+path-to-regexp  8.4.2
+  licence: MIT
+  Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+pkce-challenge  5.0.1
+  licence: MIT
+  Copyright (c) 2019
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+proxy-addr  2.0.7
+  licence: MIT
+  Copyright (c) 2014-2016 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+qs  6.16.0
+  licence: BSD-3-Clause
+  Copyright (c) 2014, Nathan LaFreniere and other [contributors](https://github.com/ljharb/qs/graphs/contributors)
+  full text: LICENSE.md, as distributed in the package
+
+----------------------------------------------------------------------------
+range-parser  1.3.0
+  licence: MIT
+  Copyright (c) 2012-2014 TJ Holowaychuk <tj@vision-media.ca>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+raw-body  3.0.2
+  licence: MIT
+  Copyright (c) 2013-2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+require-from-string  2.0.2
+  licence: MIT
+  Copyright (c) Vsevolod Strukchinsky <floatdrop@gmail.com> (github.com/floatdrop)
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+router  2.2.0
+  licence: MIT
+  Copyright (c) 2013 Roman Shtylman
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+safer-buffer  2.1.2
+  licence: MIT
+  Copyright (c) 2018 Nikita Skovoroda <chalkerx@gmail.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+send  1.2.1
+  licence: MIT
+  Copyright (c) 2012 TJ Holowaychuk
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+serve-static  2.2.1
+  licence: MIT
+  Copyright (c) 2010 Sencha Inc.
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+setprototypeof  1.2.0
+  licence: ISC
+  Copyright (c) 2015, Wes Todd
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+shebang-command  2.0.0
+  licence: MIT
+  Copyright (c) Kevin Mårtensson <kevinmartensson@gmail.com> (github.com/kevva)
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+shebang-regex  3.0.0
+  licence: MIT
+  Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+  full text: license, as distributed in the package
+
+----------------------------------------------------------------------------
+side-channel  1.1.1
+  licence: MIT
+  Copyright (c) 2019 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+side-channel-list  1.0.1
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+side-channel-map  1.0.1
+  licence: MIT
+  Copyright (c) 2024 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+side-channel-weakmap  1.0.2
+  licence: MIT
+  Copyright (c) 2019 Jordan Harband
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+statuses  2.0.2
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+toidentifier  1.0.1
+  licence: MIT
+  Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+type-is  2.1.0
+  licence: MIT
+  Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+typescript  5.9.3
+  licence: Apache-2.0
+  no copyright line found in the distributed licence text
+  full text: LICENSE.txt, as distributed in the package
+
+----------------------------------------------------------------------------
+unpipe  1.0.0
+  licence: MIT
+  Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+vary  1.1.2
+  licence: MIT
+  Copyright (c) 2014-2017 Douglas Christopher Wilson
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+which  2.0.2
+  licence: ISC
+  Copyright (c) Isaac Z. Schlueter and Contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+wrappy  1.0.2
+  licence: ISC
+  Copyright (c) Isaac Z. Schlueter and Contributors
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+zod  4.6.5
+  licence: MIT
+  Copyright (c) 2025 Colin McDonnell
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------
+zod-to-json-schema  3.25.2
+  licence: ISC
+  Copyright (c) 2020, Stefan Terdell
+  full text: LICENSE, as distributed in the package
+
+----------------------------------------------------------------------------

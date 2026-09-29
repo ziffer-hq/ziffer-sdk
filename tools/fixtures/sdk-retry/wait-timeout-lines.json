@@ -1,0 +1,35 @@
+{
+  "$comment": "What WaitTimeout says when a wait runs out of time, per state of the decision it last read: both SDKs' suites read this file (packages/acp-client/src/client.test.ts, sdk/python/tests/test_client.py) and must print exactly `line`. `last` null means no read answered. The TypeScript client is handed timeout_seconds * 1000 milliseconds.",
+  "cases": [
+    {
+      "decision_id": "01J0WAITPENDING",
+      "timeout_seconds": 30,
+      "last": { "status": "pending" },
+      "line": "decision 01J0WAITPENDING was still waiting to be decided when the wait ended after 30s: read the decision again later with its id, and never propose the same action again"
+    },
+    {
+      "decision_id": "01J0WAITNOREAD",
+      "timeout_seconds": 0.5,
+      "last": null,
+      "line": "decision 01J0WAITNOREAD was still waiting to be decided when the wait ended after 0.5s: read the decision again later with its id, and never propose the same action again"
+    },
+    {
+      "decision_id": "01J0WAITHELD",
+      "timeout_seconds": 900,
+      "last": { "status": "decided", "outcome": "ATTEST" },
+      "line": "decision 01J0WAITHELD was held for an approver when the wait ended after 900s: read the decision again later with its id, and never propose the same action again"
+    },
+    {
+      "decision_id": "01J0WAITHELDUNTIL",
+      "timeout_seconds": 2,
+      "last": { "status": "decided", "outcome": "ALLOW", "held_until": "2099-01-01T00:00:00Z" },
+      "line": "decision 01J0WAITHELDUNTIL was held for an approver when the wait ended after 2s: read the decision again later with its id, and never propose the same action again"
+    },
+    {
+      "decision_id": "01J0WAITNORECEIPT",
+      "timeout_seconds": 0.03,
+      "last": { "status": "decided", "outcome": "ALLOW" },
+      "line": "decision 01J0WAITNORECEIPT was decided and its receipt was not readable yet when the wait ended after 0.03s: read the decision again later with its id, and never propose the same action again"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# A fixture, not a project: Instructor and structured output, an EXCLUSION (acp-455 record, section 3.17).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["instructor>=1.17", "openai>=3.19"]

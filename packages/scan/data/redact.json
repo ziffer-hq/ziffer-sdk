@@ -1,0 +1,19 @@
+{
+  "_comment": "What the scan never prints (ACP-449). A value is replaced by the replacement text wherever the scan renders it: the confirmation listing, the terminal report, the --json document and every finding. flag_words: a flag or variable NAME containing one of these words (case-insensitive) has its value replaced, in '--name=value', '--name value', 'NAME=value' and 'Name: value'. value_prefixes: regular-expression fragments; a value that STARTS with one is replaced wherever it appears, flag or not. Every environment variable a server's configuration declares has its value replaced unconditionally, so the environment needs no rule here. The real values are still read and passed to a server the person approved; only what is printed changes.",
+  "replacement": "[redacted]",
+  "flag_words": ["key", "token", "secret", "password", "passwd", "auth", "credential", "bearer"],
+  "value_prefixes": [
+    "sk_",
+    "sk-",
+    "sntryu_",
+    "sntrys_",
+    "ghp_",
+    "gho_",
+    "github_pat_",
+    "xox[abp]-",
+    "AKIA",
+    "glpat-",
+    "npm_",
+    "eyJ[A-Za-z0-9_-]+\\."
+  ]
+}

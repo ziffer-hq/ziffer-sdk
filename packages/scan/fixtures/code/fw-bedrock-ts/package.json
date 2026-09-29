@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-bedrock",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.9): Bedrock Converse tools in the shape of @aws-sdk/client-bedrock-runtime 3.1141.0 (ToolSpecification, ToolConfiguration; read 2026-09-28). The SDK is not installed for the scan's tests: its calls are read through the import declarations.",
+  "dependencies": { "@aws-sdk/client-bedrock-runtime": "3.1141.0" }
+}

@@ -1,0 +1,5 @@
+# A fixture, not a project: a tool's name for the model written as an expression (ACP-455, 2026-09-28).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["semantic-kernel>=1.44", "langchain-core>=1.6"]

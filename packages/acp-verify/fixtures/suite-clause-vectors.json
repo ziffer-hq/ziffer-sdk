@@ -1,0 +1,81 @@
+{
+  "$comment": "ACP-247 row 12. ONE input, one clause id, in both SDKs: the corpus that keeps the Python SDK (sdk/python) and the TypeScript verifier (packages/acp-verify) naming the same clause for the same suite. Every case is (the receipt's alg, the anchor's floor) -> the refusal id, which is what the implementations are compared ON: two verifiers that both refuse a receipt -- one saying CR-1, the other CR-4 -- have not been shown to agree on anything an operator could act on, because the remediation the two ids imply is different (chase a typo, a version skew or a forged field; or raise the receipt's suite and check the floor policy). The divergence this file exists to stop had already happened: the Python SDK raised CR-4 for a suite name it did not know, the TypeScript one raised CR-1, and docs/onboarding/sdk.md said the id was spelled identically everywhere. NOT A BYTE MIRROR of any engine file -- see the .provenance.json beside it.",
+  "how_to_read_a_case": "Build a v3 ALLOW receipt for a proposal the verifier is also given, and SIGN IT HONESTLY FOR THE SUITE IT DECLARES: when `alg` names a suite both signers implement (`ed25519`, `hybrid-ed25519-mldsa65`) the body is signed under that suite, so its `sig` carries exactly that suite's primitives; when `alg` is unknown or null there is no such signature to make, so the body is signed hybrid and the field is set (or removed) afterwards -- which is sound because CR-1 and CR-4 are both decided before the signature is read. THAT RULE IS LOAD-BEARING AND WAS LEARNED HERE: signing hybrid and then relabelling the receipt `ed25519` makes a receipt with TWO defects, and on a multi-defect input the ORDER decides which clause fires. See `known_divergences` below, which is what that mistake found. Build the trust anchor with `min_suite` = the case's `min_suite`; verify. `expect` is the clause the refusal must carry, or null when the receipt must be ACCEPTED. The accepted cases are not decoration: without them every refusal here is satisfied by a gate that refuses everything.",
+  "engine_at_pin": {
+    "rust_acp_decision": "CR-1",
+    "python_reference_acp_executor": "CR-4",
+    "note": "For an UNKNOWN suite name only, and only at the pinned rev named in the sidecar. `crates/acp-decision` parses the suite first and refuses CR-1; `reference/src/acp_executor.py` reaches `Bundle.suite_ok`, which returns False for a name it does not know, so unknown-and-below-floor collapse into CR-4. ACP-82 holds that divergence open from both sides and reads the specification as being on Rust's side: CR-4's predicate ranges over the set of primitives a suite denotes, an unregistered name denotes no set, so the containment test is not false for it but undefined -- while CR-1 (section 1121) says in as many words that an unregistered or unknown suite MUST fail closed. Closing ACP-82 is one change in four places in the engine repository, so the SDKs do not wait on it: they agree with each other and with Rust, and sdk.md section 5 tells the reader what the reference still says rather than claiming all four agree. WHEN THE PIN MOVES, RE-READ THIS BLOCK: it is a fact about one rev and nothing later.",
+    "ticket": "ACP-82"
+  },
+  "known_divergences": [
+    {
+      "name": "a receipt wrong in two ways at once: the declared suite is below the floor AND the signature carries primitives the declared suite does not name",
+      "found": "2026-09-05, by this corpus on its first run",
+      "input": "alg `ed25519`, `sig` carrying both `classical` and `pq`, anchor floor `hybrid-ed25519-mldsa65`",
+      "python_sdk": "CR-4",
+      "python_reference_acp_executor": "CR-4",
+      "typescript_sdk": "9.3-1",
+      "rust_acp_decision": "9.3-1",
+      "why": "An ordering difference, not a predicate one. The Python side follows the reference's order -- `Bundle.suite_ok` (CR-4) is consulted before `sig_ok` -- so the floor speaks first. Rust's `decide` parses the signature object before calling `verify_receipt`, and `parse_sig` refuses a primitive set that is not exactly the declared suite's under 9.3-1; the TypeScript verifier mirrors `decide.rs` and therefore refuses there too. Both fail closed. What differs is what the operator is told to chase: a policy floor, or a malformed signature object. This is ACP-82's shape one clause over, and it is recorded rather than fixed here because the order is the engine's to settle -- moving the Python SDK would put it out of step with the reference it wraps, and moving the TypeScript one would put it out of step with the Rust engine it mirrors.",
+      "status": "open; pinned from BOTH sides by the two SDK suites, so it goes red rather than quiet if either side moves"
+    }
+  ],
+  "cases": [
+    {
+      "name": "unknown suite name, floor it could not satisfy anyway",
+      "alg": "rot13",
+      "min_suite": "hybrid-ed25519-mldsa65",
+      "expect": "CR-1",
+      "why": "The plain case, and the one the two SDKs disagreed on."
+    },
+    {
+      "name": "unknown suite name, floor a real suite of that shape would satisfy",
+      "alg": "ed25519-but-not-really",
+      "min_suite": "ed25519",
+      "expect": "CR-1",
+      "why": "The case that separates the two ids rather than renaming one. If CR-1 here were really CR-4 wearing a new name, a floor the suite would trivially satisfy could not change the answer -- and it does not: the name denotes no set of primitives, so containment is never reached."
+    },
+    {
+      "name": "no alg field at all",
+      "alg": null,
+      "min_suite": "ed25519",
+      "expect": "CR-1",
+      "why": "An absent suite is not a weak suite. Both SDKs report the same id here; TypeScript's message is `receipt declares no suite`."
+    },
+    {
+      "name": "a known suite, honestly signed, below the floor",
+      "alg": "ed25519",
+      "min_suite": "hybrid-ed25519-mldsa65",
+      "expect": "CR-4",
+      "why": "The floor's post-quantum primitive is missing from the offered suite. This is CR-4's actual domain: both names are registered, and the receipt's ONLY defect is the floor -- it is signed under the suite it declares, so nothing earlier in the order has anything to say about it."
+    },
+    {
+      "name": "containment, not rank: hybrid does not satisfy an slhdsa128s floor",
+      "alg": "hybrid-ed25519-mldsa65",
+      "min_suite": "slhdsa128s",
+      "expect": "CR-4",
+      "why": "The engine's published correction. Under the old rank table hybrid outranked slhdsa128s while containing none of its primitives, so a deployment whose floor said `hash-based post-quantum, no lattice assumption` was served a lattice signature and told its floor was met. Note WHICH clause is asserted: delete the floor check and this input still refuses, at 9.3-1, because pq-slh is unimplemented -- so asserting only `refused` would survive that mutant."
+    },
+    {
+      "name": "the anchor's own floor is not a suite this build knows",
+      "alg": "hybrid-ed25519-mldsa65",
+      "min_suite": "strongest-available",
+      "expect": "CR-1",
+      "why": "A misconfiguration on the verifier's side, not a verdict about the receipt -- but a verifier that cannot state its floor must not conclude anything, so it refuses under CR-1's name rather than defaulting. There is no default suite for the reason there is no default tenant."
+    },
+    {
+      "name": "containment satisfied by a superset suite",
+      "alg": "hybrid-ed25519-mldsa65",
+      "min_suite": "ed25519",
+      "expect": null,
+      "why": "Extra primitives are permitted; a missing one never is. The acceptance direction, so the pair proves containment rather than equality."
+    },
+    {
+      "name": "the floor exactly",
+      "alg": "hybrid-ed25519-mldsa65",
+      "min_suite": "hybrid-ed25519-mldsa65",
+      "expect": null,
+      "why": "The control every refusal above is measured against."
+    }
+  ]
+}

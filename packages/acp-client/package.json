@@ -1,0 +1,61 @@
+{
+  "name": "@ziffer-io/client",
+  "version": "0.3.0",
+  "description": "ZIFFER TypeScript client: propose an action, wait for the decision, verify the receipt before you act",
+  "keywords": [
+    "ziffer",
+    "agent",
+    "ai-agent",
+    "guardrail",
+    "approval",
+    "receipt"
+  ],
+  "author": "code75 SASU",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "THIRD-PARTY-NOTICES",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziffer-hq/ziffer-sdk.git",
+    "directory": "packages/acp-client"
+  },
+  "homepage": "https://ziffer.io",
+  "publishConfig": {
+    "access": "public"
+  },
+  "ziffer": {
+    "enginePin": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72"
+  },
+  "scripts": {
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "build": "tsc -b",
+    "typecheck": "tsc -b",
+    "pretest": "tsc -b && if ! find dist -name '*.test.js' -print -quit | grep -q .; then echo 'no compiled test file under dist/ -- node --test reports 0 tests and exits 0, so this package would go green having run nothing' >&2; exit 1; fi",
+    "test": "tsc -b && node ../types/scripts/run-tests.mjs"
+  },
+  "dependencies": {
+    "@ziffer-io/types": "workspace:*",
+    "@ziffer-io/verify": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.9.2"
+  }
+}

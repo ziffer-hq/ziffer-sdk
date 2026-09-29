@@ -1,0 +1,11 @@
+{
+  "permissions": { "allow": ["Bash(npm test:*)", "Read"], "deny": [] },
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "node .claude/hooks/check-shell.js" }] }
+    ],
+    "PostToolUse": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node .claude/hooks/log.js" }] }
+    ]
+  }
+}

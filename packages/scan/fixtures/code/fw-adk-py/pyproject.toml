@@ -1,0 +1,5 @@
+# A fixture, not a project: Google Agent Development Kit (acp-455 record, section 3.21).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["google-adk>=2.10"]

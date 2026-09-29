@@ -1,0 +1,56 @@
+{
+  "name": "@ziffer-io/types",
+  "version": "0.3.0",
+  "description": "TypeScript types for the ZIFFER wire format, generated from the public ZIFFER specification.",
+  "keywords": [
+    "ziffer",
+    "agent",
+    "ai-agent",
+    "guardrail",
+    "approval",
+    "receipt"
+  ],
+  "author": "code75 SASU",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "THIRD-PARTY-NOTICES",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziffer-hq/ziffer-sdk.git",
+    "directory": "packages/types"
+  },
+  "homepage": "https://ziffer.io",
+  "publishConfig": {
+    "access": "public"
+  },
+  "ziffer": {
+    "enginePin": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72"
+  },
+  "scripts": {
+    "vendor": "node scripts/vendor-engine-types.mjs",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "build": "pnpm run vendor && tsc -b",
+    "typecheck": "pnpm run vendor && tsc -b",
+    "test": "pnpm run vendor && tsc -b && node scripts/check-entry-resolves.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,5 @@
+# A fixture, not a project: the Bedrock Converse shapes (acp-455 record, section 3.9).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["boto3>=1.43"]

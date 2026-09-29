@@ -1,0 +1,7 @@
+{
+  "name": "corner-bookshop-genkit",
+  "private": true,
+  "type": "module",
+  "//": "A fixture for ziffer-scan --code (ACP-455, record 3.21): Genkit tools, an interrupt and the calls that hand them to a model, in the shape of genkit 1.42.0 (Genkit.defineTool, ToolConfig, ToolArgument; read 2026-09-28) and firebase/genkit js/testapps. Genkit is not installed for the scan's tests: its calls are read through the import declarations; zod resolves through packages/scan.",
+  "dependencies": { "genkit": "1.42.0", "zod": "4.6.5" }
+}

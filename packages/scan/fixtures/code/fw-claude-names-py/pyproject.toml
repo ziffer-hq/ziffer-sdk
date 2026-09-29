@@ -1,0 +1,5 @@
+# A fixture, not a project: Claude Agent SDK names (ACP-455, 2026-09-28).
+[project]
+name = "corner-bookshop"
+version = "0.1.0"
+dependencies = ["claude-agent-sdk>=0.2"]

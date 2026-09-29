@@ -1,0 +1,7 @@
+{
+  "kind": "ziffer-authored vector, NOT a byte mirror",
+  "source_path": null,
+  "source_rev": "0ce0567bec3ee9d8c2b58d8c26c1ec83c4782f72",
+  "sha256": "f739092904709f9ea1e984d0e8e8760044be89994ef93615c6e3637b9805f539",
+  "note": "The sidecar its three neighbours carry, with the one field they have that this file cannot honestly fill: `source_path` is null because no engine file is being mirrored. This corpus was written here (ACP-247 row 12) to hold the Python and TypeScript SDKs to ONE clause id per suite input; the other three fixtures are byte copies of engine files and tools/check-verify-mirror.py compares them against the engine tree, which is why this one is deliberately absent from that script's MIRRORS table -- a mirror check over a file with no original would either fail or, worse, be written to pass. `source_rev` is still the engine pin and is load-bearing: the `engine_at_pin` block INSIDE the vector records what each engine implementation answers for an unknown suite (Rust CR-1, the Python reference CR-4, ACP-82 open), and that is a fact about this rev and nothing later. A pin bump must re-read it. The sha256 is not an unchecked claim: both SDK suites recompute it over the vector's bytes as they load it, and the Python suite additionally compares this `source_rev` against the rev its own vendored engine copy is stamped with -- a vector describing an engine the tests are not running against would say nothing."
+}
