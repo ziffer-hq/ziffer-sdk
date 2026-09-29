@@ -9,6 +9,8 @@ This skill sends two proposals to a ZIFFER sandbox, with the developer's go-ahea
 
 **ZIFFER tools used:** `whoami`, `sandbox_status`, `lint_proposal`, `simulate_decision`, `propose`, `check_decision`, `get_decision`, `explain_receipt`, `explain_refusal`.
 
+**ZIFFER prompts used:** `setup_ziffer`, `why_refused`.
+
 <!-- hard-stops:begin -->
 ## Hard stops
 
@@ -25,7 +27,7 @@ Also: never write a credential into a file in the repository. Never start the in
 
 ## What needs a key, and what does not
 
-This skill needs a sandbox API key from ZIFFER, set as `ZIFFER_API_KEY` with `ZIFFER_API_URL` in the environment Claude Code starts in, and `ZIFFER_TRUST_ANCHOR` to check a receipt (`sandbox.md` section 4, `install.md` section 7). The scan, the code change, the policy and the pipeline skills need none of them. If a tool below answers that a variable is not set, say which one, say where its value comes from, and stop: never ask for the key's value in the conversation and never write it into a file.
+This skill needs a sandbox API key from ZIFFER, set as `ZIFFER_API_KEY` with `ZIFFER_API_URL` in the environment Claude Code starts in, and `ZIFFER_TRUST_ANCHOR` to check a receipt (`sandbox.md` section 4, `install.md` section 7). The scan, the code change, the policy and the pipeline skills need none of them. If a tool below answers that a variable is not set, show its answer as written: it says which one, and how to get it from ZIFFER. Then stop: never ask for the key's value in the conversation and never write it into a file.
 
 ## Steps
 
@@ -37,7 +39,9 @@ This skill needs a sandbox API key from ZIFFER, set as `ZIFFER_API_KEY` with `ZI
 
 4. **Send and follow.** On a yes, call `propose` with each proposal. Then call `check_decision` with each `decision_id` until its status is no longer pending.
    - An answer with a receipt: call `explain_receipt` with the receipt and the base64 of the exact proposal bytes you sent, or call `get_decision` with the `decision_id` and those bytes. Show whether it is valid and what it is bound to.
-   - A refusal: call `explain_refusal` with the refusal's name exactly as it came back. Show what it means, who fixes it and what to do. Do not retry it: the same proposal gets the same answer.
+   - A refusal: call `explain_refusal` with the refusal's name exactly as it came back, as the `why_refused` flow does. Show what it means, who fixes it and what to do. Do not retry it: the same proposal gets the same answer.
    - Held for a person (`ATTEST` with no receipt yet): that is the gate working, not an error. Call `sandbox_status` with the tenant and the `decision_id` to see whether the sandbox's approver has decided. Never propose the same action again while one is held: a second proposal is a second action.
 
-5. **Say what this proved and what it did not.** An ALLOW in a sandbox means the path works, not that a person agreed. A sandbox receipt is signed by a different identity from production, so the production check refuses it (`sandbox.md` section 7). In the application, the verify line is what enforces a decision (`sdk.md` section 5).
+5. **Say what this shows.** A verified receipt means the whole path works: the application asked ZIFFER, the policy decided, and the receipt checked out on this machine, bound to the exact bytes sent. An ALLOW in a sandbox means the path works; a person's agreement is what a held action's receipt carries. A sandbox receipt is signed by a different identity from production, so the production check refuses it (`sandbox.md` section 7). In the application, the verify line is what enforces a decision (`sdk.md` section 5).
+
+6. **Next.** This is the last step of the `setup_ziffer` flow. Each tool's `Next:` line names what comes after it.

@@ -348,7 +348,7 @@ export function lintProposal(proposal: unknown): ToolOutcome {
     };
   }
 
-  const head = `lint_proposal against ${SCHEMA_ROOT}/${PROPOSAL_SCHEMA}`;
+  const head = `lint_proposal against the published wire Proposal schema (${PROPOSAL_SCHEMA})`;
   if (findings.length === 0) {
     return {
       text: [
@@ -356,16 +356,14 @@ export function lintProposal(proposal: unknown): ToolOutcome {
         '',
         'PASS  the proposal satisfies the wire Proposal schema.',
         '',
-        'What that does NOT establish, so this line is not read as more than it is:',
-        '  * nothing here validates `payload.params` against your REGISTERED input schema. The',
-        '    schema closes the five payload members and leaves the names inside `params` to the',
-        '    registry your deployment holds, which this package cannot see.',
-        '  * `schema_hash` is checked for SHAPE. Whether that triple is registered is decided by',
-        '    the Policy Engine against the signed bundle, and a well-formed hash for a schema',
-        '    nobody registered is refused there.',
-        '  * `tenant_id` is checked for shape. The gateway refuses one that is not your key\'s',
+        'A PASS is about the SHAPE. The rest is decided when you propose, so read each as an instruction:',
+        '  * `payload.params` is checked against the input schema registered for this action by the',
+        '    Policy Engine, against your signed policy. Name the parameters as that schema does.',
+        '  * `schema_hash` must name a schema triple registered in your signed policy; a well-formed',
+        '    hash for a schema nobody registered is refused there.',
+        '  * `tenant_id` must be your key\'s tenant (whoami names it). The gateway refuses any other',
         '    (TenantMismatch) and never rewrites it.',
-        '  * this says nothing about the DECISION. A perfectly valid proposal is denied all day.',
+        '  * The decision is the policy\'s: a valid proposal can still be held or denied.',
       ].join('\n'),
       isError: false,
     };

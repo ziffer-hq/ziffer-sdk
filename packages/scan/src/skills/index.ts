@@ -47,7 +47,8 @@ import { basename, dirname, extname, isAbsolute, join, relative, resolve, sep } 
 
 import { instructionHits } from '../classify/index.js';
 import { parseSkillWords, readDataFile, type SkillWords } from '../classify/data.js';
-import { NESTED_CHECKOUT, SKIP_REASONS, TEST_DIRS, TEST_FILE_RE, TEXT_EXT } from '../code/ts/program.js';
+import { isTestFileName, judgeFolders, loadCodeFolders, type FolderJudgement } from '../code/folders.js';
+import { NESTED_CHECKOUT, TEXT_EXT } from '../code/ts/program.js';
 import { redactText } from '../redact/index.js';
 import type { SkillLoad, SkillRead } from '../types.js';
 
@@ -325,10 +326,10 @@ function credentialRead(text: string, w: SkillWords): boolean {
 const posix = (root: string, p: string): string => relative(root, p).split(sep).join('/');
 
 /** Test code, left out as the code walk leaves it out: a test of a skill's script is not what the skill runs. */
-const isTestFile = (name: string): boolean => TEST_FILE_RE.test(name) || /^test_.*\.py$|_test\.py$/.test(name);
+const isTestFile = (name: string): boolean => isTestFileName(name);
 
 /** The script files in a skill's folder, walked with the same exclusions. */
-function scriptsIn(dir: string, w: SkillWords): string[] {
+function scriptsIn(dir: string, w: SkillWords, folders: FolderJudgement): string[] {
   const out: string[] = [];
   const visit = (d: string): void => {
     let entries;
@@ -340,7 +341,7 @@ function scriptsIn(dir: string, w: SkillWords): string[] {
     for (const e of entries) {
       const full = join(d, e.name);
       if (e.isDirectory()) {
-        if (!SKIP_REASONS.has(e.name) && !TEST_DIRS.has(e.name)) visit(full);
+        if (!folders.skips(full)) visit(full);
       } else if (e.isFile() && w.script_extensions.includes(extname(e.name)) && !/\.d\.[mc]?ts$/.test(e.name) && !isTestFile(e.name)) out.push(full);
     }
   };
@@ -358,7 +359,7 @@ function readText(p: string): string | undefined {
 }
 
 /** Read ONE skill or instruction file, and the scripts in a `SKILL.md`'s folder (`opts.scripts` overrides). */
-export function readSkillFile(root: string, abs: string, kind: SkillRead['kind'], opts: { scripts?: boolean } = {}): SkillRead | undefined {
+export function readSkillFile(root: string, abs: string, kind: SkillRead['kind'], opts: { scripts?: boolean; folders?: FolderJudgement } = {}): SkillRead | undefined {
   const w = skillWords();
   const text = readText(abs);
   if (text === undefined) return undefined;
@@ -371,7 +372,7 @@ export function readSkillFile(root: string, abs: string, kind: SkillRead['kind']
   const exercises: Exercise[] = shellBlocks.map((b) => ({ capability: 'shell', file: path, line: b.line, evidence: clip(b.text) }));
   for (const c of code) exercises.push(...lineExercises(c, path, folder, w));
   if (kind === 'skill' && (opts.scripts ?? basename(abs) === SKILL_FILE)) {
-    for (const script of scriptsIn(dirname(abs), w)) {
+    for (const script of scriptsIn(dirname(abs), w, opts.folders ?? judgeFolders(dirname(abs)))) {
       const body = readText(script);
       const sp = posix(root, script);
       exercises.push({ capability: 'shell', file: sp, line: 1, evidence: clip(`${basename(script)}: a script in the skill's folder`) });
@@ -466,7 +467,7 @@ function loadedFile(root: string, rel: string): string | undefined {
  * `loads` is the code catalog's `skill_loads` (absent when no front end looked): each is attached
  * to the file it names as `loaded_by`, and a loaded file the walk did not find is read as well.
  */
-export function readSkills(root: string, loads?: readonly SkillLoad[]): SkillRead[] {
+export function readSkills(root: string, loads?: readonly SkillLoad[], folders: FolderJudgement = judgeFolders(root)): SkillRead[] {
   const found = new Map<string, { abs: string; segments: string[]; kind: SkillRead['kind']; signals: Signal[] }>();
   const visit = (dir: string, segments: string[]): void => {
     let entries;
@@ -480,7 +481,8 @@ export function readSkills(root: string, loads?: readonly SkillLoad[]): SkillRea
     for (const e of entries) {
       const full = join(dir, e.name);
       if (e.isDirectory()) {
-        if (SKIP_REASONS.has(e.name) || TEST_DIRS.has(e.name)) continue;
+        // The code walk's one judgement of which folders are not read (ACP-476).
+        if (folders.skips(full)) continue;
         visit(full, [...segments, e.name]);
         continue;
       }
@@ -512,7 +514,7 @@ export function readSkills(root: string, loads?: readonly SkillLoad[]): SkillRea
   }
   const out: SkillRead[] = [];
   for (const [path, f] of found) {
-    const s = readSkillFile(root, f.abs, f.kind);
+    const s = readSkillFile(root, f.abs, f.kind, { folders });
     if (s === undefined) continue;
     const loadedBy = byPath.get(path) ?? [];
     const signals: Signal[] = loadedBy.length > 0 ? [...f.signals, 'code'] : f.signals;
@@ -525,7 +527,7 @@ export function readSkills(root: string, loads?: readonly SkillLoad[]): SkillRea
 }
 
 /** Why the walk leaves a directory out, for a report that says so: the code walk's own reasons. */
-export const SKILL_WALK_SKIPS: readonly string[] = ['dependencies', 'build output or cache', 'version control', 'test code', NESTED_CHECKOUT];
+export const SKILL_WALK_SKIPS: readonly string[] = [...Object.values(loadCodeFolders().kinds), NESTED_CHECKOUT];
 
 /** Each capability's count for one file, in `CAPABILITIES` order, zeros left out. */
 export function capabilityCounts(s: Pick<SkillRead, 'exercises'>): { capability: Capability; n: number }[] {

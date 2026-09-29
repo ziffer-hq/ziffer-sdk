@@ -58,10 +58,15 @@ const TREE: Record<string, string> = {
   'site/content/team/lee.mdx': ['---', 'name: Lee', 'description: Runs the till.', '---'].join('\n'),
   'docs/skills/help/SKILL.md': ['---', 'name: help', 'description: Help pages.', '---'].join('\n'),
   // The walk's exclusions stay: dependencies, build output, test code, a nested checkout.
+  // Each carries what shows it is one (ACP-476: a folder is skipped for what it holds, not its name).
   'node_modules/shelf-kit/skills/dep/SKILL.md': '# A dependency\n',
+  'node_modules/shelf-kit/package.json': '{ "name": "shelf-kit" }\n',
   'dist/skills/built/SKILL.md': '# Build output\n',
+  'dist/index.js.map': '{}\n',
   'api/tests/skills/fixture/SKILL.md': '# Test code\n',
+  'api/tests/load.test.ts': "import { test } from 'node:test';\n",
   'api/src/agent/prompts/__tests__/case.md': ['---', 'name: case', 'description: A test case.', '---'].join('\n'),
+  'api/src/agent/prompts/__tests__/case.test.ts': "import { test } from 'node:test';\n",
   'old-copy/.git': 'gitdir: /elsewhere/.git/worktrees/old-copy\n',
   'old-copy/api/src/agent/skills/order-desk/SKILL.md': '# A nested checkout\n',
 };

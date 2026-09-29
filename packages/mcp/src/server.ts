@@ -1,5 +1,6 @@
 /**
- * The MCP surface: twenty-one tools, their schemas, and nothing else (ACP-197
+ * The MCP surface: twenty-one tools, their schemas, and the three guided flows
+ * registered as prompts beside them (ACP-467; `prompts.ts`) (ACP-197
  * section 6b; ACP-213 section 9.2 added `sandbox_status`; ACP-389 added the
  * three that serve the policy repository; ACP-390 added the five that carry a
  * developer from nothing to a verified receipt; ACP-391 added the three that
@@ -96,6 +97,8 @@ import { SCAN_DEFAULT_TIMEOUT_SECONDS, scanTool, type ScanSetup } from './scan.j
 import type { CodebaseScan } from './scan-code.js';
 import { explainScanFinding } from './scan-explain.js';
 import { DOCS } from './scan-remedy.js';
+import { nextLine } from './next.js';
+import { PROMPT_ARGS, PROMPT_NAMES, PROMPTS } from './prompts.js';
 import { getStarted } from './started.js';
 import {
   checkDecision,
@@ -166,6 +169,9 @@ export const TOOL_NAMES = [
   'simulate_decision',
 ] as const;
 
+/** One registered tool's name. */
+export type ToolName = (typeof TOOL_NAMES)[number];
+
 /** What `createServer` needs, injectable so tests drive it without a process. */
 export interface ServerDeps {
   /** The environment. A parameter, never `process.env` read in here: this
@@ -201,6 +207,7 @@ async function firstRoot(server: McpServer): Promise<string | undefined> {
  * and the JSON is also sent as a second text block for a client that shows no
  * structured content, as the protocol asks. */
 function structuredReply(
+  tool: ToolName,
   outcome: ToolOutcome,
   structured: Record<string, unknown>,
 ): { content: { type: 'text'; text: string }[]; structuredContent: Record<string, unknown>; isError: boolean } {
@@ -208,18 +215,35 @@ function structuredReply(
     content: [
       { type: 'text', text: outcome.text },
       { type: 'text', text: JSON.stringify(structured, null, 2) },
+      ...nextBlock(tool, outcome),
     ],
     structuredContent: structured,
     isError: outcome.isError,
   };
 }
 
-/** MCP's content shape, from one place, so no handler assembles it by hand. */
-function reply(outcome: ToolOutcome): {
-  content: [{ type: 'text'; text: string }];
+/** A prompt's answer: one user message carrying the script. */
+function promptReply(
+  description: string,
+  text: string,
+): { description: string; messages: { role: 'user'; content: { type: 'text'; text: string } }[] } {
+  return { description, messages: [{ role: 'user', content: { type: 'text', text } }] };
+}
+
+/** The answer's last block: its next step ({@link nextLine}), so a developer
+ * is never left to know which tool comes after this one. */
+function nextBlock(tool: ToolName, outcome: ToolOutcome): { type: 'text'; text: string }[] {
+  const line = nextLine(tool, outcome);
+  return line === undefined ? [] : [{ type: 'text', text: line }];
+}
+
+/** MCP's content shape, from one place, so no handler assembles it by hand:
+ * the tool's answer as it came, then its next step. */
+function reply(tool: ToolName, outcome: ToolOutcome): {
+  content: { type: 'text'; text: string }[];
   isError: boolean;
 } {
-  return { content: [{ type: 'text', text: outcome.text }], isError: outcome.isError };
+  return { content: [{ type: 'text', text: outcome.text }, ...nextBlock(tool, outcome)], isError: outcome.isError };
 }
 
 /**
@@ -238,18 +262,16 @@ export function createServer(deps: ServerDeps): McpServer {
   server.registerTool(
     'get_started',
     {
-      title: 'How to integrate ZIFFER, from nothing',
+      title: 'Set up ZIFFER in this project, from nothing to a verified receipt',
       description:
-        'Call this FIRST when a developer wants to add ZIFFER and nothing exists yet. Returns the ' +
-        'steps in the order they happen: the local scan to run first, where an account comes from, the install command for ' +
-        'each language at the version we publish, the environment variables and where each value ' +
-        'comes from, the six-line wrap around the line that acts, and which tool to call next. ' +
-        'Needs no configuration and takes no arguments, so it answers before any key exists. The ' +
-        'install versions and the variable table are read out of this repository at build time ' +
-        'rather than written here, so they cannot be the ones that were true last release.',
+        'Call this FIRST when a developer wants to add ZIFFER and nothing exists yet. It is the entry point ' +
+        'of the setup_ziffer prompt and returns its steps in order: the scan, the one change in the code with ' +
+        'the install command for each language at the version ZIFFER publishes, the policy repository, the ' +
+        'pipeline, how to get the API key and what comes with it, the first proposal, and the verified ' +
+        'receipt. Needs no configuration and takes no arguments, so it answers before any key exists.',
       inputSchema: {},
     },
-    () => reply(getStarted()),
+    () => reply('get_started', getStarted()),
   );
 
   // The last codebase scan of this session, for `explain_scan_finding`. Held
@@ -339,7 +361,7 @@ export function createServer(deps: ServerDeps): McpServer {
         { root, include_installed, report, confirm, out, timeout_seconds },
       );
       if (outcome.codebase !== undefined) lastCodebase = outcome.codebase;
-      return structuredReply(outcome, outcome.structured);
+      return structuredReply('scan', outcome, outcome.structured);
     },
   );
 
@@ -363,7 +385,7 @@ export function createServer(deps: ServerDeps): McpServer {
     },
     ({ tool }) => {
       const outcome = explainScanFinding(lastCodebase, tool);
-      return structuredReply(outcome, outcome.structured);
+      return structuredReply('explain_scan_finding', outcome, outcome.structured);
     },
   );
 
@@ -386,7 +408,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe("Path to the repository, or the directory holding your agent's tool handlers."),
       },
     },
-    async ({ path }) => reply(await checkIntegrationTool(path)),
+    async ({ path }) => reply('check_integration', await checkIntegrationTool(path)),
   );
 
   server.registerTool(
@@ -407,7 +429,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe('The wire Proposal object to check. Passed to the schema untouched and sent nowhere.'),
       },
     },
-    ({ proposal }) => reply(lintProposal(proposal)),
+    ({ proposal }) => reply('lint_proposal', lintProposal(proposal)),
   );
 
   server.registerTool(
@@ -433,7 +455,7 @@ export function createServer(deps: ServerDeps): McpServer {
       },
     },
     async ({ decision_id, proposal_b64 }) =>
-      reply(
+      reply('get_decision',
         await getDecision(deps.clientFor, deps.env, {
           decisionId: decision_id,
           // exactOptionalPropertyTypes, as in explain_receipt: an omitted
@@ -469,7 +491,7 @@ export function createServer(deps: ServerDeps): McpServer {
       },
     },
     async ({ since, limit, cursor }) =>
-      reply(
+      reply('list_decisions',
         await listDecisions(deps.clientFor, deps.env, {
           ...(since === undefined ? {} : { since }),
           ...(limit === undefined ? {} : { limit }),
@@ -497,7 +519,7 @@ export function createServer(deps: ServerDeps): McpServer {
           ),
       },
     },
-    async ({ proposal }) => reply(await propose(deps.clientFor, deps.env, proposal)),
+    async ({ proposal }) => reply('propose', await propose(deps.clientFor, deps.env, proposal)),
   );
 
   server.registerTool(
@@ -512,7 +534,7 @@ export function createServer(deps: ServerDeps): McpServer {
         decision_id: z.string().min(1).describe('The decision_id returned by propose.'),
       },
     },
-    async ({ decision_id }) => reply(await checkDecision(deps.clientFor, deps.env, decision_id)),
+    async ({ decision_id }) => reply('check_decision', await checkDecision(deps.clientFor, deps.env, decision_id)),
   );
 
   server.registerTool(
@@ -520,15 +542,15 @@ export function createServer(deps: ServerDeps): McpServer {
     {
       title: 'Read the Ziffer SDK integration guide',
       description:
-        'Return the integration guide for one language, as written in ' +
-        'docs/onboarding/sdk.md. Needs no configuration, so it answers before any API key ' +
+        'Return the SDK integration guide for one language, as ZIFFER publishes it. Needs no ' +
+        'configuration, so it answers before any API key ' +
         'exists. Read it before writing integration code: the guide states which line ' +
         'actually enforces anything, and what this SDK does not do.',
       inputSchema: {
         language: z.enum(LANGUAGES).describe('Which language walkthrough to return.'),
       },
     },
-    ({ language }) => reply(getIntegrationGuide(language)),
+    ({ language }) => reply('get_integration_guide', getIntegrationGuide(language)),
   );
 
   server.registerTool(
@@ -557,7 +579,7 @@ export function createServer(deps: ServerDeps): McpServer {
       },
     },
     async ({ receipt, proposal_b64, trust_anchor_path }) =>
-      reply(
+      reply('explain_receipt',
         await explainReceipt(deps.env, {
           receipt,
           proposalB64: proposal_b64,
@@ -598,7 +620,7 @@ export function createServer(deps: ServerDeps): McpServer {
       },
     },
     async ({ tenant_id, decision_id }) =>
-      reply(
+      reply('sandbox_status',
         await sandboxStatus(deps.clientFor, deps.env, {
           tenantId: tenant_id,
           // exactOptionalPropertyTypes, as in explain_receipt: an omitted
@@ -621,7 +643,7 @@ export function createServer(deps: ServerDeps): McpServer {
         'about the POLICY repository; get_integration_guide is about their application code.',
       inputSchema: {},
     },
-    () => reply({ text: policyRepoGuide(), isError: false }),
+    () => reply('get_policy_repo_guide', { text: policyRepoGuide(), isError: false }),
   );
 
   server.registerTool(
@@ -648,7 +670,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe('Path to the root of the cloned policy repository — the directory holding policy/.'),
       },
     },
-    async ({ path }) => reply(await checkPolicyRepoTool(path)),
+    async ({ path }) => reply('check_policy_repo', await checkPolicyRepoTool(path)),
   );
 
   server.registerTool(
@@ -669,7 +691,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe("The failed run's log, or the failed step's output. Either is read."),
       },
     },
-    ({ log }) => reply(explainPublishFailure(log)),
+    ({ log }) => reply('explain_publish_failure', explainPublishFailure(log)),
   );
 
   server.registerTool(
@@ -698,7 +720,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe(`How many sections to return. Default ${DEFAULT_LIMIT}, most ${MAX_LIMIT}.`),
       },
     },
-    ({ query, limit }) => reply(searchDocs(query, limit ?? DEFAULT_LIMIT)),
+    ({ query, limit }) => reply('search_docs', searchDocs(query, limit ?? DEFAULT_LIMIT)),
   );
 
   server.registerTool(
@@ -723,7 +745,7 @@ export function createServer(deps: ServerDeps): McpServer {
           .describe('The refusal name exactly as you were handed it. Matching is exact and case sensitive.'),
       },
     },
-    ({ name }) => reply(explainRefusal(name)),
+    ({ name }) => reply('explain_refusal', explainRefusal(name)),
   );
 
   server.registerTool(
@@ -758,7 +780,7 @@ export function createServer(deps: ServerDeps): McpServer {
       },
     },
     async ({ tool, question, context }) =>
-      reply(
+      reply('send_feedback',
         await sendFeedback(deps.clientFor, deps.env, {
           tool,
           question,
@@ -783,7 +805,7 @@ export function createServer(deps: ServerDeps): McpServer {
         'key expired.',
       inputSchema: {},
     },
-    async () => reply(await whoami(deps.clientFor, deps.env)),
+    async () => reply('whoami', await whoami(deps.clientFor, deps.env)),
   );
 
   server.registerTool(
@@ -809,7 +831,7 @@ export function createServer(deps: ServerDeps): McpServer {
           ),
       },
     },
-    async ({ path }) => reply(await explainPolicyTool(path)),
+    async ({ path }) => reply('explain_policy', await explainPolicyTool(path)),
   );
 
   server.registerTool(
@@ -839,8 +861,21 @@ export function createServer(deps: ServerDeps): McpServer {
           ),
       },
     },
-    async ({ proposal, path }) => reply(await simulateDecision(path, proposal)),
+    async ({ proposal, path }) => reply('simulate_decision', await simulateDecision(path, proposal)),
   );
+
+  // The guided flows. Registered beside the tools so they appear in the AI
+  // assistant's prompt menu: a developer picks "Set up ZIFFER in this project"
+  // and never needs a tool's name. Each is a script over the tools above and
+  // carries no rule of its own (`prompts.ts`).
+  for (const name of PROMPT_NAMES) {
+    const spec = PROMPTS[name];
+    server.registerPrompt(
+      name,
+      { title: spec.title, description: spec.description, argsSchema: PROMPT_ARGS[name] },
+      (args: Readonly<Record<string, string | undefined>>) => promptReply(spec.description, spec.render(args).text()),
+    );
+  }
 
   return server;
 }

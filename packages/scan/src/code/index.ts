@@ -11,7 +11,8 @@ import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 import { claimValues, notSeen } from './notseen.js';
-import { ownSourceLine, ownSourceReader, partitionOwnSource, readManifests, sdkEntry } from './sdks.js';
+import { judgeFolders, loadCodeFolders, skippedFoldersLine, type FolderJudgement } from './folders.js';
+import { ownSourceLine, ownSourceReader, partitionOwnSource, readManifests, sdkEntry, unreadLibrariesLine } from './sdks.js';
 import { computedNameLines, whereOf } from './ts/common.js';
 import type { CodeCatalog, SourceRef } from './types.js';
 import { emptyFacts, type Facts } from './ts/facts.js';
@@ -55,6 +56,8 @@ export interface ScanCodeOptions {
   syntaxOnly?: boolean;
   log?: (line: string) => void;
   onStats?: (stats: CodeScanStats) => void;
+  /** Which folders are not read, judged once per scan and shared with the Python half (`folders.ts`); judged here when absent. */
+  folders?: FolderJudgement;
 }
 
 /**
@@ -81,13 +84,28 @@ function ownNotes(facts: Facts, mine: (r: SourceRef) => boolean): { lines: strin
   return { lines: out, assistant };
 }
 
+/** The folders not read, per kind in the data file's words, as the stats have always tabulated skips. */
+function folderStats(folders: FolderJudgement): { reason: string; dirs: number; files: number }[] {
+  const words = loadCodeFolders().kinds;
+  const by = new Map<string, { reason: string; dirs: number; files: number }>();
+  for (const f of folders.skipped) {
+    const reason = words[f.kind];
+    const s = by.get(reason) ?? { reason, dirs: 0, files: 0 };
+    s.dirs += 1;
+    s.files += f.files;
+    by.set(reason, s);
+  }
+  return [...by.values()];
+}
+
 export async function scanCode(root: string, opts: ScanCodeOptions = {}): Promise<CodeCatalog> {
   const log = opts.log ?? (() => undefined);
   const abs = resolve(root);
   const t0 = performance.now();
-  const walk = walkTree(abs);
+  const folders = opts.folders ?? judgeFolders(abs);
+  const walk = walkTree(abs, folders);
   const skippedFiles = [...walk.skipped.values()].reduce((a, s) => a + s.files, 0);
-  log(`code: walked ${abs}: ${walk.tsconfigs.length} tsconfig.json, ${walk.sourceFiles.length} TypeScript/JavaScript file(s) (${walk.jsFiles} JavaScript), ${walk.packageJsons.length} package.json; skipped ${skippedFiles} source file(s) and ${[...walk.skipped.values()].reduce((a, s) => a + s.dirs, 0)} director(ies) by rule`);
+  log(`code: walked ${abs}: ${walk.tsconfigs.length} tsconfig.json, ${walk.sourceFiles.length} TypeScript/JavaScript file(s) (${walk.jsFiles} JavaScript), ${walk.packageJsons.length} package.json; skipped ${skippedFiles} source file(s) one by one and ${folders.skipped.length} folder(s) for what they hold`);
 
   const rootManifest = join(abs, 'package.json');
   const manifests = readManifests(walk.packageJsons, existsSync(rootManifest) ? rootManifest : undefined);
@@ -143,10 +161,17 @@ export async function scanCode(root: string, opts: ScanCodeOptions = {}): Promis
   if (facts.unresolvedFiles.size > 0) {
     extra.push(`${facts.unresolvedFiles.size} file(s) import packages the type checker could not resolve (not installed, as in a fresh clone or a CI checkout, or resolved only by a bundler)${facts.unresolvedFrameworkFiles.size > 0 ? `, ${facts.unresolvedFrameworkFiles.size} of them a tool-calling framework` : ''}; their framework calls were recognised through the import declarations, and readings that need the framework's types (a literal typed only by an SDK type, a factory's return type) are not made there. Install the dependencies and re-run for the full reading.`);
   }
-  const skips = [...walk.skipped.entries()].filter(([r]) => r !== 'dependencies' && r !== 'version control' && r !== 'build output or cache').filter(([, v]) => v.files > 0);
+  // Source files left out one by one (a test file, a declaration, a bundle) and nested checkouts.
+  const skips = [...walk.skipped.entries()].filter(([, v]) => v.files > 0);
   if (skips.length > 0) {
     extra.push(`Not read by rule: ${skips.map(([r, v]) => `${v.files} source file(s) in ${r}`).join('; ')}.`);
   }
+  // Every folder not read, how many, and the evidence of what each is (ACP-476): one line, both languages.
+  const foldersLine = skippedFoldersLine(folders);
+  if (foldersLine !== undefined) extra.push(foldersLine);
+  // A declared library the scan does not read, named so silence never reads as "no tools" (ACP-475).
+  const unreadLine = unreadLibrariesLine('package.json', manifests.unread);
+  if (unreadLine !== undefined) extra.push(unreadLine);
 
   const notes = ownNotes(facts, mine);
   const catalog: CodeCatalog = {
@@ -205,7 +230,10 @@ export async function scanCode(root: string, opts: ScanCodeOptions = {}): Promis
     sourceFiles: walk.sourceFiles.length,
     jsFiles: walk.jsFiles,
     filesRead: facts.filesRead,
-    skipped: [...walk.skipped.entries()].map(([reason, v]) => ({ reason, ...v })),
+    skipped: [
+      ...[...walk.skipped.entries()].map(([reason, v]) => ({ reason, ...v })),
+      ...folderStats(folders),
+    ],
     unresolvedFiles: facts.unresolvedFiles.size,
     unresolvedFrameworkFiles: facts.unresolvedFrameworkFiles.size,
     ownSource: [...tools.dropped.entries()].map(([pkg, n]) => ({ pkg, tools: n })),

@@ -5,19 +5,19 @@
       "generator": "packages/mcp/scripts/embed-guide.mjs",
       "package": "packages/mcp",
       "path": "packages/mcp/src/generated/docs-source.ts",
-      "sha256": "3ffadd16e95328b0a64b0dbc7e56d3585ea13e588fa4b467ddeb37bf1ce38704"
+      "sha256": "f6f445f739ea5f5739c6ae582a6791235687d3e05da72f8c583f1182e4957085"
     },
     {
       "generator": "packages/mcp/scripts/embed-guide.mjs",
       "package": "packages/mcp",
       "path": "packages/mcp/src/generated/guide-source.ts",
-      "sha256": "0c5b53ba8e3451021fce683f446ce9b5a331a55185d4bb1782dbc9a29315505e"
+      "sha256": "28259722b8bd8f7cda37bfa4208dd5d314d26591427855d1328c33b996c66ad7"
     },
     {
       "generator": "packages/mcp/scripts/embed-guide.mjs",
       "package": "packages/mcp",
       "path": "packages/mcp/src/generated/repo-guide-source.ts",
-      "sha256": "ecf67c8540f0018847cd4830cfa69b8df817f45661b577763c9d1ae506e9fec5"
+      "sha256": "dbdd8fdb40f74e6308038d52942cddbb3154f1923046f1a5fcadd2e35374fadb"
     },
     {
       "generator": "packages/mcp/scripts/embed-guide.mjs",
@@ -29,7 +29,7 @@
       "generator": "packages/mcp/scripts/embed-guide.mjs",
       "package": "packages/mcp",
       "path": "packages/mcp/src/generated/started-source.ts",
-      "sha256": "6daf5cce1c9cb6d757106ff9bac154a7a2469314223e64fb996a2bb0f316c178"
+      "sha256": "876851a209d3e6527e0b4d35a0c585d7d068d743f98c3a94842ac13002af1643"
     },
     {
       "generator": "packages/mcp/scripts/embed-guide.mjs",

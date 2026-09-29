@@ -28,15 +28,14 @@ import sys
 import warnings
 from typing import Dict, FrozenSet, List, Optional, Set, Tuple
 
-SKIP_DIRS = {
-    ".venv", "venv", "node_modules", "site-packages", "__pycache__", ".git", ".hg", ".svn",
-    "build", "dist", ".tox", ".nox", ".mypy_cache", ".pytest_cache", ".ruff_cache", ".eggs",
-    ".pnpm-store", ".next", ".turbo", ".cache",
-}
+# Which folders are not walked is decided ONCE per scan, by the TypeScript side's judgement
+# (src/code/folders.ts over data/code-folders.json, ACP-476): a folder is skipped for what it
+# holds, never for its name alone, and this walker is handed the list on its standard input.
+# It keeps no list of folder names of its own: a second list is how `build` came to be skipped
+# here by name after the other side stopped.
 NESTED_CHECKOUT = "a nested git worktree or submodule checkout (a directory holding a .git file)"
-# Test code is walked past and counted, as in the TypeScript front end: a test
-# defines throwaway tools to exercise the application, and none is what a model is given.
-TEST_DIRS = {"__tests__", "test", "tests", "spec", "specs"}
+# Test FILES are walked past and counted, as in the TypeScript front end: a test defines
+# throwaway tools to exercise the application, and none is what a model is given.
 
 
 def is_test_file(fn: str) -> bool:
@@ -669,8 +668,10 @@ def notebook_source(text: str) -> Tuple[str, List[Tuple[int, int]]]:
 
 
 class Scan:
-    def __init__(self, root: str):
+    def __init__(self, root: str, skip: Optional[Set[str]] = None):
         self.root = root
+        # The folders not walked, relative to the root with `/`: the caller's one judgement.
+        self.skip: Set[str] = set(skip or ())
         self.modules: List[Module] = []
         self.python_files = 0
         self.syntax_errors: List[str] = []
@@ -733,16 +734,12 @@ class Scan:
         for dirpath, dirnames, filenames in os.walk(self.root):
             kept = []
             for d in sorted(dirnames):
-                if d in SKIP_DIRS or d.endswith(".egg-info"):
+                if os.path.relpath(os.path.join(dirpath, d), self.root).replace(os.sep, "/") in self.skip:
                     continue
                 # A directory holding a `.git` FILE is a linked worktree or a submodule:
                 # a second copy of the code, whose tools would be counted twice.
                 if os.path.isfile(os.path.join(dirpath, d, ".git")):
                     self.nested_checkouts.append(os.path.relpath(os.path.join(dirpath, d), self.root).replace(os.sep, "/"))
-                    continue
-                if d in TEST_DIRS:
-                    for _dp, _dn, fns in os.walk(os.path.join(dirpath, d)):
-                        self.test_files += sum(1 for f in fns if f.endswith((".py", ".ipynb")))
                     continue
                 kept.append(d)
             dirnames[:] = kept
@@ -3820,7 +3817,7 @@ class Scan:
             self.not_seen.append("%d Python files could not be parsed (syntax error) and were not read: %s"
                                  % (len(self.syntax_errors), ", ".join(self.syntax_errors[:5])))
         if self.test_files:
-            self.not_seen.append("%d Python file(s) of test code (a tests directory, test_*.py, *_test.py, conftest.py) were not read: "
+            self.not_seen.append("%d Python file(s) of test code (test_*.py, *_test.py, conftest.py) were not read: "
                                  "a test's tools and calls exercise the application, and are not what a model is given" % self.test_files)
         if self.nested_checkouts:
             self.not_seen.append("%d director%s not read: %s (%s)"
@@ -4148,9 +4145,23 @@ class _ReplyScope:
 
 
 def main(argv: List[str]) -> int:
-    if len(argv) != 2 or not os.path.isdir(argv[1]):
-        sys.stderr.write("usage: ziffer_scan_code.py <directory>\n")
+    # `--skip-from-stdin`: a JSON object on standard input, {"skip": [folder, ...]}, each relative
+    # to the root with `/` -- the folders the scan does not read (ACP-476). Without it, every
+    # folder is walked: this file keeps no list of folder names.
+    args = argv[1:]
+    from_stdin = "--skip-from-stdin" in args
+    args = [a for a in args if a != "--skip-from-stdin"]
+    if len(args) != 1 or not os.path.isdir(args[0]):
+        sys.stderr.write("usage: ziffer_scan_code.py <directory> [--skip-from-stdin]\n")
         return 2
+    skip: Set[str] = set()
+    if from_stdin:
+        try:
+            doc = json.loads(sys.stdin.read())
+            skip = {str(p) for p in doc["skip"]}
+        except (ValueError, KeyError, TypeError):
+            sys.stderr.write("ziffer_scan_code.py: --skip-from-stdin needs {\"skip\": [folder, ...]} on standard input\n")
+            return 2
     sys.setrecursionlimit(10000)
     # The scan keeps every tree alive until it prints, and the cyclic collector
     # re-scans millions of AST nodes as they accumulate: measured on the 3.11
@@ -4160,7 +4171,7 @@ def main(argv: List[str]) -> int:
     # A notebook's invalid escape sequences are the notebook's business, not the scan's
     # output: stderr carries nothing the caller reads.
     warnings.simplefilter("ignore")
-    out = Scan(argv[1]).run()
+    out = Scan(args[0], skip).run()
     sys.stdout.write(json.dumps(out, sort_keys=False))
     sys.stdout.write("\n")
     return 0

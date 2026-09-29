@@ -77,13 +77,16 @@ interface Called {
   readonly isError: boolean;
 }
 
-/** One tool call, its two content blocks checked against its structured content. */
+/** One tool call, its three content blocks checked against its structured content. */
 async function callOn(client: Client, name: string, args: Record<string, unknown>): Promise<Called> {
   const result: unknown = await client.callTool({ name, arguments: args });
   assert.ok(typeof result === 'object' && result !== null, 'result is not an object');
   const record: Record<string, unknown> = { ...result };
   const content = record['content'];
-  assert.ok(Array.isArray(content) && content.length === 2, 'expected the text block and the JSON block');
+  assert.ok(
+    Array.isArray(content) && content.length === 3,
+    'expected the text block, the JSON block and the next step',
+  );
   const texts = content.map((block: unknown) => {
     assert.ok(typeof block === 'object' && block !== null, 'content block is not an object');
     const fields: Record<string, unknown> = { ...block };
@@ -93,6 +96,7 @@ async function callOn(client: Client, name: string, args: Record<string, unknown
   const structured = record['structuredContent'];
   assert.ok(isRecord(structured), 'no structured content');
   assert.deepEqual(JSON.parse(texts[1] ?? ''), structured, 'the JSON block is not the structured content');
+  assert.match(texts[2] ?? '', /^Next: \S/, 'the last block is not a next step');
   return { text: texts[0] ?? '', structured, isError: record['isError'] === true };
 }
 

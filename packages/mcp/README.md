@@ -11,6 +11,31 @@ You need Node.js 22 or later. The server runs over stdio from `npx`.
 npx @ziffer-io/mcp
 ```
 
+## Start with a guided flow
+
+Once the server is added to your AI assistant (below), pick **Set up ZIFFER in this project** from
+its prompt menu (in Claude Code, the `/` menu). It is the `setup_ziffer` flow, and it takes you
+from nothing to a first decision whose receipt is verified on your machine, in eight steps: scan
+the code, explain the held tools, make the one change in the code and check it, build the policy
+repository, set up its pipeline, get your key, send a first proposal, and verify its receipt. After
+each step it says which tool comes next and what you should see.
+
+| Flow | What it takes you through |
+| --- | --- |
+| Set up ZIFFER in this project (`setup_ziffer`) | The whole path above, in order. |
+| Scan this project and explain what it found (`scan_and_explain`) | The scan, the numbers, each held tool and the one place to put ZIFFER. |
+| Why was this refused (`why_refused`) | A refusal name, a rule, a decision id or a receipt in; what it means, who fixes it and what to do out. |
+
+Every tool's answer also ends with a line starting `Next:` naming the tool to call next and why.
+The flows guide your AI assistant; what is decided and what is verified stays in the tools and in
+the `verify` line in your code.
+
+**Your key.** Everything before the first proposal needs no key. When a tool needs one and it is
+not set, the tool says how to get it: write to hello@ziffer.io with your name, your company and the
+language your application is written in, and ZIFFER answers with your API key, your trust anchor
+file and your suite floor. The server calls the hosted service at `https://api.ziffer.io` unless
+you set `ZIFFER_API_URL`.
+
 ## Scan your codebase from your AI assistant
 
 With the server added to your AI assistant (below), ask it:
@@ -131,11 +156,13 @@ Your AI assistant edits your code. The `verify` line in your handler is what gat
 | `ZIFFER_API_KEY` | Your API key. It carries your tenant, so no request names a tenant. | We issue it. It expires after 90 days unless you ask for another lifetime. |
 | `ZIFFER_TRUST_ANCHOR` | Path to the public key file your receipts are signed under. | We give you the file. Take it from us, never from the API you are checking. |
 | `ZIFFER_SUITE_FLOOR` | The weakest signature suite you will accept. | You choose it. There is no default. |
-| `ZIFFER_API_URL` | The base URL of the ZIFFER deployment you call. | We give it to you with your key. |
+| `ZIFFER_API_URL` | The address of the ZIFFER service you call. | Unset, it is `https://api.ziffer.io`, the hosted service. Set it only to an address we give you. |
 
 <!-- guide:/configuration -->
 Set them in your MCP client's own configuration, never in a file inside your repository. The
-server starts without any of them, and a tool that needs a value names the variable to set.
+server starts without any of them, and a tool that needs a value names the variable to set and
+how to get it. When the service does not answer, the tool names the address it called and what
+to check.
 
 - **None of the four:** `get_started`, `scan`, `explain_scan_finding`, `get_integration_guide`,
   `check_integration`, `lint_proposal`, `get_policy_repo_guide`, `explain_publish_failure`,
@@ -144,7 +171,7 @@ server starts without any of them, and a tool that needs a value names the varia
   pipeline and look a refusal up before you have a key.
 - **The `ziffer` command line tool on your PATH:** `check_policy_repo`, `explain_policy` and
   `simulate_decision`, which grade on your machine and need no key either.
-- **`ZIFFER_API_URL` and `ZIFFER_API_KEY`:** `whoami`, `propose`, `check_decision`,
+- **`ZIFFER_API_KEY` (and `ZIFFER_API_URL` when it is not the hosted service):** `whoami`, `propose`, `check_decision`,
   `list_decisions` and `send_feedback`, and `sandbox_status` when you pass a `decision_id`.
 - **The trust anchor and the suite floor:** `explain_receipt`, and `get_decision` beside the URL
   and the key.

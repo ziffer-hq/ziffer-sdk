@@ -17,6 +17,18 @@ This plugin helps a developer set ZIFFER up from Claude Code. It carries the ZIF
 
 Claude also picks the right one when you ask in your own words, for example "scan this project with ZIFFER".
 
+## The guided flows
+
+The ZIFFER tools carry three guided flows, listed in Claude Code's `/` menu beside the skills:
+
+| Flow | What it takes you through |
+|---|---|
+| Set up ZIFFER in this project (`setup_ziffer`) | The whole path in order: the scan, the held tools explained, the one change in the code, the policy repository, its pipeline, your key, a first proposal, and its receipt verified on your machine. |
+| Scan this project and explain what it found (`scan_and_explain`) | The scan, the numbers, each held tool and the one place to put ZIFFER. |
+| Why was this refused (`why_refused`) | A refusal name, a rule, a decision id or a receipt in; what it means, who fixes it and what to do out. |
+
+The skills follow the same steps, one stage each, with a stop wherever you decide something. Every ZIFFER tool's answer ends with a line starting `Next:` naming the step after it. When your key is missing, the tool that needs it says how to get one: write to hello@ziffer.io, and ZIFFER answers with your API key, your trust anchor file and your suite floor.
+
 <!-- hard-stops:begin -->
 ## Hard stops
 
@@ -35,41 +47,41 @@ The block above is written to Claude, and every skill carries it word for word. 
 
 ## The ZIFFER tools
 
-`.mcp.json` starts the ZIFFER tools with `npx`, by package name and exact version: `@ziffer-io/mcp@0.3.0`. The name and the version are written out in the file. No setting on your machine can change which package runs. The file holds no secret.
+`.mcp.json` starts the ZIFFER tools with `npx`, by package name and exact version: `@ziffer-io/mcp@0.3.1`. The name and the version are written out in the file. No setting on your machine can change which package runs. The file holds no secret.
 
-Before you load the plugin, run `npm view @ziffer-io/mcp@0.3.0 version`. The ZIFFER tools start when it prints `0.3.0`. Keep the pin as it is: the skills need the code scan and `explain_scan_finding`, which an earlier version of the package does not have.
+Keep the pin as it is: the skills need the code scan and `explain_scan_finding`, which an earlier version of the package does not have.
 
 The server reads four environment variables, all optional at start: `ZIFFER_API_URL`, `ZIFFER_API_KEY`, `ZIFFER_TRUST_ANCHOR` and `ZIFFER_SUITE_FLOOR`. Set them in the shell you start Claude Code from, never in a file in your repository. Only `/ziffer:verify` needs them.
 
 ## Install
 
-Load it from a folder.
+The plugin installs from ZIFFER's public repository, https://github.com/ziffer-hq/ziffer-sdk. Add the repository as a plugin marketplace, then install the plugin from it:
 
-For one session:
+```bash
+claude plugin marketplace add ziffer-hq/ziffer-sdk
+```
+
+```bash
+claude plugin install ziffer@ziffer
+```
+
+To load it from a copy of this folder for one session instead:
 
 ```bash
 claude --plugin-dir /path/to/plugins/ziffer
 ```
 
-To keep it installed, this folder is also a one-plugin marketplace:
-
-```bash
-claude plugin marketplace add /path/to/plugins/ziffer
-```
-
-```bash
-claude plugin install ziffer@ziffer-local
-```
-
 ## Remove
 
 ```bash
-claude plugin uninstall ziffer@ziffer-local
+claude plugin uninstall ziffer@ziffer
 ```
 
 ```bash
-claude plugin marketplace remove ziffer-local
+claude plugin marketplace remove ziffer
 ```
+
+If you started Claude Code with `--plugin-dir`, start it without that option.
 
 ## What it does not cover
 

@@ -85,13 +85,16 @@ test('a valid proposal produces no findings', () => {
   assert.match(out.text, /PASS {2}the proposal satisfies/);
 });
 
-test('a PASS says what it does not establish', () => {
+test('a PASS says it is about the shape, and what is decided when you propose', () => {
   // A green line that reads as more than it is, is the shape this repository
-  // publishes corrections about. The disclaimers are part of the answer.
+  // publishes corrections about. The limits are part of the answer; since
+  // ACP-467 they are written as instructions, and each one is still there.
   const { text } = lintProposal(valid());
-  assert.match(text, /registered input schema/i);
+  assert.match(text, /A PASS is about the SHAPE/);
+  assert.match(text, /input schema registered for this action/i);
   assert.match(text, /TenantMismatch/);
-  assert.match(text, /says nothing about the DECISION/i);
+  assert.match(text, /a valid proposal can still be held or denied/i);
+  assert.doesNotMatch(text, /services\//, 'the answer names a path in our repository');
 });
 
 test('a missing required property is named, at both levels', () => {

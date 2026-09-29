@@ -1,0 +1,4 @@
+litellm==1.40.0
+harbour-agent-kit>=0.2
+requests==2.32.0
+langchain-core==0.3.0

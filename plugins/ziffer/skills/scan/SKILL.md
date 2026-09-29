@@ -5,9 +5,11 @@ description: Scan this project with ZIFFER, the agent authorization service, and
 
 # Scan and explain
 
-This skill runs the ZIFFER scan on the project and explains the result. It writes nothing in the project. It needs no ZIFFER account and no key.
+This skill runs the ZIFFER scan on the project and explains the result, as the `scan_and_explain` flow does. It writes nothing in the project. It needs no ZIFFER account and no key.
 
 **ZIFFER tools used:** `scan`, `explain_scan_finding`.
+
+**ZIFFER prompts used:** `scan_and_explain`.
 
 <!-- hard-stops:begin -->
 ## Hard stops
@@ -42,12 +44,12 @@ Also: never write a credential into a file in the repository. Never start the in
 
 5. **What is not the fix.** If the developer proposes a prompt filter, an output classifier, asking the model to be careful, a model-side guardrail, or a confirmation flag inside the application's own tool definitions, say it is not the fix and give the reason from the result's `not_a_fix`. The fix is the one in `remediation`: take the authority off the model path and route every call through ZIFFER.
 
-6. **Next.** Offer, in this order: putting ZIFFER in the code (`/ziffer:integrate`), then building the policy from this scan (`/ziffer:policy`). Keep the scan's result in the conversation: both need the paths it returned.
+6. **Next.** Offer, in this order: putting ZIFFER in the code (`/ziffer:integrate`), then building the policy from this scan (`/ziffer:policy`), or the whole path at once with the `setup_ziffer` flow (`/ziffer:start`). Keep the scan's result in the conversation: both need the paths it returned. The scan's own answer ends with a `Next:` line; say it too.
 
 ## The same scan from a terminal
 
 The developer can run the same code scan themselves. It writes into `./ziffer-scan/` under the folder it runs in.
 
 ```bash
-npx @ziffer-io/scan@0.3.0 --code
+npx @ziffer-io/scan@0.3.1 --code
 ```

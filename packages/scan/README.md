@@ -22,10 +22,13 @@ read with the TypeScript compiler, following types, so a tool your application d
 own helper function is found. Python files, and the code cells of Jupyter notebooks, are read with
 this machine's own Python (`python3` or `python`, 3.9 or later) running the reader shipped in the
 package; without one, the Python files are counted and reported as not read. The frameworks it
-knows are listed in `data/code-sdks.json`. It also reads skills and instruction files (`SKILL.md`,
-`CLAUDE.md`, `AGENTS.md` and the like) as text, never running them. Dependencies, build output,
-version control, test code and hidden folders are skipped by folder name, and counted. Reading code
-starts no tool server. Run from your home folder or `/`, the code half is skipped with one line
+knows are listed in `data/code-sdks.json`; a declared dependency whose name suggests a model or AI
+agent library it does not read is named in the report. It also reads skills and instruction files
+(`SKILL.md`, `CLAUDE.md`, `AGENTS.md` and the like) as text, never running them. Installed
+dependencies, build output, version control and test code are skipped for what they hold, never for
+their folder name alone: a `build` or `test` folder holding your own source is read. The rules are in
+`data/code-folders.json`, and the report names every folder skipped and why. Reading code starts no
+tool server. Run from your home folder or `/`, the code half is skipped with one line
 saying so; `--code` refuses instead.
 
 **Then the AI tools installed on this machine.** The MCP configuration files of the AI agent

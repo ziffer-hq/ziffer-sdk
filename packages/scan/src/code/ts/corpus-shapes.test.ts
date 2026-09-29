@@ -21,7 +21,7 @@ import { scanCode, type CodeScanStats } from '../index.js';
 import { findPython, scanPython, type PyScanStats } from '../py/index.js';
 import { ownSourceReader } from '../sdks.js';
 import type { CodeCatalog, CodeTool } from '../types.js';
-import { NESTED_CHECKOUT, TEST_CODE } from './program.js';
+import { NESTED_CHECKOUT } from './program.js';
 
 const FIXTURE = fileURLToPath(new URL('../../../fixtures/code/corpus-shapes/', import.meta.url));
 
@@ -96,7 +96,8 @@ test('a hidden directory is walked; a nested checkout and test code are not, and
   assert.equal(catalog.tools.filter((t) => t.name === 'refund_order').length, 1);
   const by = new Map((stats?.skipped ?? []).map((s) => [s.reason, s]));
   assert.deepEqual(by.get(NESTED_CHECKOUT), { reason: NESTED_CHECKOUT, dirs: 1, files: 1 });
-  assert.deepEqual(by.get(TEST_CODE), { reason: TEST_CODE, dirs: 1, files: 1 });
+  // A test FOLDER is skipped for what it holds and counted under the data file's words (ACP-476); a test FILE's reason is TEST_CODE.
+  assert.deepEqual(by.get('test code'), { reason: 'test code', dirs: 1, files: 1 });
   assert.ok(catalog.not_seen.some((l) => l.includes('1 source file(s) in a nested git worktree')));
 });
 

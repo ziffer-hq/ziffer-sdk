@@ -54,4 +54,4 @@ Also: never write a credential into a file in the repository. Never start the in
 
 7. **When a run fails.** Ask the developer to paste the failed run's log, and call `explain_publish_failure` with it. Show the step, the named refusal and what to do, as the tool gives them. A refusal is deterministic: fix what it names rather than re-running.
 
-8. **Next.** Offer `/ziffer:verify` once the developer has a sandbox key, to see a decision end to end.
+8. **Next.** Offer `/ziffer:verify` once the developer has a sandbox key, to see a decision end to end: steps 6 to 8 of the `setup_ziffer` flow. Without a key yet, `whoami` answers with how to get one; everything before the first proposal needs none.

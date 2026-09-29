@@ -26,6 +26,7 @@
  */
 
 import { createHash } from 'node:crypto';
+import { createServer as createHttpServer } from 'node:http';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -44,6 +45,8 @@ import { canon } from '@ziffer-io/verify';
 
 import {
   ApiRefusal,
+  DeadlineExceeded,
+  ResponseMalformed,
   ERROR_ADMISSION_UNAVAILABLE,
   ERROR_API_KEY_UNKNOWN,
   ERROR_DECISION_UNKNOWN,
@@ -51,7 +54,7 @@ import {
   ERROR_TENANT_MISMATCH,
 } from '@ziffer-io/client';
 
-import { zifferClientFactory } from './client.js';
+import { classifyReach, ServiceUnreachable, zifferClientFactory } from './client.js';
 import { VARS, type Env } from './config.js';
 import {
   checkDecision,
@@ -63,6 +66,7 @@ import {
   propose,
   SANDBOX_SUFFIX,
   sandboxStatus,
+  whoami,
   type ClientFactory,
   type DecisionClient,
   type DecisionListItem,
@@ -679,10 +683,14 @@ test('a list refusal reaches the agent under the GATEWAYs name', async () => {
   assert.match(out.text, /^ListQueryMalformed: /);
 });
 
-test('an unconfigured list_decisions sends no request and names the variable', async () => {
+test('an unconfigured list_decisions sends no request, names the key, and says how to get one', async () => {
+  // Nothing set at all: the address defaults to the hosted service, so the
+  // refusal is about the one thing that has no default, the key (ACP-467).
   const out = await listDecisions(zifferClientFactory, {}, {});
   assert.equal(out.isError, true);
-  assert.match(out.text, new RegExp(`Set ${VARS.API_URL}\\.`));
+  assert.match(out.text, /^ApiKeyUnconfigured: /);
+  assert.match(out.text, new RegExp(`Set ${VARS.API_KEY}\\.`));
+  assert.match(out.text, /hello@ziffer\.io/);
 });
 
 // --------------------------------------------------- get_decision (ACP-390)
@@ -797,4 +805,66 @@ test('a gateway refusal on the fetch is the gateways name, before any verificati
   });
   assert.equal(out.isError, true);
   assert.match(out.text, /^DecisionUnknown: /);
+});
+
+// ------------------------------------ the service does not answer (ACP-467)
+//
+// When the service does not answer, a tool says which address it called and
+// what to check: never a stack trace and never a bare "fetch failed".
+
+const URL_ = 'https://api.example.test';
+
+function fetchFailed(code: string): TypeError {
+  return new TypeError('fetch failed', { cause: Object.assign(new Error(code), { code }) });
+}
+
+test('a refused connection becomes ServiceUnreachable, naming the address and the reason in words', () => {
+  const out = classifyReach(URL_, fetchFailed('ECONNREFUSED'));
+  assert.ok(out instanceof ServiceUnreachable);
+  assert.equal(out.name, 'ServiceUnreachable');
+  assert.equal(out.url, URL_);
+  assert.match(out.message, /ZIFFER did not answer at https:\/\/api\.example\.test \(the connection was refused/);
+  assert.doesNotMatch(out.message, /fetch failed/);
+  assert.ok(out.checks().some((line) => line.includes(`curl -sS ${URL_}/v1/whoami`)));
+});
+
+test('a name that does not resolve, a timeout and spent retries are each named', () => {
+  const dns = classifyReach(URL_, fetchFailed('ENOTFOUND'));
+  assert.ok(dns instanceof ServiceUnreachable && dns.reason.includes('does not resolve'));
+  const timeout = new Error('GET /v1/whoami did not answer within 10000ms');
+  timeout.name = 'TimeoutError';
+  assert.ok(classifyReach(URL_, timeout) instanceof ServiceUnreachable);
+  assert.ok(classifyReach(URL_, new DeadlineExceeded('TypeError', 0)) instanceof ServiceUnreachable);
+  const unknown = classifyReach(URL_, fetchFailed('EWHATEVER'));
+  assert.ok(unknown instanceof ServiceUnreachable && unknown.reason.includes('EWHATEVER'));
+});
+
+test('an answer that is not the ZIFFER API names the address to check', () => {
+  const out = classifyReach(URL_, new ResponseMalformed('decision response is not a JSON object'));
+  assert.ok(out instanceof ServiceUnreachable);
+  assert.equal(out.name, 'ServiceAnswerUnreadable');
+  assert.ok(out.checks().some((line) => line.includes('the address itself is the one to check')));
+});
+
+test('a named refusal from the service passes through as it came', () => {
+  const refusal = new ApiRefusal(401, 'ApiKeyUnknown');
+  assert.equal(classifyReach(URL_, refusal), refusal);
+  const shed = new DeadlineExceeded('ApiRefusal', 503);
+  assert.equal(classifyReach(URL_, shed), shed, 'a 503 is an answer from the service, not a failure to reach it');
+});
+
+test('over the real client: nothing listening answers ServiceUnreachable with the address, no "fetch failed"', async () => {
+  // A port that was open a moment ago and is closed now: nothing listens there.
+  const probe = createHttpServer();
+  await new Promise<void>((resolve) => probe.listen(0, '127.0.0.1', resolve));
+  const address = probe.address();
+  assert.ok(typeof address === 'object' && address !== null, 'the probe has no port');
+  const port = address.port;
+  await new Promise<void>((resolve) => probe.close(() => resolve()));
+  const base = `http://127.0.0.1:${port}`;
+  const out = await whoami(zifferClientFactory, { [VARS.API_URL]: base, [VARS.API_KEY]: 'zfr_' + 'a'.repeat(43) });
+  assert.equal(out.isError, true);
+  assert.match(out.text, new RegExp(`^ServiceUnreachable: ZIFFER did not answer at ${base.replace(/\./g, '\\.')} `));
+  assert.match(out.text, /What to check:/);
+  assert.doesNotMatch(out.text, /fetch failed|TypeError|\n\s+at /);
 });

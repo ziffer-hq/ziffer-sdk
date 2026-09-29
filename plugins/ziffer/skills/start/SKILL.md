@@ -9,6 +9,8 @@ ZIFFER is the agent authorization service: the application asks ZIFFER before an
 
 **ZIFFER tools used:** `get_started`.
 
+**ZIFFER prompts used:** `setup_ziffer`.
+
 <!-- hard-stops:begin -->
 ## Hard stops
 
@@ -45,4 +47,6 @@ Also: never write a credential into a file in the repository. Never start the in
 
 3. **Offer the first step still to do**, and the rest in order after it. A project that already calls ZIFFER starts at step 3; one with a policy repository and its workflows starts at step 5. Wait for the developer to choose; then follow that skill.
 
-4. **When the developer asks for the whole path in one go**, still stop at every stop each skill names. Call `get_started` if they want the steps as ZIFFER's own guide gives them.
+4. **When the developer asks for the whole path in one go**, follow the `setup_ziffer` flow: the ZIFFER tools carry it as "Set up ZIFFER in this project" in the `/` menu, eight steps from the scan to a first proposal whose receipt is verified on this machine, and it names after each step the tool that comes next. Still stop at every stop each skill names. Call `get_started` if they want the steps as ZIFFER's own guide gives them.
+
+5. **Next.** Every ZIFFER tool's answer ends with a line starting `Next:`. Follow it, and say it to the developer, so they always know what comes after the step they are on.

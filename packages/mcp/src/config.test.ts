@@ -6,14 +6,16 @@
  * with the failure moved: that service refuses to START, this one starts and
  * refuses PER CALL, because a stdio server that exits during the handshake
  * takes the missing variable's name with it. What must stay true either way is
- * that nothing is defaulted — every test below checks a refusal, and there is
- * deliberately no test asserting a fallback value, because there is none.
+ * that nothing that decides trust is defaulted: the key, the trust anchor and
+ * the suite floor are each refused when absent. The one default is the service's
+ * address (ACP-467), and it is asserted below together with the rule that keeps
+ * it from being a fallback: a value the developer SET is never replaced by it.
  */
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { anchorConfig, apiConfig, ConfigError, VARS, type Env } from './config.js';
+import { anchorConfig, apiConfig, ConfigError, DEFAULT_API_URL, HOW_TO_GET_A_KEY, VARS, type Env } from './config.js';
 
 const COMPLETE: Env = {
   [VARS.API_URL]: 'https://api.example.test',
@@ -38,9 +40,8 @@ test('a complete environment resolves, and every value comes from it', () => {
   assert.equal(anchor.suiteFloor, 'hybrid-ed25519-mldsa65');
 });
 
-test('each variable is required, and the refusal names the one to set', () => {
+test('each variable ZIFFER issues is required, and the refusal names the one to set', () => {
   const cases: ReadonlyArray<readonly [string, string, (env: Env) => unknown]> = [
-    [VARS.API_URL, 'ApiUrlUnconfigured', apiConfig],
     [VARS.API_KEY, 'ApiKeyUnconfigured', apiConfig],
     [VARS.TRUST_ANCHOR, 'TrustAnchorUnconfigured', (env) => anchorConfig(env)],
     [VARS.SUITE_FLOOR, 'SuiteFloorUnconfigured', (env) => anchorConfig(env)],
@@ -60,6 +61,34 @@ test('each variable is required, and the refusal names the one to set', () => {
       `${variable} was not required`,
     );
   }
+});
+
+test('an unset or blank ZIFFER_API_URL is the hosted service, and a set one is never replaced', () => {
+  assert.equal(DEFAULT_API_URL, 'https://api.ziffer.io');
+  for (const unset of [without(VARS.API_URL), { ...COMPLETE, [VARS.API_URL]: '  ' }]) {
+    assert.equal(apiConfig(unset).baseUrl, DEFAULT_API_URL);
+  }
+  // A value the developer typed is their choice: refused when it is wrong,
+  // never swapped for the default, because they meant a different service.
+  assert.throws(
+    () => apiConfig({ ...COMPLETE, [VARS.API_URL]: 'not a url' }),
+    (error: unknown) => error instanceof ConfigError && error.name === 'ApiUrlMalformed',
+  );
+  // The default address sends nothing on its own: the key is still required.
+  assert.throws(
+    () => apiConfig(without(VARS.API_KEY)),
+    (error: unknown) => error instanceof ConfigError && error.name === 'ApiKeyUnconfigured',
+  );
+});
+
+test('the instruction for getting a key names the address, the three values and what needs none', () => {
+  const text = HOW_TO_GET_A_KEY.join(' ');
+  assert.match(text, /hello@ziffer\.io/);
+  for (const variable of [VARS.API_KEY, VARS.TRUST_ANCHOR, VARS.SUITE_FLOOR]) {
+    assert.ok(text.includes(variable), `the instruction does not say what comes back for ${variable}`);
+  }
+  assert.ok(!text.includes(VARS.API_URL), 'the address has a default and is not something to ask for');
+  assert.match(text, /\bscan\b.*\bsimulate_decision\b/, 'the instruction does not name what can be done meanwhile');
 });
 
 test('a variable set to whitespace is as unset as one that is absent', () => {

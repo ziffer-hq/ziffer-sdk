@@ -50,6 +50,7 @@ describe('readPythonManifests', () => {
         { name: 'openai-agents', version: '>=0.22' },
         { name: 'crewai', version: '*' },
       ],
+      unread: [],
     });
   });
 
@@ -78,18 +79,22 @@ describe('readPythonManifests', () => {
         { name: 'pydantic-ai', version: '==2.51' },
         { name: 'instructor', version: '==1.17' },
       ],
+      unread: [],
     });
   });
 
   it('setup.cfg names the project when pyproject does not; skipped directories are not read', () => {
     const root = tree({
       'setup.cfg': '[metadata]\nname = legacy-app\n',
+      // Each carries what shows it is one (ACP-476: a folder is skipped for what it holds, not its name).
+      '.venv/pyvenv.cfg': 'home = /usr/bin\n',
       '.venv/lib/requirements.txt': 'openai\n',
       'node_modules/x/requirements.txt': 'anthropic\n',
+      'node_modules/x/package.json': '{ "name": "x" }\n',
       'app/main.py': 'print(1)\n',
       '.venv/lib/site.py': 'print(1)\n',
     });
-    assert.deepEqual(readPythonManifests(root), { package_name: 'legacy-app', sdks: [] });
+    assert.deepEqual(readPythonManifests(root), { package_name: 'legacy-app', sdks: [], unread: [] });
     assert.equal(countPythonFiles(root), 1);
   });
 });

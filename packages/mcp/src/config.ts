@@ -30,11 +30,23 @@
  * which is the one tool that deliberately needs no configuration at all.
  *
  * **This is not a relaxation of failing closed.** Nothing proceeds on a missing
- * value: an unconfigured `propose` sends no request and an unconfigured
- * `explain_receipt` verifies nothing. The refusal moved from process exit to
- * tool result; it did not become a default. A default `ZIFFER_API_URL` would
- * point a developer's proposals at a host nobody chose, and a default trust
- * anchor would verify receipts under a key nobody enrolled.
+ * key or a missing anchor: an unconfigured `propose` sends no request and an
+ * unconfigured `explain_receipt` verifies nothing. The refusal moved from process
+ * exit to tool result; it did not become a default.
+ *
+ * # The one default, and the two that stay absent
+ *
+ * `ZIFFER_API_URL` defaults to {@link DEFAULT_API_URL}, the hosted ZIFFER
+ * service. An address is not a credential and not a trust decision: the key
+ * still has to be set before anything is sent, and the service it reaches is
+ * the one that issued that key. A developer on a dedicated installation sets the
+ * variable to the address on their hand-over sheet.
+ *
+ * `ZIFFER_TRUST_ANCHOR` and `ZIFFER_SUITE_FLOOR` have NO default, and must not
+ * get one: a default anchor would verify receipts under a key nobody enrolled,
+ * and a default floor would be a minimum signature strength nobody agreed to.
+ * Their refusals say where the value comes from ({@link HOW_TO_GET_A_KEY}),
+ * which is an instruction and not a fallback.
  */
 
 /**
@@ -77,9 +89,29 @@ export class ConfigError extends Error {
   }
 }
 
+/** The hosted ZIFFER service. The default for `ZIFFER_API_URL`, and the only
+ * default this module has. */
+export const DEFAULT_API_URL = 'https://api.ziffer.io';
+
+/** Where the values this server cannot default come from, and what a developer
+ * does in the meantime. One text, quoted by every refusal about a key, an anchor
+ * or a floor, so the address and the list cannot differ between two tools. */
+export const HOW_TO_GET_A_KEY: readonly string[] = [
+  'How to get your key: write to hello@ziffer.io from your work address, with your name, your',
+  'company and the language your application is written in. ZIFFER answers with three things:',
+  `your API key, for ${VARS.API_KEY}; your trust anchor file, whose path on this machine goes in`,
+  `${VARS.TRUST_ANCHOR}; and the suite floor, for ${VARS.SUITE_FLOOR}. Set them in the environment your`,
+  'AI assistant starts in, or in its MCP settings, never in a file inside your repository, and',
+  'restart the assistant so this server reads them.',
+  'Meanwhile, every step up to the first proposal needs no key: scan, explain_scan_finding,',
+  'get_integration_guide, check_integration, lint_proposal, get_policy_repo_guide,',
+  'check_policy_repo, explain_policy and simulate_decision.',
+];
+
 /** Where this server sends proposals, and the key that says who is sending. */
 export interface ApiConfig {
-  /** `ZIFFER_API_URL` — the gateway's base URL, no trailing slash. */
+  /** `ZIFFER_API_URL`, or {@link DEFAULT_API_URL} when it is unset — the
+   * service's base URL, no trailing slash. */
   readonly baseUrl: string;
   /** `ZIFFER_API_KEY` — the bearer key. It also determines the tenant: ACP-197
    * section 1 makes the KEY the tenant, so this server never sends a tenant
@@ -107,17 +139,18 @@ function required(env: Env, variable: string, refusal: string, detail: string): 
 }
 
 /**
- * Resolve the gateway leg, or refuse by name.
+ * Resolve the service leg, or refuse by name.
  *
- * @throws ConfigError `ApiUrlUnconfigured` or `ApiKeyUnconfigured`.
+ * An unset or blank `ZIFFER_API_URL` is {@link DEFAULT_API_URL}. A value that is
+ * SET is taken as the developer's choice and checked, never replaced: a
+ * malformed one is refused rather than quietly swapped for the default, because
+ * the developer who typed it meant a different service.
+ *
+ * @throws ConfigError `ApiUrlMalformed`, `ApiUrlInsecure` or `ApiKeyUnconfigured`.
  */
 export function apiConfig(env: Env): ApiConfig {
-  const raw = required(
-    env,
-    VARS.API_URL,
-    'ApiUrlUnconfigured',
-    'this server does not know which Ziffer gateway to call.',
-  );
+  const set = env[VARS.API_URL];
+  const raw = set === undefined || set.trim() === '' ? DEFAULT_API_URL : set.trim();
   let parsed: URL;
   try {
     parsed = new URL(raw);
@@ -148,7 +181,7 @@ export function apiConfig(env: Env): ApiConfig {
     env,
     VARS.API_KEY,
     'ApiKeyUnconfigured',
-    'this server has no Ziffer API key, so it cannot say which tenant is proposing.',
+    'this server has no ZIFFER API key, so nothing was sent.',
   );
   // No trailing slash, once, here: a base URL that sometimes ends in one turns
   // every join site into a place where `//v1/proposals` can be built, and the
@@ -176,13 +209,13 @@ export function anchorConfig(env: Env, anchorPathOverride?: string): AnchorConfi
           env,
           VARS.TRUST_ANCHOR,
           'TrustAnchorUnconfigured',
-          'this server has no trust anchor, so it has no identity to verify receipts under.',
+          'this server has no trust anchor file, so it has no identity to verify receipts under and verified nothing.',
         );
   const suiteFloor = required(
     env,
     VARS.SUITE_FLOOR,
     'SuiteFloorUnconfigured',
-    'this server has no CR-4 suite floor, and there is no default one: a floor chosen here would be a minimum signature strength nobody agreed to.',
+    'this server has no suite floor, and there is no default one: a floor chosen here would be a minimum signature strength nobody agreed to.',
   );
   return { anchorPath, suiteFloor };
 }

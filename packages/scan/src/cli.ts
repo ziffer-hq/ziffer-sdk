@@ -30,6 +30,7 @@ import { homedir } from 'node:os';
 import { dirname, join, resolve, sep } from 'node:path';
 
 import { renderCi, renderCiJson, runCiScan } from './ci/ci.js';
+import { judgeFolders } from './code/folders.js';
 import { scanCode } from './code/index.js';
 import { mergeCatalogs } from './code/merge.js';
 import { scanPython } from './code/py/index.js';
@@ -594,7 +595,9 @@ export function notACodebase(dir: string, homes: readonly string[]): boolean {
 async function readCodebase(root: string, args: ParsedArgs, io: CliIo, ctx: CliContext): Promise<CodeCatalog> {
   const log = args.code === true ? (line: string): void => io.err(redactText(`  ${line}`)) : (): void => undefined;
   const t0 = performance.now();
-  const [ts, py] = await Promise.all([scanCode(root, { log }), scanPython(root, { log })]);
+  // Which folders are not read is judged once, and both front ends obey the one judgement (ACP-476).
+  const folders = judgeFolders(root);
+  const [ts, py] = await Promise.all([scanCode(root, { log, folders }), scanPython(root, { log, folders })]);
   const catalog = mergeCatalogs(ts, py);
   const s = ((performance.now() - t0) / 1000).toFixed(1);
   ctx.prompt(`Found ${catalog.tools.length} tool${catalog.tools.length === 1 ? '' : 's'} in ${catalog.files_read} file${catalog.files_read === 1 ? '' : 's'} of your code (${s} s).\n\n`);

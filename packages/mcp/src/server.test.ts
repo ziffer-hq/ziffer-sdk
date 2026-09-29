@@ -66,19 +66,45 @@ async function connect(env: Env = ENV, clientFor: ClientFactory = STUB): Promise
   return client;
 }
 
-/** The text of a tool result, with the framing checked on the way through. */
-function textOf(result: unknown): { text: string; isError: boolean } {
-  assert.ok(typeof result === 'object' && result !== null, 'result is not an object');
-  const record: Record<string, unknown> = { ...result };
-  const content = record['content'];
-  assert.ok(Array.isArray(content) && content.length === 1, 'expected exactly one content block');
-  const block: unknown = content[0];
+/** One text block's text, with its framing checked. */
+function blockText(block: unknown): string {
   assert.ok(typeof block === 'object' && block !== null, 'content block is not an object');
   const fields: Record<string, unknown> = { ...block };
   assert.equal(fields['type'], 'text');
   const text = fields['text'];
   assert.equal(typeof text, 'string');
-  return { text: String(text), isError: record['isError'] === true };
+  return String(text);
+}
+
+/** A call the SDK refused against the tool's input schema, before the handler
+ * ran. Its answer is the SDK's own validation message in one block, and it
+ * carries no next step, because no tool answered. */
+function rejectedBySchema(result: unknown): boolean {
+  assert.ok(typeof result === 'object' && result !== null, 'result is not an object');
+  const record: Record<string, unknown> = { ...result };
+  const content = record['content'];
+  assert.ok(Array.isArray(content) && content.length === 1, 'a schema refusal is one block');
+  assert.match(blockText(content[0]), /validation|Invalid/i, 'the one block is not a schema refusal');
+  return record['isError'] === true;
+}
+
+/** The text of a tool result, with the framing checked on the way through: the
+ * tool's own answer in the first block, exactly as the handler returned it, and
+ * its next step in the second and last (ACP-467). A tool whose answer had no
+ * next step, or had it folded into the first block, fails here by name. */
+function textOf(result: unknown): { text: string; isError: boolean; next: string } {
+  assert.ok(typeof result === 'object' && result !== null, 'result is not an object');
+  const record: Record<string, unknown> = { ...result };
+  const content = record['content'];
+  assert.ok(
+    Array.isArray(content) && content.length === 2,
+    'expected two content blocks: the answer, then its next step',
+  );
+  const text = blockText(content[0]);
+  const next = blockText(content[1]);
+  assert.match(next, /^Next: \S/, 'the last block is not a next step');
+  assert.doesNotMatch(text, /\n\nNext: /, 'the next step was folded into the answer');
+  return { text, isError: record['isError'] === true, next };
 }
 
 test('the version a client sees is the one the manifest publishes, not a literal', async () => {
@@ -207,7 +233,7 @@ test('an unknown language is rejected by the schema, before the handler', async 
     arguments: { language: 'rust' },
   });
   assert.ok(
-    textOf(result).isError,
+    rejectedBySchema(result),
     'an unknown language reached the handler without the schema objecting',
   );
 });
@@ -255,7 +281,10 @@ test('the server starts and answers with NOTHING configured', async () => {
     await client.callTool({ name: 'propose', arguments: { proposal: {} } }),
   );
   assert.equal(proposed.isError, true);
-  assert.match(proposed.text, new RegExp(`Set ${VARS.API_URL}\\.`));
+  // The address has a default (ACP-467); the key does not, and nothing was sent.
+  assert.match(proposed.text, new RegExp(`Set ${VARS.API_KEY}\\.`));
+  assert.match(proposed.text, /hello@ziffer\.io/, 'the refusal does not say how to get a key');
+  assert.match(proposed.next, /steps that need none, from `scan`/, 'an unconfigured propose does not say what to do meanwhile');
 
   const explained = textOf(
     await client.callTool({
@@ -265,6 +294,7 @@ test('the server starts and answers with NOTHING configured', async () => {
   );
   assert.equal(explained.isError, true);
   assert.match(explained.text, new RegExp(`Set ${VARS.TRUST_ANCHOR}\\.`));
+  assert.match(explained.text, /hello@ziffer\.io/, 'the anchor refusal does not say where the file comes from');
 });
 
 test('explain_receipt accepts an omitted trust_anchor_path as absent, not undefined', async () => {
@@ -481,7 +511,7 @@ test('search_docs takes its limit as optional, and the schema bounds it', async 
   // And a limit outside the schema's range is refused by the protocol rather
   // than silently clamped by a handler nobody can see.
   const over = await client.callTool({ name: 'search_docs', arguments: { query: 'receipt', limit: 99 } });
-  assert.ok(textOf(over).isError, 'a limit of 99 reached the handler without the schema objecting');
+  assert.ok(rejectedBySchema(over), 'a limit of 99 reached the handler without the schema objecting');
 });
 
 test('explain_refusal serves one row over the protocol', async () => {
@@ -530,7 +560,7 @@ test('send_feedback tells a model, before it calls, that the text leaves the mac
 test('send_feedback refuses an empty question over the protocol, before any client is built', async () => {
   const client = await connect({}, zifferClientFactory);
   const out = await client.callTool({ name: 'send_feedback', arguments: { tool: 't', question: '' } });
-  assert.ok(textOf(out).isError, 'an empty question was accepted');
+  assert.ok(rejectedBySchema(out), 'an empty question was accepted');
 });
 
 test('whoami reaches the handler and the gateway answer comes back verbatim', async () => {

@@ -1,1 +1,1 @@
-src/generated/
+# src/generated/ is NOT ignored in this tree: the 2 files under it are prebuilt (PREBUILT.json) and this repository cannot regenerate them.

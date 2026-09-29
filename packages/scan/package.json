@@ -1,6 +1,6 @@
 {
   "name": "@ziffer-io/scan",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Scan the AI agents on this machine, replay an injected proposal against a generated agent authorization policy, nothing leaves the machine.",
   "keywords": [
     "ziffer",

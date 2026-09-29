@@ -1,0 +1,107 @@
+{
+  "//": "Which folders `ziffer-scan --code` does not read, and on what evidence (ACP-476, 0.3.1). A folder is skipped for what it IS, never for its name alone: a folder whose name is listed in `folders` is skipped only when one piece of the evidence its entry names holds, and a folder of the same name without that evidence is read like any other. A name not listed here is never skipped by this file (a nested checkout, a directory holding a `.git` FILE, is skipped by its own rule in the walker). `names` are exact folder names, or a glob over one name (`*.egg-info`). `kind` is one of `kinds`, the words the report says the reason in. Evidence, each optional: `ignored` -- a .gitignore under the scanned folder ignores it; `out_dir` -- a tsconfig file (`tsconfig_names`) in the folder above it or higher names it as `outDir` or `declarationDir`; `inside` -- one of these paths exists in it (a segment may hold `*`, one level: `*/package.json` is any child folder's package.json); `beside` -- one of these files sits next to it (a lockfile beside node_modules); `compiled_twin` -- it holds JavaScript and no TypeScript of its own, and a JavaScript file in it has a TypeScript file of the same path in a folder next to it (the source it was compiled from); `holds_tests` -- a source file in it is a test, by `test_file_names` or by `test_code` (a test runner imported, a test declared). `count_files` says the report counts the source files in such a folder (TypeScript, JavaScript and Python); the dependencies and version-control stores are counted as folders only, because their files are never the application's.",
+  "kinds": {
+    "dependencies": "installed dependencies",
+    "build": "build output or cache",
+    "vcs": "version control",
+    "test": "test code"
+  },
+  "tsconfig_names": "^tsconfig(\\.[^/]+)?\\.json$",
+  "folders": [
+    {
+      "names": ["node_modules", "bower_components", "jspm_packages"],
+      "kind": "dependencies",
+      "ignored": true,
+      "inside": ["*/package.json", "*/*/package.json", ".package-lock.json", ".modules.yaml", ".yarn-state.yml", ".yarn-integrity", "*/bower.json", "*/.bower.json"],
+      "beside": ["package.json", "package-lock.json", "npm-shrinkwrap.json", "yarn.lock", "pnpm-lock.yaml", "bun.lock", "bun.lockb", "bower.json"]
+    },
+    {
+      "names": [".pnpm-store", ".yarn", ".npm"],
+      "kind": "dependencies",
+      "ignored": true,
+      "inside": ["v3", "v10", "cache", "install-state.gz", "releases", "_cacache"],
+      "beside": ["package.json", "yarn.lock", "pnpm-lock.yaml", "package-lock.json"]
+    },
+    {
+      "names": [".venv", "venv"],
+      "kind": "dependencies",
+      "ignored": true,
+      "inside": ["pyvenv.cfg"]
+    },
+    {
+      "names": ["site-packages"],
+      "kind": "dependencies",
+      "ignored": true,
+      "inside": ["*.dist-info", "*.egg-info"]
+    },
+    {
+      "names": ["dist", "build", "out"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "out_dir": true,
+      "compiled_twin": true,
+      "inside": ["*.map", "*/*.map", "*.tsbuildinfo", "lib/*.egg-info", "bdist.*"]
+    },
+    {
+      "names": ["coverage"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "inside": ["lcov.info", "coverage-final.json", "coverage-summary.json", "clover.xml", "lcov-report"]
+    },
+    {
+      "names": [".next", ".nuxt", ".output", ".svelte-kit", ".docusaurus", ".vercel", ".netlify", ".expo", ".angular", ".serverless", ".wrangler", ".turbo", ".cache", ".swc", ".parcel-cache"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "out_dir": true,
+      "inside": ["BUILD_ID", "build-manifest.json", "nuxt.d.ts", "nitro.json", "ambient.d.ts", "generated", "client-modules.js", "registry.js", "project.json", "state.json", "devices.json", "settings.json", "serverless-state.json", "state", "tmp", "cache", "cookies", "*.log", "CACHEDIR.TAG", "data.mdb", "*.map", "*/*.map"]
+    },
+    {
+      "names": ["__pycache__"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "inside": ["*.pyc"]
+    },
+    {
+      "names": [".tox", ".nox"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "inside": ["*/pyvenv.cfg", "CACHEDIR.TAG"]
+    },
+    {
+      "names": [".mypy_cache", ".pytest_cache", ".ruff_cache"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "inside": ["CACHEDIR.TAG"]
+    },
+    {
+      "names": [".eggs", "*.egg-info"],
+      "kind": "build",
+      "count_files": true,
+      "ignored": true,
+      "inside": ["*.egg", "PKG-INFO", "README.txt"]
+    },
+    {
+      "names": [".git", ".hg", ".svn"],
+      "kind": "vcs",
+      "inside": ["HEAD", "requires", "wc.db", "entries"]
+    },
+    {
+      "names": ["__tests__", "__test__", "__mocks__", "test", "tests", "spec", "specs"],
+      "kind": "test",
+      "count_files": true,
+      "holds_tests": true
+    }
+  ],
+  "test_file_names//": "A source file whose name is a test's: the TypeScript and JavaScript runners' `*.test.*` / `*.spec.*` and pytest's `test_*.py`, `*_test.py`, `conftest.py`. One regular expression each, over the file name.",
+  "test_file_names": ["\\.(test|spec|e2e-spec|test-d)\\.[cm]?[jt]sx?$", "^test_.*\\.py$", "_test\\.py$", "^conftest\\.py$"],
+  "test_runners//": "The modules a test imports its runner or its assertions from: an `import`, `from ... import` or `require` of one of these (or of a path under it) makes the file a test.",
+  "test_runners": ["vitest", "jest", "@jest/globals", "mocha", "chai", "node:test", "ava", "tap", "uvu", "@playwright/test", "cypress", "jasmine", "sinon", "supertest", "@testing-library", "pytest", "unittest", "nose", "nose2", "hypothesis"],
+  "test_code//": "Lines that declare a test without importing a runner (a runner's globals, a mock factory, a pytest function or class). One regular expression each, applied per line.",
+  "test_code": ["^\\s*(describe|it|test|suite)(\\.(only|skip|each))?\\s*\\(\\s*['\"`]", "\\b(jest|vi)\\.(fn|mock|spyOn)\\s*\\(", "^\\s*(async\\s+)?def\\s+test_\\w*\\s*\\(", "^\\s*class\\s+Test\\w*\\s*[(:]"]
+}

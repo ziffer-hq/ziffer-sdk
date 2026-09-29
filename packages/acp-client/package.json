@@ -1,6 +1,6 @@
 {
   "name": "@ziffer-io/client",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "ZIFFER TypeScript client: propose an action, wait for the decision, verify the receipt before you act",
   "keywords": [
     "ziffer",

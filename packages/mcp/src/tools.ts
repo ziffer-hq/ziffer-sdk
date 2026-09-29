@@ -38,7 +38,8 @@
 import { ApiRefusal } from '@ziffer-io/client';
 import { AnchorError, canon, loadTrustAnchor, Refusal, verifyReceipt } from '@ziffer-io/verify';
 
-import { anchorConfig, ConfigError, type Env } from './config.js';
+import { anchorConfig, ConfigError, HOW_TO_GET_A_KEY, VARS, type Env } from './config.js';
+import { ServiceUnreachable } from './client.js';
 import { asLanguage, integrationGuide, LANGUAGES } from './guide.js';
 
 /**
@@ -202,7 +203,16 @@ export type ClientFactory = (env: Env) => Promise<ZifferSurface>;
  */
 function refusal(error: unknown): ToolOutcome {
   if (error instanceof ConfigError) {
-    return { text: `${error.name}: ${error.message}`, isError: true };
+    // The three values ZIFFER issues get the instruction for obtaining them,
+    // because "set ZIFFER_API_KEY" is not an answer to a developer who has no
+    // key yet. The URL's refusals are about what was typed, and get none.
+    const issued: readonly string[] = [VARS.API_KEY, VARS.TRUST_ANCHOR, VARS.SUITE_FLOOR];
+    const help = issued.includes(error.variable) ? ['', ...HOW_TO_GET_A_KEY] : [];
+    // The message already leads with the name (`ConfigError`'s constructor).
+    return { text: [error.message, ...help].join('\n'), isError: true };
+  }
+  if (error instanceof ServiceUnreachable) {
+    return { text: [`${error.name}: ${error.message}`, ...error.checks()].join('\n'), isError: true };
   }
   if (error instanceof ApiRefusal) {
     // The gateway's §1 NAME leads, not the class name. `ApiRefusal` carries
@@ -804,9 +814,9 @@ export async function getDecision(
       text: answer({
         status: 'absent',
         detail:
-          'This decision carries no signed receipt. That is not a refusal on its own: a decision ' +
-          'waiting on its quorum reads decided with outcome ATTEST and grows a receipt later, so ' +
-          'poll for the RECEIPT rather than for a change of outcome, and do not re-propose — a ' +
+          'This decision carries no signed receipt. A DENY carries none. An action held for a ' +
+          'person reads decided with outcome ATTEST and its receipt attaches once they approve, so ' +
+          'poll for the RECEIPT rather than for a change of outcome, and do not re-propose: a ' +
           'second proposal is a second action.',
       }),
       isError: false,

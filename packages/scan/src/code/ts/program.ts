@@ -13,28 +13,22 @@ import { readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import ts from 'typescript';
 
+import { isTestFileName, judgeFolders, type FolderJudgement } from '../folders.js';
 import { isTreeSource } from './util.js';
 
 /**
- * Directories never walked, by the reason a report gives. Everything else is
- * walked, hidden directories included: an application's `.agents/` or
- * `.claude/hooks/` is its own code, and an unread directory is a tool the
- * report silently never names. Each skip is counted by reason.
- */
-export const SKIP_REASONS: ReadonlyMap<string, string> = new Map([
-  ...['node_modules', 'bower_components', 'jspm_packages', '.pnpm-store', '.yarn', '.npm', '.venv', 'venv', 'site-packages'].map((d): [string, string] => [d, 'dependencies']),
-  ...['dist', 'build', '.next', 'out', 'coverage', '.turbo', '.cache', '.vercel', '.netlify', '.output', '.nuxt', '.svelte-kit', '.swc', '.parcel-cache', '.docusaurus', '.expo', '.angular', '.serverless', '.wrangler', '__pycache__', '.tox', '.mypy_cache', '.pytest_cache'].map((d): [string, string] => [d, 'build output or cache']),
-  ...['.git', '.hg', '.svn'].map((d): [string, string] => [d, 'version control']),
-]);
-/**
- * Test code is walked past, counted, and reported: a test calls the application's
+ * Which directories are not walked is decided once per scan, by `judgeFolders`
+ * (`../folders.ts`, over `data/code-folders.json`): a folder is skipped for what it
+ * holds, never for its name alone (ACP-476). Everything else is walked, hidden
+ * directories included: an application's `.agents/` or `.claude/hooks/` is its own
+ * code, and an unread directory is a tool the report silently never names.
+ *
+ * Test FILES are walked past, counted, and reported: a test calls the application's
  * dispatcher twenty times and defines throwaway tools to exercise it, and neither
  * is what a model is given. Counting them made the first customer's dispatcher
- * read "21 callers" where production has 3.
+ * read "21 callers" where production has 3. A test FOLDER is the judgement's.
  */
-export const TEST_DIRS: ReadonlySet<string> = new Set(['__tests__', '__test__', '__mocks__', 'test', 'tests', 'spec', 'specs']);
-export const TEST_FILE_RE = /\.(test|spec|e2e-spec|test-d)\.[cm]?[jt]sx?$/;
-export const TEST_CODE = 'test code (a test directory, or a *.test.* / *.spec.* file)';
+export const TEST_CODE = 'test code (a *.test.* or *.spec.* file)';
 export const NESTED_CHECKOUT = 'a nested git worktree or submodule checkout (a directory holding a .git file)';
 export const DECLARATION_FILE = 'a generated .d.ts declaration file';
 export const BUNDLE_FILE = 'a minified or bundled file (over 1 MB, or named *.min.js)';
@@ -52,8 +46,10 @@ export interface TreeWalk {
   jsFiles: number;
   pyFiles: number;
   otherLang: Map<string, number>;
-  /** What was not walked or not read, by reason: directories skipped, and the source files known to be in them or skipped one by one. */
+  /** What was not read one file at a time, and the nested checkouts, by reason. The folders skipped for what they hold are `folders`. */
   skipped: Map<string, { dirs: number; files: number }>;
+  /** The one judgement of which folders are not read (`../folders.ts`), shared with the Python walker and the skill walk. */
+  folders: FolderJudgement;
   /** Every text file (`TEXT_EXT`) under the walked directories, by the same exclusions: the candidates a skill load can name (ACP-460, `loads.ts`). */
   textFiles: string[];
   /** A coding assistant's own configuration in the tree (`isAssistantFile`): hook files and MCP server lists (record §3.20, `sig-hooks.ts`). */
@@ -86,7 +82,7 @@ function isDeclaration(name: string): boolean {
   return /\.d\.[mc]?ts$/.test(name) || /\.d\.[^.]+\.ts$/.test(name);
 }
 
-function countSources(dir: string): number {
+function countSources(dir: string, skips: (abs: string) => boolean): number {
   let n = 0;
   let entries;
   try {
@@ -96,7 +92,7 @@ function countSources(dir: string): number {
   }
   for (const e of entries) {
     if (e.isDirectory()) {
-      if (!SKIP_REASONS.has(e.name)) n += countSources(join(dir, e.name));
+      if (!skips(join(dir, e.name))) n += countSources(join(dir, e.name), skips);
     } else if (isSource(e.name) && !isDeclaration(e.name)) {
       n += 1;
     }
@@ -104,8 +100,8 @@ function countSources(dir: string): number {
   return n;
 }
 
-export function walkTree(root: string): TreeWalk {
-  const w: TreeWalk = { tsconfigs: [], packageJsons: [], sourceFiles: [], jsFiles: 0, pyFiles: 0, otherLang: new Map(), skipped: new Map(), textFiles: [], assistantFiles: [] };
+export function walkTree(root: string, folders: FolderJudgement = judgeFolders(root)): TreeWalk {
+  const w: TreeWalk = { tsconfigs: [], packageJsons: [], sourceFiles: [], jsFiles: 0, pyFiles: 0, otherLang: new Map(), skipped: new Map(), textFiles: [], assistantFiles: [], folders };
   const skip = (reason: string, dirs: number, files: number): void => {
     const s = w.skipped.get(reason) ?? { dirs: 0, files: 0 };
     s.dirs += dirs;
@@ -122,21 +118,13 @@ export function walkTree(root: string): TreeWalk {
     // A directory holding a `.git` FILE is a linked worktree or a submodule: a second
     // copy of (some version of) the code, whose tools would be counted twice.
     if (!top && entries.some((e) => e.name === '.git' && e.isFile())) {
-      skip(NESTED_CHECKOUT, 1, countSources(dir));
+      skip(NESTED_CHECKOUT, 1, countSources(dir, folders.skips));
       return;
     }
     for (const e of entries) {
       const full = join(dir, e.name);
       if (e.isDirectory()) {
-        const reason = SKIP_REASONS.get(e.name);
-        if (reason !== undefined) {
-          skip(reason, 1, 0);
-          continue;
-        }
-        if (TEST_DIRS.has(e.name)) {
-          skip(TEST_CODE, 1, countSources(full));
-          continue;
-        }
+        if (folders.skips(full)) continue;
         visit(full, false);
       } else if (e.isFile()) {
         const ext = extname(e.name);
@@ -148,7 +136,7 @@ export function walkTree(root: string): TreeWalk {
             skip(DECLARATION_FILE, 0, 1);
             continue;
           }
-          if (TEST_FILE_RE.test(e.name)) {
+          if (isTestFileName(e.name)) {
             skip(TEST_CODE, 0, 1);
             continue;
           }

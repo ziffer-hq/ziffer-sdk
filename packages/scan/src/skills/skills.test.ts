@@ -78,9 +78,13 @@ const TREE: Record<string, string> = {
   'docs/skills/in-docs/SKILL.md': '# Read by its name\n',
   // Decoys: a place no format reads an instruction file from, or that the code walk leaves out.
   'docs/copilot-instructions.md': 'Not read.\n',
+  // Each carries what shows it is one (ACP-476: a folder is skipped for what it holds, not its name).
   'node_modules/wick-kit/.claude/skills/dep/SKILL.md': '# A dependency\n',
+  'node_modules/wick-kit/package.json': '{ "name": "wick-kit" }\n',
   'dist/.claude/skills/built/SKILL.md': '# Build output\n',
+  'dist/index.js.map': '{}\n',
   'test/.claude/skills/fixture/SKILL.md': '# Test code\n',
+  'test/skills.test.ts': "import { test } from 'node:test';\n",
   'old-copy/.git': 'gitdir: /elsewhere/.git/worktrees/old-copy\n',
   'old-copy/CLAUDE.md': '# A nested checkout\n',
 };

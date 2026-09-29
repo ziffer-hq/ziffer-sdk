@@ -173,7 +173,73 @@ const DEP_FIELDS = ['dependencies', 'devDependencies', 'peerDependencies', 'opti
 
 export interface ManifestRead {
   sdks: { name: string; version: string }[];
+  /** Declared dependencies no entry matches whose names suggest a model or AI agent library (`model_library_names`, ACP-475). */
+  unread: { name: string; version: string }[];
   packageName?: string;
+}
+
+// ---------------------------------------------------------------- a library the scan does not read (ACP-475)
+
+export interface ModelLibraryNames {
+  npm: string[];
+  pypi: string[];
+  words: string[];
+  except: string[];
+}
+
+export function parseModelLibraryNames(text: string): ModelLibraryNames {
+  let raw: unknown;
+  try {
+    raw = JSON.parse(text);
+  } catch (e) {
+    throw new CodeSdksDataInvalid(`not JSON (${e instanceof Error ? e.message : String(e)})`);
+  }
+  if (!isRecord(raw) || !isRecord(raw['model_library_names'])) throw new CodeSdksDataInvalid('no `model_library_names` object');
+  const m = raw['model_library_names'];
+  const out = {
+    npm: stringArray(m['npm'], '`model_library_names.npm`'),
+    pypi: stringArray(m['pypi'], '`model_library_names.pypi`'),
+    words: stringArray(m['words'], '`model_library_names.words`').map((w) => w.toLowerCase()),
+    except: stringArray(m['except'], '`model_library_names.except`'),
+  };
+  // An empty list would make the line one that can never print, and silence read as "no other library".
+  if (out.words.length === 0) throw new CodeSdksDataInvalid('`model_library_names.words` is empty');
+  return out;
+}
+
+let cachedLibraries: ModelLibraryNames | undefined;
+export function loadModelLibraryNames(): ModelLibraryNames {
+  if (cachedLibraries === undefined) cachedLibraries = parseModelLibraryNames(readFileSync(CODE_SDKS_FILE, 'utf8'));
+  return cachedLibraries;
+}
+
+/**
+ * Whether a declared dependency no entry of `frameworks` matches has a name that suggests a model
+ * or AI agent library: listed for its registry, or holding one of the words as a whole word, and
+ * not excepted. A reading of the NAME only: nothing the package defines has been read.
+ */
+export function looksLikeModelLibrary(name: string, registry: 'npm' | 'pypi', names: ModelLibraryNames = loadModelLibraryNames()): boolean {
+  if (entryForPackage(name) !== undefined) return false;
+  if (packageMatches(name, names.except)) return false;
+  if (packageMatches(name, names[registry])) return true;
+  return name
+    .toLowerCase()
+    .split(/[@/._-]+/)
+    .some((w) => names.words.includes(w));
+}
+
+/**
+ * The line that names the declared libraries the scan does not read (ACP-475), so a report with no
+ * tool from them never reads as "no tools". It says what was read and names the packages; it says
+ * nothing about their tools. Undefined when there is none.
+ */
+export function unreadLibrariesLine(where: string, deps: readonly { name: string; version: string }[], sdks: readonly CodeSdkEntry[] = loadCodeSdks()): string | undefined {
+  if (deps.length === 0) return undefined;
+  const read = sdks.filter((e) => e.kind === 'framework' && e.covered === 'milestone-1').length;
+  const shown = deps.slice(0, 10).map((d) => `${d.name} ${d.version}`);
+  const more = deps.length > 10 ? ` and ${deps.length - 10} more` : '';
+  const one = deps.length === 1;
+  return `Declared in ${where} and not read by this scan: ${shown.join(', ')}${more}. ${one ? 'Its name suggests' : 'Their names suggest'} a model or AI agent library. This scan reads the ${read} frameworks it lists, and a tool defined through another library is not in these numbers.`;
 }
 
 /**
@@ -183,6 +249,8 @@ export interface ManifestRead {
 export function readManifests(files: readonly string[], rootManifest: string | undefined): ManifestRead {
   const seen = new Set<string>();
   const sdks: { name: string; version: string }[] = [];
+  const unread: { name: string; version: string }[] = [];
+  const unreadSeen = new Set<string>();
   let packageName: string | undefined;
   for (const file of files) {
     let raw: unknown;
@@ -197,7 +265,15 @@ export function readManifests(files: readonly string[], rootManifest: string | u
       const deps = raw[field];
       if (!isRecord(deps)) continue;
       for (const [name, version] of Object.entries(deps)) {
-        if (typeof version !== 'string' || entryForPackage(name) === undefined) continue;
+        if (typeof version !== 'string') continue;
+        if (entryForPackage(name) === undefined) {
+          // Not a framework the scan reads: named in the report when its name suggests one (ACP-475).
+          if (looksLikeModelLibrary(name, 'npm') && !unreadSeen.has(`${name}@${version}`)) {
+            unreadSeen.add(`${name}@${version}`);
+            unread.push({ name, version });
+          }
+          continue;
+        }
         const key = `${name}@${version}`;
         if (seen.has(key)) continue;
         seen.add(key);
@@ -205,8 +281,10 @@ export function readManifests(files: readonly string[], rootManifest: string | u
       }
     }
   }
-  sdks.sort((a, b) => (a.name === b.name ? (a.version < b.version ? -1 : 1) : a.name < b.name ? -1 : 1));
-  return packageName === undefined ? { sdks } : { sdks, packageName };
+  const order = (a: { name: string; version: string }, b: { name: string; version: string }): number => (a.name === b.name ? (a.version < b.version ? -1 : 1) : a.name < b.name ? -1 : 1);
+  sdks.sort(order);
+  unread.sort(order);
+  return packageName === undefined ? { sdks, unread } : { sdks, unread, packageName };
 }
 
 // ---------------------------------------------------------------- the framework's own source

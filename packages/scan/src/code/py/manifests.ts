@@ -11,6 +11,9 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { judgeFolders, type FolderJudgement } from '../folders.js';
+import { looksLikeModelLibrary } from '../sdks.js';
+
 /**
  * PyPI names of the SDKs the Python front end reads, normalised per PEP 503.
  * `instructor` is here although it defines no tools: the scan names it so the reader
@@ -56,17 +59,16 @@ export const PY_SDK_PACKAGES: readonly string[] = [
   'dspy-ai',
 ];
 
-/** Directory names the Node side and `py/ziffer_scan_code.py` both skip. */
-export const PY_SKIP_DIRS: ReadonlySet<string> = new Set([
-  '.venv', 'venv', 'node_modules', 'site-packages', '__pycache__', '.git',
-  'build', 'dist', '.tox', '.mypy_cache', '.pytest_cache', '.eggs',
-]);
+// The folders not read are the scan's one judgement (`../folders.ts`, ACP-476): the manifest
+// walk, the file count and `py/ziffer_scan_code.py` all obey it; none keeps a list of names.
 
 const MAX_DEPTH = 8;
 
 export interface PyManifests {
   package_name?: string;
   sdks: { name: string; version: string }[];
+  /** Declared requirements neither the walker nor `code-sdks.json` reads whose names suggest a model or AI agent library (ACP-475). */
+  unread: { name: string; version: string }[];
 }
 
 export function normalisePyName(name: string): string {
@@ -225,7 +227,7 @@ function isManifest(name: string): 'pyproject' | 'pipfile' | 'requirements' | 'e
 }
 
 /** Every manifest under `root` (skipping the same directories the walker skips), root first. */
-function manifestPaths(root: string): { path: string; kind: 'pyproject' | 'pipfile' | 'requirements' | 'environment'; atRoot: boolean }[] {
+function manifestPaths(root: string, folders: FolderJudgement): { path: string; kind: 'pyproject' | 'pipfile' | 'requirements' | 'environment'; atRoot: boolean }[] {
   const out: { path: string; kind: 'pyproject' | 'pipfile' | 'requirements' | 'environment'; atRoot: boolean }[] = [];
   const walk = (dir: string, depth: number): void => {
     let entries;
@@ -242,7 +244,7 @@ function manifestPaths(root: string): { path: string; kind: 'pyproject' | 'pipfi
     }
     if (depth >= MAX_DEPTH) return;
     for (const e of sorted) {
-      if (e.isDirectory() && !PY_SKIP_DIRS.has(e.name) && !e.name.endsWith('.egg-info')) walk(join(dir, e.name), depth + 1);
+      if (e.isDirectory() && !folders.skips(join(dir, e.name))) walk(join(dir, e.name), depth + 1);
     }
   };
   walk(root, 0);
@@ -250,12 +252,13 @@ function manifestPaths(root: string): { path: string; kind: 'pyproject' | 'pipfi
 }
 
 /** The project name at `root` and the known SDKs any manifest in the tree declares, first declaration wins. */
-export function readPythonManifests(root: string): PyManifests {
+export function readPythonManifests(root: string, folders: FolderJudgement = judgeFolders(root)): PyManifests {
   const known = new Set(PY_SDK_PACKAGES);
   const sdks: { name: string; version: string }[] = [];
   const seen = new Set<string>();
   let packageName: string | undefined;
-  for (const m of manifestPaths(root)) {
+  const unread: { name: string; version: string }[] = [];
+  for (const m of manifestPaths(root, folders)) {
     const text = readText(m.path);
     if (text === null) continue;
     let reqs: [string, string][];
@@ -269,17 +272,26 @@ export function readPythonManifests(root: string): PyManifests {
       reqs = readEnvironmentYml(text);
     }
     for (const [name, version] of reqs) {
-      if (!known.has(name) || seen.has(name)) continue;
+      if (!known.has(name)) {
+        // Not a library the walker reads: named in the report when its name suggests one (ACP-475).
+        if (looksLikeModelLibrary(name, 'pypi') && !seen.has(name)) {
+          seen.add(name);
+          unread.push({ name, version });
+        }
+        continue;
+      }
+      if (seen.has(name)) continue;
       seen.add(name);
       sdks.push({ name, version });
     }
   }
   if (packageName === undefined) packageName = nameFromSetup(root);
-  return packageName === undefined ? { sdks } : { package_name: packageName, sdks };
+  unread.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  return packageName === undefined ? { sdks, unread } : { package_name: packageName, sdks, unread };
 }
 
 /** How many `.py` files the walker would read: the count the report gives when no interpreter exists. */
-export function countPythonFiles(root: string): number {
+export function countPythonFiles(root: string, folders: FolderJudgement = judgeFolders(root)): number {
   let n = 0;
   const walk = (dir: string): void => {
     let entries;
@@ -290,7 +302,7 @@ export function countPythonFiles(root: string): number {
     }
     for (const e of entries) {
       if (e.isDirectory()) {
-        if (!PY_SKIP_DIRS.has(e.name) && !e.name.endsWith('.egg-info')) walk(join(dir, e.name));
+        if (!folders.skips(join(dir, e.name))) walk(join(dir, e.name));
       } else if (e.isFile() && e.name.endsWith('.py')) {
         n += 1;
       }

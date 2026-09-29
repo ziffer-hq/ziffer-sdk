@@ -1,6 +1,6 @@
 {
   "name": "@ziffer-io/mcp",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A local MCP server that gives your AI assistant ZIFFER's tools: scan your code, integrate the ZIFFER SDK, check your policy and try a decision.",
   "keywords": [
     "ziffer",

@@ -21,7 +21,8 @@ import { fileURLToPath } from 'node:url';
 import type { SkillLoad } from '../../types.js';
 import type { CallerCheck, CodeCatalog, CodeTool, Dispatcher, Exposure, Interception, InterceptionKind, RuntimeGate, SourceRef, ToolCall } from '../types.js';
 import { countPythonFiles, readPythonManifests } from './manifests.js';
-import { ownSourceLine, ownSourceReader, partitionOwnSource, sdkEntry } from '../sdks.js';
+import { judgeFolders, type FolderJudgement } from '../folders.js';
+import { ownSourceLine, ownSourceReader, partitionOwnSource, sdkEntry, unreadLibrariesLine } from '../sdks.js';
 import { computedNameLines } from '../ts/common.js';
 
 /** The walker, shipped in the package (`files: ["py"]`); three levels up from both `src/code/py` and `dist/code/py`. */
@@ -378,12 +379,15 @@ export function isPyScanOutput(v: unknown): v is PyScanOutput {
 
 // ---- the interpreter ---------------------------------------------------------------
 
-function run(file: string, args: string[], maxBuffer: number): Promise<{ stdout: string; stderr: string }> {
+function run(file: string, args: string[], maxBuffer: number, input?: string): Promise<{ stdout: string; stderr: string }> {
   return new Promise((resolve, reject) => {
-    execFile(file, args, { maxBuffer, timeout: TIMEOUT_MS, windowsHide: true, env: process.env }, (err, stdout, stderr) => {
+    const child = execFile(file, args, { maxBuffer, timeout: TIMEOUT_MS, windowsHide: true, env: process.env }, (err, stdout, stderr) => {
       if (err !== null) reject(err);
       else resolve({ stdout, stderr });
     });
+    // What the walker must not read is handed over on its standard input, never as arguments:
+    // a tree can hold thousands of skipped folders, and a command line has a length limit.
+    if (input !== undefined) child.stdin?.end(input);
   });
 }
 
@@ -408,12 +412,16 @@ export async function findPython(log?: (line: string) => void): Promise<{ comman
   return null;
 }
 
-/** Run the walker over `root` with `command` and return its document, validated. */
-export async function runPythonWalker(command: string, root: string): Promise<PyScanOutput> {
+/**
+ * Run the walker over `root` with `command` and return its document, validated. The folders it
+ * does not walk are the scan's one judgement (`../folders.ts`, ACP-476), passed on its standard
+ * input as paths relative to `root`: the walker keeps no list of folder names of its own.
+ */
+export async function runPythonWalker(command: string, root: string, folders: FolderJudgement = judgeFolders(root)): Promise<PyScanOutput> {
   if (!existsSync(PY_SCRIPT)) throw new PythonScanFailed(`the Python walker is missing from the package: ${PY_SCRIPT}`);
   let stdout: string;
   try {
-    stdout = (await run(command, [PY_SCRIPT, root], MAX_OUTPUT)).stdout;
+    stdout = (await run(command, [PY_SCRIPT, root, '--skip-from-stdin'], MAX_OUTPUT, JSON.stringify({ skip: folders.skipped.map((f) => f.path) }))).stdout;
   } catch (err) {
     const detail = err instanceof Error ? err.message : String(err);
     throw new PythonScanFailed(`the Python walker failed under ${command}: ${detail.slice(0, 2000)}`);
@@ -447,8 +455,12 @@ export interface PyScanStats {
 
 const NOT_LOOKED_FOR: NonNullable<CodeCatalog['checks']> = [{ language: 'python', tool_calls: false, caller_checks: false }];
 
-export async function scanPython(root: string, opts: { log?: (line: string) => void; onStats?: (s: PyScanStats) => void } = {}): Promise<CodeCatalog> {
-  const manifests = readPythonManifests(root);
+export async function scanPython(root: string, opts: { log?: (line: string) => void; onStats?: (s: PyScanStats) => void; folders?: FolderJudgement } = {}): Promise<CodeCatalog> {
+  // The same judgement as the TypeScript half: the caller judges once and hands it to both.
+  const folders = opts.folders ?? judgeFolders(root);
+  const manifests = readPythonManifests(root, folders);
+  // A declared library neither half reads, named so silence never reads as "no tools" (ACP-475).
+  const unreadLine = unreadLibrariesLine('a Python manifest', manifests.unread);
   const base = {
     root,
     ...(manifests.package_name === undefined ? {} : { package_name: manifests.package_name }),
@@ -456,7 +468,7 @@ export async function scanPython(root: string, opts: { log?: (line: string) => v
   };
   const python = await findPython(opts.log);
   if (python === null) {
-    const n = countPythonFiles(root);
+    const n = countPythonFiles(root, folders);
     opts.log?.('python: no python3 or python 3.9+ on PATH');
     return {
       ...base,
@@ -466,13 +478,13 @@ export async function scanPython(root: string, opts: { log?: (line: string) => v
       dispatchers: [],
       gates: [],
       syntax_only: { found: 0, missed: 0 },
-      not_seen: n === 0 ? [] : [`${n} Python files present, not read: no python3 on PATH`],
+      not_seen: [...(n === 0 ? [] : [`${n} Python files present, not read: no python3 on PATH`]), ...(unreadLine === undefined ? [] : [unreadLine])],
       // Nothing was read, so nothing was looked for: "none found" would be a false reading.
       ...(n === 0 ? {} : { checks: NOT_LOOKED_FOR }),
     };
   }
   opts.log?.(`python: ${python.command} ${python.version}`);
-  const out = await runPythonWalker(python.command, root);
+  const out = await runPythonWalker(python.command, root, folders);
   // The framework's own source (its package, its tests) is not an application: the
   // same rule, and the same reader, as the TypeScript half (`ownSourceReader`).
   // A notebook's reference names its cell (`nb.ipynb#cell-3`); the file is before `#`.
@@ -502,7 +514,7 @@ export async function scanPython(root: string, opts: { log?: (line: string) => v
     // Python has no type-checker pass in milestone 1: every tool is found by syntax, and
     // `missed` is 0 by construction, not by measurement.
     syntax_only: { found: tools.kept.length, missed: 0 },
-    not_seen: [...out.not_seen, ...computed, ...(line === undefined ? [] : [line])],
+    not_seen: [...out.not_seen, ...computed, ...(line === undefined ? [] : [line]), ...(unreadLine === undefined ? [] : [unreadLine])],
     checks: [{ language: 'python', tool_calls: out.checks.tool_calls, caller_checks: out.checks.caller_checks, skill_loads: out.checks.skill_loads }],
     // Absent when the walker did not look (`CodeCatalog.skill_loads`); a load written in a
     // framework's own source is the framework's, by the same rule as its tools.

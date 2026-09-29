@@ -1,5 +1,24 @@
 # Changes
 
+## 0.3.1
+
+All five packages move to 0.3.1 together.
+
+### @ziffer-io/mcp
+
+- Three guided flows, offered as MCP prompts: `setup_ziffer` takes you from installing ZIFFER to a receipt verified on your own machine, `scan_and_explain` scans your code for the tools it gives an AI model and names the one place to put ZIFFER, and `why_refused` takes a refusal, a rule, a decision or a receipt and says what it means, who fixes it and what to do now.
+- Every tool answer ends with the next step, after the answer itself.
+- `ZIFFER_API_URL` defaults to `https://api.ziffer.io`. When the API key, the trust anchor or the suite floor is missing, the answer says how to get it and which steps work without it. A service that does not answer is named, with three things to check.
+
+### @ziffer-io/scan
+
+- A folder is skipped for what it holds, never for its name alone: a tool kept in a folder named `build` or `test` is now found. A folder is skipped only on evidence, such as your `.gitignore`, a build output setting, or a test inside it, and the report says how many folders were not read and why.
+- A model library your project declares but the scan does not read is named in the report, so its absence from the results is never mistaken for no tools.
+
+### The ZIFFER plugin for Claude Code
+
+- The setup skills follow the guided flows and end with the next step. The plugin starts `@ziffer-io/mcp@0.3.1`.
+
 ## 0.3.0
 
 The first release published from this repository, built and published by its own pipeline with npm provenance.

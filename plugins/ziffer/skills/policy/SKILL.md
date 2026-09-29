@@ -77,4 +77,6 @@ Also: never write a credential into a file in the repository. Never start the in
 
    If it is not installed, say so and point at `install.md` section 1. Every verdict you show is the tool's; never add one of your own.
 
-8. **Hand it back.** Show the list of files changed and prepare a commit if the developer asks. Never push, never open a pull request on their behalf unless they ask, and never merge one. Offer `/ziffer:pipeline` next.
+8. **Hand it back.** Show the list of files changed and prepare a commit if the developer asks. Never push, never open a pull request on their behalf unless they ask, and never merge one.
+
+9. **Next.** Offer `/ziffer:pipeline`: it is step 5 of the `setup_ziffer` flow. The `Next:` line at the end of each tool's answer says which tool comes after it.

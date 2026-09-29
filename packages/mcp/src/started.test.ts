@@ -20,9 +20,11 @@ import {
   getStarted,
   STARTED_INSTALLS,
   STARTED_SPAN_LIST,
+  PUBLISHED,
   STARTED_START_HERE,
   TOOL_ORDER,
 } from './started.js';
+import { PROMPT_NAMES } from './prompts.js';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
 const read = (relative: string): string => readFileSync(join(REPO, relative), 'utf8');
@@ -122,9 +124,39 @@ test('it points at real account creation and never offers a sandbox as the way t
   // zero plans an integration around approvals nobody made.
   const { text, isError } = getStarted();
   assert.equal(isError, false);
-  assert.equal(STARTED_START_HERE, 'docs/onboarding/start-here.md');
+  // The published page, never the path in this repository: a developer has the
+  // page and not our repository (ACP-467).
+  assert.equal(STARTED_START_HERE, 'https://ziffer.io/docs/onboarding/start-here');
   assert.ok(text.includes(STARTED_START_HERE), 'the answer does not send anybody to the first-hour guide');
   assert.doesNotMatch(text, /sandbox/i, 'get_started offers a sandbox as a starting point');
+});
+
+test('every page get_started cites is the one the documentation site publishes', () => {
+  // PUBLISHED maps a document to its page; tools/publish-docs.sh's TABLE is
+  // what actually publishes it. A row that moves there and not here is a dead
+  // link in the first answer a developer reads.
+  const table = read('tools/publish-docs.sh');
+  for (const [path, url] of Object.entries(PUBLISHED)) {
+    if (!path.startsWith('docs/onboarding/')) continue;
+    const file = path.slice('docs/onboarding/'.length);
+    const row = new RegExp(`(?:^|')${file.replace('.', '\\.')}:([a-z/-]+):`, 'm').exec(table);
+    assert.ok(row !== null, `${file} is not published by tools/publish-docs.sh`);
+    assert.equal(url, `https://ziffer.io/docs/${row[1] ?? ''}`, `${file} is published elsewhere`);
+  }
+});
+
+test('the answer names no path in this repository', () => {
+  const { text } = getStarted();
+  assert.doesNotMatch(text, /(?<![\w./@-])(?:docs|packages|services|tools|sdk)\//, 'get_started names a repository path');
+});
+
+test('the answer is the entry point of the setup_ziffer prompt, and names it', () => {
+  const { text } = getStarted();
+  assert.ok(PROMPT_NAMES.includes('setup_ziffer'));
+  assert.match(text.split('\n').slice(0, 4).join(' '), /\bsetup_ziffer\b/, 'the prompt is not named at the top');
+  for (const step of ['4. Get your key.', '5. The first proposal.', '6. The verified receipt.']) {
+    assert.ok(text.includes(step), `the walkthrough stops before "${step}"`);
+  }
 });
 
 test('step zero is the local scan, named as its manifest publishes it, before the account', () => {

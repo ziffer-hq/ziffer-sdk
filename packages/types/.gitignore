@@ -7,4 +7,4 @@
 # whole discipline is that spec/schemas is the only normative source.
 #
 # sdk/python/.gitignore ignores src/ziffer/_engine/ for exactly this reason.
-src/
+# src/ is NOT ignored in this tree: the 3 files under it are prebuilt (PREBUILT.json) and this repository cannot regenerate them.
