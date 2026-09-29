@@ -18,7 +18,7 @@
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "946547d24faf36b4854242fca4d7ad0dc2bca578dccfe8ac572974336c9234f0",
+      "sha256": "c684684b713031da14ae4cbe0bc18e29dd38ad88c2ab9180a20a56bf34b451a0",
       "source": "public/.github/workflows/release.yml"
     },
     {
@@ -3838,5 +3838,5 @@
     }
   ],
   "note": "Every file in this tree, its sha256 and where it came from. This repository is composed by a script from the private repository it names; nothing here is edited by hand.",
-  "source_commit": "3e017d8ec25d17244ea163173a6aa661a2fd627c"
+  "source_commit": "1e2db883d2b0f883a0ebc226cb3263c70fa34bdd"
 }

@@ -102,8 +102,20 @@ jobs:
             echo "$key $got matches"
           done < "$RUNNER_TEMP/packed.txt"
 
+      # What npmjs.com compares with each package's trusted publisher setting.
+      # The claims are public facts about this run; the token itself is never
+      # printed. When npm refuses, this is the line to hold beside the setting.
+      - name: What this run presents to npm
+        run: |
+          tok="$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=npm:registry.npmjs.org" \
+            | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).value")"
+          node -e "const p = JSON.parse(Buffer.from(process.argv[1].split('.')[1], 'base64url')); for (const k of ['repository', 'repository_owner', 'workflow_ref', 'environment', 'ref']) console.log(k + ': ' + p[k]);" "$tok"
+
+      # verbose, so a refusal names its cause: npm's default output reports a
+      # failed token exchange as a bare 404 on the package.
       - name: Publish, in dependency order
         run: |
           while read -r key tgz; do
-            npm publish "$tgz" --access public
+            npm publish "$tgz" --access public --loglevel verbose
           done < "$RUNNER_TEMP/packed.txt"
